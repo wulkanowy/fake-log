@@ -8,6 +8,14 @@ router.get("/", function(req, res) {
   });
 });
 
+router.post("/demo123/LoginEndpoint.aspx", function (req, res) {
+  if (req.body.wa && req.body.wresult) {
+    return res.redirect("/demo123/")
+  }
+
+  res.json({message: "error"});
+});
+
 router.get("/demo123/", function (req, res) {
   res.redirect("/demo123/Start.mvc/Index");
 });

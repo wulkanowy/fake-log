@@ -23,15 +23,7 @@ router.post("/Default/Account/LogOn", function(req, res) {
 });
 
 router.get("/Default/FS/LS", function (req, res) {
-  res.render("login-cert", { cert: "<xml>" });
-});
-
-router.post("/demo123/LoginEndpoint.aspx", function (req, res) {
-  if (req.body.wa && req.body.wctx && req.body.wresult) {
-    return res.redirect("http://uonetplus.fakelog.localhost:3000/demo123/")
-  }
-
-  res.json({message: "error"});
+  res.render("login-cert", { cert: "<xml>", uonetplusOpiekun: "http://uonetplus.fakelog.localhost:3000" });
 });
 
 module.exports = router;
