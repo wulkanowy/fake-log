@@ -5,9 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
+var subdomain = require('express-subdomain');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var cufs = require('./routes/cufs');
+var uonetplus = require('./routes/uonetplus');
+var uonetplusOpiekun = require('./routes/uonetplus-opiekun');
+var uonetplusUzytkownik = require('./routes/uonetplus-uzytkownik');
 
 var app = express();
 
@@ -29,8 +33,11 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(subdomain('cufs', cufs));
+app.use(subdomain('uonetplus', uonetplus));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun));
+app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik));
 app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
