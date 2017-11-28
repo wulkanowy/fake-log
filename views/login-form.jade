@@ -1,13 +1,28 @@
 extends layout
 
+block extraHeader
+  link(rel='stylesheet' href='/stylesheets/login.css')
+
 block content
-  form(method="post")
-    h1= title
+  div(id="MainDiv")
+    form(method="post")
 
-    label(for="LoginName") email
-    input(name="LoginName" id="LoginName" type="text")
+      div(class="LogOnBoard")
 
-    label(for="Password") password
-    input(name="Password" id="Password" type="password")
+        h1(id="h1Default") Logowanie
+        h2 Proszę podać e-mail i hasło:
+        div
+          label(for="LoginName") E-mail:
+          input(name="LoginName" id="LoginName" type="text")
 
-    input(type="submit")
+        div
+          label(for="Password") Hasło:
+          input(name="Password" id="Password" type="password")
+
+      div(id="UnlockRequestSection")
+        a(href="/Default/AccountManage/CreateAccount" class="Account") Załóż konto
+        a(href="/Default/AccountManage/UnlockAccount" class="Account") Przywróć dostęp
+        a(href="/Default/AccountManage/SetNewPassword" class="Account") Zmień hasło
+
+      div
+         input(type="submit" value="Zaloguj się >")

@@ -3,7 +3,13 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    block extraHeader
   body
-    block content
-    footer
-      a(href="https://github.com/wulkanowy/fake-log") Github
+    div(class="wrapper")
+      block content
+    footer(class="footer")
+      ul(class="footer__nav")
+        li
+          a(href="https://github.com/wulkanowy/fake-log") Github
+        li
+          a(href="http://fakelog.localhost:3000/") fake-log homepage
