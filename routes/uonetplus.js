@@ -8,19 +8,19 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/demo123/LoginEndpoint.aspx", function (req, res) {
+router.post("/Default/LoginEndpoint.aspx", function (req, res) {
   if (req.body.wa && req.body.wresult) {
-    return res.redirect("/demo123/")
+    return res.redirect("/Default/")
   }
 
   res.json({message: "error"});
 });
 
-router.get("/demo123/", function (req, res) {
-  res.redirect("/demo123/Start.mvc/Index");
+router.get("/Default/", function (req, res) {
+  res.redirect("/Default/Start.mvc/Index");
 });
 
-router.get("/demo123/Start.mvc/Index", function (req, res) {
+router.get("/Default/Start.mvc/Index", function (req, res) {
   res.render("homepage", {
     title: "Uonet+",
     uonetplusOpiekun: "http://uonetplus-opiekun.fakelog.localhost:3000"
