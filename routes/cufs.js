@@ -7,12 +7,12 @@ router.get("/", function(req, res) {
 
 // GET login page
 router.get("/Default/Account/LogOn", function(req, res) {
-  res.render("login-form", { title: "login (Default)" });
+  res.render("login-form", { title: "Logowanie (Default)" });
 });
 
 // POST login
 router.post("/Default/Account/LogOn", function(req, res) {
-  res.json({"message": "Not implemented yet"});
+  res.render("login-form", { title: "Logowanie (Default)", message: "Zła nazwa użytkownika lub hasło" });
 });
 
 module.exports = router;

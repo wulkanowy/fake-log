@@ -64,5 +64,12 @@ $primary: #d32f2f;
         display: none;
       }
     }
+
+    .ErrorMessage {
+      font-size: 1.3rem;
+      margin: 20px 0 0;
+      text-align: center;
+      color: red;
+    }
   }
 }
