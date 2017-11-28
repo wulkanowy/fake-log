@@ -8,4 +8,8 @@ router.get("/", function(req, res) {
   });
 });
 
+router.get("/demo123/123456/Start/Index/", function (req, res) {
+  res.render("opiekun-homepage", { title: "Witryna ucznia i rodzica – Strona główna" });
+});
+
 module.exports = router;

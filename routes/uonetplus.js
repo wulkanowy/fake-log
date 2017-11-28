@@ -8,4 +8,15 @@ router.get("/", function(req, res) {
   });
 });
 
+router.get("/demo123/", function (req, res) {
+  res.redirect("/demo123/Start.mvc/Index");
+});
+
+router.get("/demo123/Start.mvc/Index", function (req, res) {
+  res.render("homepage", {
+    title: "Uonet+",
+    uonetplusOpiekun: "http://uonetplus-opiekun.fakelog.localhost:3000"
+  });
+});
+
 module.exports = router;

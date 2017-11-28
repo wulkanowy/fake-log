@@ -12,7 +12,26 @@ router.get("/Default/Account/LogOn", function(req, res) {
 
 // POST login
 router.post("/Default/Account/LogOn", function(req, res) {
+  if ('admin' === req.body.LoginName && 'admin' === req.body.Password) {
+    return res.redirect("/Default/FS/LS?" +
+      "wa=wsignin1.0&" +
+      "wtrealm=http%3a%2f%2fuonetplus.fakelog.localhost%3A300%2fdemo123%2fLoginEndpoint.aspx&" +
+      "wctx=http%3a%2f%2fuonetplus.fakelog.localhost%3A300%2fdemo123%2fLoginEndpoint.aspx")
+  }
+
   res.render("login-form", { title: "Logowanie (Default)", message: "Zła nazwa użytkownika lub hasło" });
+});
+
+router.get("/Default/FS/LS", function (req, res) {
+  res.render("login-cert", { cert: "<xml>" });
+});
+
+router.post("/demo123/LoginEndpoint.aspx", function (req, res) {
+  if (req.body.wa && req.body.wctx && req.body.wresult) {
+    return res.redirect("http://uonetplus.fakelog.localhost:3000/demo123/")
+  }
+
+  res.json({message: "error"});
 });
 
 module.exports = router;
