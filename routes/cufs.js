@@ -1,4 +1,5 @@
 var express = require('express');
+var fs = require('fs');
 var router = express.Router();
 
 router.get("/", function(req, res) {
@@ -23,7 +24,10 @@ router.post("/Default/Account/LogOn", function(req, res) {
 });
 
 router.get("/Default/FS/LS", function (req, res) {
-  res.render("login-cert", { cert: "<xml>", uonetplusOpiekun: "http://uonetplus.fakelog.localhost:3000" });
+  res.render("login-cert", {
+    cert: fs.readFileSync("public/cert.xml", "utf8"),
+    uonetplusOpiekun: "http://uonetplus.fakelog.localhost:3000"
+  });
 });
 
 module.exports = router;
