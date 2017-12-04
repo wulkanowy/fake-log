@@ -23,7 +23,7 @@ router.get("/Default/", function (req, res) {
 router.get("/Default/Start.mvc/Index", function (req, res) {
   res.render("homepage", {
     title: "Uonet+",
-    uonetplusOpiekun: "http://uonetplus-opiekun.fakelog.localhost:3000"
+    uonetplusOpiekun: "http://" + req.get('host').replace("uonetplus", "uonetplus-opiekun")
   });
 });
 
