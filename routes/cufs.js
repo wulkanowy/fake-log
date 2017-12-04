@@ -26,7 +26,7 @@ router.post("/Default/Account/LogOn", function(req, res) {
 router.get("/Default/FS/LS", function (req, res) {
   res.render("login-cert", {
     cert: fs.readFileSync("public/cert.xml", "utf8"),
-    uonetplusOpiekun: "http://uonetplus.fakelog.localhost:3000"
+    uonetplusOpiekun: "http://" + req.get('host').replace("cufs.", "uonetplus.")
   });
 });
 
