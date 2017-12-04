@@ -33,6 +33,12 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function (req, res, next) {
+  res.locals.mainHost = "http://" + req.get('host')
+    .replace(/(cufs|uonetplus|uonetplus-opiekun|uonetplus-uzytkownik)\./, "");
+  next();
+});
+
 app.use(subdomain('cufs', cufs));
 app.use(subdomain('uonetplus', uonetplus));
 app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun));
