@@ -20,4 +20,12 @@ router.get("/Default/123456/Uczen.mvc/DanePodstawowe", function (req, res) {
   res.render("opiekun-dane", { title: "Witryna ucznia i rodzica – Dane ucznia" });
 });
 
+router.get("/Default/123456/Oceny/Wszystkie", function (req, res) {
+  if (req.query.details === '2') {
+    res.render("opiekun-oceny");
+  } else {
+    res.render("opiekun-przedmioty");
+  }
+});
+
 module.exports = router;
