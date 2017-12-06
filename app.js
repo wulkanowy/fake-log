@@ -63,4 +63,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+if (typeof(PhusionPassenger) !== 'undefined') {
+  app.listen('passenger');
+}
+
 module.exports = app;
