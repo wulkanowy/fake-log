@@ -1,13 +1,29 @@
 extends layout
 
+block extraFooter
+  script
+    | document.querySelector("#widokSzczegolowy").addEventListener("change", () => {
+    |   location = 'Wszystkie?details=2';
+    | });
+
 block content
   main.mainContainer
     h1 Oceny
+
     #filters
       div
-        select#okresyKlasyfikacyjneDropDownList
+        label(for="okresyKlasyfikacyjneDropDownList") Okres klasyfikacyjny:
+        select#okresyKlasyfikacyjneDropDownList(name="okresyKlasyfikacyjneDropDownList")
           option(value="1234567") 1
           option(value="7654321" selected="selected") 2
+
+      div
+        span Widok ocen cząstkowych:
+        input#widokProsty(name="szczegolyOcenRadio" value="1" checked="checked" type="radio")
+        label(for="widokProsty") Skrócony
+        input#widokSzczegolowy(name="szczegolyOcenRadio" value="2" type="radio")
+        label(for="widokSzczegolowy") Szczegółowy
+
     table.ocenyZwykle-table
       thead
         tr
