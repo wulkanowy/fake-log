@@ -34,6 +34,7 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function (req, res, next) {
+  res.locals.uonetplusUrl = "http://" + req.get('host').replace("uonetplus-opiekun", "uonetplus");
   res.locals.mainHost = "http://" + req.get('host')
     .replace(/(cufs|uonetplus|uonetplus-opiekun|uonetplus-uzytkownik)\./, "");
   next();

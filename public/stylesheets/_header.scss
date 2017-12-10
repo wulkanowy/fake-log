@@ -1,0 +1,49 @@
+header[data-organization-name] {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: #444444;
+  height: 10rem;
+
+  .header__container {
+    width: 100rem;
+    margin: 0 auto;
+  }
+
+  h1 {
+    color: #ffffff;
+    font-weight: normal;
+    float: left;
+  }
+
+  nav {
+
+    ul {
+      margin: 0;
+    }
+
+    ul:last-child {
+      list-style: none;
+      padding: 0;
+      float: right;
+
+      li {
+        display: inline-block;
+        color: #ffffff;
+      }
+
+      a {
+        display: block;
+        background: #8B0000;
+        text-decoration: none;
+        padding: 1rem;
+        margin: 0 3px;
+        color: #ffffff;
+
+        &:hover {
+          background: #d32f2f;
+        }
+      }
+    }
+  }
+}

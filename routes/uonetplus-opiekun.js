@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+global.opiekunRoot = "/Default/123456";
+
 router.get("/", function(req, res) {
   res.json({
     "name" : "uonetplus-opiekun",
@@ -13,18 +15,18 @@ router.get("/Default/123456/", function (req, res) {
 });
 
 router.get("/Default/123456/Start/Index/", function (req, res) {
-  res.render("opiekun-homepage", { title: "Witryna ucznia i rodzica – Strona główna" });
+  res.render("opiekun/start", { title: "Witryna ucznia i rodzica – Strona główna" });
 });
 
 router.get("/Default/123456/Uczen.mvc/DanePodstawowe", function (req, res) {
-  res.render("opiekun-dane", { title: "Witryna ucznia i rodzica – Dane ucznia" });
+  res.render("opiekun/dane", { title: "Witryna ucznia i rodzica – Dane ucznia" });
 });
 
-router.get("/Default/123456/Oceny/Wszystkie", function (req, res) {
+router.get("/Default/123456/Oceny(\.mvc|)/Wszystkie", function (req, res) {
   if (req.query.details === '2') {
-    res.render("opiekun-oceny");
+    res.render("opiekun/oceny-szczegolowy");
   } else {
-    res.render("opiekun-przedmioty");
+    res.render("opiekun/oceny-skrocony");
   }
 });
 

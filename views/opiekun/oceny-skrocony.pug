@@ -1,12 +1,12 @@
 extends layout
 
-block extraFooter
+append extraFooter
   script
     | document.querySelector("#widokSzczegolowy").addEventListener("change", () => {
     |   location = 'Wszystkie?details=2';
     | });
 
-block content
+append content
   main.mainContainer
     h1 Oceny
 
