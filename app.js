@@ -7,16 +7,16 @@ const sassMiddleware = require('node-sass-middleware');
 // const favicon = require('serve-favicon');
 
 const subdomain = require('express-subdomain');
-const index = require('./routes/index');
-const cufs = require('./routes/cufs');
-const uonetplus = require('./routes/uonetplus');
-const uonetplusOpiekun = require('./routes/uonetplus-opiekun');
-const uonetplusUzytkownik = require('./routes/uonetplus-uzytkownik');
+const index = require('./src/routes/index');
+const cufs = require('./src/routes/cufs');
+const uonetplus = require('./src/routes/uonetplus');
+const uonetplusOpiekun = require('./src/routes/uonetplus-opiekun');
+const uonetplusUzytkownik = require('./src/routes/uonetplus-uzytkownik');
 
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
