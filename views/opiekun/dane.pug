@@ -8,22 +8,22 @@ append content
     article
       div(class="daneWiersz")
         span(class="tytul") Imię (imiona) nazwisko:
-        span(class="wartosc") Jan Kowalski
+        span(class="wartosc")= data.name
       div(class="daneWiersz")
         span(class="tytul") Data i miejsce urodzenia:
-        span(class="wartosc") 01.01.1900, Warszawa
+        span(class="wartosc")= data.dateAndBirthPlace
       div(class="daneWiersz")
         span(class="tytul") PESEL:
-        span(class="wartosc") 12345678900
+        span(class="wartosc")= data.pesel
       div(class="daneWiersz")
         span(class="tytul") Płeć:
-        span(class="wartosc") Mężczyzna
+        span(class="wartosc")= data.gender
       div(class="daneWiersz")
         span(class="tytul") Obywatelstwo polskie:
-        span(class="wartosc") Tak
+        span(class="wartosc")= data.polishCitizenship
       div(class="daneWiersz")
         span(class="tytul") Nazwisko rodowe:
-        span(class="wartosc") Nowak
+        span(class="wartosc")= data.familyName
       div(class="daneWiersz")
         span(class="tytul") Imię matki i ojca:
-        span(class="wartosc") Gabriela, Kamil
+        span(class="wartosc")= data.parentsName

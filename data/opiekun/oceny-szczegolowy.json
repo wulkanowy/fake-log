@@ -1,0 +1,72 @@
+[
+  {
+    "subject": "Zajęcia z wychowawcą",
+    "value": "5",
+    "color": "000000",
+    "symbol": "A1",
+    "description": "Dzień Kobiet w naszej klasie",
+    "weight": "1.00",
+    "date": "21.03.2017",
+    "teacher": "Patryk Maciejewski"
+  },
+  {
+    "subject": "Edukacja dla bezpieczeństwa",
+    "value": "4-",
+    "color": "F04C4C",
+    "symbol": "S1",
+    "description": "PIERWSZA POMOC I RESUSCYTACJA",
+    "weight": "5,00",
+    "date": "31.03.2017",
+    "teacher": "Weronika Ratajczak"
+  },
+  {
+    "subject": "Fizyka",
+    "value": "2",
+    "color": "6ECD07",
+    "symbol": "O",
+    "description": "Odpowiedź",
+    "weight": "3,00",
+    "date": "25.06.2017",
+    "teacher": "Jakub Michalak"
+  },
+  {
+    "subject": "Język angielski",
+    "value": "5",
+    "color": "1289F7",
+    "symbol": "BW3",
+    "description": "Writing",
+    "weight": "3,00",
+    "date": "02.06.2017",
+    "teacher": "Oliwia Woźniak"
+  },
+  {
+    "subject": "Wychowanie fizyczne",
+    "value": "1",
+    "color": "6ECD07",
+    "symbol": "STR",
+    "description": "",
+    "weight": "8,00",
+    "date": "02.04.2017",
+    "teacher": "Klaudia Dziedzic"
+  },
+  {
+    "subject": "Język polski",
+    "value": "1",
+    "color": "6ECD07",
+    "symbol": "K",
+    "description": "Kordian",
+    "weight": "5,00",
+    "date": "06.02.2017",
+    "teacher": "Amelia Stępień"
+  },
+  {
+    "subject": "Fizyka",
+    "value": "-1",
+    "color": "6ECD07",
+    "symbol": "K",
+    "description": "Grawitacja",
+    "weight": "5,00",
+    "date": "11.12.2017",
+    "teacher": "Jakub Michalak"
+  }
+]

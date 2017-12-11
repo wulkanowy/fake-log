@@ -1,0 +1,36 @@
+[
+  {
+    "subject": "Zachowanie",
+    "predictedRating": "bardzo dobre",
+    "finalRating": "bardzo dobre"
+  },
+  {
+    "subject": "Język polski",
+    "average": "3,53",
+    "finalRating": "dobry"
+  },
+  {
+    "subject": "Wychowanie fizyczne",
+    "average": "5,05",
+    "predictedRating": "bardzo dobry",
+    "finalRating": "celujący"
+  },
+  {
+    "subject": "Język angielski",
+    "average": "4,4",
+    "predictedRating": "4/5",
+    "finalRating": "bardzo dobry"
+  },
+  {
+    "subject": "Wiedza o społeczeństwie"
+  },
+  {
+    "subject": "Edukacja dla bezpieczeństwa"
+  },
+  {
+    "subject": "Zajęcia z wychowawcą"
+  },
+  {
+    "subject": "Fizyka"
+  }
+]

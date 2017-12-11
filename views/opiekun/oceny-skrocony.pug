@@ -33,51 +33,10 @@ append content
           th Przewidywana ocena roczna
           th Ocena roczna
       tbody
-        tr
-          td Zachowanie
-          td.break-word Brak ocen
-          td -
-          td bardzo dobre
-          td bardzo dobre
-        tr
-          td Język polski
-          td.break-word 0
-          td 3,53
-          td -
-          td dobry
-        tr
-          td Wychowanie fizyczne
-          td.break-word 0
-          td 5,05
-          td bardzo dobry
-          td celujący
-        tr
-          td Język angielski
-          td.break-word 0
-          td 4,4
-          td 4/5
-          td bardzo dobry
-        tr
-          td Wiedza o społeczeństwie
-          td.break-word Brak ocen
-          td -
-          td -
-          td -
-        tr
-          td Edukacja dla bezpieczeństwa
-          td.break-word Brak ocen
-          td -
-          td -
-          td -
-        tr
-          td Zajęcia z wychowawcą
-          td.break-word Brak ocen
-          td -
-          td -
-          td -
-        tr
-          td Fizyka
-          td.break-word Brak ocen
-          td -
-          td -
-          td -
+        each item in data
+          tr
+            td= item.subject
+            td.break-word Brak ocen
+            td= item.average ? item.average : "-"
+            td= item.predictedRating ? item.predictedRating : "-"
+            td= item.finalRating ? item.finalRating : "-"

@@ -34,65 +34,12 @@ append content
           th Data
           th Nauczyciel
       tbody
-        tr
-          td Zachowanie
-          td Brak ocen
-          td
-          td
-          td
-          td
-        tr
-          td Zajęcia z wychowawcą
-          td.break-word
-            span.ocenaCzastkowa(style="color:#000000") 5
-          td.break-word A1, Dzień Kobiet w naszej klasie
-          td 1.00
-          td 21.03.2017
-          td Patryk Maciejewski
-        tr
-          td Edukacja dla bezpieczeństwa
-          td.break-word
-            span.ocenaCzastkowa(style="color:#F04C4C") 4-
-          td.break-word S1, PIERWSZA POMOC I RESUSCYTACJA
-          td 5,00
-          td 31.03.2017
-          td Weronika Ratajczak
-        tr
-          td Fizyka
-          td.break-word
-            span.ocenaCzastkowa(style="color:#6ECD07") 2
-          td.break-word O, Odpowiedź
-          td 3,00
-          td 25.06.2017
-          td Jakub Michalak
-        tr
-          td Język angielski
-          td.break-word
-            span.ocenaCzastkowa(style="color:#1289F7") 5
-          td.break-word BW3, Writing
-          td 3,00
-          td 02.06.2017
-          td Oliwia Woźniak
-        tr
-          td Wiedza o społeczeństwie
-          td Brak ocen
-          td
-          td
-          td
-          td
-        tr
-          td Wychowanie fizyczne
-          td.break-word
-            span.ocenaCzastkowa(style="color:#6ECD07") 1
-          td.break-word STR
-          td 8,00
-          td 02.04.2017
-          td Klaudia Dziedzic
-        tr
-          td Język polski
-          td.break-word
-            span.ocenaCzastkowa(style="color:#6ECD07") 1
-          td.break-word K, Kordian
-          td 5,00
-          td 06.02.2017
-          td Amelia Stępień
+        each item in data
+          tr
+            td= item.subject
+            td.break-word
+              span.ocenaCzastkowa(style="color:#" + item.color)= item.value
+            td.break-word= item.description ? item.symbol + ", " + item.description : item.symbol
+            td= item.weight
+            td= item.date
+            td= item.teacher
