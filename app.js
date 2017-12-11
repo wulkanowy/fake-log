@@ -1,17 +1,17 @@
-import express from 'express';
-import path from 'path'
-import logger from "morgan";
-// import favicon from "serve-favicon";
-import cookieParser from "cookie-parser";
-import bodyParser from "body-parser";
-import sassMiddleware from "node-sass-middleware";
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const sassMiddleware = require('node-sass-middleware');
+// const favicon = require('serve-favicon');
 
-import subdomain from "express-subdomain";
-import index from "./routes/index";
-import cufs from "./routes/cufs";
-import uonetplus from "./routes/uonetplus";
-import uonetplusOpiekun from "./routes/uonetplus-opiekun";
-import uonetplusUzytkownik from "./routes/uonetplus-uzytkownik";
+const subdomain = require('express-subdomain');
+const index = require('./routes/index');
+const cufs = require('./routes/cufs');
+const uonetplus = require('./routes/uonetplus');
+const uonetplusOpiekun = require('./routes/uonetplus-opiekun');
+const uonetplusUzytkownik = require('./routes/uonetplus-uzytkownik');
 
 const app = express();
 
