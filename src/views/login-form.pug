@@ -4,12 +4,12 @@ block extraHeader
   link(rel='stylesheet' href='/stylesheets/login.css')
 
 block content
-  div(id="MainDiv")
+  div#MainDiv
     form(method="post")
 
-      div(class="LogOnBoard")
+      div.LogOnBoard
 
-        h1(id="h1Default") Logowanie
+        h1#h1Default Logowanie
         h2 Proszę podać e-mail i hasło:
         div
           label(for="LoginName") E-mail:
@@ -20,11 +20,11 @@ block content
           input(name="Password" id="Password" type="password")
 
       div(id="UnlockRequestSection")
-        a(href="/Default/AccountManage/CreateAccount" class="Account") Załóż konto
-        a(href="/Default/AccountManage/UnlockAccount" class="Account") Przywróć dostęp
-        a(href="/Default/AccountManage/SetNewPassword" class="Account") Zmień hasło
+        a.Account(href="/Default/AccountManage/CreateAccount") Załóż konto
+        a.Account(href="/Default/AccountManage/UnlockAccount") Przywróć dostęp
+        a.Account(href="/Default/AccountManage/SetNewPassword") Zmień hasło
 
       div
          input(type="submit" value="Zaloguj się >")
 
-      div(class="ErrorMessage")= message
+      div.ErrorMessage= message
