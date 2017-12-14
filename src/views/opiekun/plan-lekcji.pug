@@ -1,7 +1,6 @@
 extends layout
 
 append content
-    - var times = time;
     main.mainContainer
         h1 Plan lekcji
         div
@@ -10,26 +9,11 @@ append content
                     tr
                         th Lekcja
                         th Pora lekcji
-                        th
-                            | poniedziałek
-                            br
-                            | #{times}
-                        th
-                            | wtorek
-                            br
-                            | 20.06.2017
-                        th
-                            | środa
-                            br
-                            | 21.06.2017
-                        th
-                            | czwartek
-                            br
-                            | 22.06.2017
-                        th
-                            | piątek
-                            br
-                            | 23.06.2017
+                        each item in weekDays
+                            th
+                                | #{item[0]}
+                                br
+                                | #{item[1]}
                 tbody
                     each item in data
                         tr

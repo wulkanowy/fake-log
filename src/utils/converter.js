@@ -1,11 +1,9 @@
-function getDateString(tick) {
-    let date;
+function getDateFromTick(tick) {
     if (tick === '' || tick === undefined) {
-        date = getMonday(new Date());
-    } else {
-        date = new Date((tick - 621355968000000000) / 10000);
+        return getMonday(new Date());
     }
-    return formatDate(date);
+
+    return new Date((tick - 621355968000000000) / 10000);
 }
 
 function formatDate(date) {
@@ -17,5 +15,25 @@ function getMonday(date) {
     return new Date(date.getFullYear(), date.getMonth(), day);
 }
 
+function getDayName(dateStr)
+{
+    return new Date(dateStr).toLocaleDateString("pl", { weekday: "long" });
+}
 
-module.exports = getDateString;
+function getWeekDaysFrom(tick) {
+    let startDate = getDateFromTick(tick);
+
+    const days = [];
+    for(let i = 0; i < 5; i++) {
+        let date = new Date(startDate).setDate(startDate.getDate() + i);
+        days.push([
+            getDayName(date),
+            formatDate(new Date(date))
+        ]);
+    }
+
+    return days;
+}
+
+exports.getDateString = getDateFromTick;
+exports.getWeekDaysFrom = getWeekDaysFrom;
