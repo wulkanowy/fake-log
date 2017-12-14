@@ -1,0 +1,378 @@
+[
+  {
+    "number": "0",
+    "hourStart": "07:10",
+    "hourEnd": "07:55",
+    "days": {
+      "dayOne": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayTwo": {
+        "name": "Mateamatyka",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayThree": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFour": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFive": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      }
+    }
+  },
+  {
+    "number": "1",
+    "hourStart": "08:00",
+    "hourEnd": "08:45",
+    "days": {
+      "dayOne": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayTwo": {
+        "name": "Mateamatyka",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayThree": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFour": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFive": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      }
+    }
+  },
+  {
+    "number": "2",
+    "hourStart": "08:50",
+    "hourEnd": "09:35",
+    "days": {
+      "dayOne": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayTwo": {
+        "name": "Mateamatyka",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayThree": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFour": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFive": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      }
+    }
+  },
+  {
+    "number": "3",
+    "hourStart": "09:40",
+    "hourEnd": "10:25",
+    "days": {
+      "dayOne": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayTwo": {
+        "name": "Mateamatyka",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayThree": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFour": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFive": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      }
+    }
+  },
+  {
+    "number": "4",
+    "hourStart": "10:40",
+    "hourEnd": "11:25",
+    "days": {
+      "dayOne": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayTwo": {
+        "name": "Mateamatyka",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayThree": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFour": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFive": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      }
+    }
+  },
+  {
+    "number": "5",
+    "hourStart": "11:30",
+    "hourEnd": "12:15",
+    "days": {
+      "dayOne": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayTwo": {
+        "name": "Mateamatyka",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayThree": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFour": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFive": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      }
+    }
+  },
+  {
+    "number": "6",
+    "hourStart": "12:20",
+    "hourEnd": "13:05",
+    "days": {
+      "dayOne": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayTwo": {
+        "name": "Mateamatyka",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayThree": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFour": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFive": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      }
+    }
+  },
+  {
+    "number": "7",
+    "hourStart": "13:10",
+    "hourEnd": "13:55",
+    "days": {
+      "dayOne": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayTwo": {
+        "name": "Mateamatyka",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayThree": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFour": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      },
+      "dayFive": {
+        "name": "Fizyka [zaw2]",
+        "teacher": "Bączek Grzegorz",
+        "room": "19",
+        "description": "(uczniowie zwolnieni do domu)",
+        "isCanceled": "0",
+        "isMoved": "0"
+      }
+    }
+  }
+]
