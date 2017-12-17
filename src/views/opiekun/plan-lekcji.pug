@@ -19,28 +19,86 @@ append content
                         tr
                             td= item.number
                             td= item.hourStart + " " + item.hourEnd
-                            td
-                                div
-                                    span= item.days.dayOne.name
-                            td
-                                div
-                                    span= item.days.dayTwo.name
-                            td
-                                div
-                                    span= item.days.dayThree.name
-                            td
-                                div
-                                    span= item.days.dayFour.name
-                            td
-                                div
-                                    span= item.days.dayFive.name
+                            each day in item.days
+                                td
+                                    if day.isCanceled && !day.newLesson.isMoved
+                                        div
+                                            if day.group
+                                                span.x-treelabel-inv= day.name + " " + day.group
+                                                span.x-treelabel-inv
+                                                span.x-treelabel-inv= day.teacher
+                                                span.x-treelabel-inv= day.room
+                                                span.x-treelabel-rlz= day.description
+                                            else
+                                                span.x-treelabel-inv= day.name
+                                                span.x-treelabel-inv= day.teacher
+                                                span.x-treelabel-inv= day.room
+                                                span.x-treelabel-rlz= day.description
+                                    else if day.isCanceled && day.newLesson.isMoved && !day.newLesson.description
+                                        div
+                                            if day.group
+                                                span.x-treelabel-inv= day.name + " " + day.group
+                                                span.x-treelabel-inv
+                                                span.x-treelabel-inv= day.teacher
+                                                span.x-treelabel-inv= day.room
+                                                span.x-treelabel-zas= day.newLesson.name
+                                                span.x-treelabel-zas
+                                                span.x-treelabel-zas= day.newLesson.teacher
+                                                span.x-treelabel-zas= day.newLesson.room
+                                                span.x-treelabel-rlz= day.description
+                                            else
+                                                span.x-treelabel-inv= day.name
+                                                span.x-treelabel-inv= day.teacher
+                                                span.x-treelabel-inv= day.room
+                                                span.x-treelabel-zas= day.newLesson.name
+                                                span.x-treelabel-zas= day.newLesson.teacher
+                                                span.x-treelabel-zas= day.newLesson.room
+                                                span.x-treelabel-rlz= day.description
+                                    else if day.isCanceled && day.newLesson.isMoved && day.newLesson.description
+                                        if day.group
+                                            div
+                                                span.x-treelabel-inv= day.name + " " + day.group
+                                                span.x-treelabel-inv
+                                                span.x-treelabel-inv= day.teacher
+                                                span.x-treelabel-inv= day.room
+                                                span.x-treelabel-rlz= day.description
+                                            div
+                                                span.x-treelabel-zas= day.newLesson.name + " " + day.group
+                                                span.x-treelabel-zas
+                                                span.x-treelabel-zas= day.newLesson.teacher
+                                                span.x-treelabel-zas= day.newLesson.room
+                                                span.x-treelabel-rlz= day.newLesson.description
+                                        else
+                                            div
+                                                span.x-treelabel-inv= day.name
+                                                span.x-treelabel-inv= day.teacher
+                                                span.x-treelabel-inv= day.room
+                                                span.x-treelabel-rlz= day.description
+                                            div
+                                                span.x-treelabel-zas= day.newLesson.name
+                                                span.x-treelabel-zas= day.newLesson.teacher
+                                                span.x-treelabel-zas= day.newLesson.room
+                                                span.x-treelabel-rlz= day.newLesson.description
+
+                                    else
+                                        div
+                                            if !day.group
+                                                span= day.name
+                                                span= day.teacher
+                                                span= day.room
+                                            else
+                                                span= day.name + " " + day.group
+                                                span
+                                                span= day.teacher
+                                                span= day.room
+
 
     .description
         div
             span.x-treelabel-ppl Kursywa
             | - planowane
         div
-            span.x-treelabel-rlz Zwyk&lstrok;a czcionka
+            span.x-treelabel-rlz Zwykła czcionka
             | - zrealizowane
         div
             span.x-treelabel-inv Przekreślone
