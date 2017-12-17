@@ -28,3 +28,30 @@ nav#menuGlowne {
     }
   }
 }
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+
+  a[class^="button"] {
+    background: #8B0000;
+    padding: 0.5rem 1.5rem;
+    margin: 1rem 0;
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .button-prev:before {
+    content: "<";
+    margin-right: 0.5rem;
+  }
+
+  .button-next:after {
+    content: ">";
+    margin-left: 0.5rem;
+  }
+}
