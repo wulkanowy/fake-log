@@ -48,7 +48,11 @@ router.get("/Default/123456/Lekcja(\.mvc|)/PlanLekcji", (req, res) => {
     res.render("opiekun/plan-lekcji", {
         title: "Witryna ucznia i rodzica – Paln Lekcji",
         data: require("../../data/opiekun/plan-lekcji.json"),
-        weekDays: converter.getWeekDaysFrom(req.query.data)
+        weekDays: converter.getWeekDaysFrom(req.query.data),
+        tics: {
+            prev: converter.getPrevTick(req.query.data),
+            next: converter.getNextTick(req.query.data)
+        }
     })
 });
 

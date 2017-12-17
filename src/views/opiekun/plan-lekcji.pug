@@ -1,8 +1,14 @@
 extends layout
 
+mixin nav
+    .navigation
+        a.button-prev(href="/Default/123456/Lekcja.mvc/PlanLekcji?data=" + tics.prev) Poprzedni tydzień
+        a.button-next(href="/Default/123456/Lekcja.mvc/PlanLekcji?data=" + tics.next) Następny tydzień
+
 append content
     main.mainContainer
         h1 Plan lekcji
+        +nav
         div
             table.presentData
                 thead
@@ -91,7 +97,7 @@ append content
                                                 span
                                                 span= day.teacher
                                                 span= day.room
-
+    +nav
 
     .description
         div
