@@ -17,7 +17,7 @@ router.get("/Default/123456/", (req, res) => {
 
 router.get("/Default/123456/Start/Index/", (req, res) => {
     res.cookie("EfebSsoAuthCookie", "asdfasdfasdfasdfasdfasdfas", {
-        domain: req.get('host').replace("uonetplus-opiekun", "uonetplus"),
+        domain: req.get('host').replace("uonetplus-opiekun", ""),
         path: '/',
         httpOnly: true
     });
