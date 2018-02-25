@@ -15,6 +15,8 @@ router.get("/Default/Account/LogOn", (req, res) => {
 // POST login
 router.post("/Default/Account/LogOn", (req, res) => {
     if ('admin' === req.body.LoginName && 'admin' === req.body.Password) {
+        res.cookie("Vulcan.CUFS.WebFrontEndCookie", "1234567891012131314151617181920212223242526+");
+        res.cookie("ARR_cufs.vulcan.net.pl", "1234567891012131314151617181920212223242526272829303132333435363");
         return res.redirect("/Default/FS/LS?" +
             "wa=wsignin1.0&" +
             "wtrealm=" + protocol(req) + "%3a%2f%2fuonetplus.fakelog.localhost%3A300%2fdemo123%2fLoginEndpoint.aspx&" +
