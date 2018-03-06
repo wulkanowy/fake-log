@@ -1,0 +1,40 @@
+extends layout
+
+mixin nav
+  .navigation
+    a.button-prev(href="/Default/123456/Frekwencja.mvc?data=" + tics.prev) Poprzedni tydzień
+    a.button-next(href="/Default/123456/Frekwencja.mvc?data=" + tics.next) Następny tydzień
+
+append content
+  main.mainContainer
+    h1 Frekwencja
+    +nav
+    div
+      table.presentData
+        thead
+          tr
+            th Lekcja
+            each item in weekDays
+              th
+                | #{item[0]}
+                br
+                | #{item[1]}
+        tbody
+          each item in data
+            tr
+              td= item.number
+              each cell in item.days
+                td.padding-zero
+                  div(class={
+                      'x-obecnosc': cell.isPresence,
+                      'x-nieobecnosc-nieuspr': cell.isAbsenceUnexcused,
+                      'x-nieobecnosc-uspr': cell.isAbsenceExcused,
+                      'x-nieobecnosc-przycz-szkol': cell.isAbsenceForSchoolReasons,
+                      'x-sp-nieusprawiedliwione': cell.isUnexcusedLateness,
+                      'x-sp-spr': cell.isExcusedLateness,
+                      'x-sp-zwolnienie': cell.isExemption
+                  })
+                    span= cell.name
+
+
+    +nav

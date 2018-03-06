@@ -34,25 +34,37 @@ router.get("/Default/123456/Uczen.mvc/DanePodstawowe", (req, res) => {
 
 router.get("/Default/123456/Oceny(\.mvc|)/Wszystkie", (req, res) => {
     let dataPath;
-    let viePath;
+    let viewPath;
 
     if (req.query.details === '2') {
         dataPath = "../../data/opiekun/oceny-szczegolowy.json";
-        viePath = "opiekun/oceny-szczegolowy";
+        viewPath = "opiekun/oceny-szczegolowy";
     } else {
-        viePath = "opiekun/oceny-skrocony";
+        viewPath = "opiekun/oceny-skrocony";
         dataPath = "../../data/opiekun/oceny-skrocony.json";
     }
 
-    res.render(viePath, {
+    res.render(viewPath, {
         title: "Witryna ucznia i rodzica – Oceny",
         data: require(dataPath)
     });
 });
 
+router.get('/Default/123456/Frekwencja.mvc', (req, res) => {
+    res.render("opiekun/frekwencja", {
+        title: "Witryna ucznia i rodzica – Frekwencja",
+        data: require("../../data/opiekun/frekwencja.json"),
+        weekDays: converter.getWeekDaysFrom(req.query.data),
+        tics: {
+            prev: converter.getPrevTick(req.query.data),
+            next: converter.getNextTick(req.query.data)
+        }
+    })
+});
+
 router.get("/Default/123456/Lekcja(\.mvc|)/PlanLekcji", (req, res) => {
     res.render("opiekun/plan-lekcji", {
-        title: "Witryna ucznia i rodzica – Paln Lekcji",
+        title: "Witryna ucznia i rodzica – Plan lekcji",
         data: require("../../data/opiekun/plan-lekcji.json"),
         weekDays: converter.getWeekDaysFrom(req.query.data),
         tics: {
