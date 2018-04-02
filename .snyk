@@ -6,4 +6,20 @@ ignore:
     - node-sass-middleware > node-sass > request > hawk > boom > hoek:
         reason: None given
         expires: '2018-04-21T19:25:33.008Z'
+      node-sass-middleware > node-sass > request > hawk > hoek:
+        reason: None given
+        expires: '2018-05-02T11:18:07.674Z'
+    - node-sass-middleware > node-sass > request > hawk > boom > hoek:
+        reason: None given
+        expires: '2018-05-02T11:18:07.674Z'
+    - node-sass-middleware > node-sass > request > hawk > sntp > hoek:
+        reason: None given
+        expires: '2018-05-02T11:18:07.674Z'
+    - node-sass-middleware > node-sass > request > hawk > cryptiles > boom > hoek:
+        reason: None given
+        expires: '2018-05-02T11:18:07.675Z'
+  'npm:tunnel-agent:20170305':
+    - node-sass-middleware > node-sass > request > tunnel-agent:
+        reason: None given
+        expires: '2018-05-02T11:18:07.675Z'
 patch: {}
