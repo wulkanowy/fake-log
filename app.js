@@ -35,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
   res.locals.uonetplusUrl = "http://" + req.get('host').replace("uonetplus-opiekun", "uonetplus");
+  res.locals.currentHost = "http://" + req.get('host');
   res.locals.mainHost = "http://" + req.get('host')
     .replace(/(cufs|uonetplus|uonetplus-opiekun|uonetplus-uzytkownik)\./, "");
   next();
