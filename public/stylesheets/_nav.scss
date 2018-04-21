@@ -1,6 +1,5 @@
 main.mainContainer {
   padding-left: 22rem;
-  margin-top: 12rem;
 }
 
 nav#menuGlowne {
@@ -53,5 +52,18 @@ nav#menuGlowne {
   .button-next:after {
     content: ">";
     margin-left: 0.5rem;
+  }
+}
+
+#idSection {
+  margin-left: 22rem;
+  margin-top: 12rem;
+  list-style: none;
+  display: flex;
+  background: #cccccc;
+  padding: 10px;
+
+  li {
+    width: 50%;
   }
 }

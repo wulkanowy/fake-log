@@ -1,5 +1,13 @@
 extends ../layout
 
+append extraFooter
+    script
+        | Array.from(document.querySelectorAll("#uczenDropDownList, #dziennikDropDownList")).forEach(el => {
+        |   el.addEventListener("change", (e) => {
+        |     location = e.target.value;
+        |   });
+        | });
+
 prepend content
     header(data-organization-name="School")
 
@@ -41,3 +49,15 @@ prepend content
                 a(href=opiekunRoot + "/ZadaniaDomowe.mvc") Zadania domowe
             li
                 a(href=opiekunRoot + "/Szkola.mvc/Nauczyciele") Szkoła i nauczyciele
+    ul#idSection
+        li
+            label(for="uczenDropDownList") Uczeń:
+            select#uczenDropDownList(name="uczenDropDownList")
+                option(selected="selected", value=opiekunRoot +"/Uczen/UczenOnChange?&id=420") Jurek Owczyk
+                option(value=opiekunRoot +"/Uczen/UczenOnChange?&id=400") Joanna Czerwińska
+        li
+            label(for="dziennikDropDownList") Dziennik:
+            select#dziennikDropDownList(name="dziennikDropDownList")
+                option(value=opiekunRoot + "/Dziennik/DziennikOnChange?&id=303") III 2017
+                option(value=opiekunRoot + "/Dziennik/DziennikOnChange?&id=202") II 2016
+                option(selected="selected", value=opiekunRoot + "/Dziennik/DziennikOnChange?&id=101") I 2015

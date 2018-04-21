@@ -25,6 +25,18 @@ router.get("/Default/123456/Start/Index/", (req, res) => {
     res.render("opiekun/start", {title: "Witryna ucznia i rodzica – Strona główna"});
 });
 
+router.get("/Default/123456/Uczen/UczenOnChange", (req, res) => {
+    res.cookie("idBiezacyUczen", req.query.id);
+
+    res.redirect(req.header("Referer"));
+});
+
+router.get("/Default/123456/Dziennik/DziennikOnChange", (req, res) => {
+    res.cookie("idBiezacyDziennik", req.query.id);
+
+    res.redirect(req.header("Referer"));
+});
+
 router.get("/Default/123456/Uczen.mvc/DanePodstawowe", (req, res) => {
     res.render("opiekun/dane", {
         title: "Witryna ucznia i rodzica – Dane ucznia",
