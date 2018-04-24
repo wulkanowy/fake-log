@@ -18,6 +18,6 @@
     "serve-favicon": "~2.5.0"
   },
   "devDependencies": {
-    "snyk": "^1.70.3"
+    "snyk": "^1.73.0"
   }
 }
