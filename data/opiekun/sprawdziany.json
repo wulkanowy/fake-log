@@ -1,0 +1,52 @@
+[
+  {"exams": []},
+  {"exams": []},
+  {
+    "date": "09.05.2018",
+    "dayName": "środa",
+    "exams": [
+      {
+        "subject": "Język angielski 1Ti|J1",
+        "type": "Sprawdzian",
+        "description": "słownictwo(kultura)",
+        "teacher": "Anyż Zofia [AZ]",
+        "date": "01.04.2018"
+      }
+    ]
+  },
+  {
+    "date": "10.05.2018",
+    "dayName": "czwartek",
+    "exams": [
+      {
+        "subject": "Język polski",
+        "type": "Sprawdzian",
+        "description": "poprawa romantyzmu",
+        "teacher": "Nowak Joanna [NJ]",
+        "date": "01.04.2018"
+      },
+      {
+        "subject": "Fizyka",
+        "type": "Kartkówka",
+        "description": "przemiany gazowe",
+        "teacher": "Czyż Ireneusz",
+        "date": "01.03.2018"
+      }
+    ]
+  },
+  {
+    "date": "11.05.2018",
+    "dayName": "piątek",
+    "exams": [
+      {
+        "subject": "Systemy operacyjne",
+        "type": "Kartkówka",
+        "description": "Active Directory",
+        "teacher": "Czerwieński Andrzej",
+        "date": "19.04.2018"
+      }
+    ]
+  },
+  {"exams": []},
+  {"exams": []}
+]

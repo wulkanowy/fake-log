@@ -86,4 +86,16 @@ router.get("/Default/123456/Lekcja(\.mvc|)/PlanLekcji", (req, res) => {
     })
 });
 
+router.get("/Default/123456/Sprawdziany.mvc/Terminarz", (req, res) => {
+    res.render("opiekun/sprawdziany", {
+        title: "Witryna ucznia i rodzica – Terminarz sprawdzianów",
+        data: require("../../data/opiekun/sprawdziany.json"),
+        weekDays: converter.getWeekDaysFrom(req.query.data),
+        tics: {
+            prev: converter.getPrevTick(req.query.data),
+            next: converter.getNextTick(req.query.data)
+        }
+    })
+});
+
 module.exports = router;

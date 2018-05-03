@@ -12,8 +12,20 @@ function getTickFromDate(date) {
     return (date.getTime() * 10000) + 621355968000000000;
 }
 
-function formatDate(date) {
-    return date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
+function formatDate(today) {
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0!
+
+    let yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+
+    return dd + '.' + mm + '.' + yyyy;
 }
 
 function getMonday(date) {
@@ -21,16 +33,15 @@ function getMonday(date) {
     return new Date(date.getFullYear(), date.getMonth(), day);
 }
 
-function getDayName(dateStr)
-{
-    return new Date(dateStr).toLocaleDateString("pl", { weekday: "long" });
+function getDayName(dateStr) {
+    return new Date(dateStr).toLocaleDateString("pl", {weekday: "long"});
 }
 
 function getWeekDaysFrom(tick) {
     let startDate = getDateFromTick(tick);
 
     const days = [];
-    for(let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         let date = new Date(startDate).setDate(startDate.getDate() + i);
         days.push([
             getDayName(date),
