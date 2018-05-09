@@ -21,7 +21,7 @@
   },
   {
     "subject": "Fizyka",
-    "value": "2",
+    "value": "3",
     "color": "6ECD07",
     "symbol": "O",
     "description": "Odpowiedź",
@@ -41,7 +41,7 @@
   },
   {
     "subject": "Wychowanie fizyczne",
-    "value": "1",
+    "value": "4",
     "color": "6ECD07",
     "symbol": "STR",
     "description": "",
@@ -51,7 +51,7 @@
   },
   {
     "subject": "Język polski",
-    "value": "1",
+    "value": "3",
     "color": "6ECD07",
     "symbol": "K",
     "description": "Kordian",
@@ -61,7 +61,7 @@
   },
   {
     "subject": "Fizyka",
-    "value": "-1",
+    "value": "5-",
     "color": "6ECD07",
     "symbol": "K",
     "description": "Grawitacja",
