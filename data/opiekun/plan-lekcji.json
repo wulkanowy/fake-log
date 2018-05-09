@@ -144,15 +144,15 @@
         "group": "[zaw1]",
         "teacher": "Jarocki Krzysztof",
         "room": "G4",
-        "description": "",
-        "isCanceled": "1",
+        "description": "(zastępstwo)",
+        "isCanceled": "",
         "newLesson": {
           "name": "Wychowanie fizyczne",
           "teacher": "Nowicka Irena",
           "room": "G4",
-          "isCanceled": "",
+          "isCanceled": "1",
           "isMoved": "1",
-          "description": "(zastępstwo)"
+          "description": ""
         }
       },
       {
