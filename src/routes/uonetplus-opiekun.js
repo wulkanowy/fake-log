@@ -74,7 +74,7 @@ router.get('/Default/123456/Frekwencja.mvc', (req, res) => {
     })
 });
 
-router.get("/Default/123456/Lekcja(\.mvc|)/PlanLekcji", (req, res) => {
+router.get("/Default/123456/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
     res.render("opiekun/plan-lekcji", {
         title: "Witryna ucznia i rodzica – Plan lekcji",
         data: require("../../data/opiekun/plan-lekcji.json"),
