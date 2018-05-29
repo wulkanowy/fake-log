@@ -75,9 +75,9 @@ router.get('/Default/123456/Frekwencja.mvc', (req, res) => {
 });
 
 router.get("/Default/123456/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
-    res.render("opiekun/plan-lekcji", {
+    res.render("opiekun/plan-zajec", {
         title: "Witryna ucznia i rodzica – Plan lekcji",
-        data: require("../../data/opiekun/plan-lekcji.json"),
+        data: require("../../data/opiekun/plan-zajec.json"),
         weekDays: converter.getWeekDaysFrom(req.query.data),
         tics: {
             prev: converter.getPrevTick(req.query.data),
