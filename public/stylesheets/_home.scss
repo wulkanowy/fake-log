@@ -1,0 +1,91 @@
+.startScreen {
+
+  .topBar {
+    background: #43434d;
+    color: #fff;
+    padding: 10px;
+    font-size: smaller;
+    overflow: hidden;
+
+    .logotype {
+      width: 50%;
+      float: left;
+    }
+
+    .panelTopBar {
+      float: right;
+      text-align: right;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .holder {
+    margin-top: 10px;
+  }
+
+  .widgetBar {
+    overflow: hidden;
+
+    .applicationInfo {
+      float: left;
+    }
+
+    .applicationName {
+      color: #8B0000;
+      font-size: 40px;
+      line-height: 70px;
+
+      span {
+        color: #95b43f;
+      }
+    }
+
+    .widget {
+      float: right;
+      padding: 5px 10px;
+      background: #4462a2;
+      color: #fff;
+      height: 50px;
+      margin: 10px 0 10px 10px;
+      text-align: center;
+    }
+
+    .time {
+      font-size: 36px;
+    }
+
+  }
+
+  .content {
+    .panel {
+      width: 300px;
+      height: 60px;
+    }
+
+    .linkownia {
+      background: #6dabd8;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    #idEmptyAppUczen {
+      .name {
+        padding: 20px;
+      }
+    }
+  }
+
+}

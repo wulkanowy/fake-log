@@ -2,8 +2,23 @@ extends layout
 
 block content
     div.startScreen
+        div.topBar
+            div.logotype Wulkanowy
+            div.panelTopBar
+                span.userdata admin (
+                    a(href=uonetplusOpiekun + "/Default/LoginEndpoint.aspx?logout=true") wyloguj
+                    | )
         div.holder
-            div.content
+            div.widgetBar.pracownik.klient
+                div.applicationInfo
+                    div.applicationName Fake
+                        span UONET+
+                div.widget.date#date 1 stycznia 1970
+                    br
+                    | poniedziałek
+                div.widget.time#time 12:37
+
+            div.content#content
                 div.panel.linkownia.pracownik.klient
                     a(href=uonetplusOpiekun + "/Default/123456/Start/Index/")
                         div.imagedHeader.directLink
