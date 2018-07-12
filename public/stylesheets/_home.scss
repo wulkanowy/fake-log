@@ -68,6 +68,7 @@
 
     .linkownia {
       background: #6dabd8;
+      display: flex;
 
       a {
         color: #fff;
@@ -81,9 +82,21 @@
       }
     }
 
+    // one school
     #idEmptyAppUczen {
       .name {
         padding: 20px;
+      }
+    }
+
+    // many schools
+    #idAppUczen {
+      display: flex;
+
+      a {
+        display: inline-block;
+        padding: 20px;
+        border-right: 1px dotted;
       }
     }
   }
