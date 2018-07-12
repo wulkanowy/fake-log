@@ -1,0 +1,18 @@
+[
+  {
+    "IdPracownik": 152,
+    "UczenImie": "Anon",
+    "UczenNazwisko": "Anonowicz",
+    "PracownikImie": "Janusz",
+    "PracownikNazwisko": "Tracz",
+    "DataWpisu": 1522074333,
+    "DataWpisuTekst": "2018-03-26",
+    "DataModyfikacji": 1522074333,
+    "DataModyfikacjiTekst": null,
+    "UwagaKey": "00000000-0000-0000-0000-000000000000",
+    "Id": 30649,
+    "TrescUwagi": "+ 20p za udział w Konkursie Języka Angielskiego",
+    "IdUczen": 2560,
+    "IdKategoriaUwag": 66
+  }
+]

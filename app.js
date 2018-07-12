@@ -8,6 +8,7 @@ const sassMiddleware = require('node-sass-middleware');
 
 const subdomain = require('express-subdomain');
 const index = require('./src/routes/index');
+const api = require('./src/routes/api/index');
 const cufs = require('./src/routes/cufs');
 const uonetplus = require('./src/routes/uonetplus');
 const uonetplusOpiekun = require('./src/routes/uonetplus-opiekun');
@@ -37,10 +38,11 @@ app.use((req, res, next) => {
   res.locals.uonetplusUrl = "http://" + req.get('host').replace("uonetplus-opiekun", "uonetplus");
   res.locals.currentHost = "http://" + req.get('host');
   res.locals.mainHost = "http://" + req.get('host')
-    .replace(/(cufs|uonetplus|uonetplus-opiekun|uonetplus-uzytkownik)\./, "");
+    .replace(/(api|cufs|uonetplus|uonetplus-opiekun|uonetplus-uzytkownik)\./, "");
   next();
 });
 
+app.use(subdomain('api', api));
 app.use(subdomain('cufs', cufs));
 app.use(subdomain('uonetplus', uonetplus));
 app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun));

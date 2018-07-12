@@ -1,0 +1,93 @@
+[
+  {
+    "Id": 425,
+    "Nazwa": "Religia",
+    "Kod": "religia",
+    "Aktywny": true,
+    "Pozycja": 1
+  },
+  {
+    "Id": 426,
+    "Nazwa": "Etyka",
+    "Kod": "etyka",
+    "Aktywny": true,
+    "Pozycja": 2
+  },
+  {
+    "Id": 428,
+    "Nazwa": "Język polski",
+    "Kod": "j. polski",
+    "Aktywny": true,
+    "Pozycja": 3
+  },
+  {
+    "Id": 429,
+    "Nazwa": "Język angielski",
+    "Kod": "j. angielski",
+    "Aktywny": true,
+    "Pozycja": 4
+  },
+  {
+    "Id": 433,
+    "Nazwa": "Język niemiecki",
+    "Kod": "j. niemiecki",
+    "Aktywny": true,
+    "Pozycja": 5
+  },
+  {
+    "Id": 464,
+    "Nazwa": "Język mniejszości narodowej – niemiecki",
+    "Kod": "j. mn. niemiec",
+    "Aktywny": true,
+    "Pozycja": 2147483646
+  },
+  {
+    "Id": 482,
+    "Nazwa": "Matematyka",
+    "Kod": "matematyka",
+    "Aktywny": true,
+    "Pozycja": 15
+  },
+  {
+    "Id": 483,
+    "Nazwa": "Fizyka",
+    "Kod": "fizyka",
+    "Aktywny": true,
+    "Pozycja": 14
+  },
+  {
+    "Id": 485,
+    "Nazwa": "Chemia",
+    "Kod": "chemia",
+    "Aktywny": true,
+    "Pozycja": 13
+  },
+  {
+    "Id": 487,
+    "Nazwa": "Biologia",
+    "Kod": "biologia",
+    "Aktywny": true,
+    "Pozycja": 12
+  },
+  {
+    "Id": 488,
+    "Nazwa": "Geografia",
+    "Kod": "geografia",
+    "Aktywny": true,
+    "Pozycja": 11
+  },
+  {
+    "Id": 495,
+    "Nazwa": "Informatyka",
+    "Kod": "informatyka",
+    "Aktywny": true,
+    "Pozycja": 16
+  },
+  {
+    "Id": 571,
+    "Nazwa": "Własna historia i kultura mniejszości narodowej niemieckiej",
+    "Kod": "hist_kul mnn",
+    "Aktywny": true,
+    "Pozycja": 22
+  }
+]

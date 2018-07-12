@@ -1,0 +1,47 @@
+[
+  {
+    "IdKategoria": 1,
+    "Numer": 1,
+    "IdPoraLekcji": 76,
+    "Dzien": 1524434400,
+    "DzienTekst": "2018-04-23",
+    "IdPrzedmiot": 474,
+    "PrzedmiotNazwa": "Zajęcia artystyczne"
+  },
+  {
+    "IdKategoria": 1,
+    "Numer": 2,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524434400,
+    "DzienTekst": "2018-04-23",
+    "IdPrzedmiot": 512,
+    "PrzedmiotNazwa": "Informatyka"
+  },
+  {
+    "IdKategoria": 1,
+    "Numer": 3,
+    "IdPoraLekcji": 78,
+    "Dzien": 1524434400,
+    "DzienTekst": "2018-04-23",
+    "IdPrzedmiot": 428,
+    "PrzedmiotNazwa": "Matematyka"
+  },
+  {
+    "IdKategoria": 1,
+    "Numer": 4,
+    "IdPoraLekcji": 79,
+    "Dzien": 1524434400,
+    "DzienTekst": "2018-04-23",
+    "IdPrzedmiot": 428,
+    "PrzedmiotNazwa": "Matematyka"
+  },
+  {
+    "IdKategoria": 1,
+    "Numer": 3,
+    "IdPoraLekcji": 78,
+    "Dzien": 1524520800,
+    "DzienTekst": "2018-04-24",
+    "IdPrzedmiot": 480,
+    "PrzedmiotNazwa": "Historia"
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "Id": 26,
+    "Kod": "Akt",
+    "Nazwa": "Aktywność"
+  },
+  {
+    "Id": 27,
+    "Kod": "Bież",
+    "Nazwa": "Bieżące"
+  },
+  {
+    "Id": 28,
+    "Kod": "Kart",
+    "Nazwa": "Kartkówka"
+  },
+  {
+    "Id": 29,
+    "Kod": "Spr",
+    "Nazwa": "Sprawdzian"
+  },
+  {
+    "Id": 30,
+    "Kod": "Z.dom",
+    "Nazwa": "Zadanie domowe"
+  },
+  {
+    "Id": 65,
+    "Kod": "odp",
+    "Nazwa": "Odpowiedź ustna"
+  },
+  {
+    "Id": 67,
+    "Kod": "ref",
+    "Nazwa": "Referat"
+  },
+  {
+    "Id": 68,
+    "Kod": "zewn",
+    "Nazwa": "Sprawdzian zewnętrzny"
+  },
+  {
+    "Id": 69,
+    "Kod": "tsm",
+    "Nazwa": "Test sprawności motorycznej"
+  },
+  {
+    "Id": 70,
+    "Kod": "tu",
+    "Nazwa": "Test umiejętności"
+  },
+  {
+    "Id": 71,
+    "Kod": "zs",
+    "Nazwa": "Zawody sportowe"
+  },
+  {
+    "Id": 72,
+    "Kod": "bs",
+    "Nazwa": "Brak stroju"
+  },
+  {
+    "Id": 73,
+    "Kod": "r",
+    "Nazwa": "Rozgrzewka"
+  },
+  {
+    "Id": 74,
+    "Kod": "pr_dł",
+    "Nazwa": "Praca długoterminowa"
+  },
+  {
+    "Id": 75,
+    "Kod": "ze_ćwi",
+    "Nazwa": "Zeszyt ćwiczeń"
+  },
+  {
+    "Id": 76,
+    "Kod": "Inne",
+    "Nazwa": "Inne"
+  },
+  {
+    "Id": 77,
+    "Kod": "popspr",
+    "Nazwa": "Poprawa sprawdzianu"
+  },
+  {
+    "Id": 78,
+    "Kod": "PK",
+    "Nazwa": "Praca klasowa"
+  },
+  {
+    "Id": 79,
+    "Kod": "Re",
+    "Nazwa": "Recytacja"
+  },
+  {
+    "Id": 80,
+    "Kod": "dyk",
+    "Nazwa": "Dyktando"
+  },
+  {
+    "Id": 81,
+    "Kod": "lek",
+    "Nazwa": "Lektura"
+  },
+  {
+    "Id": 82,
+    "Kod": "sp_wiedzy",
+    "Nazwa": "Sprawdzian wiedzy"
+  },
+  {
+    "Id": 83,
+    "Kod": "egz_próbny",
+    "Nazwa": "Egzamin próbny"
+  }
+]

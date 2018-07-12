@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 18,
+    "Imie": "Janusz",
+    "Nazwisko": "Tracz",
+    "Kod": "TJ",
+    "Aktywny": true,
+    "Nauczyciel": false,
+    "LoginId": 6
+  },
+  {
+    "Id": 94,
+    "Imie": "Lech",
+    "Nazwisko": "Wałęsa",
+    "Kod": "Dd",
+    "Aktywny": true,
+    "Nauczyciel": false,
+    "LoginId": 257823
+  }
+]
