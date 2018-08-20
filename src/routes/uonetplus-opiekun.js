@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const converter = require('../utils/converter');
+const dictMap = require('../utils/dictMap');
 
 global.opiekunRoot = "/Default/123456";
 
@@ -71,6 +72,20 @@ router.get('/Default/123456/Frekwencja.mvc', (req, res) => {
             prev: converter.getPrevTick(req.query.data),
             next: converter.getNextTick(req.query.data)
         }
+    })
+});
+
+router.get("/Default/123456/UwagiOsiagniecia.mvc/Wszystkie", (req, res) => {
+    res.render("opiekun/uwagi", {
+        title: "Witryna ucznia i rodzica – Uwagi i osiągnięcia",
+        notes: require("../../data/api/student/UwagiUcznia").map(item => {
+            return {
+                date: item.DataWpisuTekst,
+                teacher: item.PracownikImie + " " +  item.PracownikNazwisko,
+                category: dictMap.getByValue(require("../../data/api/dictionaries/KategorieUwag"), "Id", item.IdKategoriaUwag).Nazwa,
+                content: item.TrescUwagi
+            }
+        })
     })
 });
 
