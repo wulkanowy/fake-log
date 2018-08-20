@@ -66,3 +66,4 @@ exports.getDateString = getDateFromTick;
 exports.getWeekDaysFrom = getWeekDaysFrom;
 exports.getPrevTick = getPrevTick;
 exports.getNextTick = getNextTick;
+exports.formatDate = formatDate;
