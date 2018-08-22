@@ -3,7 +3,11 @@ const router = express.Router();
 const converter = require('../utils/converter');
 const dictMap = require('../utils/dictMap');
 
+const userInfo = require('../../data/api/ListaUczniow')[0];
+
 global.opiekunRoot = "/Default/123456";
+
+global.dataOrganizationName = userInfo.JednostkaNazwa;
 
 router.get("/", (req, res) => {
     res.json({

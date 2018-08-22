@@ -9,20 +9,19 @@ append extraFooter
         | });
 
 prepend content
-    header(data-organization-name="School")
+    header(data-organization-name=dataOrganizationName data-application-name="Uczniowie Optivum NET+")
 
-        .header__container
-
+        a
             h1 Witryna ucznia i rodzica
 
-            nav
-                ul
-                ul
-                    li admin
-                    li
-                        a(href=opiekunRoot + "/LoginEndpoint.aspx?logout=true") Wyloguj
-                    li
-                        a(href=uonetplusUrl + "/Default") Start
+        nav
+            ul
+            ul
+                li admin
+                li
+                    a(href=opiekunRoot + "/LoginEndpoint.aspx?logout=true") Wyloguj
+                li
+                    a(href=uonetplusUrl + "/Default") Start
 
     nav#menuGlowne
         ul
