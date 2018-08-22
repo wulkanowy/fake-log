@@ -69,8 +69,8 @@ router.get('/Default/123456/Frekwencja.mvc', (req, res) => {
         data: require("../../data/opiekun/frekwencja.json"),
         weekDays: converter.getWeekDaysFrom(req.query.data),
         tics: {
-            prev: converter.getPrevTick(req.query.data),
-            next: converter.getNextTick(req.query.data)
+            prev: converter.getPrevWeekTick(req.query.data),
+            next: converter.getNextWeekTick(req.query.data)
         }
     });
 });
@@ -95,8 +95,8 @@ router.get("/Default/123456/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
         data: require("../../data/opiekun/plan-zajec.json"),
         weekDays: converter.getWeekDaysFrom(req.query.data),
         tics: {
-            prev: converter.getPrevTick(req.query.data),
-            next: converter.getNextTick(req.query.data)
+            prev: converter.getPrevWeekTick(req.query.data),
+            next: converter.getNextWeekTick(req.query.data)
         }
     });
 });
@@ -107,8 +107,42 @@ router.get("/Default/123456/Sprawdziany.mvc/Terminarz", (req, res) => {
         data: require("../../data/opiekun/sprawdziany.json"),
         weekDays: converter.getWeekDaysFrom(req.query.data),
         tics: {
-            prev: converter.getPrevTick(req.query.data),
-            next: converter.getNextTick(req.query.data)
+            prev: converter.getPrevWeekTick(req.query.data),
+            next: converter.getNextWeekTick(req.query.data)
+        }
+    });
+});
+
+router.get("/Default/123456/Sprawdziany.mvc/Terminarz", (req, res) => {
+    res.render("opiekun/sprawdziany", {
+        title: "Witryna ucznia i rodzica – Terminarz sprawdzianów",
+        data: require("../../data/opiekun/sprawdziany.json"),
+        weekDays: converter.getWeekDaysFrom(req.query.data),
+        tics: {
+            prev: converter.getPrevWeekTick(req.query.data),
+            next: converter.getNextWeekTick(req.query.data)
+        }
+    });
+});
+
+router.get("/Default/123456/ZadaniaDomowe.mvc", (req, res) => {
+    res.render("opiekun/zadania", {
+        title: "Witryna ucznia i rodzica – Zadania domowe",
+        homework: require("../../data/api/student/ZadaniaDomowe").map(item => {
+            const teacher = dictMap.getByValue(require("../../data/api/dictionaries/Nauczyciele"), "Id", item.IdPracownik);
+            const date = converter.getDateString(req.query.data);
+            return {
+                date: converter.formatDate(date),
+                dayName: converter.getDayName(date),
+                entryDate: converter.formatDate(new Date(item.DataTekst)),
+                teacher: teacher.Imie + " " +  teacher.Nazwisko,
+                subject: dictMap.getByValue(require("../../data/api/dictionaries/Przedmioty"), "Id", item.IdPrzedmiot).Nazwa,
+                content: item.Opis
+            };
+        }),
+        tics: {
+            prev: converter.getPrevDayTick(req.query.data),
+            next: converter.getNextDayTick(req.query.data)
         }
     });
 });

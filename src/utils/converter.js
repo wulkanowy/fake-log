@@ -1,4 +1,5 @@
 const WEEK_TICK = 6048000000000;
+const DAY_TICK = 864000000000;
 
 function getDateFromTick(tick) {
     if (tick === '' || tick === undefined) {
@@ -52,18 +53,37 @@ function getWeekDaysFrom(tick) {
     return days;
 }
 
-function getPrevTick(tick) {
-    tick = tick ? tick : getTickFromDate(new Date());
-    return parseInt(tick) - WEEK_TICK;
+function getPrevWeekTick(tick) {
+    return getPrevTick(tick, WEEK_TICK);
 }
 
-function getNextTick(tick) {
+function getPrevDayTick(tick) {
+    return getPrevTick(tick, DAY_TICK);
+}
+
+function getNextWeekTick(tick) {
+    return getNextTick(tick, WEEK_TICK);
+}
+
+function getNextDayTick(tick) {
+    return getNextTick(tick, DAY_TICK);
+}
+
+function getNextTick(tick, plus) {
     tick = tick ? tick : getTickFromDate(new Date());
-    return parseInt(tick) + WEEK_TICK;
+    return parseInt(tick) + plus;
+}
+
+function getPrevTick(tick, minus) {
+    tick = tick ? tick : getTickFromDate(new Date());
+    return parseInt(tick) - minus;
 }
 
 exports.getDateString = getDateFromTick;
 exports.getWeekDaysFrom = getWeekDaysFrom;
-exports.getPrevTick = getPrevTick;
-exports.getNextTick = getNextTick;
+exports.getDayName = getDayName;
+exports.getPrevDayTick = getPrevDayTick;
+exports.getNextDayTick = getNextDayTick;
+exports.getPrevWeekTick = getPrevWeekTick;
+exports.getNextWeekTick = getNextWeekTick;
 exports.formatDate = formatDate;

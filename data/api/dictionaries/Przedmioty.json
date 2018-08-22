@@ -36,8 +36,8 @@
   },
   {
     "Id": 464,
-    "Nazwa": "Język mniejszości narodowej – niemiecki",
-    "Kod": "j. mn. niemiec",
+    "Nazwa": "Metodologia programowania",
+    "Kod": "metod.programowania",
     "Aktywny": true,
     "Pozycja": 2147483646
   },
@@ -85,8 +85,8 @@
   },
   {
     "Id": 571,
-    "Nazwa": "Własna historia i kultura mniejszości narodowej niemieckiej",
-    "Kod": "hist_kul mnn",
+    "Nazwa": "Sieci komputerowe",
+    "Kod": "sieci.komp",
     "Aktywny": true,
     "Pozycja": 22
   }
