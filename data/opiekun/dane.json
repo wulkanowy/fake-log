@@ -5,5 +5,25 @@
   "gender": "Mężczyzna//",
   "polishCitizenship": "Tak",
   "familyName": "Nowak",
-  "parentsName": "Monika, Kamil"
+  "parentsName": "Monika, Kamil",
+  "telephone": "",
+  "cellphone": "-",
+  "email": "",
+
+  "family": [
+    {
+      "name": "Monika Nowak",
+      "kinship": "-",
+      "address": "",
+      "telephones": "",
+      "email": "-"
+    },
+    {
+      "name": "Kamil Nowak",
+      "kinship": "-",
+      "address": "",
+      "telephones": "",
+      "email": "-"
+    }
+  ]
 }
