@@ -1,0 +1,29 @@
+version: 2
+
+jobs:
+  test:
+    working_directory: ~/fakelog
+    docker:
+      - image: circleci/node:8
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: cache-{{ checksum "package-lock.json" }}
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: cache-{{ checksum "package-lock.json" }}
+
+      - run: npm run test
+
+workflows:
+  version: 2
+
+  test:
+    jobs:
+      - test

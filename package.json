@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "snyk test"
+    "test": "./node_modules/.bin/jshint src/ app.js --verbose"
   },
   "dependencies": {
     "body-parser": "~1.18.3",
@@ -18,5 +18,7 @@
     "serve-favicon": "~2.5.0",
     "uuid": "^3.3.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jshint": "^2.9.6"
+  }
 }

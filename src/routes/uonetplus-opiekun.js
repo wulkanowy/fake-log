@@ -72,7 +72,7 @@ router.get('/Default/123456/Frekwencja.mvc', (req, res) => {
             prev: converter.getPrevTick(req.query.data),
             next: converter.getNextTick(req.query.data)
         }
-    })
+    });
 });
 
 router.get("/Default/123456/UwagiOsiagniecia.mvc/Wszystkie", (req, res) => {
@@ -84,9 +84,9 @@ router.get("/Default/123456/UwagiOsiagniecia.mvc/Wszystkie", (req, res) => {
                 teacher: item.PracownikImie + " " +  item.PracownikNazwisko,
                 category: dictMap.getByValue(require("../../data/api/dictionaries/KategorieUwag"), "Id", item.IdKategoriaUwag).Nazwa,
                 content: item.TrescUwagi
-            }
+            };
         })
-    })
+    });
 });
 
 router.get("/Default/123456/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
@@ -98,7 +98,7 @@ router.get("/Default/123456/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
             prev: converter.getPrevTick(req.query.data),
             next: converter.getNextTick(req.query.data)
         }
-    })
+    });
 });
 
 router.get("/Default/123456/Sprawdziany.mvc/Terminarz", (req, res) => {
@@ -110,7 +110,7 @@ router.get("/Default/123456/Sprawdziany.mvc/Terminarz", (req, res) => {
             prev: converter.getPrevTick(req.query.data),
             next: converter.getNextTick(req.query.data)
         }
-    })
+    });
 });
 
 module.exports = router;

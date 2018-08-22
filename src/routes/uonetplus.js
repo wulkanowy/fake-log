@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 
 router.post("/Default/LoginEndpoint.aspx", (req, res) => {
     if (req.body.wa && req.body.wresult) {
-        return res.redirect("/Default/")
+        return res.redirect("/Default/");
     }
 
     res.json({message: "error"});

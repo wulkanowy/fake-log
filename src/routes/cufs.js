@@ -20,7 +20,7 @@ router.post("/Default/Account/LogOn", (req, res) => {
         return res.redirect("/Default/FS/LS?" +
             "wa=wsignin1.0&" +
             "wtrealm=" + protocol(req) + "%3a%2f%2fuonetplus.fakelog.localhost%3A300%2fdemo123%2fLoginEndpoint.aspx&" +
-            "wctx=" + protocol(req) + "%3a%2f%2fuonetplus.fakelog.localhost%3A300%2fdemo123%2fLoginEndpoint.aspx")
+            "wctx=" + protocol(req) + "%3a%2f%2fuonetplus.fakelog.localhost%3A300%2fdemo123%2fLoginEndpoint.aspx");
     }
 
     res.render("login-form", {title: "Logowanie (Default)", message: "Zła nazwa użytkownika lub hasło"});
