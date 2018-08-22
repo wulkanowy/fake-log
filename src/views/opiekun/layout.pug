@@ -9,7 +9,7 @@ append extraFooter
         | });
 
 prepend content
-    header(data-organization-name=dataOrganizationName data-application-name="Uczniowie Optivum FakeNET+")
+    header(data-organization-name=userInfo.JednostkaNazwa, data-application-name="Uczniowie Optivum FakeNET+")
 
         a
             h1 Witryna ucznia i rodzica
@@ -17,7 +17,7 @@ prepend content
         nav
             ul
             ul
-                li admin
+                li=userInfo.UzytkownikLogin
                 li
                     a(href=opiekunRoot + "/LoginEndpoint.aspx?logout=true") Wyloguj
                 li
@@ -52,11 +52,11 @@ prepend content
         li
             label(for="uczenDropDownList") Uczeń:
             select#uczenDropDownList(name="uczenDropDownList")
-                option(selected="selected", value=currentHost + opiekunRoot +"/Uczen/UczenOnChange?&id=420") Jurek Owczyk
+                option(selected="selected", value=currentHost + opiekunRoot +"/Uczen/UczenOnChange?&id=" + userInfo.Id) #{userInfo.Imie} #{userInfo.Nazwisko}
                 option(value=currentHost + opiekunRoot +"/Uczen/UczenOnChange?&id=400") Joanna Czerwińska
         li
             label(for="dziennikDropDownList") Dziennik:
             select#dziennikDropDownList(name="dziennikDropDownList")
                 option(value=currentHost + opiekunRoot + "/Dziennik/DziennikOnChange?&id=303") III 2017
                 option(value=currentHost + opiekunRoot + "/Dziennik/DziennikOnChange?&id=202") II 2016
-                option(selected="selected", value=currentHost + opiekunRoot + "/Dziennik/DziennikOnChange?&id=101") I 2015
+                option(selected="selected", value=currentHost + opiekunRoot + "/Dziennik/DziennikOnChange?&id=101") #{userInfo.OddzialKod} 2015

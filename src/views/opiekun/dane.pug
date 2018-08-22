@@ -8,7 +8,7 @@ append content
         article
             div.daneWiersz
                 span.tytul Imię (imiona) nazwisko:
-                span.wartosc= data.name
+                span.wartosc #{userInfo.Imie} #{userInfo.Imie2} #{userInfo.Nazwisko}
             div.daneWiersz
                 span.tytul Data i miejsce urodzenia:
                 span.wartosc= data.dateAndBirthPlace
@@ -17,7 +17,7 @@ append content
                 span.wartosc= data.pesel
             div.daneWiersz
                 span.tytul Płeć:
-                span.wartosc= data.gender
+                span.wartosc= userInfo.UczenPlec === 1 ? "Mężczyzna" : "Kobieta"
             div.daneWiersz
                 span.tytul Obywatelstwo polskie:
                 span.wartosc= data.polishCitizenship
