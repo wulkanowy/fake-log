@@ -17,6 +17,12 @@ router.post("/Default/LoginEndpoint.aspx", (req, res) => {
     res.json({message: "error"});
 });
 
+router.post("(/*)?", (req, res) => {
+    res.render("permission-error", {
+        title: "Logowanie"
+    });
+});
+
 router.get("/Default/", (req, res) => {
     res.redirect("/Default/Start.mvc/Index");
 });
