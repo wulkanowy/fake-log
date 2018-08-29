@@ -21,6 +21,7 @@ router.all("/", (req, res) => {
             base + "/Default/123456/mobile-api/Uczen.v3.Uczen/UwagiUcznia",
             base + "/Default/123456/mobile-api/Uczen.v3.Uczen/Frekwencje",
             base + "/Default/123456/mobile-api/Uczen.v3.Uczen/ZadaniaDomowe",
+            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/Nauczyciele",
             base + "/Default/123456/mobile-api/Uczen.v3.Uczen/WiadomosciOdebrane",
             base + "/Default/123456/mobile-api/Uczen.v3.Uczen/WiadomosciWyslane",
             base + "/Default/123456/mobile-api/Uczen.v3.Uczen/WiadomosciUsuniete",

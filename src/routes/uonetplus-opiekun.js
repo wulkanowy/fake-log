@@ -126,6 +126,7 @@ router.get("/Default/123456/Sprawdziany.mvc/Terminarz", (req, res) => {
 });
 
 router.get("/Default/123456/ZadaniaDomowe.mvc", (req, res) => {
+    const subjects = require("../../data/api/dictionaries/Przedmioty");
     res.render("opiekun/zadania", {
         title: "Witryna ucznia i rodzica – Zadania domowe",
         homework: require("../../data/api/student/ZadaniaDomowe").map(item => {
@@ -136,7 +137,7 @@ router.get("/Default/123456/ZadaniaDomowe.mvc", (req, res) => {
                 dayName: converter.getDayName(date),
                 entryDate: converter.formatDate(new Date(item.DataTekst)),
                 teacher: teacher.Imie + " " +  teacher.Nazwisko,
-                subject: dictMap.getByValue(require("../../data/api/dictionaries/Przedmioty"), "Id", item.IdPrzedmiot).Nazwa,
+                subject: dictMap.getByValue(subjects, "Id", item.IdPrzedmiot).Nazwa,
                 content: item.Opis
             };
         }),
@@ -144,6 +145,27 @@ router.get("/Default/123456/ZadaniaDomowe.mvc", (req, res) => {
             prev: converter.getPrevDayTick(req.query.data),
             next: converter.getNextDayTick(req.query.data)
         }
+    });
+});
+
+router.get("/Default/123456/Szkola.mvc/Nauczyciele", (req, res) => {
+    const teachers = require("../../data/api/student/Nauczyciele");
+    const subjectsDict = require("../../data/api/dictionaries/Przedmioty");
+    const teachersDict = require("../../data/api/dictionaries/Pracownicy");
+
+    const headmaster = dictMap.getByValue(teachersDict, "Id", teachers.NauczycieleSzkola[0].IdPracownik);
+    const tutor = dictMap.getByValue(teachersDict, "Id", teachers.NauczycieleSzkola[3].IdPracownik);
+    res.render("opiekun/szkola", {
+        title: "Witryna ucznia i rodzica – Szkoła i nauczyciele",
+        headMaster: headmaster.Imie + " " + headmaster.Nazwisko,
+        tutor: tutor.Imie + " " + tutor.Nazwisko,
+        teachers: teachers.NauczycielePrzedmioty.map(item => {
+            const teacher = dictMap.getByValue(teachersDict, "Id", item.IdPracownik);
+            return {
+                subject: dictMap.getByValue(subjectsDict, "Id", item.IdPrzedmiot).Nazwa,
+                name: teacher.Imie + " " + teacher.Nazwisko + " [" + teacher.Kod + "]"
+            };
+        })
     });
 });
 

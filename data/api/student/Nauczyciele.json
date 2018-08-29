@@ -1,0 +1,51 @@
+{
+  "NauczycieleSzkola": [
+    {
+      "IdPracownik": 18,
+      "IdPrzedmiot": 0,
+      "Rola": "Dyrektor"
+    },
+    {
+      "IdPracownik": 277,
+      "IdPrzedmiot": 0,
+      "Rola": "Dyrektor"
+    },
+    {
+      "IdPracownik": 18,
+      "IdPrzedmiot": 0,
+      "Rola": "Pedagog"
+    },
+    {
+      "IdPracownik": 94,
+      "IdPrzedmiot": 0,
+      "Rola": "Wychowawca"
+    }
+  ],
+  "NauczycielePrzedmioty": [
+    {
+      "IdPracownik": 18,
+      "IdPrzedmiot": 425,
+      "Rola": "Nauczyciel"
+    },
+    {
+      "IdPracownik": 94,
+      "IdPrzedmiot": 426,
+      "Rola": "Nauczyciel"
+    },
+    {
+      "IdPracownik": 18,
+      "IdPrzedmiot": 428,
+      "Rola": "Nauczyciel"
+    },
+    {
+      "IdPracownik": 18,
+      "IdPrzedmiot": 428,
+      "Rola": "Nauczyciel"
+    },
+    {
+      "IdPracownik": 94,
+      "IdPrzedmiot": 428,
+      "Rola": "Nauczyciel"
+    }
+  ]
+}

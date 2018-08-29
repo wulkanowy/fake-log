@@ -53,4 +53,8 @@ router.all("/ZadaniaDomowe", (req, res) => {
     res.json(api.createResponse(require("../../../data/api/student/ZadaniaDomowe")));
 });
 
+router.all("/Nauczyciele", (req, res) => {
+    res.json(api.createResponse(require("../../../data/api/student/Nauczyciele")));
+});
+
 module.exports = router;
