@@ -137,6 +137,7 @@ router.get("/Default/123456/ZadaniaDomowe.mvc", (req, res) => {
                 dayName: converter.getDayName(date),
                 entryDate: converter.formatDate(new Date(item.DataTekst)),
                 teacher: teacher.Imie + " " +  teacher.Nazwisko,
+                teacherSymbol: teacher.Kod,
                 subject: dictMap.getByValue(subjects, "Id", item.IdPrzedmiot).Nazwa,
                 content: item.Opis
             };
