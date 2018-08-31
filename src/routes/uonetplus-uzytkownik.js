@@ -22,7 +22,7 @@ router.get("/Default/Wiadomosc.mvc/GetWiadomosciOdebrane", (req, res) => {
                 "IdWiadomosci": item.WiadomoscId,
                 "IdNadawca": item.NadawcaId,
                 "Id": ++i
-            }
+            };
         })
     });
 });
@@ -38,7 +38,7 @@ router.get("/Default/Wiadomosc.mvc/GetWiadomosciWyslane", (req, res) => {
                 "Nieprzeczytane": item.Nieprzeczytane,
                 "Przeczytane": item.Przeczytane,
                 "Id": item.WiadomoscId
-            }
+            };
         })
     });
 });
@@ -58,7 +58,7 @@ router.get("/Default/Wiadomosc.mvc/GetWiadomosciUsuniete", (req, res) => {
                 "IdWiadomosci": item.WiadomoscId,
                 "IdNadawca": item.NadawcaId,
                 "Id": ++i
-            }
+            };
         })
     });
 });
