@@ -46,20 +46,45 @@ router.get("/Default/123456/Uczen.mvc/DanePodstawowe", (req, res) => {
 });
 
 router.get("/Default/123456/Oceny(\.mvc|)/Wszystkie", (req, res) => {
-    let dataPath;
+    let data;
     let viewPath;
 
+    const teachers = require("../../data/api/dictionaries/Nauczyciele");
+    const subjects = require("../../data/api/dictionaries/Przedmioty");
+    const details = require("../../data/api/student/Oceny");
+    const subjectCategories = require("../../data/api/dictionaries/KategorieOcen");
+    const summary = require("../../data/api/student/OcenyPodsumowanie");
+
     if (req.query.details === '2') {
-        dataPath = "../../data/opiekun/oceny-szczegolowy.json";
+        data = details.map(item => {
+            const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownikD);
+            return {
+                "subject": dictMap.getByValue(subjects, "Id", item.IdPrzedmiot).Nazwa,
+                "value": item.Wpis === "" ? item.Komentarz : item.Wpis,
+                "color": "",
+                "symbol": dictMap.getByValue(subjectCategories, "Id", item.IdKategoria).Kod,
+                "description": item.Opis,
+                "weight": item.Waga,
+                "date": converter.formatDate(new Date(item.DataUtworzenia * 1000)),
+                "teacher": teacher.Imie + " " + teacher.Nazwisko
+            };
+        });
         viewPath = "opiekun/oceny-szczegolowy";
     } else {
         viewPath = "opiekun/oceny-skrocony";
-        dataPath = "../../data/opiekun/oceny-skrocony.json";
+        data = subjects.map(item => {
+            return {
+                "subject": item.Nazwa,
+                "average": dictMap.getByValue(summary.SrednieOcen, "IdPrzedmiot", item.Id).Wpis,
+                "predictedRating": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id).Wpis,
+                "finalRating": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id).Wpis
+            };
+        });
     }
 
     res.render(viewPath, {
         title: "Witryna ucznia i rodzica – Oceny",
-        data: require(dataPath)
+        data: data
     });
 });
 

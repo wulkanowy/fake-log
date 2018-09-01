@@ -1,7 +1,10 @@
 function getByValue(dictionary, index, value) {
-    return dictionary.filter(obj => {
+    const val = dictionary.filter(obj => {
         return obj[index] === value;
     })[0];
+
+    if (undefined === val) return {};
+    return val;
 }
 
 exports.getByValue = getByValue;

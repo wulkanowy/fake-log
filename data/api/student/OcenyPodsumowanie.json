@@ -1,5 +1,44 @@
 {
-  "OcenyPrzewidywane": [],
-  "OcenyKlasyfikacyjne": [],
-  "SrednieOcen": []
+  "OcenyPrzewidywane": [
+    {
+      "IdPrzedmiot": 425,
+      "Wpis": "1"
+    },
+    {
+      "IdPrzedmiot": 426,
+      "Wpis": "2"
+    },
+    {
+      "IdPrzedmiot": 428,
+      "Wpis": "4"
+    },
+    {
+      "IdPrzedmiot": 429,
+      "Wpis": "4"
+    }
+  ],
+  "OcenyKlasyfikacyjne": [
+    {
+      "IdPrzedmiot": 425,
+      "Wpis": "4"
+    },
+    {
+      "IdPrzedmiot": 426,
+      "Wpis": "5"
+    },
+    {
+      "IdPrzedmiot": 428,
+      "Wpis": "2"
+    },
+    {
+      "IdPrzedmiot": 429,
+      "Wpis": "3"
+    }
+  ],
+  "SrednieOcen": [
+    {
+      "IdPrzedmiot": 425,
+      "Wpis": "2.5"
+    }
+  ]
 }

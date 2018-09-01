@@ -1,8 +1,8 @@
 [
   {
     "Id": 425,
-    "Nazwa": "Religia",
-    "Kod": "religia",
+    "Nazwa": "Historia",
+    "Kod": "historia",
     "Aktywny": true,
     "Pozycja": 1
   },

@@ -3,7 +3,7 @@
     "Id": 1676947,
     "Pozycja": 3,
     "PrzedmiotPozycja": 8,
-    "IdPrzedmiot": 474,
+    "IdPrzedmiot": 425,
     "IdKategoria": 29,
     "Wpis": "1",
     "Wartosc": 1.00,
@@ -18,8 +18,8 @@
     "DataUtworzeniaTekst": "2018-01-29",
     "DataModyfikacji": 1517231281,
     "DataModyfikacjiTekst": "2018-01-29",
-    "IdPracownikD": 164,
-    "IdPracownikM": 164
+    "IdPracownikD": 18,
+    "IdPracownikM": 94
   },
   {
     "Id": 1681941,
@@ -40,8 +40,8 @@
     "DataUtworzeniaTekst": "2018-02-01",
     "DataModyfikacji": 1517479168,
     "DataModyfikacjiTekst": "2018-02-01",
-    "IdPracownikD": 152,
-    "IdPracownikM": 152
+    "IdPracownikD": 94,
+    "IdPracownikM": 18
   },
   {
     "Id": 1684515,
@@ -62,8 +62,8 @@
     "DataUtworzeniaTekst": "2018-02-03",
     "DataModyfikacji": 1517693838,
     "DataModyfikacjiTekst": "2018-02-03",
-    "IdPracownikD": 183,
-    "IdPracownikM": 183
+    "IdPracownikD": 18,
+    "IdPracownikM": 94
   },
   {
     "Id": 1716982,
@@ -84,8 +84,8 @@
     "DataUtworzeniaTekst": "2018-02-20",
     "DataModyfikacji": 1519154969,
     "DataModyfikacjiTekst": "2018-02-20",
-    "IdPracownikD": 149,
-    "IdPracownikM": 149
+    "IdPracownikD": 94,
+    "IdPracownikM": 18
   },
   {
     "Id": 1807239,
@@ -106,8 +106,8 @@
     "DataUtworzeniaTekst": "2018-04-15",
     "DataModyfikacji": 1523820074,
     "DataModyfikacjiTekst": "2018-04-15",
-    "IdPracownikD": 176,
-    "IdPracownikM": 176
+    "IdPracownikD": 18,
+    "IdPracownikM": 94
   },
   {
     "Id": 1811544,
@@ -128,7 +128,7 @@
     "DataUtworzeniaTekst": "2018-04-17",
     "DataModyfikacji": 1523957481,
     "DataModyfikacjiTekst": "2018-04-17",
-    "IdPracownikD": 176,
-    "IdPracownikM": 176
+    "IdPracownikD": 94,
+    "IdPracownikM": 18
   }
 ]
