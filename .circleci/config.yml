@@ -4,7 +4,7 @@ jobs:
   test:
     working_directory: ~/fakelog
     docker:
-      - image: circleci/node:8
+      - image: circleci/node
 
     steps:
       - checkout

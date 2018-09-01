@@ -61,7 +61,7 @@ router.get("/Default/123456/Oceny(\.mvc|)/Wszystkie", (req, res) => {
             return {
                 "subject": dictMap.getByValue(subjects, "Id", item.IdPrzedmiot).Nazwa,
                 "value": item.Wpis === "" ? item.Komentarz : item.Wpis,
-                "color": "",
+                "color": "000000",
                 "symbol": dictMap.getByValue(subjectCategories, "Id", item.IdKategoria).Kod,
                 "description": item.Opis,
                 "weight": item.Waga,
