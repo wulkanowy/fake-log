@@ -1,0 +1,31 @@
+extends layout
+
+append content
+  main.mainContainer
+    h1 Dostęp mobilny
+
+    article
+      h2 Rejestracja
+      a.button(href="/Default/123456/DostepMobilny.mvc/Rejestruj") Zarejestruj urządzenie mobilne
+
+    article
+      h2 Zarejestrowane urządzenia
+
+    table
+      thead
+        tr
+          th Urządzenie
+          th Data rejestracji
+          th
+      tbody
+        tr.text-center
+          td To Be Filled By O.E.M.#To Be Filled By O.E.M. (Windows 8.1)
+          td 15.06.2015 godz: 20:00:00
+          td.cellWithButton
+            a.button(href="/Default/123456/DostepMobilny.mvc/Wyrejestruj/1233") Wyrejestruj
+
+        tr.text-center
+          td Wulkanowy (Android 10.0.0)
+          td 15.06.2015 godz: 20:00:00
+          td.cellWithButton
+            a.button(href="/Default/123456/DostepMobilny.mvc/Wyrejestruj/1234") Wyrejestruj

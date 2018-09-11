@@ -32,9 +32,11 @@ nav#menuGlowne {
   display: flex;
   justify-content: space-between;
 
+  @at-root .button,
   a[class^="button"] {
     background: #8B0000;
     padding: 0.5rem 1.5rem;
+    display: inline-block;
     margin: 1rem 0;
     color: #fff;
     text-decoration: none;

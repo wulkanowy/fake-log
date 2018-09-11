@@ -201,4 +201,20 @@ router.get("/Default/123456/Szkola.mvc/Nauczyciele", (req, res) => {
     });
 });
 
+router.get("/Default/123456/DostepMobilny.mvc", (req, res) => {
+    res.render('opiekun/mobilny')
+});
+
+router.get('/Default/123456/DostepMobilny.mvc/Rejestruj', (req, res) => {
+    res.render('opiekun/mobilny-rejestruj')
+});
+
+router.get('/Default/123456/DostepMobilny.mvc/Wyrejestruj/:id', (req, res) => {
+    res.render('opiekun/mobilny-wyrejestruj');
+});
+
+router.post("/Default/123456/DostepMobilny.mvc/PotwierdzWyrejestrowanie", (req, res) => {
+    res.redirect("/Default/123456/DostepMobilny.mvc");
+});
+
 module.exports = router;

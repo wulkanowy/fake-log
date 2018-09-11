@@ -1,0 +1,17 @@
+extends layout
+
+append extraHeader
+  style
+    | .blockElement {
+    |    display: block;
+    |    margin: 10px;
+    | }
+
+append content
+  main.mainContainer
+    h1 Rejestracja urządzenia mobilnego
+
+    article#rejestracja-formularz.text-center
+      span.blockElement Token: FK100000
+      span.blockElement Symbol: Default
+      span.blockElement Pin: 999999

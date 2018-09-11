@@ -1,4 +1,6 @@
-.ocenyZwykle-table, .ocenySzczegoly-table {
+table:not(.presentData),
+.ocenyZwykle-table,
+.ocenySzczegoly-table {
   width: 100%;
   border-collapse: collapse;
   text-align: center;
