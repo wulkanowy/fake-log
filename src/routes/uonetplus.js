@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/Default(/)?", (req, res) => {
-    if (req.header("Referer")) {
+    if (req.header("Referer") || "true" === req.query.login) {
         return res.redirect("/Default/Start.mvc/Index");
     }
 
@@ -21,7 +21,7 @@ router.get("/Default(/)?", (req, res) => {
 
 router.all("/Default/LoginEndpoint.aspx", (req, res) => {
     if (req.body.wa && req.body.wresult) {
-        return res.redirect("/Default/");
+        return res.redirect("/Default/?login=true");
     }
 
     res.redirect(protocol(req) + "://" + req.get('host').replace("uonetplus", "cufs") + "/Default/Account/LogOn");

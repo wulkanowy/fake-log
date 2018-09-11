@@ -13,7 +13,7 @@ router.all("/", (req, res) => {
 });
 
 router.all("/Default(/123456)?", (req, res) => {
-    if (req.header("Referer")) {
+    if (req.header("Referer") || "true" === req.query.login) {
         return res.redirect("/Default/123456/Start/Index/");
     }
 
@@ -35,7 +35,7 @@ router.get("/Default/123456/Start/Index/", (req, res) => {
 router.get("/Default/123456/Uczen/UczenOnChange", (req, res) => {
     res.cookie("idBiezacyUczen", req.query.id);
 
-    res.redirect(req.header("Referer") ? req.header("Referer") : "../");
+    res.redirect(req.header("Referer") ? req.header("Referer") : "../?login=true");
 });
 
 router.get("/Default/123456/Dziennik/DziennikOnChange", (req, res) => {
