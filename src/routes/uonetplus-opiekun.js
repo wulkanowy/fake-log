@@ -19,7 +19,7 @@ router.all("/Default(/123456)?", (req, res) => {
 
     res.render("login", {
         title: "Uczeń"
-    })
+    });
 });
 
 router.get("/Default/123456/Start/Index/", (req, res) => {
@@ -202,11 +202,11 @@ router.get("/Default/123456/Szkola.mvc/Nauczyciele", (req, res) => {
 });
 
 router.get("/Default/123456/DostepMobilny.mvc", (req, res) => {
-    res.render('opiekun/mobilny')
+    res.render('opiekun/mobilny');
 });
 
 router.get('/Default/123456/DostepMobilny.mvc/Rejestruj', (req, res) => {
-    res.render('opiekun/mobilny-rejestruj')
+    res.render('opiekun/mobilny-rejestruj');
 });
 
 router.get('/Default/123456/DostepMobilny.mvc/Wyrejestruj/:id', (req, res) => {
