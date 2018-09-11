@@ -3,28 +3,34 @@ const router = express.Router();
 const protocol = require('../utils/connection');
 
 router.get("/", (req, res) => {
-    res.json({
-        "name": "uonetplus",
-        "message": "Not implemented yet"
+    res.render("log-exception", {
+        title: "Dziennik FakeUONET+",
+        message: "Podany identyfikator klienta jest niepoprawny.",
     });
 });
 
-router.post("/Default/LoginEndpoint.aspx", (req, res) => {
+router.get("/Default(/)?", (req, res) => {
+    if (req.header("Referer")) {
+        return res.redirect("/Default/Start.mvc/Index");
+    }
+
+    res.render("login", {
+        title: "Dziennik FakeUONET+"
+    });
+});
+
+router.all("/Default/LoginEndpoint.aspx", (req, res) => {
     if (req.body.wa && req.body.wresult) {
         return res.redirect("/Default/");
     }
 
-    res.json({message: "error"});
+    res.redirect(protocol(req) + "://" + req.get('host').replace("uonetplus", "cufs") + "/Default/Account/LogOn");
 });
 
 router.post("(/*)?", (req, res) => {
     res.render("permission-error", {
         title: "Logowanie"
     });
-});
-
-router.get("/Default/", (req, res) => {
-    res.redirect("/Default/Start.mvc/Index");
 });
 
 router.get("/Default/Start.mvc/Index", (req, res) => {

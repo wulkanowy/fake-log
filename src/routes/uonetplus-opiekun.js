@@ -5,15 +5,21 @@ const dictMap = require('../utils/dictMap');
 
 global.opiekunRoot = "/Default/123456";
 
-router.get("/", (req, res) => {
-    res.json({
-        "name": "uonetplus-opiekun",
-        "message": "Not implemented yet"
+router.all("/", (req, res) => {
+    res.render("log-exception", {
+        title: "Dziennik FakeUONET+",
+        message: "Podany identyfikator klienta jest niepoprawny.",
     });
 });
 
-router.get("/Default/123456/", (req, res) => {
-    res.redirect("/Default/123456/Start/Index/");
+router.all("/Default(/123456)?", (req, res) => {
+    if (req.header("Referer")) {
+        return res.redirect("/Default/123456/Start/Index/");
+    }
+
+    res.render("login", {
+        title: "Uczeń"
+    })
 });
 
 router.get("/Default/123456/Start/Index/", (req, res) => {
