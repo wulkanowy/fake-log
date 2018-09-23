@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const converter = require('../utils/converter');
 const dictMap = require('../utils/dictMap');
+const _ = require('lodash');
 
 global.opiekunRoot = "/Default/123456";
 
@@ -129,6 +130,14 @@ router.get("/Default/123456/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
             prev: converter.getPrevWeekTick(req.query.data),
             next: converter.getNextWeekTick(req.query.data)
         }
+    });
+});
+
+router.get("/Default/123456/Lekcja(\.mvc|)/Zrealizowane", (req, res) => {
+    res.render("opiekun/plan-zrealizowane", {
+        title: "Witryna ucznia i rodzica – Plan lekcji",
+        subjects: require("../../data/api/dictionaries/Przedmioty"),
+        data: _.groupBy(require("../../data/opiekun/plan-zrealizowane.json"), "date")
     });
 });
 
