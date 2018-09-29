@@ -96,9 +96,46 @@ router.get("/Default/123456/Oceny(\.mvc|)/Wszystkie", (req, res) => {
 });
 
 router.get('/Default/123456/Frekwencja.mvc', (req, res) => {
+    const sumStats = require("../../data/opiekun/frekwencja-statystyki").reduce((prev, current) => {
+        return {
+            presence: prev.presence + current.presence,
+            absence: prev.absence + current.absence,
+            absenceExcused: prev.absenceExcused + current.absenceExcused,
+            absenceForSchoolReasons: prev.absenceForSchoolReasons + current.absenceForSchoolReasons,
+            lateness: prev.lateness + current.lateness,
+            latenessExcused: prev.latenessExcused + current.latenessExcused,
+            exemption: prev.exemption + current.exemption
+        };
+    });
     res.render("opiekun/frekwencja", {
         title: "Witryna ucznia i rodzica – Frekwencja",
-        data: require("../../data/opiekun/frekwencja.json"),
+        subjects: require("../../data/api/dictionaries/Przedmioty"),
+        data: _.groupBy(require("../../data/api/student/Frekwencje").map(item => {
+            const category = dictMap.getByValue(require("../../data/api/dictionaries/KategorieFrekwencji"), "Id", item.IdKategoria);
+            return {
+                number: item.Numer,
+                subject: item.PrzedmiotNazwa,
+                date: converter.formatDate(new Date(item.DzienTekst)),
+                presence: category.Obecnosc,
+                absence: category.Nieobecnosc,
+                exemption: category.Zwolnienie,
+                lateness: category.Spoznienie,
+                excused: category.Usprawiedliwione,
+                deleted: category.Usuniete,
+                attendanceInfo: category.Nazwa
+            };
+        }), "number"),
+        stats: require("../../data/opiekun/frekwencja-statystyki"),
+        sumStats: sumStats,
+        fullPresence: (
+            (sumStats.presence + sumStats.lateness + sumStats.latenessExcused) /
+            (sumStats.presence +
+                sumStats.absence +
+                sumStats.absenceExcused +
+                sumStats.absenceForSchoolReasons +
+                sumStats.lateness +
+                sumStats.latenessExcused)
+        ) * 100,
         weekDays: converter.getWeekDaysFrom(req.query.data),
         tics: {
             prev: converter.getPrevWeekTick(req.query.data),
