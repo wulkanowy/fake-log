@@ -95,6 +95,40 @@ router.get("/Default/123456/Oceny(\.mvc|)/Wszystkie", (req, res) => {
     });
 });
 
+router.get("/Default/123456/Statystyki.mvc/Uczen", (req, res) => {
+    let data;
+    let viewPath;
+
+    if (req.query.rodzajWidoku === '1') {
+        viewPath = "opiekun/oceny-statystyki-czastkowe";
+        data = require("../../data/opiekun/oceny-statystyki-czastkowe").map(item => {
+            return {
+                subject: item.subject,
+                grade: item.grade,
+                pupilAmount: item.pupilAmount,
+                pupilPercent: item.pupilAmount !== 0 ? 25.000003 : 0,
+                classAmount: item.classAmount,
+                classPercent: item.classAmount !== 0 ? 25.000003 : 0
+            };
+        });
+    } else {
+        viewPath = "opiekun/oceny-statystyki-roczne";
+        data = require("../../data/opiekun/oceny-statystyki-roczne").map(item => {
+            return {
+                subject: item.subject,
+                grade: item.grade,
+                amount: item.amount,
+                percent: item.amount !== 0 ? 25.000003 : 0
+            };
+        });
+    }
+
+    res.render(viewPath, {
+        title: "Witryna ucznia i rodzica – Statystyki ucznia",
+        data: data
+    });
+});
+
 router.get('/Default/123456/Frekwencja.mvc', (req, res) => {
     const sumStats = require("../../data/opiekun/frekwencja-statystyki").reduce((prev, current) => {
         return {
