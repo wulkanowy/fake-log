@@ -37,10 +37,10 @@ append content
                 td.padding-zero
                   div(class={
                       'x-obecnosc': cell.presence && !cell.lateness && "nieobecny z przyczyn szkolnych" !== cell.attendanceInfo,
-                      'x-nieobecnosc-nieuspr': cell.absence,
+                      'x-nieobecnosc-nieuspr': cell.absence && !cell.excused,
                       'x-nieobecnosc-uspr': cell.absence && cell.excused,
                       'x-nieobecnosc-przycz-szkol': "nieobecny z przyczyn szkolnych" === cell.attendanceInfo,
-                      'x-sp-nieusprawiedliwione': cell.lateness,
+                      'x-sp-nieusprawiedliwione': cell.lateness && !cell.excused,
                       'x-sp-spr': cell.lateness && cell.excused,
                       'x-sp-zwolnienie': cell.exemption,
                       'x-sp-nieobecny-w-oddziale': cell.deleted
