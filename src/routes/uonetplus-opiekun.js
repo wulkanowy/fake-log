@@ -156,7 +156,7 @@ router.get('/Default/123456/Frekwencja.mvc', (req, res) => {
                 lateness: category.Spoznienie,
                 excused: category.Usprawiedliwione,
                 deleted: category.Usuniete,
-                attendanceInfo: category.Nazwa
+                attendanceInfo: _.capitalize(category.Nazwa)
             };
         }), "number"),
         stats: require("../../data/opiekun/frekwencja-statystyki"),

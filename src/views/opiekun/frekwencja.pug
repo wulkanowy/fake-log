@@ -36,15 +36,16 @@ append content
               each cell in item
                 td.padding-zero
                   div(class={
-                      'x-obecnosc': cell.presence && !cell.lateness && "nieobecny z przyczyn szkolnych" !== cell.attendanceInfo,
+                      'x-obecnosc': cell.presence && !cell.lateness && "Nieobecny z przyczyn szkolnych" !== cell.attendanceInfo,
                       'x-nieobecnosc-nieuspr': cell.absence && !cell.excused,
                       'x-nieobecnosc-uspr': cell.absence && cell.excused,
-                      'x-nieobecnosc-przycz-szkol': "nieobecny z przyczyn szkolnych" === cell.attendanceInfo,
+                      'x-nieobecnosc-przycz-szkol': "Nieobecny z przyczyn szkolnych" === cell.attendanceInfo,
                       'x-sp-nieusprawiedliwione': cell.lateness && !cell.excused,
                       'x-sp-spr': cell.lateness && cell.excused,
                       'x-sp-zwolnienie': cell.exemption,
                       'x-sp-nieobecny-w-oddziale': cell.deleted
                   })
+                    img(alt=cell.attendanceInfo, title=cell.attendanceInfo)
                     span= cell.subject
 
     +nav
