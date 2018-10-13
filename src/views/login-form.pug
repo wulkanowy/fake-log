@@ -20,12 +20,12 @@ block content
                     label(for="Password") Hasło:
                     input(name="Password" id="Password" type="password")
 
-            div(id="UnlockRequestSection")
-                a.Account(href="/Default/AccountManage/CreateAccount") Załóż konto
-                a.Account(href="/Default/AccountManage/UnlockAccount") Przywróć dostęp
-                a.Account(href="/Default/AccountManage/SetNewPassword") Zmień hasło
+                div(id="UnlockRequestSection")
+                    a.Account(href="/Default/AccountManage/CreateAccount") Załóż konto
+                    a.Account(href="/Default/AccountManage/UnlockAccount") Przywróć dostęp
+                    a.Account(href="/Default/AccountManage/SetNewPassword") Zmień hasło
 
-            div
-                input(type="submit" value="Zaloguj się >")
+                div
+                    input(type="submit" value="Zaloguj się >")
 
-            div.ErrorMessage= message
+                div.ErrorMessage= message

@@ -7,6 +7,10 @@ router.get("/", (req, res) => {
     res.redirect("/Default/Account/LogOn");
 });
 
+router.get("/Default(/)?", (req, res) => {
+    res.redirect("/Default/Account/LogOn");
+});
+
 // GET login page
 router.get("/Default/Account/LogOn", (req, res) => {
     res.render("login-form", {title: "Logowanie (Default)"});
