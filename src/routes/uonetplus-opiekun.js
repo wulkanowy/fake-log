@@ -232,21 +232,26 @@ router.get("/Default/123456/Lekcja(\.mvc|)/Zrealizowane", (req, res) => {
 });
 
 router.get("/Default/123456/Sprawdziany.mvc/Terminarz", (req, res) => {
+    const subjects = require("../../data/api/dictionaries/Przedmioty");
+    const teachers = require("../../data/api/dictionaries/Nauczyciele");
+    const days = converter.getWeekDaysFrom(req.query.data);
     res.render("opiekun/sprawdziany", {
         title: "Witryna ucznia i rodzica – Terminarz sprawdzianów",
-        data: require("../../data/opiekun/sprawdziany.json"),
-        weekDays: converter.getWeekDaysFrom(req.query.data),
-        tics: {
-            prev: converter.getPrevWeekTick(req.query.data),
-            next: converter.getNextWeekTick(req.query.data)
-        }
-    });
-});
-
-router.get("/Default/123456/Sprawdziany.mvc/Terminarz", (req, res) => {
-    res.render("opiekun/sprawdziany", {
-        title: "Witryna ucznia i rodzica – Terminarz sprawdzianów",
-        data: require("../../data/opiekun/sprawdziany.json"),
+        data: _.groupBy(require("../../data/api/student/Sprawdziany").map((item, index) => {
+            const subject = dictMap.getByValue(subjects, "Id", item.IdPrzedmiot);
+            const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
+            return {
+                entryDate: "01.01.1970",
+                date: days[index][1],
+                // date: converter.formatDate(new Date(item.DataTekst)),
+                // dayName: converter.getDayName(item.DataTekst),
+                dayName: days[index][0],
+                subject: subject.Nazwa,
+                type: item.Rodzaj ? "Sprawdzian" : "Kartkówka",
+                description: item.Opis,
+                teacher: `${teacher.Imie} ${teacher.Nazwisko}`
+            };
+        }), "date"),
         weekDays: converter.getWeekDaysFrom(req.query.data),
         tics: {
             prev: converter.getPrevWeekTick(req.query.data),

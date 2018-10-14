@@ -2,7 +2,7 @@
   {
     "Id": 21558,
     "IdPrzedmiot": 482,
-    "IdPracownik": 183,
+    "IdPracownik": 18,
     "IdOddzial": 97,
     "IdPodzial": null,
     "PodzialNazwa": null,
@@ -10,12 +10,12 @@
     "Rodzaj": true,
     "Opis": "Figury na płaszczyźnie.",
     "Data": 1522101600,
-    "DataTekst": "2018-03-27"
+    "DataTekst": "2018-10-15"
   },
   {
     "Id": 22067,
     "IdPrzedmiot": 429,
-    "IdPracownik": 152,
+    "IdPracownik": 94,
     "IdOddzial": 97,
     "IdPodzial": 2067,
     "PodzialNazwa": "język_angielski_gr_1",
@@ -23,12 +23,12 @@
     "Rodzaj": true,
     "Opis": "czasowniki nieregualne 1 częsć",
     "Data": 1523311200,
-    "DataTekst": "2018-04-10"
+    "DataTekst": "2018-10-16"
   },
   {
     "Id": 23031,
     "IdPrzedmiot": 488,
-    "IdPracownik": 149,
+    "IdPracownik": 18,
     "IdOddzial": 97,
     "IdPodzial": null,
     "PodzialNazwa": null,
@@ -36,6 +36,6 @@
     "Rodzaj": false,
     "Opis": "Opolszczyzna - mapa",
     "Data": 1526335200,
-    "DataTekst": "2018-05-15"
+    "DataTekst": "2018-10-17"
   }
 ]

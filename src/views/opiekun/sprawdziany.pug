@@ -20,22 +20,21 @@ append content
     +nav
     //h2 Nie zaplanowano żadnych sprawdzianów na wybrany tydzień
 
-    each day in data
+    each day, key in data
       div
-        if (day.exams.length)
-          h2 #{day.dayName}, #{day.date}
-          each exam in day.exams
-            article
-              div.daneWiersz
-                div.tytul Przedmiot i grupa:
-                div.wartosc= exam.subject
-              div.daneWiersz
-                div.tytul Rodzaj sprawdzianu:
-                div.wartosc= exam.type
-              div.daneWiersz
-                div.tytul Opis:
-                div.wartosc= exam.description
-              div.daneWiersz
-                div.tytul Nauczyciel i data wpisu:
-                div.wartosc #{exam.teacher}, #{exam.date}
+        h2 #{day[0].dayName}, #{key}
+        each exam in day
+          article
+            div.daneWiersz
+              div.tytul Przedmiot i grupa:
+              div.wartosc= exam.subject
+            div.daneWiersz
+              div.tytul Rodzaj sprawdzianu:
+              div.wartosc= exam.type
+            div.daneWiersz
+              div.tytul Opis:
+              div.wartosc= exam.description
+            div.daneWiersz
+              div.tytul Nauczyciel i data wpisu:
+              div.wartosc #{exam.teacher}, #{exam.entryDate}
     +nav
