@@ -193,9 +193,28 @@ router.get("/Default/123456/UwagiOsiagniecia.mvc/Wszystkie", (req, res) => {
 });
 
 router.get("/Default/123456/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
+    const teachers = require("../../data/api/dictionaries/Nauczyciele");
     res.render("opiekun/plan-zajec", {
         title: "Witryna ucznia i rodzica – Plan lekcji",
-        data: require("../../data/opiekun/plan-zajec.json"),
+        data: _.groupBy(require("../../data/api/student/PlanLekcjiZeZmianami").map(item => {
+            const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
+            const oldTeacher = dictMap.getByValue(teachers, "Id", item.IdPracownikOld);
+            const times = dictMap.getByValue(require("../../data/api/dictionaries/PoryLekcji"), "Id", item.IdPoraLekcji);
+            return {
+                number: item.NumerLekcji,
+                start: times.PoczatekTekst,
+                end: times.KoniecTekst,
+                subject: item.PrzedmiotNazwa,
+                group: item.PodzialSkrot,
+                teacher: `${teacher.Imie} ${teacher.Nazwisko}`,
+                oldTeacher: !_.isEmpty(oldTeacher) ? `${oldTeacher.Imie} ${oldTeacher.Nazwisko}` : false,
+                room: item.Sala,
+                info: item.AdnotacjaOZmianie,
+                changes: item.PogrubionaNazwa,
+                canceled: item.PrzekreslonaNazwa,
+                date: converter.formatDate(new Date(item.DzienTekst)),
+            };
+        }), "number"),
         weekDays: converter.getWeekDaysFrom(req.query.data),
         tics: {
             prev: converter.getPrevWeekTick(req.query.data),

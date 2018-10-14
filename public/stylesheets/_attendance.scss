@@ -50,11 +50,11 @@
   font-size: small;
 }
 
-.presentData td:not(.padding-zero):not(.x-sp-nieobecny-w-oddziale):not(:first-child):before {
-  display: block;
-  content: 'pusta';
-  background: grey;
-}
+//.presentData td:not(.padding-zero):not(.x-sp-nieobecny-w-oddziale):not(:first-child):before {
+//  display: block;
+//  content: 'pusta';
+//  background: grey;
+//}
 .presentData img {
   margin: 0 auto;
   display: block;
