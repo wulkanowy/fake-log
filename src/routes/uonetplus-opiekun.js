@@ -246,7 +246,7 @@ router.get("/Default/123456/Sprawdziany.mvc/Terminarz", (req, res) => {
                 // date: converter.formatDate(new Date(item.DataTekst)),
                 // dayName: converter.getDayName(item.DataTekst),
                 dayName: days[index][0],
-                subject: subject.Nazwa,
+                subject: `${subject.Nazwa} ${res.locals.userInfo.OddzialKod}${item.PodzialSkrot ? "|" + item.PodzialSkrot : ""}`,
                 type: item.Rodzaj ? "Sprawdzian" : "Kartkówka",
                 description: item.Opis,
                 teacher: `${teacher.Imie} ${teacher.Nazwisko}`,
