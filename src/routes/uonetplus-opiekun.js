@@ -249,7 +249,8 @@ router.get("/Default/123456/Sprawdziany.mvc/Terminarz", (req, res) => {
                 subject: subject.Nazwa,
                 type: item.Rodzaj ? "Sprawdzian" : "Kartkówka",
                 description: item.Opis,
-                teacher: `${teacher.Imie} ${teacher.Nazwisko}`
+                teacher: `${teacher.Imie} ${teacher.Nazwisko}`,
+                teacherSymbol: teacher.Kod
             };
         }), "date"),
         weekDays: converter.getWeekDaysFrom(req.query.data),
