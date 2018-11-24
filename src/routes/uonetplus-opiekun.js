@@ -314,6 +314,13 @@ router.get('/Default/123456/DostepMobilny.mvc/Rejestruj', (req, res) => {
     res.render('opiekun/mobilny-rejestruj');
 });
 
+router.all('/Default/123456/DostepMobilny.mvc/PingForCertGeneratedToken', (req, res) => {
+    res.json({
+        success: true,
+        data: req.body.idToken % 2 === 0
+    });
+});
+
 router.get('/Default/123456/DostepMobilny.mvc/Wyrejestruj/:id', (req, res) => {
     res.render('opiekun/mobilny-wyrejestruj');
 });
