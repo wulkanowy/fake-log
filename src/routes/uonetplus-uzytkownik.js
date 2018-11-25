@@ -80,7 +80,7 @@ router.get("/Default/NowaWiadomosc.mvc/GetJednostkiUzytkownika", (req, res) => {
     });
 });
 
-router.get("/Default/NowaWiadomosc.mvc/GetAdresaci", (req, res) => {
+router.get("/Default/Adresaci.mvc/GetAdresaci", (req, res) => {
     const user = require("../../data/api/ListaUczniow")[0];
     res.json({
         "success": true,
