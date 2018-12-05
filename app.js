@@ -13,6 +13,7 @@ const api = require('./src/routes/api/index');
 const cufs = require('./src/routes/cufs');
 const uonetplus = require('./src/routes/uonetplus');
 const uonetplusOpiekun = require('./src/routes/uonetplus-opiekun');
+const uonetplusUczen = require('./src/routes/uonetplus-uczen');
 const uonetplusUzytkownik = require('./src/routes/uonetplus-uzytkownik');
 
 const app = express();
@@ -48,6 +49,7 @@ app.use(subdomain('api', api));
 app.use(subdomain('cufs', cufs));
 app.use(subdomain('uonetplus', uonetplus));
 app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun));
+app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123456', uonetplusUczen)));
 app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik));
 app.use('/', index);
 
