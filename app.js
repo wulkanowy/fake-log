@@ -48,8 +48,12 @@ app.use((req, res, next) => {
 app.use(subdomain('api', api));
 app.use(subdomain('cufs', cufs));
 app.use(subdomain('uonetplus', uonetplus));
-app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/Default/123456', uonetplusOpiekun)));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/Default/123457', uonetplusOpiekun)));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/Default/123458', uonetplusOpiekun)));
 app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123456', uonetplusUczen)));
+app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123457', uonetplusUczen)));
+app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123458', uonetplusUczen)));
 app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik));
 app.use('/', index);
 

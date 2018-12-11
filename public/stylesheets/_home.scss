@@ -88,7 +88,9 @@
     }
 
     // many schools
-    #idAppUczen {
+    #idAppUczen, #idAppUczenExt {
+      display: block;
+
       br {
         display: none;
       }
@@ -100,5 +102,4 @@
       }
     }
   }
-
 }

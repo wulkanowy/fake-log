@@ -23,7 +23,7 @@ router.all("/Default(/123456)?", (req, res) => {
     });
 });
 
-router.get("/Default/123456/Start/Index/", (req, res) => {
+router.get("/Start/Index/", (req, res) => {
     res.cookie("EfebSsoAuthCookie", "asdfasdfasdfasdfasdfasdfas", {
         domain: req.get('host').replace("uonetplus-opiekun", ""),
         path: '/',
@@ -33,26 +33,26 @@ router.get("/Default/123456/Start/Index/", (req, res) => {
     res.render("opiekun/start", {title: "Witryna ucznia i rodzica – Strona główna"});
 });
 
-router.get("/Default/123456/Uczen/UczenOnChange", (req, res) => {
+router.get("/Uczen/UczenOnChange", (req, res) => {
     res.cookie("idBiezacyUczen", req.query.id);
 
     res.redirect(req.header("Referer") ? req.header("Referer") : "../?login=true");
 });
 
-router.get("/Default/123456/Dziennik/DziennikOnChange", (req, res) => {
+router.get("/Dziennik/DziennikOnChange", (req, res) => {
     res.cookie("idBiezacyDziennik", req.query.id);
 
     res.redirect(req.header("Referer") ? req.header("Referer") : "../");
 });
 
-router.get("/Default/123456/Uczen.mvc/DanePodstawowe", (req, res) => {
+router.get("/Uczen.mvc/DanePodstawowe", (req, res) => {
     res.render("opiekun/dane", {
         title: "Witryna ucznia i rodzica – Dane ucznia",
         data: require("../../data/opiekun/dane.json")
     });
 });
 
-router.get("/Default/123456/Oceny(\.mvc|)/Wszystkie", (req, res) => {
+router.get("/Oceny(\.mvc|)/Wszystkie", (req, res) => {
     let data;
     let viewPath;
 
@@ -95,7 +95,7 @@ router.get("/Default/123456/Oceny(\.mvc|)/Wszystkie", (req, res) => {
     });
 });
 
-router.get("/Default/123456/Statystyki.mvc/Uczen", (req, res) => {
+router.get("/Statystyki.mvc/Uczen", (req, res) => {
     let data;
     let viewPath;
 
@@ -129,7 +129,7 @@ router.get("/Default/123456/Statystyki.mvc/Uczen", (req, res) => {
     });
 });
 
-router.get('/Default/123456/Frekwencja.mvc', (req, res) => {
+router.get('/Frekwencja.mvc', (req, res) => {
     const sumStats = require("../../data/opiekun/frekwencja-statystyki").reduce((prev, current) => {
         return {
             presence: prev.presence + current.presence,
@@ -178,7 +178,7 @@ router.get('/Default/123456/Frekwencja.mvc', (req, res) => {
     });
 });
 
-router.get("/Default/123456/UwagiOsiagniecia.mvc/Wszystkie", (req, res) => {
+router.get("/UwagiOsiagniecia.mvc/Wszystkie", (req, res) => {
     res.render("opiekun/uwagi", {
         title: "Witryna ucznia i rodzica – Uwagi i osiągnięcia",
         notes: require("../../data/api/student/UwagiUcznia").map(item => {
@@ -192,7 +192,7 @@ router.get("/Default/123456/UwagiOsiagniecia.mvc/Wszystkie", (req, res) => {
     });
 });
 
-router.get("/Default/123456/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
+router.get("/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
     res.render("opiekun/plan-zajec", {
         title: "Witryna ucznia i rodzica – Plan lekcji",
@@ -223,7 +223,7 @@ router.get("/Default/123456/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
     });
 });
 
-router.get("/Default/123456/Lekcja(\.mvc|)/Zrealizowane", (req, res) => {
+router.get("/Lekcja(\.mvc|)/Zrealizowane", (req, res) => {
     res.render("opiekun/plan-zrealizowane", {
         title: "Witryna ucznia i rodzica – Plan lekcji",
         subjects: require("../../data/api/dictionaries/Przedmioty"),
@@ -231,7 +231,7 @@ router.get("/Default/123456/Lekcja(\.mvc|)/Zrealizowane", (req, res) => {
     });
 });
 
-router.get("/Default/123456/Sprawdziany.mvc/Terminarz", (req, res) => {
+router.get("/Sprawdziany.mvc/Terminarz", (req, res) => {
     const subjects = require("../../data/api/dictionaries/Przedmioty");
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
     const days = converter.getWeekDaysFrom(req.query.data);
@@ -261,7 +261,7 @@ router.get("/Default/123456/Sprawdziany.mvc/Terminarz", (req, res) => {
     });
 });
 
-router.get("/Default/123456/ZadaniaDomowe.mvc", (req, res) => {
+router.get("/ZadaniaDomowe.mvc", (req, res) => {
     const subjects = require("../../data/api/dictionaries/Przedmioty");
     res.render("opiekun/zadania", {
         title: "Witryna ucznia i rodzica – Zadania domowe",
@@ -285,7 +285,7 @@ router.get("/Default/123456/ZadaniaDomowe.mvc", (req, res) => {
     });
 });
 
-router.get("/Default/123456/Szkola.mvc/Nauczyciele", (req, res) => {
+router.get("/Szkola.mvc/Nauczyciele", (req, res) => {
     const teachers = require("../../data/api/student/Nauczyciele");
     const subjectsDict = require("../../data/api/dictionaries/Przedmioty");
     const teachersDict = require("../../data/api/dictionaries/Pracownicy");
@@ -306,27 +306,27 @@ router.get("/Default/123456/Szkola.mvc/Nauczyciele", (req, res) => {
     });
 });
 
-router.get("/Default/123456/DostepMobilny.mvc", (req, res) => {
+router.get("/DostepMobilny.mvc", (req, res) => {
     res.render('opiekun/mobilny');
 });
 
-router.get('/Default/123456/DostepMobilny.mvc/Rejestruj', (req, res) => {
+router.get('/DostepMobilny.mvc/Rejestruj', (req, res) => {
     res.render('opiekun/mobilny-rejestruj');
 });
 
-router.all('/Default/123456/DostepMobilny.mvc/PingForCertGeneratedToken', (req, res) => {
+router.all('/DostepMobilny.mvc/PingForCertGeneratedToken', (req, res) => {
     res.json({
         success: true,
         data: req.body.idToken % 2 === 0
     });
 });
 
-router.get('/Default/123456/DostepMobilny.mvc/Wyrejestruj/:id', (req, res) => {
+router.get('/DostepMobilny.mvc/Wyrejestruj/:id', (req, res) => {
     res.render('opiekun/mobilny-wyrejestruj');
 });
 
-router.post("/Default/123456/DostepMobilny.mvc/PotwierdzWyrejestrowanie", (req, res) => {
-    res.redirect("/Default/123456/DostepMobilny.mvc");
+router.post("/DostepMobilny.mvc/PotwierdzWyrejestrowanie", (req, res) => {
+    res.redirect("/DostepMobilny.mvc");
 });
 
 module.exports = router;
