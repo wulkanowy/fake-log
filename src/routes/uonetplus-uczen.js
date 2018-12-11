@@ -85,7 +85,7 @@ router.all("/UczenDziennik.mvc/Get", (req, res) => {
                     // jshint ignore:start
                     ...item,
                     // jshint ignore:end
-                    OkresPoziom: i + 1,
+                    OkresPoziom: i + 1 - 4,
                     IdOkresKlasyfikacyjny: (i + 1) * 2,
                     year: getYear(fromUnixTime(item.OkresDataOd)) + i - array.length + 1,
                     OkresDataOd: addYears(fromUnixTime(item.OkresDataOd), i - array.length + 1),
@@ -100,7 +100,7 @@ router.all("/UczenDziennik.mvc/Get", (req, res) => {
                 UczenImie2: item.Imie2,
                 UczenNazwisko: item.Nazwisko,
                 IsDziennik: true,
-                IdDziennik: (item.OkresNumer === 1 ? item.IdOkresKlasyfikacyjny : item.IdOkresKlasyfikacyjny - 1) * 2,
+                IdDziennik: (item.OkresNumer === 1 ? item.IdOkresKlasyfikacyjny : item.IdOkresKlasyfikacyjny - 1),
                 IdPrzedszkoleDziennik: 0,
                 Poziom: item.OkresPoziom,
                 Symbol: item.OddzialSymbol,

@@ -64,7 +64,7 @@ router.get("/Default/Wiadomosc.mvc/GetWiadomosciUsuniete", (req, res) => {
 });
 
 router.get("/Default/NowaWiadomosc.mvc/GetJednostkiUzytkownika", (req, res) => {
-    const user = require("../../data/api/ListaUczniow")[0];
+    const user = require("../../data/api/ListaUczniow")[1];
     res.json({
         "success": true,
         "data": [
@@ -81,7 +81,7 @@ router.get("/Default/NowaWiadomosc.mvc/GetJednostkiUzytkownika", (req, res) => {
 });
 
 router.get("/Default/Adresaci.mvc/GetAdresaci", (req, res) => {
-    const user = require("../../data/api/ListaUczniow")[0];
+    const user = require("../../data/api/ListaUczniow")[1];
     res.json({
         "success": true,
         "data": require("../../data/api/dictionaries/Pracownicy").map(item => {
