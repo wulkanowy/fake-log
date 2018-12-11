@@ -62,13 +62,11 @@
 
   .content {
     .panel {
-      width: 300px;
-      height: 60px;
     }
 
     .linkownia {
       background: #6dabd8;
-      display: flex;
+      display: inline-flex;
 
       a {
         color: #fff;
@@ -83,7 +81,7 @@
     }
 
     // one school
-    #idEmptyAppUczen {
+    #idEmptyAppUczen, #idEmptyAppUczenExt {
       .name {
         padding: 20px;
       }
@@ -91,7 +89,9 @@
 
     // many schools
     #idAppUczen {
-      display: flex;
+      br {
+        display: none;
+      }
 
       a {
         display: inline-block;

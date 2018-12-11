@@ -36,7 +36,8 @@ router.post("(/*)?", (req, res) => {
 router.get("/Default/Start.mvc/Index", (req, res) => {
     res.render("homepage", {
         title: "Uonet+",
-        uonetplusOpiekun: protocol(req) + "://" + req.get('host').replace("uonetplus", "uonetplus-opiekun")
+        uonetplusOpiekun: protocol(req) + "://" + req.get('host').replace("uonetplus", "uonetplus-opiekun"),
+        uonetplusUczen: protocol(req) + "://" + req.get('host').replace("uonetplus", "uonetplus-uczen")
     });
 });
 
