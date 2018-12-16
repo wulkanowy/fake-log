@@ -1,8 +1,8 @@
 [
   {
     "Id": 21558,
-    "IdPrzedmiot": 482,
-    "IdPracownik": 18,
+    "IdPrzedmiot": 307,
+    "IdPracownik": 3,
     "IdOddzial": 97,
     "IdPodzial": null,
     "PodzialNazwa": null,
@@ -14,8 +14,8 @@
   },
   {
     "Id": 22067,
-    "IdPrzedmiot": 429,
-    "IdPracownik": 94,
+    "IdPrzedmiot": 304,
+    "IdPracownik": 6,
     "IdOddzial": 97,
     "IdPodzial": 2067,
     "PodzialNazwa": "język_angielski_gr_1",
@@ -27,8 +27,8 @@
   },
   {
     "Id": 23031,
-    "IdPrzedmiot": 488,
-    "IdPracownik": 18,
+    "IdPrzedmiot": 311,
+    "IdPracownik": 2,
     "IdOddzial": 97,
     "IdPodzial": null,
     "PodzialNazwa": null,

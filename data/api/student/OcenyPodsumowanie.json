@@ -1,43 +1,47 @@
 {
   "OcenyPrzewidywane": [
     {
-      "IdPrzedmiot": 425,
-      "Wpis": "1"
-    },
-    {
-      "IdPrzedmiot": 426,
-      "Wpis": "2"
-    },
-    {
-      "IdPrzedmiot": 428,
+      "IdPrzedmiot": 300,
       "Wpis": "4"
     },
     {
-      "IdPrzedmiot": 429,
+      "IdPrzedmiot": 301,
+      "Wpis": "3"
+    },
+    {
+      "IdPrzedmiot": 302,
+      "Wpis": "4"
+    },
+    {
+      "IdPrzedmiot": 303,
       "Wpis": "4"
     }
   ],
   "OcenyKlasyfikacyjne": [
     {
-      "IdPrzedmiot": 425,
+      "IdPrzedmiot": 300,
       "Wpis": "4"
     },
     {
-      "IdPrzedmiot": 426,
+      "IdPrzedmiot": 301,
       "Wpis": "5"
     },
     {
-      "IdPrzedmiot": 428,
+      "IdPrzedmiot": 302,
       "Wpis": "2"
     },
     {
-      "IdPrzedmiot": 429,
+      "IdPrzedmiot": 303,
       "Wpis": "3"
     }
   ],
   "SrednieOcen": [
     {
-      "IdPrzedmiot": 425,
+      "IdPrzedmiot": 303,
+      "Wpis": "4"
+    },
+    {
+      "IdPrzedmiot": 304,
       "Wpis": "2.5"
     }
   ]

@@ -1,10 +1,10 @@
 [
   {
-    "IdPracownik": 94,
+    "IdPracownik": 1,
     "UczenImie": "Jan",
     "UczenNazwisko": "Kowalski",
-    "PracownikImie": "Lech",
-    "PracownikNazwisko": "Wałęsa",
+    "PracownikImie": "Karolina",
+    "PracownikNazwisko": "Kowalska",
     "DataWpisu": 1516062355,
     "DataWpisuTekst": "2018-04-16",
     "DataModyfikacji": 1516062568,
@@ -16,11 +16,11 @@
     "IdKategoriaUwag": 46
   },
   {
-    "IdPracownik": 18,
+    "IdPracownik": 2,
     "UczenImie": "Anon",
     "UczenNazwisko": "Anonowicz",
-    "PracownikImie": "Janusz",
-    "PracownikNazwisko": "Tracz",
+    "PracownikImie": "Zofia",
+    "PracownikNazwisko": "Czerwińska",
     "DataWpisu": 1522074333,
     "DataWpisuTekst": "2018-03-26",
     "DataModyfikacji": 1522074333,
@@ -32,11 +32,11 @@
     "IdKategoriaUwag": 59
   },
   {
-    "IdPracownik": 18,
+    "IdPracownik": 3,
     "UczenImie": "Anon",
     "UczenNazwisko": "Anonowicz",
-    "PracownikImie": "Janusz",
-    "PracownikNazwisko": "Tracz",
+    "PracownikImie": "Aleksandra",
+    "PracownikNazwisko": "Krajewska",
     "DataWpisu": 1522074333,
     "DataWpisuTekst": "2018-03-26",
     "DataModyfikacji": 1522074333,
@@ -48,11 +48,11 @@
     "IdKategoriaUwag": 61
   },
   {
-    "IdPracownik": 94,
+    "IdPracownik": 4,
     "UczenImie": "Jan",
     "UczenNazwisko": "Kowalski",
-    "PracownikImie": "Lech",
-    "PracownikNazwisko": "Wałęsa",
+    "PracownikImie": "Stanisław",
+    "PracownikNazwisko": "Krupa",
     "DataWpisu": 1516062355,
     "DataWpisuTekst": "2018-01-16",
     "DataModyfikacji": 1516062568,

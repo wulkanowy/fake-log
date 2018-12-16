@@ -5,8 +5,8 @@
     "IdPoraLekcji": 76,
     "Dzien": 1524434400,
     "DzienTekst": "2018-04-23",
-    "IdPrzedmiot": 474,
-    "PrzedmiotNazwa": "Zajęcia artystyczne"
+    "IdPrzedmiot": 300,
+    "PrzedmiotNazwa": "Zajęcia z wychowawcą"
   },
   {
     "IdKategoria": 2,
@@ -14,7 +14,7 @@
     "IdPoraLekcji": 77,
     "Dzien": 1524434400,
     "DzienTekst": "2018-04-23",
-    "IdPrzedmiot": 512,
+    "IdPrzedmiot": 312,
     "PrzedmiotNazwa": "Informatyka"
   },
   {
@@ -23,7 +23,7 @@
     "IdPoraLekcji": 76,
     "Dzien": 1524434400,
     "DzienTekst": "2018-04-24",
-    "IdPrzedmiot": 428,
+    "IdPrzedmiot": 307,
     "PrzedmiotNazwa": "Matematyka"
   },
   {
@@ -32,7 +32,7 @@
     "IdPoraLekcji": 77,
     "Dzien": 1524434400,
     "DzienTekst": "2018-04-24",
-    "IdPrzedmiot": 428,
+    "IdPrzedmiot": 307,
     "PrzedmiotNazwa": "Matematyka"
   },
   {
@@ -41,7 +41,7 @@
     "IdPoraLekcji": 76,
     "Dzien": 1524520800,
     "DzienTekst": "2018-04-25",
-    "IdPrzedmiot": 480,
+    "IdPrzedmiot": 302,
     "PrzedmiotNazwa": "Historia"
   },
   {
@@ -50,7 +50,7 @@
     "IdPoraLekcji": 77,
     "Dzien": 1524520800,
     "DzienTekst": "2018-04-25",
-    "IdPrzedmiot": 429,
+    "IdPrzedmiot": 304,
     "PrzedmiotNazwa": "Język angielski"
   },
   {
@@ -59,7 +59,7 @@
     "IdPoraLekcji": 76,
     "Dzien": 1524520800,
     "DzienTekst": "2018-04-26",
-    "IdPrzedmiot": 495,
+    "IdPrzedmiot": 312,
     "PrzedmiotNazwa": "Informatyka"
   },
   {
@@ -68,7 +68,7 @@
     "IdPoraLekcji": 77,
     "Dzien": 1524520800,
     "DzienTekst": "2018-04-26",
-    "IdPrzedmiot": 488,
+    "IdPrzedmiot": 311,
     "PrzedmiotNazwa": "Geografia"
   },
   {
@@ -77,7 +77,7 @@
     "IdPoraLekcji": 76,
     "Dzien": 1524520800,
     "DzienTekst": "2018-04-27",
-    "IdPrzedmiot": 488,
+    "IdPrzedmiot": 311,
     "PrzedmiotNazwa": "Geografia"
   },
   {
@@ -86,7 +86,7 @@
     "IdPoraLekcji": 77,
     "Dzien": 1524520800,
     "DzienTekst": "2018-04-27",
-    "IdPrzedmiot": 488,
+    "IdPrzedmiot": 311,
     "PrzedmiotNazwa": "Geografia"
   }
 ]
