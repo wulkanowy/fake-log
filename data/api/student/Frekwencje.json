@@ -18,6 +18,33 @@
     "PrzedmiotNazwa": "Informatyka"
   },
   {
+    "IdKategoria": 2,
+    "Numer": 3,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524434400,
+    "DzienTekst": "2018-04-23",
+    "IdPrzedmiot": 312,
+    "PrzedmiotNazwa": "Informatyka"
+  },
+  {
+    "IdKategoria": 2,
+    "Numer": 4,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524434400,
+    "DzienTekst": "2018-04-23",
+    "IdPrzedmiot": 307,
+    "PrzedmiotNazwa": "Matematyka"
+  },
+  {
+    "IdKategoria": 2,
+    "Numer": 5,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524434400,
+    "DzienTekst": "2018-04-23",
+    "IdPrzedmiot": 307,
+    "PrzedmiotNazwa": "Matematyka"
+  },
+  {
     "IdKategoria": 3,
     "Numer": 1,
     "IdPoraLekcji": 76,
@@ -29,6 +56,33 @@
   {
     "IdKategoria": 4,
     "Numer": 2,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524434400,
+    "DzienTekst": "2018-04-24",
+    "IdPrzedmiot": 307,
+    "PrzedmiotNazwa": "Matematyka"
+  },
+  {
+    "IdKategoria": 1,
+    "Numer": 3,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524434400,
+    "DzienTekst": "2018-04-24",
+    "IdPrzedmiot": 307,
+    "PrzedmiotNazwa": "Matematyka"
+  },
+  {
+    "IdKategoria": 1,
+    "Numer": 4,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524434400,
+    "DzienTekst": "2018-04-24",
+    "IdPrzedmiot": 307,
+    "PrzedmiotNazwa": "Matematyka"
+  },
+  {
+    "IdKategoria": 1,
+    "Numer": 5,
     "IdPoraLekcji": 77,
     "Dzien": 1524434400,
     "DzienTekst": "2018-04-24",
@@ -54,6 +108,33 @@
     "PrzedmiotNazwa": "Język angielski"
   },
   {
+    "IdKategoria": 6,
+    "Numer": 3,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524520800,
+    "DzienTekst": "2018-04-25",
+    "IdPrzedmiot": 304,
+    "PrzedmiotNazwa": "Język angielski"
+  },
+  {
+    "IdKategoria": 6,
+    "Numer": 4,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524520800,
+    "DzienTekst": "2018-04-25",
+    "IdPrzedmiot": 304,
+    "PrzedmiotNazwa": "Język angielski"
+  },
+  {
+    "IdKategoria": 6,
+    "Numer": 5,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524520800,
+    "DzienTekst": "2018-04-25",
+    "IdPrzedmiot": 304,
+    "PrzedmiotNazwa": "Język angielski"
+  },
+  {
     "IdKategoria": 7,
     "Numer": 1,
     "IdPoraLekcji": 76,
@@ -72,6 +153,33 @@
     "PrzedmiotNazwa": "Geografia"
   },
   {
+    "IdKategoria": 5,
+    "Numer": 3,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524520800,
+    "DzienTekst": "2018-04-26",
+    "IdPrzedmiot": 311,
+    "PrzedmiotNazwa": "Geografia"
+  },
+  {
+    "IdKategoria": 4,
+    "Numer": 4,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524520800,
+    "DzienTekst": "2018-04-26",
+    "IdPrzedmiot": 311,
+    "PrzedmiotNazwa": "Geografia"
+  },
+  {
+    "IdKategoria": 3,
+    "Numer": 5,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524520800,
+    "DzienTekst": "2018-04-26",
+    "IdPrzedmiot": 311,
+    "PrzedmiotNazwa": "Geografia"
+  },
+  {
     "IdKategoria": 1,
     "Numer": 1,
     "IdPoraLekcji": 76,
@@ -83,6 +191,24 @@
   {
     "IdKategoria": 1,
     "Numer": 2,
+    "IdPoraLekcji": 76,
+    "Dzien": 1524520800,
+    "DzienTekst": "2018-04-27",
+    "IdPrzedmiot": 311,
+    "PrzedmiotNazwa": "Geografia"
+  },
+  {
+    "IdKategoria": 1,
+    "Numer": 3,
+    "IdPoraLekcji": 77,
+    "Dzien": 1524520800,
+    "DzienTekst": "2018-04-27",
+    "IdPrzedmiot": 311,
+    "PrzedmiotNazwa": "Geografia"
+  },
+  {
+    "IdKategoria": 1,
+    "Numer": 4,
     "IdPoraLekcji": 77,
     "Dzien": 1524520800,
     "DzienTekst": "2018-04-27",
