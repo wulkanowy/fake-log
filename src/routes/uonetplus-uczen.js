@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const protocol = require('../utils/connection');
 const {format, fromUnixTime, getYear, addYears, addMonths} = require('date-fns');
 
 router.get("/", (req, res) => {
-    const base = protocol(req) + "://" + req.get('host') + "/Default/123456";
+    const base = "//" + req.get('host') + "/Default/123456";
     res.json({
         status: "sucess",
         data: {

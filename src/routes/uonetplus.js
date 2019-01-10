@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const protocol = require('../utils/connection');
 
 router.get("/", (req, res) => {
     res.render("log-exception", {
@@ -24,7 +23,7 @@ router.all("/Default/LoginEndpoint.aspx", (req, res) => {
         return res.redirect("/Default/?login=true");
     }
 
-    res.redirect(protocol(req) + "://" + req.get('host').replace("uonetplus", "cufs") + "/Default/Account/LogOn");
+    res.redirect("//" + req.get('host').replace("uonetplus", "cufs") + "/Default/Account/LogOn");
 });
 
 router.post("(/*)?", (req, res) => {
@@ -36,8 +35,8 @@ router.post("(/*)?", (req, res) => {
 router.get("/Default/Start.mvc/Index", (req, res) => {
     res.render("homepage", {
         title: "Uonet+",
-        uonetplusOpiekun: protocol(req) + "://" + req.get('host').replace("uonetplus", "uonetplus-opiekun"),
-        uonetplusUczen: protocol(req) + "://" + req.get('host').replace("uonetplus", "uonetplus-uczen")
+        uonetplusOpiekun: "//" + req.get('host').replace("uonetplus", "uonetplus-opiekun"),
+        uonetplusUczen: "//" + req.get('host').replace("uonetplus", "uonetplus-uczen")
     });
 });
 

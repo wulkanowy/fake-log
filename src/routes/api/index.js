@@ -1,8 +1,7 @@
 const router = require('express').Router();
-const protocol = require('../../utils/connection');
 
 router.all("/", (req, res) => {
-    let base = protocol(req) + "://" + req.get('host');
+    let base = "//" + req.get('host');
     res.json({
         "status": "success",
         "start": base.replace("api.", ""),

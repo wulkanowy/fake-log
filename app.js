@@ -4,7 +4,6 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
-const protocol = require("./src/utils/connection");
 // const favicon = require('serve-favicon');
 
 const subdomain = require('express-subdomain');
@@ -38,9 +37,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
   res.locals.userInfo = require('./data/api/ListaUczniow')[1];
-  res.locals.uonetplusUrl = protocol(req) + "://" + req.get('host').replace("uonetplus-opiekun", "uonetplus");
-  res.locals.currentHost = protocol(req) + "://" + req.get('host');
-  res.locals.mainHost = protocol(req) + "://" + req.get('host')
+  res.locals.uonetplusUrl = "//" + req.get('host').replace("uonetplus-opiekun", "uonetplus");
+  res.locals.currentHost = "//" + req.get('host');
+  res.locals.mainHost = "//" + req.get('host')
     .replace(/(api|cufs|uonetplus|uonetplus-opiekun|uonetplus-uzytkownik)\./, "");
   next();
 });
