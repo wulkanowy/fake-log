@@ -9,7 +9,7 @@ Fake log for the Wulknaowy app. Used for testing.
 
 ```bash
 $ npm install
-$ npm run start
+$ npm start
 ```
 
 ## Login
