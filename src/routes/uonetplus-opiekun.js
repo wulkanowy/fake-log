@@ -13,7 +13,7 @@ router.all("/", (req, res) => {
     });
 });
 
-router.all("/Default(/123456)?", (req, res) => {
+router.all("/Default(/12345[678])?", (req, res) => {
     if (req.header("Referer") || "true" === req.query.login) {
         return res.redirect("/Default/123456/Start/Index/");
     }
