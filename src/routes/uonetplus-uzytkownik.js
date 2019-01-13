@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const protocol = require('../utils/connection');
+const md5 = require('md5');
 
 router.get("/", (req, res) => {
     const base = protocol(req) + "://" + req.get('host') + "/Default";
@@ -99,13 +100,13 @@ router.get("/Adresaci.mvc/GetAdresaci", (req, res) => {
         "success": true,
         "data": require("../../data/api/dictionaries/Pracownicy").map(item => {
             return {
-                "Id": item.Id + "rPracownik",
-                "Nazwa": item.Imie + " " + item.Nazwisko + " [" + item.Kod + "] - pracownik (" + user.JednostkaSprawozdawczaSkrot + ")",
+                "Id": `${item.Id}rPracownik`,
+                "Nazwa": `${item.Imie} ${item.Nazwisko} [${item.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
                 "IdLogin": item.Id,
                 "IdJednostkaSprawozdawcza": user.IdJednostkaSprawozdawcza,
-                "RolaEnum": null,
                 "Rola": 2,
-                "PushWiadomosc": null
+                "PushWiadomosc": null,
+                "Hash": Buffer.from(md5(item.Id)).toString('base64')
             };
         })
     });
