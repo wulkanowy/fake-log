@@ -54,7 +54,7 @@ app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/Default/123458', u
 app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123456', uonetplusUczen)));
 app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123457', uonetplusUczen)));
 app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123458', uonetplusUczen)));
-app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik));
+app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik.use('/Default', uonetplusUzytkownik)));
 app.use('/', index);
 
 // catch 404 and forward to error handler

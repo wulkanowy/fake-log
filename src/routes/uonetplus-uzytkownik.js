@@ -1,14 +1,27 @@
 const express = require('express');
 const router = express.Router();
+const protocol = require('../utils/connection');
 
 router.get("/", (req, res) => {
+    const base = protocol(req) + "://" + req.get('host') + "/Default";
     res.json({
-        "name": "uonetplus-uzytkownik",
-        "message": "Not implemented yet"
+        status: "sucess",
+        data: {
+            endpoints: [
+                "/Wiadomosc.mvc/GetWiadomosciOdebrane",
+                "/Wiadomosc.mvc/GetWiadomosciWyslane",
+                "/Wiadomosc.mvc/GetWiadomosciUsuniete",
+                "/NowaWiadomosc.mvc/GetJednostkiUzytkownika",
+                "/Adresaci.mvc/GetAdresaci",
+                "/Wiadomosc.mvc/GetTrescWiadomosci"
+            ].map(item => {
+                return base + item;
+            })
+        }
     });
 });
 
-router.get("/Default/Wiadomosc.mvc/GetWiadomosciOdebrane", (req, res) => {
+router.get("/Wiadomosc.mvc/GetWiadomosciOdebrane", (req, res) => {
     let i = 0;
     res.json({
         "success": true,
@@ -27,7 +40,7 @@ router.get("/Default/Wiadomosc.mvc/GetWiadomosciOdebrane", (req, res) => {
     });
 });
 
-router.get("/Default/Wiadomosc.mvc/GetWiadomosciWyslane", (req, res) => {
+router.get("/Wiadomosc.mvc/GetWiadomosciWyslane", (req, res) => {
     res.json({
         "success": true,
         "data": require("../../data/api/messages/WiadomosciWyslane").map(item => {
@@ -43,7 +56,7 @@ router.get("/Default/Wiadomosc.mvc/GetWiadomosciWyslane", (req, res) => {
     });
 });
 
-router.get("/Default/Wiadomosc.mvc/GetWiadomosciUsuniete", (req, res) => {
+router.get("/Wiadomosc.mvc/GetWiadomosciUsuniete", (req, res) => {
     let i = 0;
     res.json({
         "success": true,
@@ -63,7 +76,7 @@ router.get("/Default/Wiadomosc.mvc/GetWiadomosciUsuniete", (req, res) => {
     });
 });
 
-router.get("/Default/NowaWiadomosc.mvc/GetJednostkiUzytkownika", (req, res) => {
+router.get("/NowaWiadomosc.mvc/GetJednostkiUzytkownika", (req, res) => {
     const user = require("../../data/api/ListaUczniow")[1];
     res.json({
         "success": true,
@@ -80,7 +93,7 @@ router.get("/Default/NowaWiadomosc.mvc/GetJednostkiUzytkownika", (req, res) => {
     });
 });
 
-router.get("/Default/Adresaci.mvc/GetAdresaci", (req, res) => {
+router.get("/Adresaci.mvc/GetAdresaci", (req, res) => {
     const user = require("../../data/api/ListaUczniow")[1];
     res.json({
         "success": true,
@@ -98,7 +111,7 @@ router.get("/Default/Adresaci.mvc/GetAdresaci", (req, res) => {
     });
 });
 
-router.all("/Default/Wiadomosc.mvc/GetTrescWiadomosci", (req, res) => {
+router.all("/Wiadomosc.mvc/GetTrescWiadomosci", (req, res) => {
     const message = require("../../data/api/messages/WiadomosciOdebrane")[0];
     res.json({
         "success": true,
