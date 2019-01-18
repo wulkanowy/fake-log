@@ -62,5 +62,21 @@
     "TrescUwagi": "Litwo! Ojczyzno moja! Ty jesteś jak zdrowie. Ile cię trzeba cenić, ten tylko aż kędy pieprz rośnie gdzie podział się? szukać prawodawstwa.",
     "IdUczen": 1,
     "IdKategoriaUwag": 48
+  },
+  {
+    "IdPracownik": 4,
+    "UczenImie": "Jan",
+    "UczenNazwisko": "Kowalski",
+    "PracownikImie": "Stanisław",
+    "PracownikNazwisko": "Krupa",
+    "DataWpisu": 1516062355,
+    "DataWpisuTekst": "2018-01-16",
+    "DataModyfikacji": 1516062568,
+    "DataModyfikacjiTekst": null,
+    "UwagaKey": "00000000-0000-0000-0000-000000000000",
+    "Id": 30651,
+    "TrescUwagi": "Litwo! Ojczyzno moja! Ty jesteś jak zdrowie. Ile cię trzeba cenić, ten tylko aż kędy pieprz rośnie gdzie podział się? szukać prawodawstwa.",
+    "IdUczen": 1,
+    "IdKategoriaUwag": 48
   }
 ]
