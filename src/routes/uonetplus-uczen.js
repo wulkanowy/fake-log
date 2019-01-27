@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const protocol = require('../utils/connection');
+const dictMap = require('../utils/dictMap');
+const converter = require('../utils/converter');
 const {format, fromUnixTime, getYear, addYears, addMonths} = require('date-fns');
 
 router.get("/", (req, res) => {
@@ -246,8 +248,44 @@ router.all("/LekcjeZrealizowane.mvc/GetZrealizowane", (req, res) => {
 });
 
 router.all("/Oceny.mvc/Get", (req, res) => {
+    const summary = require("../../data/api/student/OcenyPodsumowanie");
+    const teachers = require("../../data/api/dictionaries/Nauczyciele");
+    const subjectCategories = require("../../data/api/dictionaries/KategorieOcen");
+
     res.json({
-        "data": {},
+        "data": {
+            "IsSrednia": false,
+            "IsPunkty": false,
+            "Oceny": require("../../data/api/dictionaries/Przedmioty").map(item => {
+                return {
+                    "Przedmiot": item.Nazwa,
+                    "Pozycja": item.Pozycja,
+                    "OcenyCzastkowe": require("../../data/api/student/Oceny").filter(grade => grade.IdPrzedmiot === item.Id).map(item => {
+                        const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownikD);
+                        return {
+                            "Nauczyciel": `${teacher.Imie} ${teacher.Nazwisko}`,
+                            "Wpis": item.Wpis,
+                            "Waga": Math.round(item.WagaOceny),
+                            "NazwaKolumny": item.Opis,
+                            "KodKolumny": dictMap.getByValue(subjectCategories, "Id", item.IdKategoria).Kod,
+                            "DataOceny": converter.formatDate(new Date(item.DataUtworzenia * 1000)),
+                            "KolorOceny": 0
+                        }
+                    }),
+                    "ProponowanaOcenaRoczna": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id, {"Wpis": ""}).Wpis,
+                    "OcenaRoczna": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id, {"Wpis": ""}).Wpis,
+                    "ProponowanaOcenaRocznaPunkty": null,
+                    "OcenaRocznaPunkty": null,
+                    "Srednia": dictMap.getByValue(summary.SrednieOcen, "IdPrzedmiot", item.Id, {"Wpis": 0}).Wpis,
+                    "SumaPunktow": null,
+                    "WidocznyPrzedmiot": false
+                };
+            }),
+            "OcenyOpisowe": [],
+            "TypOcen": 2,
+            "IsOstatniSemestr": false,
+            "IsDlaDoroslych": false
+        },
         "success": true
     });
 });
