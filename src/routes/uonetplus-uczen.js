@@ -3,7 +3,7 @@ const router = express.Router();
 const protocol = require('../utils/connection');
 const dictMap = require('../utils/dictMap');
 const converter = require('../utils/converter');
-const {format, fromUnixTime, getYear, addYears, addMonths} = require('date-fns');
+const {format, fromUnixTime, getYear, addYears, addMonths, addDays} = require('date-fns');
 
 router.get("/", (req, res) => {
     const base = protocol(req) + "://" + req.get('host') + "/Default/123456";
@@ -207,7 +207,27 @@ router.all("/FormularzeWysylanie.mvc/Post", (req, res) => {
 
 router.all("/Frekwencja.mvc/Get", (req, res) => {
     res.json({
-        "data": {},
+        "data": {
+            "UsprawiedliwieniaAktywne": false,
+            "Dni": [],
+            "UsprawiedliwieniaWyslane": [],
+            "Frekwencje": require("../../data/api/student/Frekwencje").map((item, i) => {
+                let date;
+                if (req.body.data) {
+                    date = converter.formatDate(addDays(new Date(req.body.data.replace(" ", "T").replace(/Z$/, '') + "Z"), i), true);
+                } else date = item.DzienTekst;
+                return {
+                    "IdKategoria": item.IdKategoria,
+                    "NrDnia": item.Numer,
+                    "Symbol": "/",
+                    "SymbolImage": "data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==",
+                    "PrzedmiotNazwa": item.PrzedmiotNazwa,
+                    "IdPoraLekcji": item.IdPoraLekcji,
+                    "Data": `${date} 00:00:00` ,
+                    "LekcjaOddzialId": item.Dzien * item.Numer
+                };
+            })
+        },
         "success": true
     });
 });

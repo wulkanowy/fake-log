@@ -13,7 +13,7 @@ function getTickFromDate(date) {
     return (date.getTime() * 10000) + 621355968000000000;
 }
 
-function formatDate(today) {
+function formatDate(today, iso = false) {
     let dd = today.getDate();
     let mm = today.getMonth() + 1; //January is 0!
 
@@ -26,7 +26,9 @@ function formatDate(today) {
         mm = '0' + mm;
     }
 
-    return dd + '.' + mm + '.' + yyyy;
+    if (iso) return `${yyyy}-${mm}-${dd}`;
+
+    return `${dd}.${mm}.${yyyy}`;
 }
 
 function getMonday(date) {
