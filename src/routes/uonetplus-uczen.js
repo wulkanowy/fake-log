@@ -270,7 +270,7 @@ router.all("/Oceny.mvc/Get", (req, res) => {
                             "KodKolumny": dictMap.getByValue(subjectCategories, "Id", item.IdKategoria).Kod,
                             "DataOceny": converter.formatDate(new Date(item.DataUtworzenia * 1000)),
                             "KolorOceny": 0
-                        }
+                        };
                     }),
                     "ProponowanaOcenaRoczna": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id, {"Wpis": ""}).Wpis,
                     "OcenaRoczna": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id, {"Wpis": ""}).Wpis,
@@ -341,7 +341,7 @@ router.all("/RejestracjaUrzadzeniaTokenCertyfikat.mvc/Get", (req, res) => {
 
 router.all("/Sprawdziany.mvc/Get", (req, res) => {
     res.json({
-        "data": {},
+        "data": [],
         "success": true
     });
 });
@@ -397,7 +397,7 @@ router.all("/UwagiIOsiagniecia.mvc/Get", (req, res) => {
 
 router.all("/ZadaniaDomowe.mvc/Get", (req, res) => {
     res.json({
-        "data": {},
+        "data": [],
         "success": true
     });
 });
