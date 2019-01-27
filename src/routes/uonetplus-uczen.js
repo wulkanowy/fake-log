@@ -206,15 +206,17 @@ router.all("/FormularzeWysylanie.mvc/Post", (req, res) => {
 });
 
 router.all("/Frekwencja.mvc/Get", (req, res) => {
+    const attendance = require("../../data/api/student/Frekwencje");
     res.json({
         "data": {
             "UsprawiedliwieniaAktywne": false,
             "Dni": [],
             "UsprawiedliwieniaWyslane": [],
-            "Frekwencje": require("../../data/api/student/Frekwencje").map((item, i) => {
+            "Frekwencje": attendance.map((item) => {
+                let offset = (new Date(item.DzienTekst)).getDay() - (new Date(attendance[0].DzienTekst).getDay());
                 let date;
                 if (req.body.data) {
-                    date = converter.formatDate(addDays(new Date(req.body.data.replace(" ", "T").replace(/Z$/, '') + "Z"), i), true);
+                    date = converter.formatDate(addDays(new Date(req.body.data.replace(" ", "T").replace(/Z$/, '') + "Z"), offset), true);
                 } else date = item.DzienTekst;
                 return {
                     "IdKategoria": item.IdKategoria,
