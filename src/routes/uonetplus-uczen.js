@@ -148,143 +148,248 @@ router.all("/Home.mvc/RefreshSession", (req, res) => {
 });
 
 router.all("/Diety.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/EgzaminySemestralne.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/EgzaminyZewnetrzne.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/EwidencjaObecnosci.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/FormularzeSzablony.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/FormularzeSzablonyDownload.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/FormularzeWysylanie.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/FormularzeWysylanie.mvc/Post", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/Frekwencja.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/FrekwencjaStatystyki.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/FrekwencjaStatystykiPrzedmioty.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/Jadlospis.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/LekcjeZrealizowane.mvc/GetPrzedmioty", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/LekcjeZrealizowane.mvc/GetZrealizowane", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/Oceny.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/OkresyUmowOplat.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/Oplaty.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/PlanZajec.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/Pomoc.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/RejestracjaUrzadzeniaToken.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/RejestracjaUrzadzeniaToken.mvc/Delete", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/RejestracjaUrzadzeniaTokenCertyfikat.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/Sprawdziany.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/Statystyki.mvc/GetOcenyCzastkowe", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/Statystyki.mvc/GetOcenyRoczne", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/Statystyki.mvc/GetPunkty", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/SzkolaINauczyciele.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/Uczen.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/Usprawiedliwienia.mvc/Post", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/UwagiIOsiagniecia.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/ZadaniaDomowe.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/ZarejestrowaneUrzadzenia.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/ZarejestrowaneUrzadzenia.mvc/Delete", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/ZgloszoneNieobecnosci.mvc/Get", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 router.all("/ZgloszoneNieobecnosci.mvc/Post", (req, res) => {
-    res.json({});
+    res.json({
+        "data": {},
+        "success": true
+    });
 });
 
 module.exports = router;
