@@ -3,7 +3,7 @@ const router = express.Router();
 const protocol = require('../utils/connection');
 const dictMap = require('../utils/dictMap');
 const converter = require('../utils/converter');
-const {format, fromUnixTime, getYear, addYears, addMonths, addDays} = require('date-fns');
+const {format, fromUnixTime, getYear, addYears, addMonths, addDays, differenceInDays, toDate} = require('date-fns');
 
 router.get("/", (req, res) => {
     const base = protocol(req) + "://" + req.get('host') + "/Default/123456";
@@ -362,8 +362,40 @@ router.all("/RejestracjaUrzadzeniaTokenCertyfikat.mvc/Get", (req, res) => {
 });
 
 router.all("/Sprawdziany.mvc/Get", (req, res) => {
+    const subjects = require("../../data/api/dictionaries/Przedmioty");
+    const teachers = require("../../data/api/dictionaries/Nauczyciele");
+    const exams = require("../../data/api/student/Sprawdziany");
+    const requestDate = req.body.data ? toDate(req.body.data.replace(" ", "T").replace(/Z$/, '') + "Z") : toDate(exams[0].DataTekst);
+    const baseOffset = differenceInDays(requestDate, toDate(exams[0].DataTekst));
+
     res.json({
-        "data": [],
+        "data": [
+            [...Array(4).keys()].map(function(j) {
+                return {
+                    "SprawdzianyGroupedByDayList": converter.getWeekDaysFrom(addDays(requestDate, (7 * j)), 7).map((day, i) => {
+                        let offset = i + (7 * j);
+                        return {
+                            "Data": converter.formatDate(day[2], true) + " 00:00:00",
+                            "Sprawdziany": exams.filter(exam => {
+                                return 0 === differenceInDays(day[2], addDays(toDate(exam.DataTekst), baseOffset));
+                            }).map(item => {
+                                const subject = dictMap.getByValue(subjects, "Id", item.IdPrzedmiot);
+                                const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
+
+                                return {
+                                    "DisplayValue": `${subject.Nazwa} ${res.locals.userInfo.OddzialKod}${item.PodzialSkrot ? "|" + item.PodzialSkrot : ""}`,
+                                    "PracownikModyfikujacyDisplay": `${teacher.Imie} ${teacher.Nazwisko}`,
+                                    "DataModyfikacji": `${item.DataTekst} 00:00:00`,
+                                    "Opis": item.Opis,
+                                    "Rodzaj": item.Rodzaj ? 1 : 0
+                                };
+                            }),
+                            "Pokazuj": i < 5
+                        }
+                    })
+                };
+            }),
+        ],
         "success": true
     });
 });

@@ -1,3 +1,4 @@
+const { addDays, toDate } = require('date-fns');
 const WEEK_TICK = 6048000000000;
 const DAY_TICK = 864000000000;
 
@@ -40,15 +41,16 @@ function getDayName(dateStr) {
     return new Date(dateStr).toLocaleDateString("pl", {weekday: "long"});
 }
 
-function getWeekDaysFrom(tick) {
-    let startDate = getDateFromTick(tick);
+function getWeekDaysFrom(startDate, number = 5) {
+    if (!(startDate instanceof Date)) startDate = getDateFromTick(startDate);
 
     const days = [];
-    for (let i = 0; i < 5; i++) {
-        let date = new Date(startDate).setDate(startDate.getDate() + i);
+    for (let i = 0; i < number; i++) {
+        let date = addDays(startDate, i);
         days.push([
             getDayName(date),
-            formatDate(new Date(date))
+            formatDate(toDate(date)),
+            toDate(date)
         ]);
     }
 
