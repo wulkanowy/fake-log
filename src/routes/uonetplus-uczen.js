@@ -382,8 +382,8 @@ router.all("/Sprawdziany.mvc/Get", (req, res) => {
 
                             return {
                                 "DisplayValue": `${subject.Nazwa} ${res.locals.userInfo.OddzialKod}${item.PodzialSkrot ? "|" + item.PodzialSkrot : ""}`,
-                                "PracownikModyfikujacyDisplay": `${teacher.Imie} ${teacher.Nazwisko}`,
-                                "DataModyfikacji": `${item.DataTekst} 00:00:00`,
+                                "PracownikModyfikujacyDisplay": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}]`,
+                                "DataModyfikacji": `1970-01-01 00:00:00`,
                                 "Opis": item.Opis,
                                 "Rodzaj": item.Rodzaj ? 1 : 0
                             };
