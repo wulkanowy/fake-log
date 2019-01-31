@@ -225,7 +225,7 @@ router.all("/Frekwencja.mvc/Get", (req, res) => {
                     "SymbolImage": "data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==",
                     "PrzedmiotNazwa": item.PrzedmiotNazwa,
                     "IdPoraLekcji": item.IdPoraLekcji,
-                    "Data": `${date} 00:00:00` ,
+                    "Data": `${date} 00:00:00`,
                     "LekcjaOddzialId": item.Dzien * item.Numer
                 };
             })
@@ -369,32 +369,30 @@ router.all("/Sprawdziany.mvc/Get", (req, res) => {
     const baseOffset = differenceInDays(requestDate, toDate(exams[0].DataTekst));
 
     res.json({
-        "data": [
-            [...Array(4).keys()].map(function(j) {
-                return {
-                    "SprawdzianyGroupedByDayList": converter.getWeekDaysFrom(addDays(requestDate, (7 * j)), 7).map((day, i) => {
-                        return {
-                            "Data": converter.formatDate(day[2], true) + " 00:00:00",
-                            "Sprawdziany": exams.filter(exam => {
-                                return 0 === differenceInDays(day[2], addDays(toDate(exam.DataTekst), baseOffset + (7 * j)));
-                            }).map(item => {
-                                const subject = dictMap.getByValue(subjects, "Id", item.IdPrzedmiot);
-                                const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
+        "data": [...Array(4).keys()].map(function (j) {
+            return {
+                "SprawdzianyGroupedByDayList": converter.getWeekDaysFrom(addDays(requestDate, (7 * j)), 7).map((day, i) => {
+                    return {
+                        "Data": converter.formatDate(day[2], true) + " 00:00:00",
+                        "Sprawdziany": exams.filter(exam => {
+                            return 0 === differenceInDays(day[2], addDays(toDate(exam.DataTekst), baseOffset + (7 * j)));
+                        }).map(item => {
+                            const subject = dictMap.getByValue(subjects, "Id", item.IdPrzedmiot);
+                            const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
 
-                                return {
-                                    "DisplayValue": `${subject.Nazwa} ${res.locals.userInfo.OddzialKod}${item.PodzialSkrot ? "|" + item.PodzialSkrot : ""}`,
-                                    "PracownikModyfikujacyDisplay": `${teacher.Imie} ${teacher.Nazwisko}`,
-                                    "DataModyfikacji": `${item.DataTekst} 00:00:00`,
-                                    "Opis": item.Opis,
-                                    "Rodzaj": item.Rodzaj ? 1 : 0
-                                };
-                            }),
-                            "Pokazuj": i < 5
-                        };
-                    })
-                };
-            }),
-        ],
+                            return {
+                                "DisplayValue": `${subject.Nazwa} ${res.locals.userInfo.OddzialKod}${item.PodzialSkrot ? "|" + item.PodzialSkrot : ""}`,
+                                "PracownikModyfikujacyDisplay": `${teacher.Imie} ${teacher.Nazwisko}`,
+                                "DataModyfikacji": `${item.DataTekst} 00:00:00`,
+                                "Opis": item.Opis,
+                                "Rodzaj": item.Rodzaj ? 1 : 0
+                            };
+                        }),
+                        "Pokazuj": i < 5
+                    };
+                })
+            };
+        }),
         "success": true
     });
 });
