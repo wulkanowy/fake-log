@@ -50,7 +50,7 @@ function getWeekDaysFrom(startDate, number = 5) {
         days.push([
             getDayName(date),
             formatDate(toDate(date)),
-            toDate(date)
+            date
         ]);
     }
 

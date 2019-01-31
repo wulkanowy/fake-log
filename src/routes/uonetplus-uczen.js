@@ -365,7 +365,7 @@ router.all("/Sprawdziany.mvc/Get", (req, res) => {
     const subjects = require("../../data/api/dictionaries/Przedmioty");
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
     const exams = require("../../data/api/student/Sprawdziany");
-    const requestDate = req.body.data ? toDate(req.body.data.replace(" ", "T").replace(/Z$/, '') + "Z") : toDate(exams[0].DataTekst);
+    const requestDate = req.body.data ? toDate(req.body.data.replace("T", " ").replace(/Z$/, '')) : toDate(exams[0].DataTekst);
     const baseOffset = differenceInDays(requestDate, toDate(exams[0].DataTekst));
 
     res.json({
@@ -373,11 +373,10 @@ router.all("/Sprawdziany.mvc/Get", (req, res) => {
             [...Array(4).keys()].map(function(j) {
                 return {
                     "SprawdzianyGroupedByDayList": converter.getWeekDaysFrom(addDays(requestDate, (7 * j)), 7).map((day, i) => {
-                        let offset = i + (7 * j);
                         return {
                             "Data": converter.formatDate(day[2], true) + " 00:00:00",
                             "Sprawdziany": exams.filter(exam => {
-                                return 0 === differenceInDays(day[2], addDays(toDate(exam.DataTekst), baseOffset));
+                                return 0 === differenceInDays(day[2], addDays(toDate(exam.DataTekst), baseOffset + (7 * j)));
                             }).map(item => {
                                 const subject = dictMap.getByValue(subjects, "Id", item.IdPrzedmiot);
                                 const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
@@ -391,7 +390,7 @@ router.all("/Sprawdziany.mvc/Get", (req, res) => {
                                 };
                             }),
                             "Pokazuj": i < 5
-                        }
+                        };
                     })
                 };
             }),
