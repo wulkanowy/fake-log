@@ -233,7 +233,7 @@ router.get("/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
                 gap: true,
                 start: times.PoczatekTekst,
                 end: times.KoniecTekst,
-            })
+            });
         }
 
         day.forEach(lesson => {
@@ -250,7 +250,7 @@ router.get("/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
                     gap: true,
                     start: times.PoczatekTekst,
                     end: times.KoniecTekst,
-                })
+                });
             }
 
             prevNumber = lesson.number;
@@ -268,7 +268,7 @@ router.get("/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
                 gap: true,
                 start: times.PoczatekTekst,
                 end: times.KoniecTekst,
-            })
+            });
         }
         
         return dayWithGaps;
