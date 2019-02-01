@@ -275,15 +275,6 @@ router.get("/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
     });
 
     const data = _.groupBy(_.flatten(_.values(daysWithGaps)), "number");
-
-    console.log({
-        firstLesson,
-        lastLesson,
-        data,
-        daysWithGapsValues: _.values(daysWithGaps),
-        days,
-        daysWithGaps,
-    });
     
     res.render("opiekun/plan-zajec", {
         title: "Witryna ucznia i rodzica – Plan lekcji",
