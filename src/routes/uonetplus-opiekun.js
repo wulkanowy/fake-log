@@ -194,27 +194,91 @@ router.get("/UwagiOsiagniecia.mvc/Wszystkie", (req, res) => {
 
 router.get("/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
-    res.render("opiekun/plan-zajec", {
-        title: "Witryna ucznia i rodzica – Plan lekcji",
-        data: _.groupBy(require("../../data/api/student/PlanLekcjiZeZmianami").map(item => {
-            const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
-            const oldTeacher = dictMap.getByValue(teachers, "Id", item.IdPracownikOld);
-            const times = dictMap.getByValue(require("../../data/api/dictionaries/PoryLekcji"), "Id", item.IdPoraLekcji);
-            return {
-                number: item.NumerLekcji,
+    const days = _.groupBy(require("../../data/api/student/PlanLekcjiZeZmianami").map(item => {
+        const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
+        const oldTeacher = dictMap.getByValue(teachers, "Id", item.IdPracownikOld);
+        const times = dictMap.getByValue(require("../../data/api/dictionaries/PoryLekcji"), "Id", item.IdPoraLekcji);
+        return {
+            number: item.NumerLekcji,
+            id: item.IdPoraLekcji,
+            gap: false,
+            start: times.PoczatekTekst,
+            end: times.KoniecTekst,
+            subject: item.PrzedmiotNazwa,
+            group: item.PodzialSkrot,
+            teacher: `${teacher.Imie} ${teacher.Nazwisko}`,
+            oldTeacher: !_.isEmpty(oldTeacher) ? `${oldTeacher.Imie} ${oldTeacher.Nazwisko}` : false,
+            room: item.Sala,
+            info: item.AdnotacjaOZmianie,
+            changes: item.PogrubionaNazwa,
+            canceled: item.PrzekreslonaNazwa,
+            date: converter.formatDate(new Date(item.DzienTekst)),
+        };
+    }), "date");
+
+    const firstLesson = _.min(_.flatten(_.values(days)).map(e => e.number));
+    const lastLesson = _.max(_.flatten(_.values(days)).map(e => e.number));
+
+    const daysWithGaps = _.mapValues(days, day => {
+        const dayWithGaps = [];
+        let prevNumber = null;
+        
+        const beforeGap = day[0].number - firstLesson;
+
+        for (i = 0; i < beforeGap; i++) {
+            const number = firstLesson + i;
+            const times = dictMap.getByValue(require("../../data/api/dictionaries/PoryLekcji"), "Numer", number);
+            dayWithGaps.push({
+                number,
+                gap: true,
                 start: times.PoczatekTekst,
                 end: times.KoniecTekst,
-                subject: item.PrzedmiotNazwa,
-                group: item.PodzialSkrot,
-                teacher: `${teacher.Imie} ${teacher.Nazwisko}`,
-                oldTeacher: !_.isEmpty(oldTeacher) ? `${oldTeacher.Imie} ${oldTeacher.Nazwisko}` : false,
-                room: item.Sala,
-                info: item.AdnotacjaOZmianie,
-                changes: item.PogrubionaNazwa,
-                canceled: item.PrzekreslonaNazwa,
-                date: converter.formatDate(new Date(item.DzienTekst)),
-            };
-        }), "number"),
+            });
+        }
+
+        day.forEach(lesson => {
+            let gap = 0;
+            if (prevNumber !== null) {
+                gap = lesson.number - prevNumber - 1;
+            }
+
+            for (i = 0; i < gap; i++) {
+                const number = prevNumber + i + 1;
+                const times = dictMap.getByValue(require("../../data/api/dictionaries/PoryLekcji"), "Numer", number);
+                dayWithGaps.push({
+                    number,
+                    gap: true,
+                    start: times.PoczatekTekst,
+                    end: times.KoniecTekst,
+                });
+            }
+
+            prevNumber = lesson.number;
+            
+            dayWithGaps.push(lesson);
+        });
+
+        const afterGap = lastLesson - prevNumber;
+
+        for (i = 0; i < afterGap; i++) {
+            const number = prevNumber + i + 1;
+            const times = dictMap.getByValue(require("../../data/api/dictionaries/PoryLekcji"), "Numer", number);
+            dayWithGaps.push({
+                number,
+                gap: true,
+                start: times.PoczatekTekst,
+                end: times.KoniecTekst,
+            });
+        }
+        
+        return dayWithGaps;
+    });
+
+    const data = _.groupBy(_.flatten(_.values(daysWithGaps)), "number");
+    
+    res.render("opiekun/plan-zajec", {
+        title: "Witryna ucznia i rodzica – Plan lekcji",
+        data,
         weekDays: converter.getWeekDaysFrom(req.query.data),
         tics: {
             prev: converter.getPrevWeekTick(req.query.data),
