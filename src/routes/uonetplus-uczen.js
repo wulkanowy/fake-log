@@ -482,7 +482,7 @@ router.all("/ZadaniaDomowe.mvc/Get", (req, res) => {
                     };
                 }),
                 "Pokazuj": j < 5
-            }
+            };
         }),
         "success": true
     });
