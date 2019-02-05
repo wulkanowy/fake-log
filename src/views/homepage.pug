@@ -60,10 +60,11 @@ block content
                                     #idEmptyAppUczenExt
                                         .name Uczeń NOWOŚĆ
 
-                div.panel.szczesliweNumery.klient
-                    .imagedHeader
-                        .name Szczęśliwy numer w dzienniku
-                    .subDiv.pCont
+                if luckyNumber
+                    div.panel.szczesliweNumery.klient
+                        .imagedHeader
+                            .name Szczęśliwy numer w dzienniku
                         .subDiv.pCont
-                            .header SP
-                            .subDiv Szczęśliwy numer w dzienniku: #{luckyNumber}
+                            .subDiv.pCont
+                                .header SP
+                                .subDiv Szczęśliwy numer w dzienniku: #{luckyNumber}
