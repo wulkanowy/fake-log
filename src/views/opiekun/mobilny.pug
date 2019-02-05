@@ -18,14 +18,9 @@ append content
           th Data rejestracji
           th
       tbody
-        tr.text-center
-          td To Be Filled By O.E.M.#To Be Filled By O.E.M. (Windows 8.1)
-          td 15.06.2015 godz: 20:00:00
-          td.cellWithButton
-            a.button(href="/Default/123456/DostepMobilny.mvc/Wyrejestruj/1233") Wyrejestruj
-
-        tr.text-center
-          td Wulkanowy (Android 10.0.0)
-          td 15.06.2015 godz: 20:00:00
-          td.cellWithButton
-            a.button(href="/Default/123456/DostepMobilny.mvc/Wyrejestruj/1234") Wyrejestruj
+        each device in devices
+          tr.text-center
+            td= device.NazwaUrzadzenia
+            td= device.DataUtworzenia
+            td.cellWithButton
+              a.button(href="/Default/123456/DostepMobilny.mvc/Wyrejestruj/" + device.Id) Wyrejestruj

@@ -371,7 +371,18 @@ router.get("/Szkola.mvc/Nauczyciele", (req, res) => {
 });
 
 router.get("/DostepMobilny.mvc", (req, res) => {
-    res.render('opiekun/mobilny');
+    res.render('opiekun/mobilny', {
+        title: "Witryna ucznia i rodzica – Dostęp mobilny",
+        devices: require("../../data/opiekun/zarejestrowane-urzadzenia").map(item => {
+            const created = item.DataUtworzenia.split(" ");
+            return {
+                // jshint ignore:start
+                ...item,
+                // jshint ignore:end
+                "DataUtworzenia": `${converter.formatDate(new Date(created[0]))} godz: ${created[1]}`
+            };
+        })
+    });
 });
 
 router.get('/DostepMobilny.mvc/Rejestruj', (req, res) => {

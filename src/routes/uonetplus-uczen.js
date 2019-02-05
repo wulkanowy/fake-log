@@ -490,7 +490,7 @@ router.all("/ZadaniaDomowe.mvc/Get", (req, res) => {
 
 router.all("/ZarejestrowaneUrzadzenia.mvc/Get", (req, res) => {
     res.json({
-        "data": {},
+        "data": require("../../data/opiekun/zarejestrowane-urzadzenia"),
         "success": true
     });
 });
