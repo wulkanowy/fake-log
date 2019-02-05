@@ -179,13 +179,16 @@ router.get('/Frekwencja.mvc', (req, res) => {
 });
 
 router.get("/UwagiOsiagniecia.mvc/Wszystkie", (req, res) => {
+    const teachers = require("../../data/api/dictionaries/Nauczyciele");
+    const categories = require("../../data/api/dictionaries/KategorieUwag");
+
     res.render("opiekun/uwagi", {
         title: "Witryna ucznia i rodzica – Uwagi i osiągnięcia",
         notes: require("../../data/api/student/UwagiUcznia").map(item => {
             return {
                 date: converter.formatDate(new Date(item.DataWpisuTekst)),
-                teacher: item.PracownikImie + " " +  item.PracownikNazwisko,
-                category: dictMap.getByValue(require("../../data/api/dictionaries/KategorieUwag"), "Id", item.IdKategoriaUwag).Nazwa,
+                teacher: `${item.PracownikImie} ${item.PracownikNazwisko} [${dictMap.getByValue(teachers, "Id", item.IdPracownik).Kod}]`,
+                category: dictMap.getByValue(categories, "Id", item.IdKategoriaUwag).Nazwa,
                 content: item.TrescUwagi
             };
         })
