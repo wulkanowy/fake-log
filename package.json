@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "./node_modules/.bin/jshint src/ app.js --verbose"
+    "watch": "nodemon ./bin/www",
+    "test": "jshint src/ app.js --verbose"
   },
   "dependencies": {
     "body-parser": "~1.18.3",
@@ -21,6 +22,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "jshint": "^2.9.7"
+    "jshint": "^2.9.7",
+    "nodemon": "^1.18.9"
   }
 }
