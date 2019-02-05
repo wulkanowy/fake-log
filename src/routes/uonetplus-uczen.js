@@ -236,15 +236,89 @@ router.all("/Frekwencja.mvc/Get", (req, res) => {
 });
 
 router.all("/FrekwencjaStatystyki.mvc/Get", (req, res) => {
+    const attendance = require("../../data/opiekun/frekwencja-statystyki");
+    const sumStats = require("../../data/opiekun/frekwencja-statystyki").reduce((prev, current) => {
+        return {
+            presence: prev.presence + current.presence,
+            absence: prev.absence + current.absence,
+            absenceExcused: prev.absenceExcused + current.absenceExcused,
+            absenceForSchoolReasons: prev.absenceForSchoolReasons + current.absenceForSchoolReasons,
+            lateness: prev.lateness + current.lateness,
+            latenessExcused: prev.latenessExcused + current.latenessExcused,
+            exemption: prev.exemption + current.exemption
+        };
+    });
+
     res.json({
-        "data": {},
+        "data": {
+            "Podsumowanie": Math.round((
+                (sumStats.presence + sumStats.lateness + sumStats.latenessExcused) /
+                (sumStats.presence +
+                    sumStats.absence +
+                    sumStats.absenceExcused +
+                    sumStats.absenceForSchoolReasons +
+                    sumStats.lateness +
+                    sumStats.latenessExcused)
+            ) * 10000) / 100,
+            "Statystyki": [...Array(7).keys()].map(j => {
+                const name = i => {
+                    switch (i) {
+                        case 0: return "Obecność";
+                        case 1: return "Nieobecność nieusprawiedliwiona";
+                        case 2: return "Nieobecność usprawiedliwiona";
+                        case 3: return "Nieobecność z przyczyn szkolnych";
+                        case 4: return "Spóźnienie nieusprawiedliwione";
+                        case 5: return "Spóźnienie usprawiedliwione";
+                        case 6: return "Zwolnienie";
+                    }
+                };
+                const value = (month, i) => {
+                    switch (i) {
+                        case 0: return attendance[month].presence;
+                        case 1: return attendance[month].absence;
+                        case 2: return attendance[month].absenceExcused;
+                        case 3: return attendance[month].absenceForSchoolReasons;
+                        case 4: return attendance[month].lateness;
+                        case 5: return attendance[month].latenessExcused;
+                        case 6: return attendance[month].exemption;
+                    }
+                };
+                return {
+                    "Id": j + 1,
+                    "NazwaTypuFrekwencji": name(j),
+                    "Wrzesien": value(0, j),
+                    "Pazdziernik": value(1, j),
+                    "Listopad": value(2, j),
+                    "Grudzien": value(3, j),
+                    "Styczen": value(4, j),
+                    "Luty": value(5, j),
+                    "Marzec": value(6, j),
+                    "Kwiecien": value(7, j),
+                    "Maj": value(8, j),
+                    "Czerwiec": value(9, j),
+                    "Lipiec": value(10, j),
+                    "Sierpien": value(11, j),
+                    "Razem": 0
+                };
+            })
+        },
         "success": true
     });
 });
 
 router.all("/FrekwencjaStatystykiPrzedmioty.mvc/Get", (req, res) => {
+    const subjects = require("../../data/api/dictionaries/Przedmioty").map(item => {
+        return {
+            "Id": item.Id,
+            "Nazwa": item.Nazwa
+        };
+    });
+    subjects.unshift({
+        "Id": -1,
+        "Nazwa": "Wszystkie"
+    });
     res.json({
-        "data": {},
+        "data": subjects,
         "success": true
     });
 });
