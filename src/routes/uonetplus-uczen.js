@@ -263,24 +263,38 @@ router.all("/FrekwencjaStatystyki.mvc/Get", (req, res) => {
             "Statystyki": [...Array(7).keys()].map(j => {
                 const name = i => {
                     switch (i) {
-                        case 0: return "Obecność";
-                        case 1: return "Nieobecność nieusprawiedliwiona";
-                        case 2: return "Nieobecność usprawiedliwiona";
-                        case 3: return "Nieobecność z przyczyn szkolnych";
-                        case 4: return "Spóźnienie nieusprawiedliwione";
-                        case 5: return "Spóźnienie usprawiedliwione";
-                        case 6: return "Zwolnienie";
+                        case 0:
+                            return "Obecność";
+                        case 1:
+                            return "Nieobecność nieusprawiedliwiona";
+                        case 2:
+                            return "Nieobecność usprawiedliwiona";
+                        case 3:
+                            return "Nieobecność z przyczyn szkolnych";
+                        case 4:
+                            return "Spóźnienie nieusprawiedliwione";
+                        case 5:
+                            return "Spóźnienie usprawiedliwione";
+                        case 6:
+                            return "Zwolnienie";
                     }
                 };
                 const value = (month, i) => {
                     switch (i) {
-                        case 0: return attendance[month].presence;
-                        case 1: return attendance[month].absence;
-                        case 2: return attendance[month].absenceExcused;
-                        case 3: return attendance[month].absenceForSchoolReasons;
-                        case 4: return attendance[month].lateness;
-                        case 5: return attendance[month].latenessExcused;
-                        case 6: return attendance[month].exemption;
+                        case 0:
+                            return attendance[month].presence;
+                        case 1:
+                            return attendance[month].absence;
+                        case 2:
+                            return attendance[month].absenceExcused;
+                        case 3:
+                            return attendance[month].absenceForSchoolReasons;
+                        case 4:
+                            return attendance[month].lateness;
+                        case 5:
+                            return attendance[month].latenessExcused;
+                        case 6:
+                            return attendance[month].exemption;
                     }
                 };
                 return {
@@ -316,6 +330,13 @@ router.all("/FrekwencjaStatystykiPrzedmioty.mvc/Get", (req, res) => {
     subjects.unshift({
         "Id": -1,
         "Nazwa": "Wszystkie"
+    });
+    subjects.push({
+        "Id": 0,
+        "Nazwa": "Brak opisu lekcji"
+    }, {
+        "Id": 492,
+        "Nazwa": "Opieka nad uczniami"
     });
     res.json({
         "data": subjects,
