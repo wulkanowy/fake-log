@@ -10,6 +10,7 @@
   "dependencies": {
     "body-parser": "~1.18.3",
     "cookie-parser": "~1.4.3",
+    "csrf": "^3.0.6",
     "date-fns": "^2.0.0-alpha.24",
     "debug": "^4.1.1",
     "express": "~4.16.4",

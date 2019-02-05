@@ -3,7 +3,7 @@ const protocol = require('../../utils/connection');
 const api = require("../../utils/api");
 
 router.all("/Certyfikat", (req, res) => {
-    let base = protocol(req) + "://" + req.get('host');
+    const base = protocol(req) + "://" + req.get('host');
 
     // key gen
     // keytool -genkeypair -keystore myKeystore.p12 -storetype PKCS12 -storepass 012345678901234567890123456789AB -alias LoginCert -keyalg RSA -keysize 2048 -sigalg SHA1WithRSA -validity 99999 -dname "CN=Wulkanowy, OU=Wulkanowy, O=Wulkanowy, L=Jaroslaw, ST=podkarpackie, C=WLKNW" -ext san=dns:fakelog.cf,dns:localhost,ip:127.0.0.1

@@ -3,6 +3,7 @@ const router = express.Router();
 const protocol = require('../utils/connection');
 const dictMap = require('../utils/dictMap');
 const converter = require('../utils/converter');
+const Tokens = require('csrf');
 const {format, fromUnixTime, getYear, addYears, addMonths, addDays, differenceInDays, toDate} = require('date-fns');
 
 router.get("/", (req, res) => {
@@ -341,8 +342,26 @@ router.all("/Pomoc.mvc/Get", (req, res) => {
 });
 
 router.all("/RejestracjaUrzadzeniaToken.mvc/Get", (req, res) => {
+    const student = require('../../data/api/ListaUczniow')[1];
+    const base = protocol(req) + "://" + req.get('host');
+    const token = new Tokens({secretLength: 97, saltLength: 4});
+    const secret = token.secretSync();
     res.json({
-        "data": {},
+        "data": {
+            "TokenId": 423,
+            "TokenKey": "FK100000",
+            "CustomerGroup": "Default",
+            "CustomerSymbol": student.JednostkaSprawozdawczaSymbol,
+            "QrCodeContent": `CERT#${base}/Default/mobile-api#FK100000#ENDCERT`,
+            "QrCodeContentEncoded": "xxx", // TODO: create and use qr encrypt
+            "QrCodeImage": "<img src=\"data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==\" alt=\"Kod QR\" title=\"Kod QR\" height=\"400\" width=\"400\" />",
+            "ImageSize": 400,
+            "IdLogin": student.UzytkownikLoginId,
+            "LoginValue": student.UzytkownikLogin,
+            "PIN": "999999",
+            "AntiForgeryAppGuid": secret,
+            "AntiForgeryToken": token.create(secret)
+        },
         "success": true
     });
 });
@@ -356,7 +375,7 @@ router.all("/RejestracjaUrzadzeniaToken.mvc/Delete", (req, res) => {
 
 router.all("/RejestracjaUrzadzeniaTokenCertyfikat.mvc/Get", (req, res) => {
     res.json({
-        "data": {},
+        "data": true,
         "success": true
     });
 });
@@ -497,7 +516,7 @@ router.all("/ZarejestrowaneUrzadzenia.mvc/Get", (req, res) => {
 
 router.all("/ZarejestrowaneUrzadzenia.mvc/Delete", (req, res) => {
     res.json({
-        "data": {},
+        "data": null,
         "success": true
     });
 });
