@@ -440,8 +440,20 @@ router.all("/Usprawiedliwienia.mvc/Post", (req, res) => {
 });
 
 router.all("/UwagiIOsiagniecia.mvc/Get", (req, res) => {
+    const categories = require("../../data/api/dictionaries/KategorieUwag");
+    const teachers = require("../../data/api/dictionaries/Pracownicy");
     res.json({
-        "data": {},
+        "data": {
+            "Uwagi": require("../../data/api/student/UwagiUcznia").map(item => {
+                return {
+                    "TrescUwagi": item.TrescUwagi,
+                    "Kategoria": dictMap.getByValue(categories, "Id", item.IdKategoriaUwag).Nazwa,
+                    "DataWpisu": format(fromUnixTime(item.DataWpisu), 'yyyy-MM-dd HH:mm:ss'),
+                    "Nauczyciel": `${item.PracownikImie} ${item.PracownikNazwisko} [${dictMap.getByValue(teachers, "Id", item.IdPracownik).Kod}]`
+                };
+            }),
+            "Osiagniecia": []
+        },
         "success": true
     });
 });
