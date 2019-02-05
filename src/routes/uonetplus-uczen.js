@@ -459,8 +459,31 @@ router.all("/UwagiIOsiagniecia.mvc/Get", (req, res) => {
 });
 
 router.all("/ZadaniaDomowe.mvc/Get", (req, res) => {
+    const subjects = require("../../data/api/dictionaries/Przedmioty");
+    const teachers = require("../../data/api/dictionaries/Nauczyciele");
+    const homework = require("../../data/api/student/ZadaniaDomowe");
+    const requestDate = req.body.data ? toDate(req.body.data.replace("T", " ").replace(/Z$/, '')) : toDate(homework[0].DataTekst);
+    // const baseOffset = differenceInDays(requestDate, toDate(homework[0].DataTekst));
+
     res.json({
-        "data": [],
+        "data": [...Array(7).keys()].map(j => {
+            return {
+                "Data": converter.formatDate(addDays(requestDate, j), true) + " 00:00:00",
+                "ZadaniaDomowe": homework.filter(item => {
+                    return j < 5;
+                    // return 0 === differenceInDays(addDays(requestDate, j), addDays(toDate(item.DataTekst), baseOffset));
+                }).map(item => {
+                    const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
+                    return {
+                        "Przedmiot": dictMap.getByValue(subjects, "Id", item.IdPrzedmiot).Nazwa,
+                        "Pracownik": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}], ${converter.formatDate(new Date(item.DataTekst))}`,
+                        "Opis": item.Opis,
+                        "DataModyfikacji": converter.formatDate(new Date(item.DataTekst), true) + " 00:00:00"
+                    };
+                }),
+                "Pokazuj": j < 5
+            }
+        }),
         "success": true
     });
 });
