@@ -533,8 +533,31 @@ router.all("/Statystyki.mvc/GetPunkty", (req, res) => {
 });
 
 router.all("/SzkolaINauczyciele.mvc/Get", (req, res) => {
+    const teachers = require("../../data/api/student/Nauczyciele");
+    const subjectsDict = require("../../data/api/dictionaries/Przedmioty");
+    const teachersDict = require("../../data/api/dictionaries/Pracownicy");
+
+    const headmaster = dictMap.getByValue(teachersDict, "Id", teachers.NauczycieleSzkola[0].IdPracownik);
+    const tutor = dictMap.getByValue(teachersDict, "Id", teachers.NauczycieleSzkola[3].IdPracownik);
     res.json({
-        "data": {},
+        "data": {
+            "Szkola": {
+                "Nazwa": res.locals.userInfo.JednostkaNazwa,
+                "Adres": "",
+                "Kontakt": "",
+                "Dyrektor": `${headmaster.Imie} ${headmaster.Nazwisko}`,
+                "Pedagog": `${tutor.Imie} ${tutor.Nazwisko}`,
+                "Id": 0
+            },
+            "Nauczyciele": require("../../data/api/student/Nauczyciele").NauczycielePrzedmioty.map(item => {
+                const teacher = dictMap.getByValue(teachersDict, "Id", item.IdPracownik);
+                return {
+                    "Nazwa": dictMap.getByValue(subjectsDict, "Id", item.IdPrzedmiot).Nazwa,
+                    "Nauczyciel": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}]`,
+                    "Id": 0
+                };
+            })
+        },
         "success": true
     });
 });

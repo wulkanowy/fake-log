@@ -358,13 +358,13 @@ router.get("/Szkola.mvc/Nauczyciele", (req, res) => {
     const tutor = dictMap.getByValue(teachersDict, "Id", teachers.NauczycieleSzkola[3].IdPracownik);
     res.render("opiekun/szkola", {
         title: "Witryna ucznia i rodzica – Szkoła i nauczyciele",
-        headMaster: headmaster.Imie + " " + headmaster.Nazwisko,
-        tutor: tutor.Imie + " " + tutor.Nazwisko,
+        headMaster: `${headmaster.Imie} ${headmaster.Nazwisko}`,
+        tutor: `${tutor.Imie} ${tutor.Nazwisko}`,
         teachers: teachers.NauczycielePrzedmioty.map(item => {
             const teacher = dictMap.getByValue(teachersDict, "Id", item.IdPracownik);
             return {
                 subject: dictMap.getByValue(subjectsDict, "Id", item.IdPrzedmiot).Nazwa,
-                name: teacher.Imie + " " + teacher.Nazwisko + " [" + teacher.Kod + "]"
+                name: `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}]`
             };
         })
     });
