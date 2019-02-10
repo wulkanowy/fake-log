@@ -11,7 +11,7 @@
     "body-parser": "~1.18.3",
     "cookie-parser": "~1.4.3",
     "csrf": "^3.0.6",
-    "date-fns": "^2.0.0-alpha.24",
+    "date-fns": "^2.0.0-alpha.27",
     "debug": "^4.1.1",
     "express": "~4.16.4",
     "express-subdomain": "^1.0.5",
@@ -24,7 +24,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "jshint": "^2.9.7",
-    "nodemon": "^1.18.9"
+    "jshint": "^2.10.1",
+    "nodemon": "^1.18.10"
   }
 }

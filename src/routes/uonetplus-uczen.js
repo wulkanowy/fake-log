@@ -5,7 +5,7 @@ const dictMap = require('../utils/dictMap');
 const converter = require('../utils/converter');
 const Tokens = require('csrf');
 const _ = require('lodash');
-const {format, fromUnixTime, getYear, addYears, addMonths, addDays, differenceInDays, toDate} = require('date-fns');
+const {format, fromUnixTime, getYear, addYears, addMonths, addDays, differenceInDays, parseISO} = require('date-fns');
 
 router.get("/", (req, res) => {
     const base = protocol(req) + "://" + req.get('host') + "/Default/123456";
@@ -371,13 +371,13 @@ router.all("/LekcjeZrealizowane.mvc/GetPrzedmioty", (req, res) => {
 
 router.all("/LekcjeZrealizowane.mvc/GetZrealizowane", (req, res) => {
     const realized = require("../../data/opiekun/plan-zrealizowane.json");
-    const requestDate = req.body.poczatek ? toDate(req.body.poczatek.replace("T", " ").replace(/Z$/, '')) : toDate(realized[0].date);
-    const baseOffset = differenceInDays(requestDate, toDate(realized[0].date));
+    const requestDate = req.body.poczatek ? parseISO(req.body.poczatek.replace("T", " ").replace(/Z$/, '')) : parseISO(realized[0].date);
+    const baseOffset = differenceInDays(requestDate, parseISO(realized[0].date));
 
     res.json({
         "data": _.groupBy(realized.map(item => {
             return {
-                "Data": `${converter.formatDate(addDays(toDate(item.date), baseOffset), true)} 00:00:00`,
+                "Data": `${converter.formatDate(addDays(parseISO(item.date), baseOffset), true)} 00:00:00`,
                 "Przedmiot": item.subject,
                 "NrLekcji": item.number,
                 "Temat": item.topic,
@@ -507,8 +507,8 @@ router.all("/Sprawdziany.mvc/Get", (req, res) => {
     const subjects = require("../../data/api/dictionaries/Przedmioty");
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
     const exams = require("../../data/api/student/Sprawdziany");
-    const requestDate = req.body.data ? toDate(req.body.data.replace("T", " ").replace(/Z$/, '')) : toDate(exams[0].DataTekst);
-    const baseOffset = differenceInDays(requestDate, toDate(exams[0].DataTekst));
+    const requestDate = req.body.data ? parseISO(req.body.data.replace("T", " ").replace(/Z$/, '')) : parseISO(exams[0].DataTekst);
+    const baseOffset = differenceInDays(requestDate, parseISO(exams[0].DataTekst));
 
     res.json({
         "data": [...Array(4).keys()].map(function (j) {
@@ -517,7 +517,7 @@ router.all("/Sprawdziany.mvc/Get", (req, res) => {
                     return {
                         "Data": converter.formatDate(day[2], true) + " 00:00:00",
                         "Sprawdziany": exams.filter(exam => {
-                            return 0 === differenceInDays(day[2], addDays(toDate(exam.DataTekst), baseOffset + (7 * j)));
+                            return 0 === differenceInDays(day[2], addDays(parseISO(exam.DataTekst), baseOffset + (7 * j)));
                         }).map(item => {
                             const subject = dictMap.getByValue(subjects, "Id", item.IdPrzedmiot);
                             const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
@@ -627,8 +627,8 @@ router.all("/ZadaniaDomowe.mvc/Get", (req, res) => {
     const subjects = require("../../data/api/dictionaries/Przedmioty");
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
     const homework = require("../../data/api/student/ZadaniaDomowe");
-    const requestDate = req.body.data ? toDate(req.body.data.replace("T", " ").replace(/Z$/, '')) : toDate(homework[0].DataTekst);
-    // const baseOffset = differenceInDays(requestDate, toDate(homework[0].DataTekst));
+    const requestDate = req.body.data ? parseISO(req.body.data.replace("T", " ").replace(/Z$/, '')) : parseISO(homework[0].DataTekst);
+    // const baseOffset = differenceInDays(requestDate, parseISO(homework[0].DataTekst));
 
     res.json({
         "data": [...Array(7).keys()].map(j => {
@@ -636,7 +636,7 @@ router.all("/ZadaniaDomowe.mvc/Get", (req, res) => {
                 "Data": converter.formatDate(addDays(requestDate, j), true) + " 00:00:00",
                 "ZadaniaDomowe": homework.filter(item => {
                     return j < 5;
-                    // return 0 === differenceInDays(addDays(requestDate, j), addDays(toDate(item.DataTekst), baseOffset));
+                    // return 0 === differenceInDays(addDays(requestDate, j), addDays(parseISO(item.DataTekst), baseOffset));
                 }).map(item => {
                     const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
                     return {
