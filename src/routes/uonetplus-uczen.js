@@ -4,6 +4,7 @@ const protocol = require('../utils/connection');
 const dictMap = require('../utils/dictMap');
 const converter = require('../utils/converter');
 const Tokens = require('csrf');
+const _ = require('lodash');
 const {format, fromUnixTime, getYear, addYears, addMonths, addDays, differenceInDays, toDate} = require('date-fns');
 
 router.get("/", (req, res) => {
@@ -352,15 +353,42 @@ router.all("/Jadlospis.mvc/Get", (req, res) => {
 });
 
 router.all("/LekcjeZrealizowane.mvc/GetPrzedmioty", (req, res) => {
+    const subjects = require("../../data/api/dictionaries/Przedmioty").map(item => {
+        return {
+            "IdPrzedmiot": item.Id,
+            "Nazwa": item.Nazwa
+        };
+    });
+    subjects.unshift({
+        "IdPrzedmiot": -1,
+        "Nazwa": "Wszystkie"
+    });
     res.json({
-        "data": {},
+        "data": subjects,
         "success": true
     });
 });
 
 router.all("/LekcjeZrealizowane.mvc/GetZrealizowane", (req, res) => {
+    const realized = require("../../data/opiekun/plan-zrealizowane.json");
+    const requestDate = req.body.poczatek ? toDate(req.body.poczatek.replace("T", " ").replace(/Z$/, '')) : toDate(realized[0].date);
+    const baseOffset = differenceInDays(requestDate, toDate(realized[0].date));
+
     res.json({
-        "data": {},
+        "data": _.groupBy(realized.map(item => {
+            return {
+                "Data": `${converter.formatDate(addDays(toDate(item.date), baseOffset), true)} 00:00:00`,
+                "Przedmiot": item.subject,
+                "NrLekcji": item.number,
+                "Temat": item.topic,
+                "Nauczyciel": `${item.teacher} [${item.teacherSymbol}]`,
+                "Zastepstwo": "",
+                "Nieobecnosc": item.absence,
+                "PseudonimUcznia": null,
+                "ZasobyPubliczne": "",
+                "PrzedmiotDisplay": item.subject
+            };
+        }), item => converter.formatDate(new Date(item.Data))),
         "success": true
     });
 });
