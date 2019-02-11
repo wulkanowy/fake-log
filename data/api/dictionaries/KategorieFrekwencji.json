@@ -12,7 +12,7 @@
   },
   {
     "Id": 2,
-    "Nazwa": "nieobecność",
+    "Nazwa": "nieobecność nieusprawiedliwiona",
     "Pozycja": 1000,
     "Obecnosc": false,
     "Nieobecnosc": true,
@@ -34,7 +34,7 @@
   },
   {
     "Id": 4,
-    "Nazwa": "spóźnienie",
+    "Nazwa": "spóźnienie nieusprawiedliwione",
     "Pozycja": 1000,
     "Obecnosc": true,
     "Nieobecnosc": false,
