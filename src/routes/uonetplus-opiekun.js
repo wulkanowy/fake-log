@@ -295,8 +295,12 @@ router.get("/Lekcja(\.mvc|)/Zrealizowane", (req, res) => {
         title: "Witryna ucznia i rodzica – Plan lekcji",
         subjects: require("../../data/api/dictionaries/Przedmioty"),
         data: _.groupBy(require("../../data/opiekun/plan-zrealizowane.json").map(item => {
-            item.date = converter.formatDate(new Date(item.date));
-            return item;
+            return {
+                // jshint ignore:start
+                ...item,
+                // jshint ignore:end
+                date: converter.formatDate(new Date(item.date))
+            };
         }), "date")
     });
 });
