@@ -14,7 +14,8 @@ router.get("/", (req, res) => {
                 "/Wiadomosc.mvc/GetWiadomosciUsuniete",
                 "/NowaWiadomosc.mvc/GetJednostkiUzytkownika",
                 "/Adresaci.mvc/GetAdresaci",
-                "/Wiadomosc.mvc/GetTrescWiadomosci"
+                "/Wiadomosc.mvc/GetTrescWiadomosci",
+                "/NowaWiadomosc.mvc/InsertWiadomosc"
             ].map(item => {
                 return base + item;
             })
@@ -119,6 +120,32 @@ router.all("/Wiadomosc.mvc/GetTrescWiadomosci", (req, res) => {
         "data": {
             "Id": message.WiadomoscId,
             "Tresc": message.Tresc
+        }
+    });
+});
+
+router.all("/NowaWiadomosc.mvc/InsertWiadomosc", (req, res) => {
+    let data = req.body.incomming;
+    res.json({
+        "success": true,
+        "data": {
+            "Adresaci": data.Adresaci.map(item => {
+                item["PushWiadomosc"] = false;
+                return item;
+            }),
+            "Temat": data.Temat,
+            "Tresc": data.Tresc,
+            "Nadawca": {
+                "Id": null,
+                "Nazwa": "Kowalski Jan",
+                "IdLogin": 0,
+                "IdJednostkaSprawozdawcza": null,
+                "Rola": 0,
+                "PushWiadomosc": null,
+                "Hash": "hash"
+            },
+            "WiadomoscPowitalna": false,
+            "Id": data.Id
         }
     });
 });
