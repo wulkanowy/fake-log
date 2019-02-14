@@ -130,7 +130,7 @@ router.all("/NowaWiadomosc.mvc/InsertWiadomosc", (req, res) => {
         "success": true,
         "data": {
             "Adresaci": data.Adresaci.map(item => {
-                item["PushWiadomosc"] = false;
+                item.PushWiadomosc = false;
                 return item;
             }),
             "Temat": data.Temat,
