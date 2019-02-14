@@ -541,14 +541,59 @@ router.all("/Sprawdziany.mvc/Get", (req, res) => {
 
 router.all("/Statystyki.mvc/GetOcenyCzastkowe", (req, res) => {
     res.json({
-        "data": {},
+        "data": _.chain(require("../../data/opiekun/oceny-statystyki-czastkowe"))
+            .groupBy("subject")
+            .map((series, subject) => ({ subject, series }))
+            .value()
+            .map(item => {
+                return {
+                    "Subject": item.subject,
+                    "IsAverage": false,
+                    "ClassSeries": {
+                        "Average": null,
+                        "IsEmpty": false,
+                        "Items": item.series.map(item => {
+                            return {
+                                "Label": item.classAmount.toString(),
+                                "Value": item.classAmount
+                            };
+                        })
+                    },
+                    "StudentSeries": {
+                        "Average": null,
+                        "IsEmpty": false,
+                        "Items": item.series.map(item => {
+                            return {
+                                "Label": item.pupilAmount.toString(),
+                                "Value": item.pupilAmount
+                            };
+                        })
+                    }
+                };
+            }),
         "success": true
     });
 });
 
 router.all("/Statystyki.mvc/GetOcenyRoczne", (req, res) => {
     res.json({
-        "data": {},
+        "data": _.chain(require("../../data/opiekun/oceny-statystyki-roczne"))
+            .groupBy("subject")
+            .map((series, subject) => ({ subject, series }))
+            .value()
+            .map(item => {
+                return {
+                    "Subject": item.subject,
+                    "IsEmpty": false,
+                    "Items": item.series.map((item, i) => {
+                        return {
+                            "Label": item.amount.toString(),
+                            "Description": i === 2 ? "Tu jesteś" : "",
+                            "Value": item.amount
+                        };
+                    })
+                };
+            }),
         "success": true
     });
 });
