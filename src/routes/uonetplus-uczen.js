@@ -5,6 +5,7 @@ const dictMap = require('../utils/dictMap');
 const converter = require('../utils/converter');
 const Tokens = require('csrf');
 const _ = require('lodash');
+const { getGradeColorByCategoryName } = require("../utils/gradeColor");
 const {format, fromUnixTime, getYear, addYears, addMonths, addDays, differenceInDays, parseISO} = require('date-fns');
 
 router.get("/", (req, res) => {
@@ -408,14 +409,15 @@ router.all("/Oceny.mvc/Get", (req, res) => {
                     "Pozycja": item.Pozycja,
                     "OcenyCzastkowe": require("../../data/api/student/Oceny").filter(grade => grade.IdPrzedmiot === item.Id).map(item => {
                         const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownikD);
+                        const category = dictMap.getByValue(subjectCategories, "Id", item.IdKategoria);
                         return {
                             "Nauczyciel": `${teacher.Imie} ${teacher.Nazwisko}`,
                             "Wpis": item.Wpis,
                             "Waga": Math.round(item.WagaOceny),
                             "NazwaKolumny": item.Opis,
-                            "KodKolumny": dictMap.getByValue(subjectCategories, "Id", item.IdKategoria).Kod,
+                            "KodKolumny": category.Kod,
                             "DataOceny": converter.formatDate(new Date(item.DataUtworzenia * 1000)),
-                            "KolorOceny": 0
+                            "KolorOceny": parseInt(getGradeColorByCategoryName(category.Nazwa), 16)
                         };
                     }),
                     "ProponowanaOcenaRoczna": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id, {"Wpis": ""}).Wpis,

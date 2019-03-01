@@ -21,7 +21,8 @@
     "node-sass-middleware": "^0.11.0",
     "pug": "^2.0.3",
     "serve-favicon": "~2.5.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "lodash": "latest"
   },
   "devDependencies": {
     "jshint": "^2.10.1",

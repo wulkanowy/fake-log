@@ -2,32 +2,32 @@
   {
     "Id": 26,
     "Kod": "Akt",
-    "Nazwa": "Aktywność"
+    "Nazwa": "A - aktywność (czarny, waga 3)"
   },
   {
     "Id": 27,
     "Kod": "Bież",
-    "Nazwa": "Bieżące"
+    "Nazwa": "B - bieżące (fiol,waga 8)"
   },
   {
     "Id": 28,
     "Kod": "Kart",
-    "Nazwa": "Kartkówka"
+    "Nazwa": "K - kartkówka (zielony, waga 5)"
   },
   {
     "Id": 29,
     "Kod": "Spr",
-    "Nazwa": "Sprawdzian"
+    "Nazwa": "S - sprawdzian (czerwony, waga 10)"
   },
   {
     "Id": 30,
     "Kod": "Z.dom",
-    "Nazwa": "Zadanie domowe"
+    "Nazwa": "Zd - zadanie domowe (czarny, waga 2)"
   },
   {
     "Id": 65,
     "Kod": "odp",
-    "Nazwa": "Odpowiedź ustna"
+    "Nazwa": "OD - odpowiedź ustna (czarny, waga 5)"
   },
   {
     "Id": 67,

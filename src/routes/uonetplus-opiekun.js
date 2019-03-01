@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const converter = require('../utils/converter');
 const dictMap = require('../utils/dictMap');
+const { getGradeColorByCategoryName } = require("../utils/gradeColor");
 const _ = require('lodash');
 
 global.opiekunRoot = "/Default/123456";
@@ -65,11 +66,12 @@ router.get("/Oceny(\.mvc|)/Wszystkie", (req, res) => {
     if (req.query.details === '2') {
         data = details.map(item => {
             const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownikD);
+            const category = dictMap.getByValue(subjectCategories, "Id", item.IdKategoria);
             return {
                 "subject": dictMap.getByValue(subjects, "Id", item.IdPrzedmiot).Nazwa,
                 "value": item.Wpis === "" ? item.Komentarz : item.Wpis,
-                "color": "000000",
-                "symbol": dictMap.getByValue(subjectCategories, "Id", item.IdKategoria).Kod,
+                "color": getGradeColorByCategoryName(category.Nazwa),
+                "symbol": category.Kod,
                 "description": item.Opis,
                 "weight": item.Waga,
                 "date": converter.formatDate(new Date(item.DataUtworzenia * 1000)),
@@ -225,7 +227,7 @@ router.get("/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
     const daysWithGaps = _.mapValues(days, day => {
         const dayWithGaps = [];
         let prevNumber = null;
-        
+
         const beforeGap = day[0].number - firstLesson;
 
         for (i = 0; i < beforeGap; i++) {
@@ -257,7 +259,7 @@ router.get("/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
             }
 
             prevNumber = lesson.number;
-            
+
             dayWithGaps.push(lesson);
         });
 
@@ -273,12 +275,12 @@ router.get("/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
                 end: times.KoniecTekst,
             });
         }
-        
+
         return dayWithGaps;
     });
 
     const data = _.groupBy(_.flatten(_.values(daysWithGaps)), "number");
-    
+
     res.render("opiekun/plan-zajec", {
         title: "Witryna ucznia i rodzica – Plan lekcji",
         data,
@@ -346,7 +348,7 @@ router.get("/ZadaniaDomowe.mvc", (req, res) => {
                 date: converter.formatDate(date),
                 dayName: converter.getDayName(date),
                 entryDate: converter.formatDate(new Date(item.DataTekst)),
-                teacher: teacher.Imie + " " +  teacher.Nazwisko,
+                teacher: teacher.Imie + " " + teacher.Nazwisko,
                 teacherSymbol: teacher.Kod,
                 subject: dictMap.getByValue(subjects, "Id", item.IdPrzedmiot).Nazwa,
                 content: item.Opis
