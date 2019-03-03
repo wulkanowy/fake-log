@@ -14,6 +14,7 @@ router.get("/", (req, res) => {
                 "/Wiadomosc.mvc/GetWiadomosciUsuniete",
                 "/NowaWiadomosc.mvc/GetJednostkiUzytkownika",
                 "/Adresaci.mvc/GetAdresaci",
+                "/Wiadomosc.mvc/GetAdresaciWiadomosci",
                 "/Wiadomosc.mvc/GetTrescWiadomosci",
                 "/NowaWiadomosc.mvc/InsertWiadomosc"
             ].map(item => {
@@ -105,6 +106,24 @@ router.get("/Adresaci.mvc/GetAdresaci", (req, res) => {
                 "Nazwa": `${item.Imie} ${item.Nazwisko} [${item.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
                 "IdLogin": item.Id,
                 "IdJednostkaSprawozdawcza": user.IdJednostkaSprawozdawcza,
+                "Rola": 2,
+                "PushWiadomosc": null,
+                "Hash": Buffer.from(md5(item.Id)).toString('base64')
+            };
+        })
+    });
+});
+
+router.get("/Wiadomosc.mvc/GetAdresaciWiadomosci", (req, res) => {
+    const user = require("../../data/api/ListaUczniow")[1];
+    res.json({
+        "success": true,
+        "data": require("../../data/api/dictionaries/Pracownicy").slice(0, 2).map(item => {
+            return {
+                "Id": `${item.Id}rPracownik`,
+                "Nazwa": `${item.Imie} ${item.Nazwisko} [${item.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
+                "IdLogin": item.Id,
+                "IdJednostkaSprawozdawcza": null,
                 "Rola": 2,
                 "PushWiadomosc": null,
                 "Hash": Buffer.from(md5(item.Id)).toString('base64')
