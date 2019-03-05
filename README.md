@@ -16,4 +16,4 @@ $ npm start
 
 - **Email**: `jan@fakelog.cf`
 - **Password**: `jan123`
-- **Log**: `Fakelog` for [fakelog.cf](https://fakelog.cf) or `Fakelog lokalnie` for local
+- **Log**: `Fakelog`
