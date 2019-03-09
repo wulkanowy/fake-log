@@ -1,0 +1,27 @@
+[
+  {  
+    "NazwaPrzedmiotu": "Zachowanie",
+    "Opis": "minus celujący",
+    "IsReligiaEtyka": false
+  },
+  {  
+    "NazwaPrzedmiotu": "Religia/Etyka",
+    "Opis": "5",
+    "IsReligiaEtyka": true
+  },
+  {  
+    "NazwaPrzedmiotu": "Edukacja wczesnoszkolna",
+    "Opis": "dostateczny",
+    "IsReligiaEtyka": false
+  },
+  {  
+    "NazwaPrzedmiotu": "Zajęcia dodatkowe",
+    "Opis": "",
+    "IsReligiaEtyka": false
+  },
+  {  
+    "NazwaPrzedmiotu": "Zajęcia inne",
+    "Opis": "4",
+    "IsReligiaEtyka": false
+  }
+]
