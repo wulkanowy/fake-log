@@ -453,9 +453,9 @@ router.all("/Oplaty.mvc/Get", (req, res) => {
 });
 
 router.all("/PlanZajec.mvc/Get", (req, res) => {
-    const requestDate = req.body.data
-        ? parseISO(req.body.data.replace("T", " ").replace(/Z$/, ''))
-        : startOfWeek(new Date(), { weekStartsOn: 1 });
+    const requestDate = req.body.data ?
+        parseISO(req.body.data.replace("T", " ").replace(/Z$/, '')) :
+        startOfWeek(new Date(), { weekStartsOn: 1 });
 
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
     const lessons = _.map(_.groupBy(require("../../data/api/student/PlanLekcjiZeZmianami").map((item) => {
@@ -489,7 +489,7 @@ router.all("/PlanZajec.mvc/Get", (req, res) => {
         };
         let prevDay = subDays(earliestDay, 1);
         item.forEach(lesson => {
-            const gapSize = differenceInDays(lesson.date, prevDay) - 1
+            const gapSize = differenceInDays(lesson.date, prevDay) - 1;
             for (i = 0; i < gapSize; i++) {
                 row.lessons.push(''); 
             }
