@@ -490,7 +490,7 @@ router.all("/PlanZajec.mvc/Get", (req, res) => {
         let prevDay = subDays(earliestDay, 1);
         item.forEach(lesson => {
             const gapSize = differenceInDays(lesson.date, prevDay) - 1;
-            for (i = 0; i < gapSize; i++) {
+            for (let i = 0; i < gapSize; i++) {
                 row.lessons.push(''); 
             }
             let cell = '';
