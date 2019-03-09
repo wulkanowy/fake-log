@@ -468,6 +468,7 @@ router.all("/PlanZajec.mvc/Get", (req, res) => {
             start: times.PoczatekTekst,
             end: times.KoniecTekst,
             subject: item.PrzedmiotNazwa,
+            group: item.PodzialSkrot,
             teacher: `${teacher.Imie} ${teacher.Nazwisko}`,
             oldTeacher: !_.isEmpty(oldTeacher) ? `${oldTeacher.Imie} ${oldTeacher.Nazwisko}` : false,
             room: item.Sala,
@@ -492,7 +493,29 @@ router.all("/PlanZajec.mvc/Get", (req, res) => {
             for (i = 0; i < gapSize; i++) {
                 row.lessons.push(''); 
             }
-            row.lessons.push('Lesson');
+            let cell = '';
+            if (lesson.oldTeacher) {
+                cell += `<span class="x-treelabel-inv">${lesson.subject}</span>`;
+                cell += `<span class="x-treelabel-inv">${lesson.oldTeacher}</span>`;
+                cell += `<span class="x-treelabel-inv">${lesson.room}</span>`;
+                cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.subject}</span>`;
+                cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.teacher}</span>`;
+                cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.room}</span>`;
+                cell += `<span class="x-treelabel-rlz">${lesson.info}</span>`;
+            } else {
+                if (lesson.group) {
+                    cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.subject} [${lesson.group}]</span>`;
+                    cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}"></span>`;
+                } else {
+                    cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.subject}</span>`;
+                }
+                cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.teacher}</span>`;
+                cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.room}</span>`;
+                if (lesson.info) {
+                    cell += `<span class="x-treelabel-rlz">${lesson.info}</span>`;
+                }
+            }
+            row.lessons.push(`<div>${cell}</div>`);
             prevDay = lesson.date;
         });
         const gapSize = differenceInDays(latestDay, prevDay);
