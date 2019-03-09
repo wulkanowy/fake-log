@@ -6,7 +6,7 @@ const converter = require('../utils/converter');
 const Tokens = require('csrf');
 const _ = require('lodash');
 const { getGradeColorByCategoryName } = require("../utils/gradeColor");
-const {format, fromUnixTime, getYear, addYears, addMonths, addDays, differenceInDays, parseISO} = require('date-fns');
+const {format, fromUnixTime, getYear, addYears, addMonths, addDays, subDays, differenceInDays, parseISO, startOfWeek} = require('date-fns');
 
 router.get("/", (req, res) => {
     const base = protocol(req) + "://" + req.get('host') + "/Default/123456";
@@ -453,8 +453,122 @@ router.all("/Oplaty.mvc/Get", (req, res) => {
 });
 
 router.all("/PlanZajec.mvc/Get", (req, res) => {
+    const requestDate = req.body.data ?
+        parseISO(req.body.data.replace("T", " ").replace(/Z$/, '')) :
+        startOfWeek(new Date(), { weekStartsOn: 1 });
+
+    const teachers = require("../../data/api/dictionaries/Nauczyciele");
+    const lessons = _.map(_.groupBy(require("../../data/api/student/PlanLekcjiZeZmianami").map((item) => {
+        const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
+        const oldTeacher = dictMap.getByValue(teachers, "Id", item.IdPracownikOld);
+        const times = dictMap.getByValue(require("../../data/api/dictionaries/PoryLekcji"), "Id", item.IdPoraLekcji);
+        return {
+            number: item.NumerLekcji,
+            id: item.IdPoraLekcji,
+            start: times.PoczatekTekst,
+            end: times.KoniecTekst,
+            subject: item.PrzedmiotNazwa,
+            group: item.PodzialSkrot,
+            teacher: `${teacher.Imie} ${teacher.Nazwisko}`,
+            oldTeacher: !_.isEmpty(oldTeacher) ? `${oldTeacher.Imie} ${oldTeacher.Nazwisko}` : false,
+            room: item.Sala,
+            info: item.AdnotacjaOZmianie,
+            changes: item.PogrubionaNazwa,
+            canceled: item.PrzekreslonaNazwa,
+            date: new Date(item.DzienTekst),
+        };
+    }), 'number'), number => number.sort((a, b) => (a.date - b.date)));
+
+    const earliestDay = new Date(_.minBy(_.flatten(_.values(lessons)), i => new Date(i.date)).date);
+    const latestDay = new Date(_.maxBy(_.flatten(_.values(lessons)), i => new Date(i.date)).date);
+
+    const rows = _.values(_.mapValues(lessons, item => {
+        const row = {
+            times: `${[item[0].number]}<br />${[item[0].start]}<br />${[item[0].end]}`,
+            lessons: [],
+        };
+        let prevDay = subDays(earliestDay, 1);
+        item.forEach(lesson => {
+            const gapSize = differenceInDays(lesson.date, prevDay) - 1;
+            for (let i = 0; i < gapSize; i++) {
+                row.lessons.push(''); 
+            }
+            let cell = '';
+            if (lesson.oldTeacher) {
+                cell += `<span class="x-treelabel-inv">${lesson.subject}</span>`;
+                cell += `<span class="x-treelabel-inv">${lesson.oldTeacher}</span>`;
+                cell += `<span class="x-treelabel-inv">${lesson.room}</span>`;
+                cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.subject}</span>`;
+                cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.teacher}</span>`;
+                cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.room}</span>`;
+                cell += `<span class="x-treelabel-rlz">${lesson.info}</span>`;
+            } else {
+                if (lesson.group) {
+                    cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.subject} [${lesson.group}]</span>`;
+                    cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}"></span>`;
+                } else {
+                    cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.subject}</span>`;
+                }
+                cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.teacher}</span>`;
+                cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.room}</span>`;
+                if (lesson.info) {
+                    cell += `<span class="x-treelabel-rlz">${lesson.info}</span>`;
+                }
+            }
+            row.lessons.push(`<div>${cell}</div>`);
+            prevDay = lesson.date;
+        });
+        const gapSize = differenceInDays(latestDay, prevDay);
+        for (let i = 0; i < gapSize; i++) {
+            row.lessons.push(''); 
+        }
+
+        return row;
+    }));
+
     res.json({
-        "data": {},
+        "data": {
+            "Data": format(requestDate, 'yyyy-MM-dd HH-mm-ss'),
+            "Header": [
+                {
+                    "Text": "Lekcja",
+                    "Width": "85",
+                    "Distinction": false,
+                    "Flex": 0,
+                },
+                {
+                    "Text": `poniedziałek<br />${converter.formatDate(addDays(requestDate, 0))}`,
+                    "Width": null,
+                    "Distinction": false,
+                    "Flex": 1,
+                },
+                {
+                    "Text": `wtorek<br />${converter.formatDate(addDays(requestDate, 1))}`,
+                    "Width": null,
+                    "Distinction": false,
+                    "Flex": 1,
+                },
+                {
+                    "Text": `środa<br />${converter.formatDate(addDays(requestDate, 2))}`,
+                    "Width": null,
+                    "Distinction": false,
+                    "Flex": 1,
+                },
+                {
+                    "Text": `czwartek<br />${converter.formatDate(addDays(requestDate, 3))}`,
+                    "Width": null,
+                    "Distinction": false,
+                    "Flex": 1,
+                },
+                {
+                    "Text": `piątek<br />${converter.formatDate(addDays(requestDate, 4))}`,
+                    "Width": null,
+                    "Distinction": false,
+                    "Flex": 1,
+                },
+            ],
+            "Rows": rows.map(row => [row.times, ...row.lessons]),
+        },
         "success": true
     });
 });
