@@ -398,6 +398,7 @@ router.all("/Oceny.mvc/Get", (req, res) => {
     const summary = require("../../data/api/student/OcenyPodsumowanie");
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
     const subjectCategories = require("../../data/api/dictionaries/KategorieOcen");
+    const descriptiveGrades = require("../../data/api/student/OcenyOpisowe");
 
     res.json({
         "data": {
@@ -429,7 +430,7 @@ router.all("/Oceny.mvc/Get", (req, res) => {
                     "WidocznyPrzedmiot": false
                 };
             }),
-            "OcenyOpisowe": [],
+            "OcenyOpisowe": descriptiveGrades,
             "TypOcen": 2,
             "IsOstatniSemestr": false,
             "IsDlaDoroslych": false
