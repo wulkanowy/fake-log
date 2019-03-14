@@ -62,6 +62,7 @@ router.get("/Oceny(\.mvc|)/Wszystkie", (req, res) => {
     const details = require("../../data/api/student/Oceny");
     const subjectCategories = require("../../data/api/dictionaries/KategorieOcen");
     const summary = require("../../data/api/student/OcenyPodsumowanie");
+    const descriptiveGrades = require("../../data/api/student/OcenyOpisowe");
 
     if (req.query.details === '2') {
         data = details.map(item => {
@@ -81,14 +82,17 @@ router.get("/Oceny(\.mvc|)/Wszystkie", (req, res) => {
         viewPath = "opiekun/oceny-szczegolowy";
     } else {
         viewPath = "opiekun/oceny-skrocony";
-        data = subjects.map(item => {
-            return {
-                "subject": item.Nazwa,
-                "average": dictMap.getByValue(summary.SrednieOcen, "IdPrzedmiot", item.Id).Wpis,
-                "predictedRating": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id).Wpis,
-                "finalRating": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id).Wpis
-            };
-        });
+        data = {
+            normalGrades: subjects.map(item => {
+                return {
+                    "subject": item.Nazwa,
+                    "average": dictMap.getByValue(summary.SrednieOcen, "IdPrzedmiot", item.Id).Wpis,
+                    "predictedRating": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id).Wpis,
+                    "finalRating": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id).Wpis
+                };
+            }),
+            descriptiveGrades,
+        };
     }
 
     res.render(viewPath, {
