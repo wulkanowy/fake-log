@@ -96,9 +96,9 @@ router.all("/UczenDziennik.mvc/Get", (req, res) => {
                     // jshint ignore:end
                     OkresPoziom: i + 1 - 4,
                     IdOkresKlasyfikacyjny: (i + 1) * 2,
-                    year: getYear(fromUnixTime(item.OkresDataOd)) + i - array.length + 1,
-                    OkresDataOd: addYears(fromUnixTime(item.OkresDataOd), i - array.length + 1),
-                    OkresDataDo: addYears(fromUnixTime(item.OkresDataDo), i - array.length + 1)
+                    year: getYear(parseISO(item.OkresDataOdTekst)) + i - array.length + 1,
+                    OkresDataOd: addYears(parseISO(item.OkresDataOdTekst), i - array.length + 1),
+                    OkresDataDo: addYears(parseISO(item.OkresDataDoTekst), i - array.length + 1)
                 };
             }).reverse();
         }, []).map(item => {
