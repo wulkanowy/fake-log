@@ -94,7 +94,7 @@ router.all("/UczenDziennik.mvc/Get", (req, res) => {
                     // jshint ignore:start
                     ...item,
                     // jshint ignore:end
-                    OkresPoziom: i + 1 - 4,
+                    OkresPoziom: (i + 1 - 4) > 0 ? i + 1 - 4 : i + 1,
                     IdOkresKlasyfikacyjny: (i + 1) * 2,
                     year: getYear(parseISO(item.OkresDataOdTekst)) + i - array.length + 1,
                     OkresDataOd: addYears(parseISO(item.OkresDataOdTekst), i - array.length + 1),
