@@ -15,6 +15,7 @@ router.get("/", (req, res) => {
                 "/NowaWiadomosc.mvc/GetJednostkiUzytkownika",
                 "/Adresaci.mvc/GetAdresaci",
                 "/Wiadomosc.mvc/GetAdresaciWiadomosci",
+                "/Wiadomosc.mvc/GetRoleUzytkownika",
                 "/Wiadomosc.mvc/GetTrescWiadomosci",
                 "/NowaWiadomosc.mvc/InsertWiadomosc"
             ].map(item => {
@@ -114,7 +115,7 @@ router.get("/Adresaci.mvc/GetAdresaci", (req, res) => {
     });
 });
 
-router.get("/Wiadomosc.mvc/GetAdresaciWiadomosci", (req, res) => {
+router.get(["/Wiadomosc.mvc/GetAdresaciWiadomosci", "/Wiadomosc.mvc/GetRoleUzytkownika"], (req, res) => {
     const user = require("../../data/api/ListaUczniow")[1];
     res.json({
         "success": true,
