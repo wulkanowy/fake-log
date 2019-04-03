@@ -746,7 +746,8 @@ router.all("/SzkolaINauczyciele.mvc/Get", (req, res) => {
                     "Nauczyciel": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}]`,
                     "Id": 0
                 };
-            })
+            }),
+            "Klasa": "Klasa 8A"
         },
         "success": true
     });
