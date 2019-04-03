@@ -492,7 +492,7 @@ router.all("/PlanZajec.mvc/Get", (req, res) => {
         item.forEach(lesson => {
             const gapSize = differenceInDays(lesson.date, prevDay) - 1;
             for (let i = 0; i < gapSize; i++) {
-                row.lessons.push(''); 
+                row.lessons.push('');
             }
             let cell = '';
             if (lesson.oldTeacher) {
@@ -521,7 +521,7 @@ router.all("/PlanZajec.mvc/Get", (req, res) => {
         });
         const gapSize = differenceInDays(latestDay, prevDay);
         for (let i = 0; i < gapSize; i++) {
-            row.lessons.push(''); 
+            row.lessons.push('');
         }
 
         return row;
@@ -761,7 +761,9 @@ router.all("/Uczen.mvc/Get", (req, res) => {
 
 router.all("/Usprawiedliwienia.mvc/Post", (req, res) => {
     res.json({
-        "data": {},
+        "data": {
+            "success": true
+        },
         "success": true
     });
 });
