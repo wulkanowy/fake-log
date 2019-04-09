@@ -26,7 +26,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "jshint": "^2.10.1",
-    "nodemon": "^1.18.10"
+    "jshint": "^2.10.2",
+    "nodemon": "^1.18.11"
   }
 }
