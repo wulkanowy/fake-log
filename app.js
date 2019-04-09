@@ -4,6 +4,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
+const cors = require("cors");
 const protocol = require("./src/utils/connection");
 // const favicon = require('serve-favicon');
 
@@ -44,6 +45,12 @@ app.use((req, res, next) => {
     .replace(/(api|cufs|uonetplus|uonetplus-opiekun|uonetplus-uzytkownik)\./, "");
   next();
 });
+
+const corsOpt = {
+  origin: process.env.CORS_ALLOW_ORIGIN || '*'
+};
+app.use(cors(corsOpt));
+app.options('*', cors(corsOpt));
 
 app.use(subdomain('api', api));
 app.use(subdomain('cufs', cufs));
