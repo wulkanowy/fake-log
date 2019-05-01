@@ -27,6 +27,6 @@
   },
   "devDependencies": {
     "jshint": "^2.10.2",
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.19.0"
   }
 }
