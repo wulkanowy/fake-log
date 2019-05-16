@@ -32,7 +32,7 @@ router.all("/PlanLekcjiZeZmianami", (req, res) => {
             ...item,
             Dzien: getTime(date) / 1000,
             DzienTekst: converter.formatDate(date, true)
-        }
+        };
     })));
 });
 
@@ -55,7 +55,7 @@ router.all("/Sprawdziany", (req, res) => {
             ...item,
             Data: getTime(date) / 1000,
             DataTekst: converter.formatDate(date, true)
-        }
+        };
     })));
 });
 
@@ -79,7 +79,7 @@ router.all("/Frekwencje", (req, res) => {
                 ...item,
                 Dzien: getTime(date) / 1000,
                 DzienTekst: converter.formatDate(date, true)
-            }
+            };
         })
     }));
 });
@@ -95,7 +95,7 @@ router.all("/ZadaniaDomowe", (req, res) => {
             ...item,
             Data: getTime(date) / 1000,
             DataTekst: converter.formatDate(date, true)
-        }
+        };
     })));
 });
 
