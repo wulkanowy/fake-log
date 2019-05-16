@@ -1,5 +1,7 @@
 const router = require('express').Router({});
 const api = require('../../utils/api');
+const converter = require('../../utils/converter');
+const {addDays, differenceInDays, parseISO, startOfWeek, getTime} = require('date-fns');
 
 router.all("/LogAppStart", (req, res) => {
     res.json(api.createResponse("Log"));
@@ -20,7 +22,18 @@ router.all("/Slowniki", (req, res) => {
 });
 
 router.all("/PlanLekcjiZeZmianami", (req, res) => {
-   res.json(api.createResponse(require("../../../data/api/student/PlanLekcjiZeZmianami")));
+    const timetable = require("../../../data/api/student/PlanLekcjiZeZmianami");
+    const requestDate = req.body.DataPoczatkowa ? parseISO(req.body.DataPoczatkowa) : startOfWeek(new Date(), {weekStartsOn: 1});
+    const baseOffset = differenceInDays(requestDate, parseISO(timetable[0].DzienTekst));
+
+    res.json(api.createResponse(timetable.map(item => {
+        const date = addDays(parseISO(item.DzienTekst), baseOffset);
+        return {
+            ...item,
+            Dzien: getTime(date) / 1000,
+            DzienTekst: converter.formatDate(date, true)
+        }
+    })));
 });
 
 router.all("/Oceny", (req, res) => {
@@ -32,7 +45,18 @@ router.all("/OcenyPodsumowanie", (req, res) => {
 });
 
 router.all("/Sprawdziany", (req, res) => {
-    res.json(api.createResponse(require("../../../data/api/student/Sprawdziany")));
+    const exams = require("../../../data/api/student/Sprawdziany");
+    const requestDate = req.body.DataPoczatkowa ? parseISO(req.body.DataPoczatkowa) : startOfWeek(new Date(), {weekStartsOn: 1});
+    const baseOffset = differenceInDays(requestDate, parseISO(exams[0].DataTekst));
+
+    res.json(api.createResponse(exams.map(item => {
+        const date = addDays(parseISO(item.DataTekst), baseOffset);
+        return {
+            ...item,
+            Data: getTime(date) / 1000,
+            DataTekst: converter.formatDate(date, true)
+        }
+    })));
 });
 
 router.all("/UwagiUcznia", (req, res) => {
@@ -40,17 +64,39 @@ router.all("/UwagiUcznia", (req, res) => {
 });
 
 router.all("/Frekwencje", (req, res) => {
+    const attendance = require("../../../data/api/student/Frekwencje");
+    const requestDate = req.body.DataPoczatkowa ? parseISO(req.body.DataPoczatkowa) : startOfWeek(new Date(), {weekStartsOn: 1});
+    const baseOffset = differenceInDays(requestDate, parseISO(attendance[0].DzienTekst));
+
     res.json(api.createResponse({
         "DataPoczatkowa": 1524434400,
         "DataKoncowa": 1525039199,
-        "DataPoczatkowaTekst": "2018-04-23",
-        "DataKoncowaTekst": "2018-04-29",
-        "Frekwencje": require("../../../data/api/student/Frekwencje")
+        "DataPoczatkowaTekst": req.body.DataPoczatkowa,
+        "DataKoncowaTekst": req.body.DataKoncowa,
+        "Frekwencje": attendance.map(item => {
+            const date = addDays(parseISO(item.DzienTekst), baseOffset);
+            return {
+                ...item,
+                Dzien: getTime(date) / 1000,
+                DzienTekst: converter.formatDate(date, true)
+            }
+        })
     }));
 });
 
 router.all("/ZadaniaDomowe", (req, res) => {
-    res.json(api.createResponse(require("../../../data/api/student/ZadaniaDomowe")));
+    const homework = require("../../../data/api/student/ZadaniaDomowe");
+    const requestDate = req.body.DataPoczatkowa ? parseISO(req.body.DataPoczatkowa) : startOfWeek(new Date(), {weekStartsOn: 1});
+    const baseOffset = differenceInDays(requestDate, parseISO(homework[0].DataTekst));
+
+    res.json(api.createResponse(homework.map(item => {
+        const date = addDays(parseISO(item.DataTekst), baseOffset);
+        return {
+            ...item,
+            Data: getTime(date) / 1000,
+            DataTekst: converter.formatDate(date, true)
+        }
+    })));
 });
 
 router.all("/Nauczyciele", (req, res) => {
