@@ -31,6 +31,7 @@ a {
 
 .wrapper {
   flex: 1;
+  padding-bottom: 100px;
 }
 
 .container {
@@ -47,7 +48,13 @@ form {
 }
 
 .footer {
-  padding: 10px;
+  border-top: 1px solid;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
 
   &__nav {
     list-style: none;
@@ -56,7 +63,12 @@ form {
 
     li {
       display: inline-block;
-      margin: 0 5px;
+
+      a {
+        text-decoration: none;
+        padding: 10px 15px;
+        display: block;
+      }
     }
   }
 }

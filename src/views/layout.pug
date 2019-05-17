@@ -10,9 +10,18 @@ html
         footer.footer
             ul.footer__nav
                 li
-                    a(href="https://wulkanowy.github.io") Wulkanowy
+                    a(href=proto + "://" + host) Start
                 li
-                    a(href="https://github.com/wulkanowy/fake-log") Github
+                    a(href=proto + "://api." + host) api
                 li
-                    a(href=mainHost) fake-log homepage
+                    a(href=proto + "://cufs." + host) cufs
+                li
+                    a(href=proto + "://uonetplus." + host + "/Default/Start.mvc/Index") uonetplus
+                li
+                    a(href=proto + "://uonetplus-uczen." + host) uonetplus-uczen
+                li
+                    a(href=proto + "://uonetplus-opiekun." + host + "/Default/123456") uonetplus-opiekun
+                li
+                    a(href=proto + "://uonetplus-uzytkownik." + host) uonetplus-uzytkownik
+
         block extraFooter
