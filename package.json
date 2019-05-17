@@ -14,7 +14,7 @@
     "csrf": "^3.1.0",
     "date-fns": "^2.0.0-alpha.27",
     "debug": "^4.1.1",
-    "express": "~4.16.4",
+    "express": "~4.17.0",
     "express-subdomain": "^1.0.5",
     "lodash": "latest",
     "md5": "^2.2.1",
