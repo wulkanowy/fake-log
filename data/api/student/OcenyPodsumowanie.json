@@ -38,19 +38,19 @@
   "SrednieOcen": [
     {
       "IdPrzedmiot": 300,
-      "Wpis": "4.13"
+      "Wpis": 4.13
     },
     {
       "IdPrzedmiot": 301,
-      "Wpis": "4.1"
+      "Wpis": 4.1
     },
     {
       "IdPrzedmiot": 302,
-      "Wpis": "1.99"
+      "Wpis": 1.99
     },
     {
       "IdPrzedmiot": 303,
-      "Wpis": "4"
+      "Wpis": 4
     }
   ]
 }
