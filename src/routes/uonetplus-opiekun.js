@@ -86,7 +86,7 @@ router.get("/Oceny(\.mvc|)/Wszystkie", (req, res) => {
             normalGrades: subjects.map(item => {
                 return {
                     "subject": item.Nazwa,
-                    "average": dictMap.getByValue(summary.SrednieOcen, "IdPrzedmiot", item.Id).Wpis,
+                    "average": dictMap.getByValue(summary.SrednieOcen, "IdPrzedmiot", item.Id).SredniaOcen,
                     "predictedRating": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id).Wpis,
                     "finalRating": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id).Wpis
                 };

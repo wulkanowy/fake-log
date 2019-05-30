@@ -38,19 +38,23 @@
   "SrednieOcen": [
     {
       "IdPrzedmiot": 300,
-      "Wpis": 4.13
+      "SredniaOcen": "4,13",
+      "SumaPunktow": "123"
     },
     {
       "IdPrzedmiot": 301,
-      "Wpis": 4.1
+      "SredniaOcen": "4,1",
+      "SumaPunktow": "234"
     },
     {
       "IdPrzedmiot": 302,
-      "Wpis": 1.99
+      "SredniaOcen": "1,99",
+      "SumaPunktow": "345"
     },
     {
       "IdPrzedmiot": 303,
-      "Wpis": 4
+      "SredniaOcen": "4",
+      "SumaPunktow": "456"
     }
   ]
 }
