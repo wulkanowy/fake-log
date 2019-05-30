@@ -402,9 +402,9 @@ router.all("/Oceny.mvc/Get", (req, res) => {
 
     res.json({
         "data": {
-            "IsSrednia": false,
-            "IsPunkty": false,
-            "Oceny": require("../../data/api/dictionaries/Przedmioty").map(item => {
+            "IsSrednia": true,
+            "IsPunkty": true,
+            "Oceny": require("../../data/api/dictionaries/Przedmioty").map((item, index) => {
                 return {
                     "Przedmiot": item.Nazwa,
                     "Pozycja": item.Pozycja,
@@ -423,10 +423,10 @@ router.all("/Oceny.mvc/Get", (req, res) => {
                     }),
                     "ProponowanaOcenaRoczna": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id, {"Wpis": ""}).Wpis,
                     "OcenaRoczna": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id, {"Wpis": ""}).Wpis,
-                    "ProponowanaOcenaRocznaPunkty": null,
-                    "OcenaRocznaPunkty": null,
+                    "ProponowanaOcenaRocznaPunkty": index * 2.5 + 1,
+                    "OcenaRocznaPunkty": index * 3 + 2,
                     "Srednia": dictMap.getByValue(summary.SrednieOcen, "IdPrzedmiot", item.Id, {"Wpis": 0}).Wpis,
-                    "SumaPunktow": null,
+                    "SumaPunktow": index * 3 + 3,
                     "WidocznyPrzedmiot": false
                 };
             }),
