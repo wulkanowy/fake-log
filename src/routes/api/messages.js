@@ -1,6 +1,10 @@
 const router = require('express').Router({});
 const api = require("../../utils/api");
 
+router.all("/", (req, res) => {
+    res.json(api.createResponse("Zmiana statusu wiadomości."));
+});
+
 router.all("/WiadomosciOdebrane", (req, res) => {
     res.json(api.createResponse(require("../../../data/api/messages/WiadomosciOdebrane")));
 });
