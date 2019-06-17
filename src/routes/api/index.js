@@ -33,6 +33,7 @@ router.all("/", (req, res) => {
 router.use("/Default/mobile-api/Uczen.v3.UczenStart", require("./register"));
 router.use("/Default/123456/mobile-api/Uczen.v3.Uczen", require("./student"));
 router.use("/Default/123456/mobile-api/Uczen.v3.Uczen", require("./messages"));
+router.use("/Default/123456/mobile-api/Push.v1.Push", require("./push"));
 
 router.all("/*", (req, res) => {
     res.json({

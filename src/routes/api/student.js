@@ -7,6 +7,10 @@ router.all("/LogAppStart", (req, res) => {
     res.json(api.createResponse("Log"));
 });
 
+router.all("/UstawPushToken", (req, res) => {
+    res.json(api.createResponse("Zapisano tokenId dla powiadomien PUSH"));
+});
+
 router.all("/Slowniki", (req, res) => {
     res.json(api.createResponse({
         "TimeKey": Math.round(new Date().getTime() / 1000),
