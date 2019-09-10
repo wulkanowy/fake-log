@@ -41,7 +41,7 @@ router.all("/ListaUczniow", (req, res) => {
         semesterEnd = new Date(currDate.getFullYear(), 7, 31);
     } else {
         semesterStart = new Date(currDate.getFullYear(), 8, 1);
-        semesterEnd = new Date(currDate.getFullYear() + 1, 0, 30)
+        semesterEnd = new Date(currDate.getFullYear() + 1, 0, 30);
     }
 
     res.json(api.createResponse(require("../../../data/api/ListaUczniow").map(item => {
@@ -51,7 +51,7 @@ router.all("/ListaUczniow", (req, res) => {
             "OkresDataDo": getUnixTime(semesterEnd),
             "OkresDataOdTekst": format(semesterStart, "yyyy-MM-dd"),
             "OkresDataDoTekst": format(semesterEnd, "yyyy-MM-dd")
-        }
+        };
     })));
 });
 
