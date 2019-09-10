@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const protocol = require('../utils/connection');
-const moment = require('moment-timezone');
 
 router.get("/", (req, res) => {
     res.render("log-exception", {
@@ -35,10 +34,8 @@ router.post("(/*)?", (req, res) => {
 });
 
 router.get("/Default/Start.mvc/Index", (req, res) => {
-    let now = moment().tz('Europe/Warsaw');
     res.render("homepage", {
         title: "Uonet+",
-        luckyNumber: now.hour() >= 7 ? now.date() : null,
         uonetplusOpiekun: protocol(req) + "://" + req.get('host').replace("uonetplus", "uonetplus-opiekun"),
         uonetplusUczen: protocol(req) + "://" + req.get('host').replace("uonetplus", "uonetplus-uczen")
     });
