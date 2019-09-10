@@ -1,5 +1,6 @@
 const router = require('express').Router({});
 const protocol = require('../../utils/connection');
+const { getUnixTime, format } = require("date-fns");
 const api = require("../../utils/api");
 
 router.all("/Certyfikat", (req, res) => {
@@ -31,7 +32,27 @@ router.all("/Certyfikat", (req, res) => {
 });
 
 router.all("/ListaUczniow", (req, res) => {
-    res.json(api.createResponse(require("../../../data/api/ListaUczniow")));
+    const currDate = new Date();
+
+    let semesterStart;
+    let semesterEnd;
+    if (currDate.getMonth() < 8) {
+        semesterStart = new Date(currDate.getFullYear(), 0, 30);
+        semesterEnd = new Date(currDate.getFullYear(), 7, 31);
+    } else {
+        semesterStart = new Date(currDate.getFullYear(), 8, 1);
+        semesterEnd = new Date(currDate.getFullYear() + 1, 0, 30)
+    }
+
+    res.json(api.createResponse(require("../../../data/api/ListaUczniow").map(item => {
+        return {
+            ...item,
+            "OkresDataOd": getUnixTime(semesterStart),
+            "OkresDataDo": getUnixTime(semesterEnd),
+            "OkresDataOdTekst": format(semesterStart, "yyyy-MM-dd"),
+            "OkresDataDoTekst": format(semesterEnd, "yyyy-MM-dd")
+        }
+    })));
 });
 
 module.exports = router;
