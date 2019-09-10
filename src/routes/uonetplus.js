@@ -44,4 +44,92 @@ router.get("/Default/Start.mvc/Index", (req, res) => {
     });
 });
 
+router.get("/Default/Start.mvc/Endpoints", (req, res) => {
+    const base = protocol(req) + "://" + req.get('host') + "/Default/Start.mvc";
+    res.json({
+        status: "sucess",
+        data: {
+            endpoints: [
+                "/GetSelfGovernments",
+                "/GetStudentTrips",
+                "/GetLastNotes",
+                "/GetFreeDays",
+                "/GetKidsLuckyNumbers",
+                "/GetKidsLessonPlan",
+                "/GetLastHomeworks",
+                "/GetLastTests",
+                "/GetLastStudentLessons",
+            ].map(item => {
+                return base + item;
+            })
+        }
+    });
+});
+
+router.get("/Default/Start.mvc/GetSelfGovernments", (req, res) => {
+    res.json({
+        "data": [],
+        "success": false,
+        "errorMessage": "Not implemented yet",
+        "feedback": null
+    });
+});
+
+router.get("/Default/Start.mvc/GetStudentTrips", (req, res) => {
+    res.json({
+        "data": [],
+        "success": false,
+        "errorMessage": "Not implemented yet",
+        "feedback": null
+    });
+});
+
+router.get("/Default/Start.mvc/GetLastNotes", (req, res) => {
+    res.json(require("../../data/uonetplus/GetLastNotes"));
+});
+
+router.get("/Default/Start.mvc/GetFreeDays", (req, res) => {
+    res.json(require("../../data/uonetplus/GetFreeDays"));
+});
+
+router.get("/Default/Start.mvc/GetKidsLuckyNumbers", (req, res) => {
+    res.json(require("../../data/uonetplus/GetKidsLuckyNumbers"));
+});
+
+router.get("/Default/Start.mvc/GetKidsLessonPlan", (req, res) => {
+    res.json({
+        "data": [],
+        "success": false,
+        "errorMessage": "Not implemented yet",
+        "feedback": null
+    });
+});
+
+router.get("/Default/Start.mvc/GetLastHomeworks", (req, res) => {
+    res.json({
+        "data": [],
+        "success": false,
+        "errorMessage": "Not implemented yet",
+        "feedback": null
+    });
+});
+
+router.get("/Default/Start.mvc/GetLastTests", (req, res) => {
+    res.json({
+        "data": [],
+        "success": false,
+        "errorMessage": "Not implemented yet",
+        "feedback": null
+    });
+});
+
+router.get("/Default/Start.mvc/GetLastStudentLessons", (req, res) => {
+    res.json({
+        "data": [],
+        "success": false,
+        "errorMessage": "Not implemented yet",
+        "feedback": null
+    });
+});
+
 module.exports = router;
