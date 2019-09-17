@@ -717,7 +717,7 @@ router.all("/Statystyki.mvc/GetOcenyRoczne", (req, res) => {
 
 router.all("/Statystyki.mvc/GetPunkty", (req, res) => {
     res.json({
-        "data": {},
+        "data": require("../../data/opiekun/oceny-statystyki-punkty"),
         "success": true
     });
 });
