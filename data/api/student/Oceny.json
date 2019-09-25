@@ -460,5 +460,27 @@
     "DataModyfikacjiTekst": "2018-11-19",
     "IdPracownikD": 10,
     "IdPracownikM": 10
+  },
+  {
+    "Id": 1021,
+    "Pozycja": 81,
+    "PrzedmiotPozycja": 6,
+    "IdPrzedmiot": 313,
+    "IdKategoria": 28,
+    "Wpis": "75/100",
+    "Wartosc": 0.00,
+    "WagaModyfikatora": null,
+    "WagaOceny": 0.00,
+    "Licznik": null,
+    "Mianownik": null,
+    "Komentarz": null,
+    "Waga": "0,00",
+    "Opis": "",
+    "DataUtworzenia": 1542585600,
+    "DataUtworzeniaTekst": "2018-11-20",
+    "DataModyfikacji": 1542585600,
+    "DataModyfikacjiTekst": "2018-11-20",
+    "IdPracownikD": 10,
+    "IdPracownikM": 10
   }
 ]
