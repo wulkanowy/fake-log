@@ -63,7 +63,7 @@ router.get("/Default/Start.mvc/Endpoints", (req, res) => {
     });
 });
 
-router.get("/Default/Start.mvc/GetSelfGovernments", (req, res) => {
+router.all("/Default/Start.mvc/GetSelfGovernments", (req, res) => {
     res.json({
         "data": [],
         "success": false,
@@ -72,7 +72,7 @@ router.get("/Default/Start.mvc/GetSelfGovernments", (req, res) => {
     });
 });
 
-router.get("/Default/Start.mvc/GetStudentTrips", (req, res) => {
+router.all("/Default/Start.mvc/GetStudentTrips", (req, res) => {
     res.json({
         "data": [],
         "success": false,
@@ -81,19 +81,19 @@ router.get("/Default/Start.mvc/GetStudentTrips", (req, res) => {
     });
 });
 
-router.get("/Default/Start.mvc/GetLastNotes", (req, res) => {
+router.all("/Default/Start.mvc/GetLastNotes", (req, res) => {
     res.json(require("../../data/uonetplus/GetLastNotes"));
 });
 
-router.get("/Default/Start.mvc/GetFreeDays", (req, res) => {
+router.all("/Default/Start.mvc/GetFreeDays", (req, res) => {
     res.json(require("../../data/uonetplus/GetFreeDays"));
 });
 
-router.get("/Default/Start.mvc/GetKidsLuckyNumbers", (req, res) => {
+router.all("/Default/Start.mvc/GetKidsLuckyNumbers", (req, res) => {
     res.json(require("../../data/uonetplus/GetKidsLuckyNumbers"));
 });
 
-router.get("/Default/Start.mvc/GetKidsLessonPlan", (req, res) => {
+router.all("/Default/Start.mvc/GetKidsLessonPlan", (req, res) => {
     res.json({
         "data": [],
         "success": false,
@@ -102,7 +102,7 @@ router.get("/Default/Start.mvc/GetKidsLessonPlan", (req, res) => {
     });
 });
 
-router.get("/Default/Start.mvc/GetLastHomeworks", (req, res) => {
+router.all("/Default/Start.mvc/GetLastHomeworks", (req, res) => {
     res.json({
         "data": [],
         "success": false,
@@ -111,7 +111,7 @@ router.get("/Default/Start.mvc/GetLastHomeworks", (req, res) => {
     });
 });
 
-router.get("/Default/Start.mvc/GetLastTests", (req, res) => {
+router.all("/Default/Start.mvc/GetLastTests", (req, res) => {
     res.json({
         "data": [],
         "success": false,
@@ -120,7 +120,7 @@ router.get("/Default/Start.mvc/GetLastTests", (req, res) => {
     });
 });
 
-router.get("/Default/Start.mvc/GetLastStudentLessons", (req, res) => {
+router.all("/Default/Start.mvc/GetLastStudentLessons", (req, res) => {
     res.json({
         "data": [],
         "success": false,
