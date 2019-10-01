@@ -212,7 +212,7 @@ router.all("/Frekwencja.mvc/Get", (req, res) => {
     const attendance = require("../../data/api/student/Frekwencje");
     res.json({
         "data": {
-            "UsprawiedliwieniaAktywne": false,
+            "UsprawiedliwieniaAktywne": true,
             "Dni": [],
             "UsprawiedliwieniaWyslane": [],
             "Frekwencje": attendance.map((item) => {
