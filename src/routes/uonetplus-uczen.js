@@ -733,8 +733,8 @@ router.all("/SzkolaINauczyciele.mvc/Get", (req, res) => {
         "data": {
             "Szkola": {
                 "Nazwa": res.locals.userInfo.JednostkaNazwa,
-                "Adres": "",
-                "Kontakt": "",
+                "Adres": "Ul. Wulkanowego 30, 30-300 Fakelog.cf, Polska",
+                "Kontakt": "+30 300 300 300",
                 "Dyrektor": `${headmaster.Imie} ${headmaster.Nazwisko}`,
                 "Pedagog": `${tutor.Imie} ${tutor.Nazwisko}`,
                 "Id": 0
