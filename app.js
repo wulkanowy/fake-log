@@ -43,6 +43,10 @@ app.use((req, res, next) => {
   res.locals.currentHost = protocol(req) + "://" + req.get('host');
   res.locals.proto = protocol(req);
   res.locals.host = req.get('host').replace(/(api|cufs|uonetplus|uonetplus-opiekun|uonetplus-uzytkownik)\./, "");
+
+  res.cookie("UonetPlus_ASP.NET_SessionId", "");
+  res.cookie("ARR_DS_ARR301302", "");
+  res.cookie("ARR_" + req.get('host'), "1234567891012131314151617181920212223242526272829303132333435363");
   next();
 });
 
