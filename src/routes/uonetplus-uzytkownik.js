@@ -4,7 +4,7 @@ const protocol = require('../utils/connection');
 const md5 = require('md5');
 
 router.get("/", (req, res) => {
-    const base = protocol(req) + "://" + req.get('host') + "/Default";
+    const base = protocol(req) + "://" + req.get('host') + "/powiatwulkanowy";
     res.json({
         status: "sucess",
         data: {

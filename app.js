@@ -59,13 +59,13 @@ app.options('*', cors(corsOpt));
 app.use(subdomain('api', api));
 app.use(subdomain('cufs', cufs));
 app.use(subdomain('uonetplus', uonetplus));
-app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/Default/123456', uonetplusOpiekun)));
-app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/Default/123457', uonetplusOpiekun)));
-app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/Default/123458', uonetplusOpiekun)));
-app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123456', uonetplusUczen)));
-app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123457', uonetplusUczen)));
-app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123458', uonetplusUczen)));
-app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik.use('/Default', uonetplusUzytkownik)));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123456', uonetplusOpiekun)));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123457', uonetplusOpiekun)));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123458', uonetplusOpiekun)));
+app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/123456', uonetplusUczen)));
+app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/123457', uonetplusUczen)));
+app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/123458', uonetplusUczen)));
+app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik.use('/powiatwulkanowy', uonetplusUzytkownik)));
 app.use('/', index);
 
 // catch 404 and forward to error handler

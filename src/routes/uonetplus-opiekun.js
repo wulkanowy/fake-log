@@ -5,7 +5,7 @@ const dictMap = require('../utils/dictMap');
 const { getGradeColorByCategoryName } = require("../utils/gradeColor");
 const _ = require('lodash');
 
-global.opiekunRoot = "/Default/123456";
+global.opiekunRoot = "/powiatwulkanowy/123456";
 
 router.all("/", (req, res) => {
     res.render("log-exception", {
@@ -14,9 +14,9 @@ router.all("/", (req, res) => {
     });
 });
 
-router.all("/Default(/12345[678])?", (req, res) => {
+router.all("/powiatwulkanowy(/12345[678])?", (req, res) => {
     if (req.header("Referer") || "true" === req.query.login) {
-        return res.redirect("/Default/123456/Start/Index/");
+        return res.redirect("/powiatwulkanowy/123456/Start/Index/");
     }
 
     res.render("login", {

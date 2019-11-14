@@ -9,7 +9,7 @@ const { getGradeColorByCategoryName } = require("../utils/gradeColor");
 const {format, fromUnixTime, getYear, addYears, addMonths, addDays, subDays, differenceInDays, parseISO, startOfWeek} = require('date-fns');
 
 router.get("/", (req, res) => {
-    const base = protocol(req) + "://" + req.get('host') + "/Default/123456";
+    const base = protocol(req) + "://" + req.get('host') + "/powiatwulkanowy/123456";
     res.json({
         status: "sucess",
         data: {
@@ -590,11 +590,11 @@ router.all("/RejestracjaUrzadzeniaToken.mvc/Get", (req, res) => {
         "data": {
             "TokenId": 423,
             "TokenKey": "FK100000",
-            "CustomerGroup": "Default",
+            "CustomerGroup": "powiatwulkanowy",
             "CustomerSymbol": student.JednostkaSprawozdawczaSymbol,
-            "QrCodeContent": `CERT#${base}/Default/mobile-api#FK100000#ENDCERT`,
+            "QrCodeContent": `CERT#${base}/powiatwulkanowy/mobile-api#FK100000#ENDCERT`,
             "QrCodeContentEncoded": "xxx", // TODO: create and use qr encrypt
-            "QrCodeImage": "<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQAQMAAAC6caSPAAAABlBMVEX///8AAABVwtN+AAAC/klEQVR4nO2bO7KkMAxFRREQegkspZcGS2MpXgJhB1RrrJ9Nz9QLJnziKmlw+zi6JesHEezJ9mK3o71wXT60nXN7aw+0Xm2tMO+0xK43kFTIqSKY+ChXQ9rjpiux6SjtkLqwaWUFkgyZRQeTCkZ37k0iegjzZYISwdgDECAdaTubh2Hd2Q6Y2k6xAuQJCM3mRrb23jbE/SIrFUhWRFdNMLS2nY6IfPwQ8SL2CyQZwm4WXXhsSa8moX0Vv+HRhRuQpyM3m32pXKY6u2j0fvnJgPxuxATznvTHPEgzZTfTkelEBbVVIMmQ9hReQGPLvSunFyJWR0IwQDIhehlEmMHn7Hll9QfLLM44CcijEatTfTwA9UKEpqJ6v7BkJYZQeBggWRAqLhhLRRdLRnTnVkUipwSZUpgSD2P3D5AsiOpANohgyPTAzlYJM1RH5PcLkFwIFXaTO0IKEfRVgqYi9SgeQSYQILvupJ6DXNTDUf66X4bGgKRARmzJXRB+0ZiFoG5OCUgaJHTwkvXqHSsa7sJN+5m3cBRIBoR6m7Knk/2Br/H/vWIB5NGIrC8Rji638YbdBOVtL7UVSCrkdZ998lRUZ1q8wS0n7eSCskOA5EEsuvhEp1usFyH7ka4scxdA0iDuLkwQbHnEbMMtWw8zqg+3MJDHI9KK0FS0x6Vb/Geu5vSexb1uCSQJItZTUVuSKZfDLxobb1jZqtquMSBZkNGxOr3BrayONlEcyWwfVXzFlkAyID4Hq93JqnmlHtIWtFtdonlx61YDeTaym8bmkYrqIbtVrWMW7vtKApIDcXkc5Z6KRjLicw5uO5BcyLA+60a+U4IK6jMt6lcqAcmEvEIM1o2ObrVEF3JZmGDqX7NwQB6MWGVqGsnGdu9tec/CN25AsiHxhV2PHsZwi3qYuF/+DUeB5EKoNy/UZt+tGeoPggGSBbG8kuOyiG51L0NFOArkyYiqaYpkRFLRi7xOFVVrQTiq2kASIe5EwsPY17VWiNDDdA72Hf4GSCoEBvsP+wMVsjBH3JwgAAAAAABJRU5ErkJggg==\" alt=\"Kod QR\" title=\"Kod QR\" height=\"400\" width=\"400\" />",
+            "QrCodeImage": "<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJMAAACTAQMAAACwK7lWAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB+klEQVRIieWWvY3EIBCFxyIggwaQaMMZLdkN+KcBb0tktIFEA96MAHnusV7pLvTEhzZYfwHyvHlvxkT/7VjmV2rLqM7AW+BLwgypV/VbIFv9NeJRwkJ51fJixZW3kQ8pS2Sjm7Q/5GzTzWi8EU1ShjqSm6jssfyt7QmDfsdYvr9fTR+xfoLaU5voFzxkNvIe3Rz50ETaXxJmgpsrhEcp2aa8SBgFPonPsZza710MCdPOkFuIN52H2oyEdZ+yQ9/eXM7QSMJM7xXvjL7RnO77njIacV+bRgjQbBUyXKkVR39oWFVtEmaT36gNzO+Uh3jr95QREpluDRSwjI2FE80xLwHGKZuEDZxtLcwIJazaJgmzld+Vz1AOXd7pvu8pG2ov3WhnY16hoox57kzt0SPcRsYIyRgSbN6m0ETMJrUFdaF67daYJwkzIc/oWPV75T19Z/ZDhnzgYHrNDJ8WETN0+6WtkdZKi4T1AcZugX4VucwkYZg9ay1bwIu47jgJo+D5MzjPkVb+5vIpG/Oa+vxbgoNnScJsVa/YhoSNgft4k7CP/AhHnjSKuHfUU4a+7SnP0b979766PGSf/YbFiF3hr28uHzMkEuKFbHSv4xCyrXeP4Jch3vNPwsY+OHu4qzMihjpi6XtV+5PKJWGf7yaFFYfPn4nwR8D+1/kBSYetNXqSF/8AAAAASUVORK5CYII=\" alt=\"Kod QR\" title=\"Kod QR\" height=\"400\" width=\"400\" />",
             "ImageSize": 400,
             "IdLogin": student.UzytkownikLoginId,
             "LoginValue": student.UzytkownikLogin,
