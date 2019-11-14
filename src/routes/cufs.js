@@ -32,6 +32,7 @@ router.post("/:symbol/Account/LogOn", (req, res) => {
 
 router.get("/:symbol/FS/LS", (req, res) => {
     res.render("login-cert", {
+        symbol: req.param("symbol"),
         cert: fs.readFileSync("public/cert.xml", "utf8"),
         uonetplusOpiekun: protocol(req) + "://" + req.get('host').replace("cufs.", "uonetplus.")
     });
