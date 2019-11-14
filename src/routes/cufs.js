@@ -30,7 +30,7 @@ router.post("/:symbol/Account/LogOn", (req, res) => {
     res.render("login-form", {title: "Logowanie (" + req.param("symbol") + ")", message: "Zła nazwa użytkownika lub hasło"});
 });
 
-router.get("/powiatwulkanowy/FS/LS", (req, res) => {
+router.get("/:symbol/FS/LS", (req, res) => {
     res.render("login-cert", {
         cert: fs.readFileSync("public/cert.xml", "utf8"),
         uonetplusOpiekun: protocol(req) + "://" + req.get('host').replace("cufs.", "uonetplus.")
