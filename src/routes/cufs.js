@@ -12,8 +12,8 @@ router.get("/powiatwulkanowy(/)?", (req, res) => {
 });
 
 // GET login page
-router.get("/powiatwulkanowy/Account/LogOn", (req, res) => {
-    res.render("login-form", {title: "Logowanie (powiatwulkanowy)"});
+router.get("/:symbol/Account/LogOn", (req, res) => {
+    res.render("login-form", {title: "Logowanie (" + req.param("symbol") + ")"});
 });
 
 // POST login
