@@ -34,19 +34,23 @@ router.all("/Certyfikat", (req, res) => {
 router.all("/ListaUczniow", (req, res) => {
     const currDate = new Date();
 
+    let semesterNumber;
     let semesterStart;
     let semesterEnd;
-    if (currDate.getMonth() < 8) {
-        semesterStart = new Date(currDate.getFullYear(), 0, 30);
-        semesterEnd = new Date(currDate.getFullYear(), 7, 31);
-    } else {
+    if (currDate.getMonth() >= 8) {
+        semesterNumber = 1;
         semesterStart = new Date(currDate.getFullYear(), 8, 1);
         semesterEnd = new Date(currDate.getFullYear() + 1, 0, 30);
+    } else {
+        semesterNumber = 2;
+        semesterStart = new Date(currDate.getFullYear(), 0, 30);
+        semesterEnd = new Date(currDate.getFullYear(), 7, 31);
     }
 
     res.json(api.createResponse(require("../../../data/api/ListaUczniow").map(item => {
         return {
             ...item,
+            "OkresNumer": semesterNumber,
             "OkresDataOd": getUnixTime(semesterStart),
             "OkresDataDo": getUnixTime(semesterEnd),
             "OkresDataOdTekst": format(semesterStart, "yyyy-MM-dd"),
