@@ -44,7 +44,7 @@ router.get("/:symbol/AccountManage/UnlockAccount", (req, res) => {
 
 router.post("/:symbol/AccountManage/UnlockAccount", (req, res) => {
     if (req.body['g-recaptcha-response']) {
-        return res.render('summary', {title: "Podsumowanie operacji"})
+        return res.render('summary', {title: "Podsumowanie operacji"});
     }
 
     res.render("login-recover", {title: "Przywracanie dostępu", message: "Mechanizm zabezpieczający przeciw robotom i robakom internetowym sygnalizuje, że żądanie nie zostało poprawnie autoryzowane"});
