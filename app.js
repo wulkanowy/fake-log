@@ -43,6 +43,10 @@ app.use((req, res, next) => {
   res.locals.currentHost = protocol(req) + "://" + req.get('host');
   res.locals.proto = protocol(req);
   res.locals.host = req.get('host').replace(/(api|cufs|uonetplus|uonetplus-opiekun|uonetplus-uzytkownik)\./, "");
+
+  res.cookie("UonetPlus_ASP.NET_SessionId", "", { httpOnly: true, domain: req.get("host") });
+  res.cookie("ARR_DS_ARR301302", "", { httpOnly: true, domain: req.get("host") });
+  res.cookie("ARR_" + req.get('host'), "1234567891012131314151617181920212223242526272829303132333435363", { httpOnly: true, domain: req.get("host") });
   next();
 });
 
@@ -55,13 +59,13 @@ app.options('*', cors(corsOpt));
 app.use(subdomain('api', api));
 app.use(subdomain('cufs', cufs));
 app.use(subdomain('uonetplus', uonetplus));
-app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/Default/123456', uonetplusOpiekun)));
-app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/Default/123457', uonetplusOpiekun)));
-app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/Default/123458', uonetplusOpiekun)));
-app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123456', uonetplusUczen)));
-app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123457', uonetplusUczen)));
-app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/Default/123458', uonetplusUczen)));
-app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik.use('/Default', uonetplusUzytkownik)));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123456', uonetplusOpiekun)));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123457', uonetplusOpiekun)));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123458', uonetplusOpiekun)));
+app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/123456', uonetplusUczen)));
+app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/123457', uonetplusUczen)));
+app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/123458', uonetplusUczen)));
+app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik.use('/powiatwulkanowy', uonetplusUzytkownik)));
 app.use('/', index);
 
 // catch 404 and forward to error handler

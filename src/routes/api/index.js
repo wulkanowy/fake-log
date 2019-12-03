@@ -10,30 +10,30 @@ router.all("/", (req, res) => {
         "sdk": "https://github.com/wulkanowy/sdk",
         "docs": "https://gitlab.com/erupcja/uonet-api-docs",
         "endpoints": [
-            base + "/Default/mobile-api/Uczen.v3.UczenStart/Certyfikat",
-            base + "/Default/mobile-api/Uczen.v3.UczenStart/ListaUczniow",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/LogAppStart",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/Slowniki",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/PlanLekcjiZeZmianami",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/Oceny",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/OcenyPodsumowanie",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/Sprawdziany",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/UwagiUcznia",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/Frekwencje",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/ZadaniaDomowe",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/Nauczyciele",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/WiadomosciOdebrane",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/WiadomosciWyslane",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/WiadomosciUsuniete",
-            base + "/Default/123456/mobile-api/Uczen.v3.Uczen/DodajWiadomosc"
+            base + "/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart/Certyfikat",
+            base + "/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart/ListaUczniow",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/LogAppStart",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/Slowniki",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/PlanLekcjiZeZmianami",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/Oceny",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/OcenyPodsumowanie",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/Sprawdziany",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/UwagiUcznia",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/Frekwencje",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/ZadaniaDomowe",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/Nauczyciele",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/WiadomosciOdebrane",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/WiadomosciWyslane",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/WiadomosciUsuniete",
+            base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/DodajWiadomosc"
         ]
     });
 });
 
-router.use("/Default/mobile-api/Uczen.v3.UczenStart", require("./register"));
-router.use("/Default/123456/mobile-api/Uczen.v3.Uczen", require("./student"));
-router.use("/Default/123456/mobile-api/Uczen.v3.Uczen", require("./messages"));
-router.use("/Default/123456/mobile-api/Push.v1.Push", require("./push"));
+router.use("/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart", require("./register"));
+router.use("/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen", require("./student"));
+router.use("/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen", require("./messages"));
+router.use("/powiatwulkanowy/123456/mobile-api/Push.v1.Push", require("./push"));
 
 router.all("/*", (req, res) => {
     res.json({

@@ -1,5 +1,5 @@
 <trust:RequestSecurityTokenResponseCollection xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512">
-    <trust:RequestSecurityTokenResponse Context="https://uonetplus.fake-log.com/Default/LoginEndpoint.aspx">
+    <trust:RequestSecurityTokenResponse Context="https://uonetplus.fake-log.com/powiatwulkanowy/LoginEndpoint.aspx">
         <trust:RequestedSecurityToken>
             <saml:Assertion AssertionID="_12345678-1234-1234-1234-1234567890ab" IssueInstant="2017-10-18T22:00:29.006Z"
                             Issuer="CUFSTokenService" MajorVersion="1" MinorVersion="1"
@@ -7,8 +7,8 @@
                 <saml:AttributeStatement>
                     <saml:Attribute AttributeName="UserInstance"
                                     AttributeNamespace="http://schemas.fake-log.com/ws/identity/claims">
-                        <saml:AttributeValue>nonDefault</saml:AttributeValue>
                         <saml:AttributeValue>Default</saml:AttributeValue>
+                        <saml:AttributeValue>powiatwulkanowy</saml:AttributeValue>
                         <saml:AttributeValue>incorrect value</saml:AttributeValue>
                         <saml:AttributeValue>warszawa</saml:AttributeValue>
                         <saml:AttributeValue>asdf</saml:AttributeValue>
