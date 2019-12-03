@@ -72,4 +72,13 @@ $primary: #d32f2f;
       color: red;
     }
   }
+  .LogOnBoard {
+    h1 {
+      margin: 15px 0;
+      color: $primary;
+      font-weight: lighter;
+      font-size: 3rem;
+      text-align: center;
+    }
+  }
 }
