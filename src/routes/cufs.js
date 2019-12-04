@@ -38,4 +38,16 @@ router.get("/:symbol/FS/LS", (req, res) => {
     });
 });
 
+router.get("/:symbol/AccountManage/UnlockAccount", (req, res) => {
+    res.render("login-recover", {title: "Przywracanie dostępu"});
+});
+
+router.post("/:symbol/AccountManage/UnlockAccount", (req, res) => {
+    if (req.body['g-recaptcha-response']) {
+        return res.render('summary', {title: "Podsumowanie operacji"});
+    }
+
+    res.render("login-recover", {title: "Przywracanie dostępu", message: "Mechanizm zabezpieczający przeciw robotom i robakom internetowym sygnalizuje, że żądanie nie zostało poprawnie autoryzowane"});
+});
+
 module.exports = router;
