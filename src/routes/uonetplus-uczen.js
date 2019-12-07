@@ -530,7 +530,7 @@ router.all("/PlanZajec.mvc/Get", (req, res) => {
     res.json({
         "data": {
             "Data": format(requestDate, 'yyyy-MM-dd HH-mm-ss'),
-            "Header": [
+            "Headers": [
                 {
                     "Text": "Lekcja",
                     "Width": "85",
