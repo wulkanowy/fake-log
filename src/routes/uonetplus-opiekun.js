@@ -320,6 +320,13 @@ router.get("/Sprawdziany.mvc/Terminarz", (req, res) => {
         data: _.groupBy(require("../../data/api/student/Sprawdziany").map((item, index) => {
             const subject = dictMap.getByValue(subjects, "Id", item.IdPrzedmiot);
             const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
+            let examType;
+            switch (item.RodzajNumer) {
+                case 1: examType = "Sprawdzian"; break;
+                case 2: examType = "Kartkówka"; break;
+                case 3: examType = "Praca klasowa"; break;
+                default: examType = "Nieznany"
+            }
             return {
                 entryDate: "01.01.1970",
                 date: days[index][1],
@@ -327,7 +334,7 @@ router.get("/Sprawdziany.mvc/Terminarz", (req, res) => {
                 // dayName: converter.getDayName(item.DataTekst),
                 dayName: days[index][0],
                 subject: `${subject.Nazwa} ${res.locals.userInfo.OddzialKod}${item.PodzialSkrot ? "|" + item.PodzialSkrot : ""}`,
-                type: item.Rodzaj ? "Sprawdzian" : "Kartkówka",
+                type: examType,
                 description: item.Opis,
                 teacher: `${teacher.Imie} ${teacher.Nazwisko}`,
                 teacherSymbol: teacher.Kod

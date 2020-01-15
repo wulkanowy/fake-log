@@ -644,7 +644,7 @@ router.all("/Sprawdziany.mvc/Get", (req, res) => {
                                 "PracownikModyfikujacyDisplay": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}]`,
                                 "DataModyfikacji": `1970-01-01 00:00:00`,
                                 "Opis": item.Opis,
-                                "Rodzaj": item.Rodzaj ? 1 : 0
+                                "Rodzaj": item.RodzajNumer
                             };
                         }),
                         "Pokazuj": i < 5

@@ -8,6 +8,7 @@
     "PodzialNazwa": null,
     "PodzialSkrot": null,
     "Rodzaj": true,
+    "RodzajNumer": 1,
     "Opis": "Figury na płaszczyźnie.",
     "Data": 1522101600,
     "DataTekst": "2018-10-15"
@@ -21,6 +22,7 @@
     "PodzialNazwa": "język_angielski_gr_1",
     "PodzialSkrot": "język_angi_gr_1",
     "Rodzaj": true,
+    "RodzajNumer": 3,
     "Opis": "czasowniki nieregualne 1 częsć",
     "Data": 1523311200,
     "DataTekst": "2018-10-16"
@@ -34,6 +36,7 @@
     "PodzialNazwa": null,
     "PodzialSkrot": null,
     "Rodzaj": false,
+    "RodzajNumer": 2,
     "Opis": "Opolszczyzna - mapa",
     "Data": 1526335200,
     "DataTekst": "2018-10-17"
