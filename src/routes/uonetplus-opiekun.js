@@ -325,7 +325,7 @@ router.get("/Sprawdziany.mvc/Terminarz", (req, res) => {
                 case 1: examType = "Sprawdzian"; break;
                 case 2: examType = "Kartkówka"; break;
                 case 3: examType = "Praca klasowa"; break;
-                default: examType = "Nieznany"
+                default: examType = "Nieznany";
             }
             return {
                 entryDate: "01.01.1970",
