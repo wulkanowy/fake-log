@@ -39,22 +39,22 @@
     {
       "IdPrzedmiot": 300,
       "SredniaOcen": "4,13",
-      "SumaPunktow": "123"
+      "SumaPunktow": "123/200 (61,5%)"
     },
     {
       "IdPrzedmiot": 301,
       "SredniaOcen": "4,1",
-      "SumaPunktow": "234"
+      "SumaPunktow": "234/300 (78%)"
     },
     {
       "IdPrzedmiot": 302,
       "SredniaOcen": "1,99",
-      "SumaPunktow": "345"
+      "SumaPunktow": "345/400 (86,25%)"
     },
     {
       "IdPrzedmiot": 303,
       "SredniaOcen": "4",
-      "SumaPunktow": "456"
+      "SumaPunktow": "456/500 (91,2%)"
     }
   ]
 }
