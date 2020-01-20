@@ -203,7 +203,7 @@ router.get("/UwagiOsiagniecia.mvc/Wszystkie", (req, res) => {
 
 router.get("/Lekcja(\.mvc|)/PlanZajec", (req, res) => {
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
-    const days = _.groupBy(require("../../data/api/student/PlanLekcjiZeZmianami").map(item => {
+    const days = _.groupBy(require("../../data/api/student/PlanLekcjiZeZmianami").filter((item) => item.PlanUcznia).map(item => {
         const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
         const oldTeacher = dictMap.getByValue(teachers, "Id", item.IdPracownikOld);
         const times = dictMap.getByValue(require("../../data/api/dictionaries/PoryLekcji"), "Id", item.IdPoraLekcji);

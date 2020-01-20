@@ -38,6 +38,25 @@
     "PlanUcznia": true
   },
   {
+    "Dzien": 1524607200,
+    "DzienTekst": "2018-04-23",
+    "NumerLekcji": 2,
+    "IdPoraLekcji": 77,
+    "IdPrzedmiot": 499,
+    "PrzedmiotNazwa": "Wychowanie fizyczne",
+    "PodzialSkrot": "wf_grupa_1",
+    "Sala": "S5",
+    "IdPracownik": 8,
+    "IdPracownikWspomagajacy": null,
+    "IdPracownikOld": 5,
+    "IdPracownikWspomagajacyOld": null,
+    "IdPlanLekcji": 47,
+    "AdnotacjaOZmianie": "(zastępstwo: Anon Gałecki, sala S4)",
+    "PrzekreslonaNazwa": false,
+    "PogrubionaNazwa": false,
+    "PlanUcznia": false
+  },
+  {
     "Dzien": 1537480800,
     "DzienTekst": "2018-04-23",
     "NumerLekcji": 4,
@@ -59,6 +78,25 @@
   {
     "Dzien": 1537480800,
     "DzienTekst": "2018-04-23",
+    "NumerLekcji": 4,
+    "IdPoraLekcji": 79,
+    "IdPrzedmiot": 306,
+    "PrzedmiotNazwa": "Metodologia programowania",
+    "PodzialSkrot": "wf1",
+    "Sala": "G2",
+    "IdPracownik": 4,
+    "IdPracownikWspomagajacy": null,
+    "IdPracownikOld": null,
+    "IdPracownikWspomagajacyOld": null,
+    "IdPlanLekcji": 4,
+    "AdnotacjaOZmianie": "",
+    "PrzekreslonaNazwa": false,
+    "PogrubionaNazwa": false,
+    "PlanUcznia": false
+  },
+  {
+    "Dzien": 1537480800,
+    "DzienTekst": "2018-04-23",
     "NumerLekcji": 5,
     "IdPoraLekcji": 80,
     "IdPrzedmiot": 300,
@@ -74,6 +112,25 @@
     "PrzekreslonaNazwa": false,
     "PogrubionaNazwa": false,
     "PlanUcznia": true
+  },
+  {
+    "Dzien": 1537480800,
+    "DzienTekst": "2018-04-23",
+    "NumerLekcji": 5,
+    "IdPoraLekcji": 80,
+    "IdPrzedmiot": 306,
+    "PrzedmiotNazwa": "Metodologia programowania",
+    "PodzialSkrot": "wf1",
+    "Sala": "G2",
+    "IdPracownik": 4,
+    "IdPracownikWspomagajacy": null,
+    "IdPracownikOld": null,
+    "IdPracownikWspomagajacyOld": null,
+    "IdPlanLekcji": 4,
+    "AdnotacjaOZmianie": "",
+    "PrzekreslonaNazwa": false,
+    "PogrubionaNazwa": false,
+    "PlanUcznia": false
   },
   {
     "Dzien": 1537480800,
@@ -454,5 +511,24 @@
     "PrzekreslonaNazwa": false,
     "PogrubionaNazwa": false,
     "PlanUcznia": true
+  },
+  {
+    "Dzien": 1537480800,
+    "DzienTekst": "2018-04-27",
+    "NumerLekcji": 5,
+    "IdPoraLekcji": 80,
+    "IdPrzedmiot": 306,
+    "PrzedmiotNazwa": "Metodologia programowania",
+    "PodzialSkrot": "wf1",
+    "Sala": "G2",
+    "IdPracownik": 5,
+    "IdPracownikWspomagajacy": null,
+    "IdPracownikOld": null,
+    "IdPracownikWspomagajacyOld": null,
+    "IdPlanLekcji": 4,
+    "AdnotacjaOZmianie": "",
+    "PrzekreslonaNazwa": false,
+    "PogrubionaNazwa": false,
+    "PlanUcznia": false
   }
 ]
