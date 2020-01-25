@@ -5,7 +5,7 @@ const dictMap = require('../utils/dictMap');
 const converter = require('../utils/converter');
 const Tokens = require('csrf');
 const _ = require('lodash');
-const { getGradeColorByCategoryName } = require("../utils/gradeColor");
+const {getGradeColorByCategoryName} = require("../utils/gradeColor");
 const {format, fromUnixTime, getYear, addYears, addMonths, addDays, subDays, differenceInDays, parseISO, startOfWeek} = require('date-fns');
 
 router.get("/", (req, res) => {
@@ -425,8 +425,8 @@ router.all("/Oceny.mvc/Get", (req, res) => {
                     "OcenaRoczna": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id, {"Wpis": ""}).Wpis,
                     "ProponowanaOcenaRocznaPunkty": index * 2.5 + 1 + "",
                     "OcenaRocznaPunkty": index * 3 + 2 + "",
-                    "Srednia": parseFloat(dictMap.getByValue(summary.SrednieOcen, "IdPrzedmiot", item.Id, {"SredniaOcen": "0"}).SredniaOcen.replace(/,/,'.')),
-                    "SumaPunktow": dictMap.getByValue(summary.SrednieOcen, "IdPrzedmiot", item.Id, {"SumaPunktow": "0"}).SumaPunktow,
+                    "Srednia": parseFloat(dictMap.getByValue(summary.SrednieOcen, "IdPrzedmiot", item.Id, {"SredniaOcen": "0"}).SredniaOcen.replace(/,/, '.')),
+                    "SumaPunktow": dictMap.getByValue(summary.SrednieOcen, "IdPrzedmiot", item.Id, {"SumaPunktow": null}).SumaPunktow,
                     "WidocznyPrzedmiot": false
                 };
             }),
@@ -456,7 +456,7 @@ router.all("/Oplaty.mvc/Get", (req, res) => {
 router.all("/PlanZajec.mvc/Get", (req, res) => {
     const requestDate = req.body.data ?
         parseISO(req.body.data.replace("T", " ").replace(/Z$/, '')) :
-        startOfWeek(new Date(), { weekStartsOn: 1 });
+        startOfWeek(new Date(), {weekStartsOn: 1});
 
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
     const lessons = _.map(_.groupBy(require("../../data/api/student/PlanLekcjiZeZmianami").filter((item) => item.PlanUcznia).map((item) => {
@@ -660,7 +660,7 @@ router.all("/Statystyki.mvc/GetOcenyCzastkowe", (req, res) => {
     res.json({
         "data": _.chain(require("../../data/opiekun/oceny-statystyki-czastkowe"))
             .groupBy("subject")
-            .map((series, subject) => ({ subject, series }))
+            .map((series, subject) => ({subject, series}))
             .value()
             .map(item => {
                 return {
@@ -696,7 +696,7 @@ router.all("/Statystyki.mvc/GetOcenyRoczne", (req, res) => {
     res.json({
         "data": _.chain(require("../../data/opiekun/oceny-statystyki-roczne"))
             .groupBy("subject")
-            .map((series, subject) => ({ subject, series }))
+            .map((series, subject) => ({subject, series}))
             .value()
             .map(item => {
                 return {
