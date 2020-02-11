@@ -10,7 +10,7 @@ const protocol = require("./src/utils/connection");
 
 const subdomain = require('express-subdomain');
 const index = require('./src/routes/index');
-const api = require('./src/routes/api/index');
+const api = require('./src/routes/mobile-api/index');
 const cufs = require('./src/routes/cufs');
 const uonetplus = require('./src/routes/uonetplus');
 const uonetplusOpiekun = require('./src/routes/uonetplus-opiekun');
