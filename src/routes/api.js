@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const protocol = require('../../utils/connection');
+const protocol = require('../utils/connection');
 
 router.all("/", (req, res) => {
     let base = protocol(req) + "://" + req.get('host');
@@ -9,7 +9,10 @@ router.all("/", (req, res) => {
         "repo": "https://github.com/wulkanowy/fake-log",
         "sdk": "https://github.com/wulkanowy/sdk",
         "docs": "https://gitlab.com/erupcja/uonet-api-docs",
-        "endpoints": [
+        "api": [
+            base + "/powiatwulkanowy/api/mobile/register/new"
+        ],
+        "mobile-api": [
             base + "/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart/Certyfikat",
             base + "/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart/ListaUczniow",
             base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/LogAppStart",
@@ -30,10 +33,14 @@ router.all("/", (req, res) => {
     });
 });
 
-router.use("/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart", require("./register"));
-router.use("/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen", require("./student"));
-router.use("/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen", require("./messages"));
-router.use("/powiatwulkanowy/123456/mobile-api/Push.v1.Push", require("./push"));
+// v3
+router.use("/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart", require("./mobile-api/register"));
+router.use("/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen", require("./mobile-api/student"));
+router.use("/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen", require("./mobile-api/messages"));
+router.use("/powiatwulkanowy/123456/mobile-api/Push.v1.Push", require("./mobile-api/push"));
+
+// hebe
+router.use("/powiatwulkanowy/api/mobile/register", require("./api/register"));
 
 router.all("/*", (req, res) => {
     res.json({
