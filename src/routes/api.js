@@ -20,6 +20,7 @@ router.all("/", (req, res) => {
             base + "/powiatwulkanowy/123456/api/mobile/heartbeat",
             base + "/powiatwulkanowy/123456/api/mobile/internal/time",
             base + "/powiatwulkanowy/123456/api/mobile/school/lucky?constituentId=2&day=" + today,
+            base + "/powiatwulkanowy/123456/api/mobile/school/grade/byPupil??unitId=2&pupilId=111&periodId=101&lastSyncDate=1970-01-01%2001%3A00%3A00&lastId=-2147483648&pageSize=500",
         ],
         "mobile-api": [
             base + "/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart/Certyfikat",
