@@ -25,7 +25,7 @@ router.all("/new", (req, res) => {
     });
 });
 
-router.get("/hebe", (req, res) => {
+router.all("/hebe", (req, res) => {
     res.json({
         "Envelope": {
             "Capabilities": [
