@@ -9,7 +9,7 @@ router.all("/new", (req, res) => {
     res.json({
         "Envelope": {
             "LoginId": 207,
-            "RestURL": base + "/powiatwulkanowy",
+            "RestURL": base + "/powiatwulkanowy/",
             "UserLogin": "jan@fakelog.cf",
             "UserName": "jan@fakelog.cf"
         },
