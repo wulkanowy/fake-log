@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const protocol = require('../utils/connection');
+const {format} = require("date-fns");
 
 router.all("/", (req, res) => {
+    const today = format(new Date(), "yyyy-MM-dd");
+
     let base = protocol(req) + "://" + req.get('host');
     res.json({
         "status": "success",
@@ -16,6 +19,7 @@ router.all("/", (req, res) => {
             base + "/powiatwulkanowy/123456/api/mobile/version?app=DzienniczekPlus%202.0",
             base + "/powiatwulkanowy/123456/api/mobile/heartbeat",
             base + "/powiatwulkanowy/123456/api/mobile/internal/time",
+            base + "/powiatwulkanowy/123456/api/mobile/school/lucky?constituentId=2&day=" + today,
         ],
         "mobile-api": [
             base + "/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart/Certyfikat",
@@ -48,6 +52,7 @@ router.use("/powiatwulkanowy/123456/mobile-api/Push.v1.Push", require("./mobile-
 router.use("/powiatwulkanowy/api/mobile/register", require("./api/register"));
 router.use("/powiatwulkanowy/123456/api/mobile/register", require("./api/register"));
 router.use("/powiatwulkanowy/123456/api/mobile", require("./api/student"));
+router.use("/powiatwulkanowy/123456/api/mobile/school", require("./api/school"));
 
 router.all("/*", (req, res) => {
     res.json({

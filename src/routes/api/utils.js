@@ -4,7 +4,7 @@ const {getTime, format} = require("date-fns");
 exports.createEnvelope = (statusCode, statusMessage, type, body) => {
     return {
         "Envelope": body,
-        "EnvelopeType": "type",
+        "EnvelopeType": type,
         "InResponseTo": null,
         "RequestId": uuid(),
         "Status": {
