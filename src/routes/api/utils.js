@@ -1,4 +1,4 @@
-const uuid = require("uuid");
+const {uuid} = require("uuidv4");
 const {getTime, format} = require("date-fns");
 
 exports.createEnvelope = (statusCode, statusMessage, type, body) => {

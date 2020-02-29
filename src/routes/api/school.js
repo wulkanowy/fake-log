@@ -1,7 +1,7 @@
 const router = require('express').Router({});
 const {createEnvelope} = require("./utils");
 const {format} = require("date-fns");
-const uuid = require("uuid");
+const {uuid} = require("uuidv4");
 const {getByValue} = require("./../../utils/dictMap");
 
 router.get("/grade/byPupil", (req, res) => {
