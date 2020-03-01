@@ -12,17 +12,30 @@
               "IkonkaNazwa": null,
               "Num": null,
               "Zawartosc": [],
-              "Nazwa": "Szczęśliwy numer w dzienniku: 18",
+              "Nazwa": "Szczęśliwy numer w dzienniku: 37",
               "Url": null,
+              "Dane": null,
               "Symbol": null,
               "Nieaktywny": false
             }
           ],
-          "Nazwa": "SPL",
+          "Nazwa": "T",
           "Url": null,
+          "Dane": null,
           "Symbol": null,
           "Nieaktywny": false
-        },
+        }
+      ],
+      "Nazwa": "SZK1",
+      "Url": null,
+      "Dane": null,
+      "Symbol": null,
+      "Nieaktywny": false
+    },
+    {
+      "IkonkaNazwa": null,
+      "Num": null,
+      "Zawartosc": [
         {
           "IkonkaNazwa": null,
           "Num": null,
@@ -31,29 +44,23 @@
               "IkonkaNazwa": null,
               "Num": null,
               "Zawartosc": [],
-              "Nazwa": "Szczęśliwy numer w dzienniku: 42",
+              "Nazwa": "Szczęśliwy numer w dzienniku: 12",
               "Url": null,
-              "Symbol": null,
-              "Nieaktywny": false
-            },
-            {
-              "IkonkaNazwa": null,
-              "Num": null,
-              "Zawartosc": [],
-              "Nazwa": "Szczęśliwy numer w dzienniku bo nigdy nie wiadomo: 41",
-              "Url": null,
+              "Dane": null,
               "Symbol": null,
               "Nieaktywny": false
             }
           ],
-          "Nazwa": "T1",
+          "Nazwa": "ZSP",
           "Url": null,
+          "Dane": null,
           "Symbol": null,
           "Nieaktywny": false
         }
       ],
-      "Nazwa": "",
+      "Nazwa": "SZK2",
       "Url": null,
+      "Dane": null,
       "Symbol": null,
       "Nieaktywny": false
     }
