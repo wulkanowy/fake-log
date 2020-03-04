@@ -266,6 +266,25 @@
     "PlanUcznia": true
   },
   {
+    "Dzien": 1524607200,
+    "DzienTekst": "2018-04-25",
+    "NumerLekcji": 3,
+    "IdPoraLekcji": 78,
+    "IdPrzedmiot": 307,
+    "PrzedmiotNazwa": "Matematyka",
+    "PodzialSkrot": null,
+    "Sala": "21",
+    "IdPracownik": 2,
+    "IdPracownikWspomagajacy": null,
+    "IdPracownikOld": null,
+    "IdPracownikWspomagajacyOld": null,
+    "IdPlanLekcji": 41,
+    "AdnotacjaOZmianie": "(nieobecność: Uczniowie przychodzą później)",
+    "PrzekreslonaNazwa": true,
+    "PogrubionaNazwa": false,
+    "PlanUcznia": false
+  },
+  {
     "Dzien": 1537308000,
     "DzienTekst": "2018-04-25",
     "NumerLekcji": 4,
