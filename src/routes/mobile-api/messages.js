@@ -1,7 +1,7 @@
 const router = require('express').Router({});
 const api = require("../../utils/api");
 
-router.all("/", (req, res) => {
+router.all("/ZmienStatusWiadomosci", (req, res) => {
     res.json(api.createResponse("Zmiana statusu wiadomości."));
 });
 
