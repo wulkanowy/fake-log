@@ -8,22 +8,22 @@
     "test": "jshint src/ app.js --verbose"
   },
   "dependencies": {
-    "@types/express": "^4.17.2",
+    "@types/express": "^4.17.3",
     "body-parser": "~1.19.0",
-    "cookie-parser": "^1.4.4",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "csrf": "^3.1.0",
-    "date-fns": "^2.10.0",
+    "date-fns": "^2.11.1",
     "debug": "^4.1.1",
     "express": "~4.17.1",
     "express-subdomain": "^1.0.5",
     "lodash": "latest",
     "md5": "^2.2.1",
-    "morgan": "~1.9.1",
-    "node-sass-middleware": "^0.11.0",
+    "morgan": "~1.10.0",
+    "node-sass-middleware": "sass/node-sass-middleware#v0.11.1",
     "pug": "^2.0.4",
     "serve-favicon": "~2.5.0",
-    "uuidv4": "^6.0.5"
+    "uuidv4": "^6.0.6"
   },
   "devDependencies": {
     "jshint": "^2.11.0",
