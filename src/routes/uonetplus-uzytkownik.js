@@ -16,11 +16,12 @@ router.get("/-endpoints", (req, res) => {
                 "/Wiadomosc.mvc/GetWiadomosciOdebrane",
                 "/Wiadomosc.mvc/GetWiadomosciWyslane",
                 "/Wiadomosc.mvc/GetWiadomosciUsuniete",
-                "/NowaWiadomosc.mvc/GetJednostkiUzytkownika",
                 "/Adresaci.mvc/GetAdresaci",
                 "/Wiadomosc.mvc/GetAdresaciWiadomosci",
                 "/Wiadomosc.mvc/GetRoleUzytkownika",
                 "/Wiadomosc.mvc/GetTrescWiadomosci",
+                "/Wiadomosc.mvc/UsunWiadomosc",
+                "/NowaWiadomosc.mvc/GetJednostkiUzytkownika",
                 "/NowaWiadomosc.mvc/InsertWiadomosc"
             ].map(item => {
                 return base + item;
@@ -146,6 +147,13 @@ router.all("/Wiadomosc.mvc/GetTrescWiadomosci", (req, res) => {
             "Tresc": message.Tresc
         }
     });
+});
+
+router.all("/Wiadomosc.mvc/UsunWiadomosc", (req, res) => {
+    res.json({
+        "status": true,
+        "data": null
+    })
 });
 
 router.all("/NowaWiadomosc.mvc/InsertWiadomosc", (req, res) => {
