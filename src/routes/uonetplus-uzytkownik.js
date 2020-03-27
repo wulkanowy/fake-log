@@ -43,7 +43,8 @@ router.get("/Wiadomosc.mvc/GetWiadomosciOdebrane", (req, res) => {
                 "NadawcaNazwa": item.Nadawca,
                 "IdWiadomosci": item.WiadomoscId,
                 "IdNadawca": item.NadawcaId,
-                "Id": ++i
+                "HasZalaczniki": true,
+                "Id": item.WiadomoscId * 2
             };
         })
     });
@@ -59,7 +60,8 @@ router.get("/Wiadomosc.mvc/GetWiadomosciWyslane", (req, res) => {
                 "Adresaci": item.Adresaci[0].Nazwa,
                 "Nieprzeczytane": item.Nieprzeczytane,
                 "Przeczytane": item.Przeczytane,
-                "Id": item.WiadomoscId
+                "HasZalaczniki": false,
+                "Id": item.WiadomoscId * 2
             };
         })
     });
@@ -79,7 +81,8 @@ router.get("/Wiadomosc.mvc/GetWiadomosciUsuniete", (req, res) => {
                 "NadawcaNazwa": item.Nadawca,
                 "IdWiadomosci": item.WiadomoscId,
                 "IdNadawca": item.NadawcaId,
-                "Id": ++i
+                "HasZalaczniki": false,
+                "Id": item.WiadomoscId * 2
             };
         })
     });
@@ -143,8 +146,17 @@ router.all("/Wiadomosc.mvc/GetTrescWiadomosci", (req, res) => {
     res.json({
         "success": true,
         "data": {
-            "Id": message.WiadomoscId,
-            "Tresc": message.Tresc
+            "Id": message.WiadomoscId * 2,
+            "Tresc": message.Tresc,
+            "Zalaczniki": [
+                {
+                    "Url": "https://1drv.ms/u/s!AmvjLDq5anT2psJ4nujoBUyclWOUhw",
+                    "IdOneDrive": "0123456789ABCDEF!123",
+                    "IdWiadomosc": message.WiadomoscId,
+                    "NazwaPliku": "nazwa_pliku.pptx",
+                    "Id": message.WiadomoscId * 3
+                }
+            ]
         }
     });
 });
