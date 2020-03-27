@@ -785,7 +785,7 @@ router.all("/UwagiIOsiagniecia.mvc/Get", (req, res) => {
                     // 19.06
                     "Punkty": `${i++}`,
                     "PokazPunkty": true,
-                    "KategoriaTyp": i % 2 + 1
+                    "KategoriaTyp": i % 3 + 1
                 };
             }),
             "Osiagniecia": []
