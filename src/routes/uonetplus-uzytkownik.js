@@ -151,8 +151,8 @@ router.all("/Wiadomosc.mvc/GetTrescWiadomosci", (req, res) => {
 
 router.all("/Wiadomosc.mvc/UsunWiadomosc", (req, res) => {
     res.json({
-        "status": true
-    })
+        "success": true
+    });
 });
 
 router.all("/NowaWiadomosc.mvc/InsertWiadomosc", (req, res) => {
