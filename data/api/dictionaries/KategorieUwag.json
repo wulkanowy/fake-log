@@ -51,12 +51,12 @@
   },
   {
     "Id": 59,
-    "Nazwa": "Udział w konkursie szkolnym +20 pkt",
+    "Nazwa": "Udział w konkursie szkolnym",
     "Aktywny": false
   },
   {
     "Id": 61,
-    "Nazwa": "Przeszkadzanie na lekcjach -5 pkt",
+    "Nazwa": "Przeszkadzanie na lekcjach",
     "Aktywny": false
   },
   {

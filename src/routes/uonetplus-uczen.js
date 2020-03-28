@@ -783,9 +783,9 @@ router.all("/UwagiIOsiagniecia.mvc/Get", (req, res) => {
                     "Nauczyciel": `${item.PracownikImie} ${item.PracownikNazwisko} [${dictMap.getByValue(teachers, "Id", item.IdPracownik).Kod}]`,
 
                     // 19.06
-                    "Punkty": `${i++}`,
-                    "PokazPunkty": true,
-                    "KategoriaTyp": i % 3 + 1
+                    "Punkty": item._points,
+                    "PokazPunkty": item._showPoints,
+                    "KategoriaTyp": item._category
                 };
             }),
             "Osiagniecia": []

@@ -13,7 +13,11 @@
     "Id": 30648,
     "TrescUwagi": "Lorem ipsum dolor sit amet, te eum essent partiendo, nullam admodum omnesque cum id. Ex civibus mentitum oportere vix. Commodo persius electram ut mei, ne usu erat oratio oblique. Usu et tritani fastidii maluisset, ut oratio scaevola interesset ius",
     "IdUczen": 1,
-    "IdKategoriaUwag": 46
+    "IdKategoriaUwag": 46,
+
+    "_showPoints": true,
+    "_points": "",
+    "_category": 2
   },
   {
     "IdPracownik": 2,
@@ -29,7 +33,11 @@
     "Id": 30649,
     "TrescUwagi": "+ 20p za udział w Konkursie Języka Angielskiego",
     "IdUczen": 1,
-    "IdKategoriaUwag": 59
+    "IdKategoriaUwag": 59,
+
+    "_showPoints": true,
+    "_points": "20",
+    "_category": 1
   },
   {
     "IdPracownik": 3,
@@ -45,7 +53,11 @@
     "Id": 30650,
     "TrescUwagi": "Przeszkadzał na lekcji innym uczniom",
     "IdUczen": 1,
-    "IdKategoriaUwag": 61
+    "IdKategoriaUwag": 61,
+
+    "_showPoints": true,
+    "_points": "-5",
+    "_category": 3
   },
   {
     "IdPracownik": 4,
@@ -61,7 +73,11 @@
     "Id": 30651,
     "TrescUwagi": "Litwo! Ojczyzno moja! Ty jesteś jak zdrowie. Ile cię trzeba cenić, ten tylko aż kędy pieprz rośnie gdzie podział się? szukać prawodawstwa.",
     "IdUczen": 1,
-    "IdKategoriaUwag": 48
+    "IdKategoriaUwag": 48,
+
+    "_showPoints": true,
+    "_points": "0",
+    "_category": 2
   },
   {
     "IdPracownik": 4,
@@ -77,6 +93,10 @@
     "Id": 30651,
     "TrescUwagi": "Litwo! Ojczyzno moja! Ty jesteś jak zdrowie. Ile cię trzeba cenić, ten tylko aż kędy pieprz rośnie gdzie podział się? szukać prawodawstwa.",
     "IdUczen": 1,
-    "IdKategoriaUwag": 48
+    "IdKategoriaUwag": 48,
+
+    "_showPoints": false,
+    "_points": "0",
+    "_category": 2
   }
 ]
