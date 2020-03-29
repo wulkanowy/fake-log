@@ -146,7 +146,7 @@ router.all("/Wiadomosc.mvc/GetTrescWiadomosci", (req, res) => {
     res.json({
         "success": true,
         "data": {
-            "Id": message.WiadomoscId * 2,
+            "Id": message.WiadomoscId,
             "Tresc": message.Tresc,
             "Zalaczniki": [
                 {
@@ -155,6 +155,20 @@ router.all("/Wiadomosc.mvc/GetTrescWiadomosci", (req, res) => {
                     "IdWiadomosc": message.WiadomoscId,
                     "NazwaPliku": "nazwa_pliku.pptx",
                     "Id": message.WiadomoscId * 3
+                },
+                {
+                    "Url": "https://wulkanowy.github.io/",
+                    "IdOneDrive": "0123456789ABCDEF!124",
+                    "IdWiadomosc": message.WiadomoscId,
+                    "NazwaPliku": "wulkanowy.txt",
+                    "Id": message.WiadomoscId * 4
+                },
+                {
+                    "Url": "https://github.com/wulkanowy/wulkanowy",
+                    "IdOneDrive": "0123456789ABCDEF!125",
+                    "IdWiadomosc": message.WiadomoscId,
+                    "NazwaPliku": "wulkanowy(2).txt",
+                    "Id": message.WiadomoscId * 5
                 }
             ]
         }
