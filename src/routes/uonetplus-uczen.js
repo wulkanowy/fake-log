@@ -810,11 +810,16 @@ router.all("/ZadaniaDomowe.mvc/Get", (req, res) => {
                     // return 0 === differenceInDays(addDays(requestDate, j), addDays(parseISO(item.DataTekst), baseOffset));
                 }).map(item => {
                     const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
+                    const attachments = [
+                        "<a href=\"https://wulkanowy.github.io/\" target=\"_blank\">Strona główna Wulkanowego</a>",
+                        "<a href=\"https://github.com/wulkanowy/wulkanowy/\" target=\"_blank\">Repozytorium kodu</a>"
+                    ];
                     return {
                         "Przedmiot": dictMap.getByValue(subjects, "Id", item.IdPrzedmiot).Nazwa,
                         "Pracownik": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}], ${converter.formatDate(new Date(item.DataTekst))}`,
                         "Opis": item.Opis,
-                        "DataModyfikacji": converter.formatDate(new Date(item.DataTekst), true) + " 00:00:00"
+                        "DataModyfikacji": converter.formatDate(new Date(item.DataTekst), true) + " 00:00:00",
+                        "Attachments": item.Id % 2 == 0 ? attachments : []
                     };
                 }),
                 "Pokazuj": j < 5
