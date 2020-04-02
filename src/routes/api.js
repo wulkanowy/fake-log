@@ -56,8 +56,8 @@ router.use("/powiatwulkanowy/123456/api/mobile", require("./api/student"));
 router.use("/powiatwulkanowy/123456/api/mobile/school", require("./api/school"));
 
 router.all("/*", (req, res) => {
-    res.json({
-        "status": "warning",
+    res.status(404).json({
+        "status": "error",
         "message": "Not implemented yet"
     });
 });
