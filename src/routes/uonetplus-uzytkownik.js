@@ -58,8 +58,8 @@ router.get("/Wiadomosc.mvc/GetWiadomosciWyslane", (req, res) => {
                 "Data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
                 "Temat": item.Tytul,
                 "Adresaci": item.Adresaci[0].Nazwa,
-                "Nieprzeczytane": item.Nieprzeczytane,
-                "Przeczytane": item.Przeczytane,
+                "Nieprzeczytane": parseInt(item.Nieprzeczytane, 10),
+                "Przeczytane": parseInt(item.Przeczytane, 10),
                 "HasZalaczniki": false,
                 "Id": item.WiadomoscId * 2
             };
