@@ -20,6 +20,8 @@ router.get("/-endpoints", (req, res) => {
                 "/Wiadomosc.mvc/GetAdresaciWiadomosci",
                 "/Wiadomosc.mvc/GetRoleUzytkownika",
                 "/Wiadomosc.mvc/GetTrescWiadomosci",
+                "/Wiadomosc.mvc/GetAdresaciNiePrzeczytaliWiadomosci",
+                "/Wiadomosc.mvc/GetAdresaciPrzeczytaliWiadomosc",
                 "/Wiadomosc.mvc/UsunWiadomosc",
                 "/NowaWiadomosc.mvc/GetJednostkiUzytkownika",
                 "/NowaWiadomosc.mvc/InsertWiadomosc"
@@ -31,7 +33,6 @@ router.get("/-endpoints", (req, res) => {
 });
 
 router.get("/Wiadomosc.mvc/GetWiadomosciOdebrane", (req, res) => {
-    let i = 0;
     res.json({
         "success": true,
         "data": require("../../data/api/messages/WiadomosciOdebrane").map(item => {
@@ -58,8 +59,8 @@ router.get("/Wiadomosc.mvc/GetWiadomosciWyslane", (req, res) => {
                 "Data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
                 "Temat": item.Tytul,
                 "Adresaci": item.Adresaci[0].Nazwa,
-                "Nieprzeczytane": item.Nieprzeczytane,
-                "Przeczytane": item.Przeczytane,
+                "Nieprzeczytane": parseInt(item.Nieprzeczytane, 10),
+                "Przeczytane": parseInt(item.Przeczytane, 10),
                 "HasZalaczniki": false,
                 "Id": item.WiadomoscId * 2
             };
@@ -68,7 +69,6 @@ router.get("/Wiadomosc.mvc/GetWiadomosciWyslane", (req, res) => {
 });
 
 router.get("/Wiadomosc.mvc/GetWiadomosciUsuniete", (req, res) => {
-    let i = 0;
     res.json({
         "success": true,
         "data": require("../../data/api/messages/WiadomosciUsuniete").map(item => {
@@ -172,6 +172,40 @@ router.all("/Wiadomosc.mvc/GetTrescWiadomosci", (req, res) => {
                 }
             ]
         }
+    });
+});
+
+router.all('/Wiadomosc.mvc/GetAdresaciNiePrzeczytaliWiadomosci', (req, res) => {
+    const user = require("../../data/api/ListaUczniow")[1];
+    const recipient = require("../../data/api/dictionaries/Pracownicy")[0];
+    res.json({
+        "success": true,
+        "data": [
+            {
+                "Id": `${recipient.Id * 4}`, // ¯\_(ツ)_/¯
+                "Nazwa": `${recipient.Imie} ${recipient.Nazwisko} [${recipient.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
+                "IdLogin": recipient.Id,
+                "IdJednostkaSprawozdawcza": user.IdJednostkaSprawozdawcza,
+                "Rola": 2,
+                "PushWiadomosc": null,
+                "Hash": Buffer.from(md5(recipient.Id)).toString('base64')
+            },
+        ]
+    });
+});
+
+router.all('/Wiadomosc.mvc/GetAdresaciPrzeczytaliWiadomosc', (req, res) => {
+    const user = require("../../data/api/ListaUczniow")[1];
+    const recipient = require("../../data/api/dictionaries/Pracownicy")[1];
+    res.json({
+        "success": true,
+        "data": [
+            {
+                "Nazwa": `${recipient.Imie} ${recipient.Nazwisko} [${recipient.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
+                "Data": "2020-04-07 19:05:00",
+                "Id": recipient.Id * 8 // ¯\_(ツ)_/¯
+            }
+        ]
     });
 });
 

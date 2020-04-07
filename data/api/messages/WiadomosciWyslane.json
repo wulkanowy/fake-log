@@ -7,6 +7,10 @@
       {
         "LoginId": 100,
         "Nazwa": "Karolina Kowalska [AN] - pracownik (Fake123456)"
+      },
+      {
+        "LoginId": 101,
+        "Nazwa": "Zofia Czerwińska [NA] - pracownik (Fake123456)"
       }
     ],
     "Tytul": "Usprawiedliwienie nieobecności",
@@ -20,6 +24,6 @@
     "StatusWiadomosci": "Widoczna",
     "FolderWiadomosci": "Wyslane",
     "Nieprzeczytane": "1",
-    "Przeczytane": "0"
+    "Przeczytane": "1"
   }
 ]
