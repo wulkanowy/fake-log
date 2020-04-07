@@ -19,7 +19,7 @@
     "GodzinaPrzeczytania": null,
     "StatusWiadomosci": "Widoczna",
     "FolderWiadomosci": "Wyslane",
-    "Nieprzeczytane": "1",
-    "Przeczytane": "0"
+    "Nieprzeczytane": 1,
+    "Przeczytane": 0
   }
 ]
