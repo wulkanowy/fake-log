@@ -2,12 +2,6 @@ const express = require('express');
 const router = express.Router();
 const protocol = require('../utils/connection');
 
-router.all("/:symbol", (req, res) => {
-    res.render('no-symbol', {
-        title: "Dziennik UONET+"
-    });
-});
-
 router.get("/powiatwulkanowy/Start.mvc/Endpoints", (req, res) => {
     const base = protocol(req) + "://" + req.get('host') + "/powiatwulkanowy/Start.mvc";
     res.json({
