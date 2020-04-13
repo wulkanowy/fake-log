@@ -220,7 +220,7 @@ router.all("/hebe", (req, res) => {
                 "Id": 2,
                 "Name": "Publiczna szkoła Wulkanowego",
                 "Patron": "Święty Wulkan",
-                "RestURL": "https://lekcjaplus.vulcan.net.pl/powiatwulkanowy/123456/api",
+                "RestURL": "https://api.fakelog.cf/powiatwulkanowy/123456/api",
                 "Short": "123456",
                 "Symbol": "123456"
             }
