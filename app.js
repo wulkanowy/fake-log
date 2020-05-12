@@ -56,6 +56,7 @@ const corsOpt = {
 app.use(cors(corsOpt));
 app.options('*', cors(corsOpt));
 
+app.set('subdomain offset', +process.env.SUBDOMAIN_OFFSET || 2);
 app.use(subdomain('api', api));
 app.use(subdomain('cufs', cufs));
 app.use(subdomain('uonetplus', uonetplus));
