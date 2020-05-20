@@ -46,7 +46,7 @@ router.get("/", (req, res) => {
                 "/UczenDziennik.mvc/Get",
                 "/Usprawiedliwienia.mvc/Post",
                 "/UwagiIOsiagniecia.mvc/Get",
-                "/ZadaniaDomowe.mvc/Get",
+                "/Homework.mvc/Get",
                 "/ZarejestrowaneUrzadzenia.mvc/Get",
                 "/ZarejestrowaneUrzadzenia.mvc/Delete",
                 "/ZgloszoneNieobecnosci.mvc/Get",
@@ -794,7 +794,7 @@ router.all("/UwagiIOsiagniecia.mvc/Get", (req, res) => {
     });
 });
 
-router.all("/ZadaniaDomowe.mvc/Get", (req, res) => {
+router.all("/Homework.mvc/Get", (req, res) => {
     const subjects = require("../../data/api/dictionaries/Przedmioty");
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
     const homework = require("../../data/api/student/ZadaniaDomowe");
