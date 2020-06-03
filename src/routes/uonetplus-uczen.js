@@ -47,6 +47,7 @@ router.get("/", (req, res) => {
                 "/Usprawiedliwienia.mvc/Post",
                 "/UwagiIOsiagniecia.mvc/Get",
                 "/ZadaniaDomowe.mvc/Get",
+                "/Homework.mvc/Get",
                 "/ZarejestrowaneUrzadzenia.mvc/Get",
                 "/ZarejestrowaneUrzadzenia.mvc/Delete",
                 "/ZgloszoneNieobecnosci.mvc/Get",
@@ -819,13 +820,31 @@ router.all("/ZadaniaDomowe.mvc/Get", (req, res) => {
                         "Pracownik": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}], ${converter.formatDate(new Date(item.DataTekst))}`,
                         "Opis": item.Opis,
                         "DataModyfikacji": converter.formatDate(new Date(item.DataTekst), true) + " 00:00:00",
-                        "Attachments": item.Id % 2 == 0 ? attachments : []
+                        "Attachments": item.Id % 2 === 0 ? attachments : []
                     };
                 }),
                 "Pokazuj": j < 5
             };
         }),
         "success": true
+    });
+});
+
+router.all("/Homework.mvc/Get", (req, res) => {
+    res.json({
+        "success": false,
+        "feedback": {
+            "Handled": false,
+            "FType": "Error",
+            "Message": "The parameters dictionary contains a null entry for parameter 'date' of non-nullable type 'System.DateTime' for method 'System.Web.Mvc.JsonResult Get(System.DateTime, Int32, System.Nullable`1[System.Int32])' in 'Vulcan.Efeb.Uczen.Web.Controllers.Api.SprawdzianyZadania.HomeworkController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.\nParameter name: parameters",
+            "ExceptionType": null,
+            "ExceptionMessage": "",
+            "InnerExceptionMessage": "",
+            "Action": null,
+            "data": null,
+            "success": false,
+            "requestId": null
+        }
     });
 });
 
