@@ -20,6 +20,8 @@ router.get("/-endpoints", (req, res) => {
                 "/Wiadomosc.mvc/GetAdresaciWiadomosci",
                 "/Wiadomosc.mvc/GetMessageSenderRoles",
                 "/Wiadomosc.mvc/GetInboxMessageDetails",
+                "/Wiadomosc.mvc/GetOutboxMessageDetails",
+                "/Wiadomosc.mvc/GetTrashboxMessageDetails",
                 "/Wiadomosc.mvc/GetAdresaciNiePrzeczytaliWiadomosci",
                 "/Wiadomosc.mvc/GetAdresaciPrzeczytaliWiadomosc",
                 "/Wiadomosc.mvc/DeleteInboxMessages",
@@ -183,7 +185,11 @@ router.get(["/Wiadomosc.mvc/GetAdresaciWiadomosci", "/Wiadomosc.mvc/GetMessageSe
     });
 });
 
-router.all("/Wiadomosc.mvc/GetInboxMessageDetails", (req, res) => {
+router.all([
+    "/Wiadomosc.mvc/GetInboxMessageDetails",
+    "/Wiadomosc.mvc/GetOutboxMessageDetails",
+    "/Wiadomosc.mvc/GetTrashboxMessageDetails"
+], (req, res) => {
     const message = require("../../data/api/messages/WiadomosciOdebrane")[0];
     res.json({
         "success": true,
@@ -251,7 +257,11 @@ router.all('/Wiadomosc.mvc/GetAdresaciPrzeczytaliWiadomosc', (req, res) => {
     });
 });
 
-router.all("/Wiadomosc.mvc/UsunWiadomosc", (req, res) => {
+router.all([
+    "/Wiadomosc.mvc/DeleteInboxMessages",
+    "/Wiadomosc.mvc/DeleteOutboxMessages",
+    "/Wiadomosc.mvc/DeleteTrashboxMessages",
+], (req, res) => {
     res.json({
         "success": true
     });
