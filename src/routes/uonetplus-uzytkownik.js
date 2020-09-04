@@ -13,16 +13,18 @@ router.get("/-endpoints", (req, res) => {
         status: "sucess",
         data: {
             endpoints: [
-                "/Wiadomosc.mvc/GetWiadomosciOdebrane",
-                "/Wiadomosc.mvc/GetWiadomosciWyslane",
-                "/Wiadomosc.mvc/GetWiadomosciUsuniete",
-                "/Adresaci.mvc/GetAdresaci",
+                "/Wiadomosc.mvc/GetInboxMessages",
+                "/Wiadomosc.mvc/GetOutboxMessages",
+                "/Wiadomosc.mvc/GetTrashboxMessages",
+                "/Adresaci.mvc/GetAddressee",
                 "/Wiadomosc.mvc/GetAdresaciWiadomosci",
-                "/Wiadomosc.mvc/GetRoleUzytkownika",
+                "/Wiadomosc.mvc/GetMessageSenderRoles",
                 "/Wiadomosc.mvc/GetTrescWiadomosci",
                 "/Wiadomosc.mvc/GetAdresaciNiePrzeczytaliWiadomosci",
                 "/Wiadomosc.mvc/GetAdresaciPrzeczytaliWiadomosc",
-                "/Wiadomosc.mvc/UsunWiadomosc",
+                "/Wiadomosc.mvc/DeleteInboxMessages",
+                "/Wiadomosc.mvc/DeleteOutboxMessages",
+                "/Wiadomosc.mvc/DeleteTrashboxMessages",
                 "/NowaWiadomosc.mvc/GetJednostkiUzytkownika",
                 "/NowaWiadomosc.mvc/InsertWiadomosc"
             ].map(item => {
@@ -32,57 +34,97 @@ router.get("/-endpoints", (req, res) => {
     });
 });
 
-router.get("/Wiadomosc.mvc/GetWiadomosciOdebrane", (req, res) => {
+router.get("/Wiadomosc.mvc/GetInboxMessages", (req, res) => {
     res.json({
         "success": true,
         "data": require("../../data/api/messages/WiadomosciOdebrane").map(item => {
             return {
+                "Id": item.WiadomoscId * 2,
                 "Nieprzeczytana": !item.GodzinaPrzeczytania,
+                "Nieprzeczytane": 0,
+                "Przeczytane": 1,
                 "Data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
                 "Tresc": null,
                 "Temat": item.Tytul,
-                "NadawcaNazwa": item.Nadawca,
+                "Nadawca": {
+                    "Id": "" + item.NadawcaId,
+                    "Name": item.Nadawca,
+                    "IdLogin": item.NadawcaId,
+                    "Unreaded": false,
+                    "Date": null,
+                    "Role": 2,
+                    "PushMessage": false,
+                    "UnitId": 0,
+                    "Hash": "abcdef="
+                },
                 "IdWiadomosci": item.WiadomoscId,
-                "IdNadawca": item.NadawcaId,
                 "HasZalaczniki": true,
-                "Id": item.WiadomoscId * 2
+                "FolderWiadomosci": 1,
+                "Adresaci": []
             };
         })
     });
 });
 
-router.get("/Wiadomosc.mvc/GetWiadomosciWyslane", (req, res) => {
+router.get("/Wiadomosc.mvc/GetOutboxMessages", (req, res) => {
     res.json({
         "success": true,
         "data": require("../../data/api/messages/WiadomosciWyslane").map(item => {
             return {
-                "Data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
-                "Temat": item.Tytul,
-                "Adresaci": item.Adresaci[0].Nazwa,
+                "Id": item.WiadomoscId * 2,
+                "Nieprzeczytana": !item.GodzinaPrzeczytania,
                 "Nieprzeczytane": parseInt(item.Nieprzeczytane, 10),
                 "Przeczytane": parseInt(item.Przeczytane, 10),
+                "Data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
+                "Tresc": null,
+                "Temat": item.Tytul,
+                "Nadawca": {
+                    "Id": "" + item.NadawcaId,
+                    "Name": item.Nadawca,
+                    "IdLogin": item.NadawcaId,
+                    "Unreaded": false,
+                    "Date": null,
+                    "Role": 2,
+                    "PushMessage": false,
+                    "UnitId": 0,
+                    "Hash": "abcdef="
+                },
+                "IdWiadomosci": item.WiadomoscId,
                 "HasZalaczniki": false,
-                "Id": item.WiadomoscId * 2
+                "FolderWiadomosci": 2,
+                "Adresaci": []
             };
         })
     });
 });
 
-router.get("/Wiadomosc.mvc/GetWiadomosciUsuniete", (req, res) => {
+router.get("/Wiadomosc.mvc/GetTrashboxMessages", (req, res) => {
     res.json({
         "success": true,
         "data": require("../../data/api/messages/WiadomosciUsuniete").map(item => {
             return {
-                "FolderWiadomosci": "1",
+                "Id": item.WiadomoscId * 2,
                 "Nieprzeczytana": !item.GodzinaPrzeczytania,
+                "Nieprzeczytane": parseInt(item.Nieprzeczytane, 10),
+                "Przeczytane": parseInt(item.Przeczytane, 10),
                 "Data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
                 "Tresc": null,
                 "Temat": item.Tytul,
-                "NadawcaNazwa": item.Nadawca,
+                "Nadawca": {
+                    "Id": "" + item.NadawcaId,
+                    "Name": item.Nadawca,
+                    "IdLogin": item.NadawcaId,
+                    "Unreaded": false,
+                    "Date": null,
+                    "Role": 2,
+                    "PushMessage": false,
+                    "UnitId": 0,
+                    "Hash": "abcdef="
+                },
                 "IdWiadomosci": item.WiadomoscId,
-                "IdNadawca": item.NadawcaId,
                 "HasZalaczniki": false,
-                "Id": item.WiadomoscId * 2
+                "FolderWiadomosci": 3,
+                "Adresaci": []
             };
         })
     });
@@ -105,36 +147,36 @@ router.get("/NowaWiadomosc.mvc/GetJednostkiUzytkownika", (req, res) => {
     });
 });
 
-router.get("/Adresaci.mvc/GetAdresaci", (req, res) => {
+router.get("/Adresaci.mvc/GetAddressee", (req, res) => {
     const user = require("../../data/api/ListaUczniow")[1];
     res.json({
         "success": true,
         "data": require("../../data/api/dictionaries/Pracownicy").map(item => {
             return {
                 "Id": `${item.Id}rPracownik`,
-                "Nazwa": `${item.Imie} ${item.Nazwisko} [${item.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
+                "Name": `${item.Imie} ${item.Nazwisko} [${item.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
                 "IdLogin": item.Id,
-                "IdJednostkaSprawozdawcza": user.IdJednostkaSprawozdawcza,
-                "Rola": 2,
-                "PushWiadomosc": null,
+                "UnitId": user.IdJednostkaSprawozdawcza,
+                "Role": 2,
+                "PushMessage": null,
                 "Hash": Buffer.from(md5(item.Id)).toString('base64')
             };
         })
     });
 });
 
-router.get(["/Wiadomosc.mvc/GetAdresaciWiadomosci", "/Wiadomosc.mvc/GetRoleUzytkownika"], (req, res) => {
+router.get(["/Wiadomosc.mvc/GetAdresaciWiadomosci", "/Wiadomosc.mvc/GetMessageSenderRoles"], (req, res) => {
     const user = require("../../data/api/ListaUczniow")[1];
     res.json({
         "success": true,
         "data": require("../../data/api/dictionaries/Pracownicy").slice(0, 2).map(item => {
             return {
                 "Id": `${item.Id}rPracownik`,
-                "Nazwa": `${item.Imie} ${item.Nazwisko} [${item.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
+                "Name": `${item.Imie} ${item.Nazwisko} [${item.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
                 "IdLogin": item.Id,
-                "IdJednostkaSprawozdawcza": null,
-                "Rola": 2,
-                "PushWiadomosc": null,
+                "UnitId": null,
+                "Role": 2,
+                "PushMessage": null,
                 "Hash": Buffer.from(md5(item.Id)).toString('base64')
             };
         })
@@ -183,11 +225,11 @@ router.all('/Wiadomosc.mvc/GetAdresaciNiePrzeczytaliWiadomosci', (req, res) => {
         "data": [
             {
                 "Id": `${recipient.Id * 4}`, // ¯\_(ツ)_/¯
-                "Nazwa": `${recipient.Imie} ${recipient.Nazwisko} [${recipient.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
+                "Name": `${recipient.Imie} ${recipient.Nazwisko} [${recipient.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
                 "IdLogin": recipient.Id,
-                "IdJednostkaSprawozdawcza": user.IdJednostkaSprawozdawcza,
-                "Rola": 2,
-                "PushWiadomosc": null,
+                "UnitId": user.IdJednostkaSprawozdawcza,
+                "Role": 2,
+                "PushMessage": null,
                 "Hash": Buffer.from(md5(recipient.Id)).toString('base64')
             },
         ]
@@ -221,18 +263,18 @@ router.all("/NowaWiadomosc.mvc/InsertWiadomosc", (req, res) => {
         "success": true,
         "data": {
             "Adresaci": data.Adresaci.map(item => {
-                item.PushWiadomosc = false;
+                item.PushMessage = false;
                 return item;
             }),
             "Temat": data.Temat,
             "Tresc": data.Tresc,
             "Nadawca": {
                 "Id": null,
-                "Nazwa": "Kowalski Jan",
+                "Name": "Kowalski Jan",
                 "IdLogin": 0,
-                "IdJednostkaSprawozdawcza": null,
-                "Rola": 0,
-                "PushWiadomosc": null,
+                "UnitId": null,
+                "Role": 0,
+                "PushMessage": null,
                 "Hash": "hash"
             },
             "WiadomoscPowitalna": false,
