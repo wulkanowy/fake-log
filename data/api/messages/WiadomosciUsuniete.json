@@ -1,38 +1,20 @@
 [
   {
-    "Id": 1,
-    "Nieprzeczytana": false,
-    "Nieprzeczytane": 0,
-    "Przeczytane": 1,
-    "Data": "2018-02-06 19:42:58",
-    "Tresc": null,
-    "Temat": "Lorem ipsum",
-    "Nadawca": {
-      "Id": "3604",
-      "Name": "Nazwisko Imię",
-      "IdLogin": 3604,
-      "Unreaded": false,
-      "Date": null,
-      "Role": 2,
-      "PushMessage": false,
-      "UnitId": 0,
-      "Hash": "abcdef="
-    },
-    "IdWiadomosci": 89626,
-    "HasZalaczniki": false,
-    "FolderWiadomosci": 3,
-    "Adresaci": [
-      {
-        "Id": "111",
-        "Name": "Kowalski Jan - uczeń (000012)",
-        "IdLogin": 111,
-        "Unreaded": false,
-        "Date": null,
-        "Role": 2,
-        "PushMessage": false,
-        "UnitId": 0,
-        "Hash": "bcdaef="
-      }
-    ]
+    "WiadomoscId": 89626,
+    "Nadawca": "Nazwisko Imię",
+    "NadawcaId": 3604,
+    "Adresaci": [],
+    "Tytul": "Lorem ipsum",
+    "Tresc": "Lorem ipsum dolor sit amet",
+    "DataWyslania": "06.02.2018",
+    "DataWyslaniaUnixEpoch": 1517938585,
+    "GodzinaWyslania": "18:36",
+    "DataPrzeczytania": "27.04.2018",
+    "DataPrzeczytaniaUnixEpoch": 1524844708,
+    "GodzinaPrzeczytania": "17:58",
+    "StatusWiadomosci": "Usunieta",
+    "FolderWiadomosci": "Odebrane",
+    "Nieprzeczytane": null,
+    "Przeczytane": null
   }
 ]
