@@ -19,7 +19,7 @@ router.get("/-endpoints", (req, res) => {
                 "/Adresaci.mvc/GetAddressee",
                 "/Wiadomosc.mvc/GetAdresaciWiadomosci",
                 "/Wiadomosc.mvc/GetMessageSenderRoles",
-                "/Wiadomosc.mvc/GetTrescWiadomosci",
+                "/Wiadomosc.mvc/GetInboxMessageDetails",
                 "/Wiadomosc.mvc/GetAdresaciNiePrzeczytaliWiadomosci",
                 "/Wiadomosc.mvc/GetAdresaciPrzeczytaliWiadomosc",
                 "/Wiadomosc.mvc/DeleteInboxMessages",
@@ -147,7 +147,7 @@ router.get("/NowaWiadomosc.mvc/GetJednostkiUzytkownika", (req, res) => {
     });
 });
 
-router.get("/Adresaci.mvc/GetAddressee", (req, res) => {
+router.all("/Adresaci.mvc/GetAddressee", (req, res) => {
     const user = require("../../data/api/ListaUczniow")[1];
     res.json({
         "success": true,
@@ -183,7 +183,7 @@ router.get(["/Wiadomosc.mvc/GetAdresaciWiadomosci", "/Wiadomosc.mvc/GetMessageSe
     });
 });
 
-router.all("/Wiadomosc.mvc/GetTrescWiadomosci", (req, res) => {
+router.all("/Wiadomosc.mvc/GetInboxMessageDetails", (req, res) => {
     const message = require("../../data/api/messages/WiadomosciOdebrane")[0];
     res.json({
         "success": true,
