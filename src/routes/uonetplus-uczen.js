@@ -46,7 +46,6 @@ router.get("/", (req, res) => {
                 "/UczenDziennik.mvc/Get",
                 "/Usprawiedliwienia.mvc/Post",
                 "/UwagiIOsiagniecia.mvc/Get",
-                "/ZadaniaDomowe.mvc/Get",
                 "/Homework.mvc/Get",
                 "/ZarejestrowaneUrzadzenia.mvc/Get",
                 "/ZarejestrowaneUrzadzenia.mvc/Delete",
@@ -795,7 +794,7 @@ router.all("/UwagiIOsiagniecia.mvc/Get", (req, res) => {
     });
 });
 
-router.all("/ZadaniaDomowe.mvc/Get", (req, res) => {
+router.all("/Homework.mvc/Get", (req, res) => {
     const subjects = require("../../data/api/dictionaries/Przedmioty");
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
     const homework = require("../../data/api/student/ZadaniaDomowe");
@@ -805,46 +804,54 @@ router.all("/ZadaniaDomowe.mvc/Get", (req, res) => {
     res.json({
         "data": [...Array(7).keys()].map(j => {
             return {
-                "Data": converter.formatDate(addDays(requestDate, j), true) + " 00:00:00",
-                "ZadaniaDomowe": homework.filter(item => {
+                "Date": converter.formatDate(addDays(requestDate, j), true) + " 00:00:00",
+                "Homework": homework.filter(item => {
                     return j < 5;
                     // return 0 === differenceInDays(addDays(requestDate, j), addDays(parseISO(item.DataTekst), baseOffset));
-                }).map(item => {
+                }).map((item, index) => {
                     const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
                     const attachments = [
-                        "<a href=\"https://wulkanowy.github.io/\" target=\"_blank\">Strona główna Wulkanowego</a>",
-                        "<a href=\"https://github.com/wulkanowy/wulkanowy/\" target=\"_blank\">Repozytorium kodu</a>"
+                        {
+                            "IdZadanieDomowe": index,
+                            "HtmlTag": "<a href=\"https://wulkanowy.github.io/\" target=\"_blank\">Strona główna Wulkanowego</a>",
+                            "Url": "https://wulkanowy.github.io/",
+                            "NazwaPliku": "Strona główna Wulkanowego",
+                            "IdOneDrive": "asadfsdf",
+                            "Id": 600 + index,
+                        },
+                        {
+                            "IdZadanieDomowe": index,
+                            "HtmlTag": "<a href=\"https://github.com/wulkanowy/wulkanowy/\" target=\"_blank\">Repozytorium kodu</a>",
+                            "Url": "https://github.com/wulkanowy/wulkanowy/",
+                            "NazwaPliku": "Repozytorium kodu",
+                            "IdOneDrive": "asadfsdf",
+                            "Id": 600 + index + 1,
+                        },
                     ];
                     return {
-                        "Przedmiot": dictMap.getByValue(subjects, "Id", item.IdPrzedmiot).Nazwa,
-                        "Pracownik": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}], ${converter.formatDate(new Date(item.DataTekst))}`,
-                        "Opis": item.Opis,
-                        "DataModyfikacji": converter.formatDate(new Date(item.DataTekst), true) + " 00:00:00",
-                        "Attachments": item.Id % 2 === 0 ? attachments : []
+                        "HomeworkId": index,
+                        "Subject": dictMap.getByValue(subjects, "Id", item.IdPrzedmiot).Nazwa,
+                        "Teacher": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}], ${converter.formatDate(new Date(item.DataTekst))}`,
+                        "Description": item.Opis,
+                        "Date": converter.formatDate(new Date(item.DataTekst), true) + " 00:00:00",
+                        "ModificationDate": converter.formatDate(new Date(item.DataTekst), true) + " 00:00:00",
+                        "Status": 1,
+                        "AnswerRequired": false,
+                        "TimeLimit": null,
+                        "Attachments": item.Id % 2 === 0 ? attachments : [],
+                        "AnswerDate": null,
+                        "TeachersComment": null,
+                        "Answer": null,
+                        "AnswerAttachments": [],
+                        "CanReply": true,
+                        "Readonly": true,
+                        "Id": index,
                     };
                 }),
-                "Pokazuj": j < 5
+                "Show": j < 5
             };
         }),
         "success": true
-    });
-});
-
-router.all("/Homework.mvc/Get", (req, res) => {
-    res.json({
-        "success": false,
-        "feedback": {
-            "Handled": false,
-            "FType": "Error",
-            "Message": "The parameters dictionary contains a null entry for parameter 'date' of non-nullable type 'System.DateTime' for method 'System.Web.Mvc.JsonResult Get(System.DateTime, Int32, System.Nullable`1[System.Int32])' in 'Vulcan.Efeb.Uczen.Web.Controllers.Api.SprawdzianyZadania.HomeworkController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.\nParameter name: parameters",
-            "ExceptionType": null,
-            "ExceptionMessage": "",
-            "InnerExceptionMessage": "",
-            "Action": null,
-            "data": null,
-            "success": false,
-            "requestId": null
-        }
     });
 });
 
