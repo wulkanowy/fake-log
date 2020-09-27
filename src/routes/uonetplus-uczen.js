@@ -717,7 +717,10 @@ router.all("/Statystyki.mvc/GetOcenyRoczne", (req, res) => {
 
 router.all("/Statystyki.mvc/GetPunkty", (req, res) => {
     res.json({
-        "data": require("../../data/opiekun/oceny-statystyki-punkty"),
+        "data": {
+            "TableContent": "<table><thead><tr><th>Przedmiot</th><th>Uczeń</th><th>Średnia klasy</th></tr></thead><tbody></tbody></table>",
+            "Items": require("../../data/opiekun/oceny-statystyki-punkty")
+        },
         "success": true
     });
 });
