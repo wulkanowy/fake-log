@@ -45,7 +45,7 @@ router.get("/Wiadomosc.mvc/GetInboxMessages", (req, res) => {
                 "Nieprzeczytana": !item.GodzinaPrzeczytania,
                 "Nieprzeczytane": 0,
                 "Przeczytane": 1,
-                "Data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
+                "Data": converter.formatDate(new Date(item.DataWyslaniaUnixEpoch * 1000), true) + ' 00:00:00',
                 "Tresc": null,
                 "Temat": item.Tytul,
                 "Nadawca": {
@@ -77,7 +77,7 @@ router.get("/Wiadomosc.mvc/GetOutboxMessages", (req, res) => {
                 "Nieprzeczytana": !item.GodzinaPrzeczytania,
                 "Nieprzeczytane": parseInt(item.Nieprzeczytane, 10),
                 "Przeczytane": parseInt(item.Przeczytane, 10),
-                "Data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
+                "Data": converter.formatDate(new Date(item.DataWyslaniaUnixEpoch * 1000), true) + ' 00:00:00',
                 "Tresc": null,
                 "Temat": item.Tytul,
                 "Nadawca": {
@@ -109,7 +109,7 @@ router.get("/Wiadomosc.mvc/GetTrashboxMessages", (req, res) => {
                 "Nieprzeczytana": !item.GodzinaPrzeczytania,
                 "Nieprzeczytane": parseInt(item.Nieprzeczytane, 10),
                 "Przeczytane": parseInt(item.Przeczytane, 10),
-                "Data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
+                "Data": converter.formatDate(new Date(item.DataWyslaniaUnixEpoch * 1000), true) + ' 00:00:00',
                 "Tresc": null,
                 "Temat": item.Tytul,
                 "Nadawca": {
