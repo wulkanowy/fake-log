@@ -658,17 +658,19 @@ router.all("/Sprawdziany.mvc/Get", (req, res) => {
 });
 
 router.all("/Statystyki.mvc/GetOcenyCzastkowe", (req, res) => {
+    let average = 2.0;
     res.json({
         "data": _.chain(require("../../data/opiekun/oceny-statystyki-czastkowe"))
             .groupBy("subject")
             .map((series, subject) => ({subject, series}))
             .value()
             .map(item => {
+                average += 0.1;
                 return {
                     "Subject": item.subject,
-                    "IsAverage": false,
+                    "IsAverage": true,
                     "ClassSeries": {
-                        "Average": null,
+                        "Average": average,
                         "IsEmpty": false,
                         "Items": item.series.map(item => {
                             return {
