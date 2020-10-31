@@ -47,6 +47,7 @@ router.get("/", (req, res) => {
                 "/Usprawiedliwienia.mvc/Post",
                 "/UwagiIOsiagniecia.mvc/Get",
                 "/Homework.mvc/Get",
+                "/Zebrania.mvc/Get",
                 "/ZarejestrowaneUrzadzenia.mvc/Get",
                 "/ZarejestrowaneUrzadzenia.mvc/Delete",
                 "/ZgloszoneNieobecnosci.mvc/Get",
@@ -854,6 +855,13 @@ router.all("/Homework.mvc/Get", (req, res) => {
                 "Show": j < 5
             };
         }),
+        "success": true
+    });
+});
+
+router.all("/Zebrania.mvc/Get", (req, res) => {
+    res.json({
+        "data": require("../../data/opiekun/zebrania"),
         "success": true
     });
 });
