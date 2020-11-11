@@ -570,6 +570,7 @@ router.all("/PlanZajec.mvc/Get", (req, res) => {
                 },
             ],
             "Rows": rows.map(row => [row.times, ...row.lessons]),
+            "Additionals": require("../../data/opiekun/lekcje-dodatkowe")
         },
         "success": true
     });
