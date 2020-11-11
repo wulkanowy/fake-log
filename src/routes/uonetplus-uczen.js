@@ -570,7 +570,12 @@ router.all("/PlanZajec.mvc/Get", (req, res) => {
                 },
             ],
             "Rows": rows.map(row => [row.times, ...row.lessons]),
-            "Additionals": require("../../data/opiekun/lekcje-dodatkowe")
+            "Additionals": require("../../data/opiekun/lekcje-dodatkowe").map(item => {
+                return {
+                    ...item,
+                    "Header": `poniedziałek, ${converter.formatDate(addDays(requestDate, 0))}`
+                };
+            })
         },
         "success": true
     });
