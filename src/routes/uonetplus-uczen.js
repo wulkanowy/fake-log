@@ -767,7 +767,7 @@ router.all("/SzkolaINauczyciele.mvc/Get", (req, res) => {
 
 router.all("/Uczen.mvc/Get", (req, res) => {
     res.json({
-        "data": {},
+        "data": require("../../data/opiekun/uczen.json"),
         "success": true
     });
 });
