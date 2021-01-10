@@ -800,7 +800,11 @@ router.all("/UwagiIOsiagniecia.mvc/Get", (req, res) => {
                     "KategoriaTyp": item._category
                 };
             }),
-            "Osiagniecia": []
+            "Osiagniecia": [
+                "Konkurs na najlepszą aplikację do dziennika - pierwsze miejsce",
+                "Programowanie stron internetowych - wynik bardzo dobry",
+                "Olimpiada Informatyczna Juniorów - laureat"
+            ]
         },
         "success": true
     });
