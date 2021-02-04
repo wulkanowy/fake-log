@@ -423,7 +423,7 @@ router.all("/Oceny.mvc/Get", (req, res) => {
                         };
                     }),
                     "ProponowanaOcenaRoczna": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id, {"Wpis": ""}).Wpis,
-                    "OcenaRoczna": dictMap.getByValue(summary.OcenyPrzewidywane, "IdPrzedmiot", item.Id, {"Wpis": ""}).Wpis,
+                    "OcenaRoczna": dictMap.getByValue(summary.OcenyKlasyfikacyjne, "IdPrzedmiot", item.Id, {"Wpis": ""}).Wpis,
                     "ProponowanaOcenaRocznaPunkty": index * 2.5 + 1 + "",
                     "OcenaRocznaPunkty": index * 3 + 2 + "",
                     "Srednia": parseFloat(dictMap.getByValue(summary.SrednieOcen, "IdPrzedmiot", item.Id, {"SredniaOcen": "0"}).SredniaOcen.replace(/,/, '.')),
