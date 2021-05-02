@@ -847,10 +847,10 @@ router.all("/Homework.mvc/Get", (req, res) => {
                     return {
                         "HomeworkId": index,
                         "Subject": dictMap.getByValue(subjects, "Id", item.IdPrzedmiot).Nazwa,
-                        "Teacher": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}], ${converter.formatDate(new Date(item.DataTekst))}`,
+                        "Teacher": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}], ${converter.formatDate(addDays(requestDate, j))}`,
                         "Description": item.Opis,
-                        "Date": converter.formatDate(new Date(item.DataTekst), true) + " 00:00:00",
-                        "ModificationDate": converter.formatDate(new Date(item.DataTekst), true) + " 00:00:00",
+                        "Date": converter.formatDate(addDays(requestDate, j), true) + " 00:00:00",
+                        "ModificationDate": converter.formatDate(addDays(requestDate, j), true) + " 00:00:00",
                         "Status": 1,
                         "AnswerRequired": false,
                         "TimeLimit": null,
