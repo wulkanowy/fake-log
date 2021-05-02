@@ -814,7 +814,7 @@ router.all("/Homework.mvc/Get", (req, res) => {
     const subjects = require("../../data/api/dictionaries/Przedmioty");
     const teachers = require("../../data/api/dictionaries/Nauczyciele");
     const homework = require("../../data/api/student/ZadaniaDomowe");
-    const requestDate = req.body.data ? parseISO(req.body.data.replace("T", " ").replace(/Z$/, '')) : parseISO(homework[0].DataTekst);
+    const requestDate = req.body.date ? parseISO(req.body.date.replace("T", " ").replace(/Z$/, '')) : parseISO(homework[0].DataTekst);
     // const baseOffset = differenceInDays(requestDate, parseISO(homework[0].DataTekst));
 
     res.json({
