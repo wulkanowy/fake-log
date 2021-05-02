@@ -17,6 +17,7 @@ router.get("/powiatwulkanowy/Start.mvc/Endpoints", (req, res) => {
                 "/GetLastHomeworks",
                 "/GetLastTests",
                 "/GetLastStudentLessons",
+                "/GetStudentDirectorInformations",
             ].map(item => {
                 return base + item;
             })
@@ -87,6 +88,37 @@ router.all("/powiatwulkanowy/Start.mvc/GetLastStudentLessons", (req, res) => {
         "success": false,
         "errorMessage": "Not implemented yet",
         "feedback": null
+    });
+});
+
+router.all("/powiatwulkanowy/Start.mvc/GetStudentDirectorInformations", (req, res) => {
+    res.json({
+        "data": [
+            {
+                "Dane": null,
+                "IkonkaNazwa": null,
+                "Nazwa": "",
+                "Nieaktywny": false,
+                "Num": null,
+                "Symbol": null,
+                "Url": null,
+                "Zawartosc": [
+                    {
+                        "Dane": "Dzień wolny od zajęć dydaktycznych<br />03.05.2021 – poniedziałek",
+                        "IkonkaNazwa": null,
+                        "Nazwa": "03.05.2021 Dzień wolny od zajęć dydaktycznych",
+                        "Nieaktywny": false,
+                        "Num": null,
+                        "Symbol": null,
+                        "Url": null,
+                        "Zawartosc": []
+                    }
+                ]
+            }
+        ],
+        "errorMessage": null,
+        "feedback": null,
+        "success": true
     });
 });
 
