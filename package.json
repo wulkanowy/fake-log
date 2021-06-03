@@ -20,7 +20,7 @@
     "lodash": "latest",
     "md5": "^2.3.0",
     "morgan": "~1.10.0",
-    "node-sass-middleware": "github:sass/node-sass-middleware#v0.11.1",
+    "node-sass-middleware": "sass/node-sass-middleware#6f12a45",
     "pug": "^3.0.2",
     "serve-favicon": "~2.5.0",
     "uuidv4": "^6.2.8"
