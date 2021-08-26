@@ -655,8 +655,8 @@ router.all("/Sprawdziany.mvc/Get", (req, res) => {
                             const teacher = dictMap.getByValue(teachers, "Id", item.IdPracownik);
 
                             return {
-                                "DisplayValue": `${subject.Nazwa} ${res.locals.userInfo.OddzialKod}${item.PodzialSkrot ? "|" + item.PodzialSkrot : ""}`,
-                                "PracownikModyfikujacyDisplay": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}]`,
+                                "Nazwa": subject.Nazwa,
+                                "Pracownik": `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}]`,
                                 "DataModyfikacji": `1970-01-01 00:00:00`,
                                 "Opis": item.Opis,
                                 "Rodzaj": item.RodzajNumer
