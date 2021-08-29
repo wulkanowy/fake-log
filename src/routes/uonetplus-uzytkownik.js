@@ -39,12 +39,12 @@ router.get("/-endpoints", (req, res) => {
 });
 
 router.get("/Wiadomosc.mvc/GetInboxMessages", (req, res) => {
-    const recipientsNumber = getRandomInt(60, 100);
-    const readBy = getRandomInt(20, 60);
-    const unreadBy = recipientsNumber - readBy;
     res.json({
         "success": true,
         "data": require("../../data/api/messages/WiadomosciOdebrane").map(item => {
+            const recipientsNumber = getRandomInt(60, 100);
+            const readBy = getRandomInt(20, 60);
+            const unreadBy = recipientsNumber - readBy;
             return {
                 "Id": item.WiadomoscId * 2,
                 "Nieprzeczytana": !item.GodzinaPrzeczytania,
