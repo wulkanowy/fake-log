@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const protocol = require('../utils/connection');
 const converter = require('../utils/converter');
+const {getRandomInt} = require("../utils/api");
 const md5 = require('md5');
 
 router.get("/", (req, res) => {
@@ -38,14 +39,17 @@ router.get("/-endpoints", (req, res) => {
 });
 
 router.get("/Wiadomosc.mvc/GetInboxMessages", (req, res) => {
+    const recipientsNumber = getRandomInt(60, 100);
+    const readBy = getRandomInt(20, 60);
+    const unreadBy = recipientsNumber - readBy;
     res.json({
         "success": true,
         "data": require("../../data/api/messages/WiadomosciOdebrane").map(item => {
             return {
                 "Id": item.WiadomoscId * 2,
                 "Nieprzeczytana": !item.GodzinaPrzeczytania,
-                "Nieprzeczytane": 0,
-                "Przeczytane": 1,
+                "Nieprzeczytane": unreadBy,
+                "Przeczytane": readBy,
                 "Data": converter.formatDate(new Date(item.DataWyslaniaUnixEpoch * 1000), true) + ' 00:00:00',
                 "Tresc": null,
                 "Temat": item.Tytul,
