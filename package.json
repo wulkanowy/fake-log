@@ -28,5 +28,8 @@
   "devDependencies": {
     "jshint": "^2.13.1",
     "nodemon": "^2.0.12"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
