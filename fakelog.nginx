@@ -1,7 +1,7 @@
 server {
     listen 80;
     listen [::]:80;
-    server_name api.example.com cufs.example.com uonetplus.example.com uonetplus-opiekun.example.com uonetplus-uczen.example.com uonetplus-uzytkownik.example.com;
+    server_name example.com api.example.com cufs.example.com uonetplus.example.com uonetplus-opiekun.example.com uonetplus-uczen.example.com uonetplus-uzytkownik.example.com;
 
     location / { return 301 https://$host$request_uri; }
 }
@@ -10,7 +10,7 @@ server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
 
-    server_name api.example.com cufs.example.com uonetplus.example.com uonetplus-opiekun.example.com uonetplus-uczen.example.com uonetplus-uzytkownik.example.com;
+    server_name example.com api.example.com cufs.example.com uonetplus.example.com uonetplus-opiekun.example.com uonetplus-uczen.example.com uonetplus-uzytkownik.example.com;
 
     ssl_trusted_certificate   /path/to/chain.pem;
     ssl_certificate           /path/to/fullchain.pem;
@@ -18,6 +18,6 @@ server {
 
     location / {
         proxy_set_header Host $host;
-        proxy_pass http://localhost:2000;
+        proxy_pass http://localhost:3000;
     }
 }
