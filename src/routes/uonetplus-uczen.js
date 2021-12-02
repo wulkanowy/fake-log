@@ -42,6 +42,7 @@ router.get("/", (req, res) => {
                 "/Statystyki.mvc/GetPunkty",
                 "/SzkolaINauczyciele.mvc/Get",
                 "/Uczen.mvc/Get",
+                "/UczenZdjecie.mvc/Get",
                 "/UczenCache.mvc/Get",
                 "/UczenDziennik.mvc/Get",
                 "/Usprawiedliwienia.mvc/Post",
@@ -776,6 +777,13 @@ router.all("/SzkolaINauczyciele.mvc/Get", (req, res) => {
 router.all("/Uczen.mvc/Get", (req, res) => {
     res.json({
         "data": require("../../data/opiekun/uczen.json"),
+        "success": true
+    });
+});
+
+router.all("/UczenZdjecie.mvc/Get", (req, res) => {
+    res.json({
+        "data": require("../../data/opiekun/uczen-zdjecie.json"),
         "success": true
     });
 });
