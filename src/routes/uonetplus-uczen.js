@@ -520,11 +520,11 @@ router.all("/PlanZajec.mvc/Get", (req, res) => {
             let cell = '';
             if (lesson.oldTeacher) {
                 cell += `<span class="x-treelabel-inv">${lesson.subject}</span>`;
-                cell += `<span class="x-treelabel-inv">${lesson.oldTeacher}</span>`;
                 cell += `<span class="x-treelabel-inv">${lesson.room}</span>`;
+                cell += `<span class="x-treelabel-inv">${lesson.oldTeacher}</span>`;
                 cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.subject}</span>`;
-                cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.teacher}</span>`;
                 cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.room}</span>`;
+                cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.teacher}</span>`;
                 cell += `<span class="x-treelabel-rlz">${lesson.info}</span>`;
             } else {
                 if (lesson.group) {
@@ -533,8 +533,8 @@ router.all("/PlanZajec.mvc/Get", (req, res) => {
                 } else {
                     cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.subject}</span>`;
                 }
-                cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.teacher}</span>`;
                 cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.room}</span>`;
+                cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.teacher}</span>`;
                 if (lesson.info) {
                     cell += `<span class="x-treelabel-rlz">${lesson.info}</span>`;
                 }
