@@ -270,9 +270,8 @@ router.all("/Wiadomosc.mvc/GetMessageAddressee", (req, res) => {
         "success": true,
         "data": [
             {
-                "Nazwa": `${recipient.Imie} ${recipient.Nazwisko} [${recipient.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
-                "Data": "2020-04-07 19:05:00",
                 "Id": recipient.Id * 8, // ¯\_(ツ)_/¯
+                "Name": `${recipient.Imie} ${recipient.Nazwisko} [${recipient.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
                 "IdLogin": recipient.LoginId,
                 "Role": 7,
                 "Hash": "abcd==",
