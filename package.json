@@ -9,13 +9,13 @@
   },
   "dependencies": {
     "@types/express": "^4.17.13",
-    "body-parser": "~1.19.0",
-    "cookie-parser": "^1.4.5",
+    "body-parser": "~1.19.1",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "csrf": "^3.1.0",
-    "date-fns": "^2.24.0",
-    "debug": "^4.3.2",
-    "express": "~4.17.1",
+    "date-fns": "^2.28.0",
+    "debug": "^4.3.3",
+    "express": "~4.17.2",
     "express-subdomain": "^1.0.5",
     "lodash": "latest",
     "md5": "^2.3.0",
@@ -26,10 +26,7 @@
     "uuidv4": "^6.2.12"
   },
   "devDependencies": {
-    "jshint": "^2.13.1",
-    "nodemon": "^2.0.13"
-  },
-  "engines": {
-    "node": "17.x"
+    "jshint": "^2.13.3",
+    "nodemon": "^2.0.15"
   }
 }
