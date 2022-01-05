@@ -20,7 +20,7 @@
     "lodash": "latest",
     "md5": "^2.3.0",
     "morgan": "~1.10.0",
-    "node-sass-middleware": "git+https://github.com/nschonni/node-sass-middleware.git#85de4cf",
+    "node-sass-middleware": "git+https://github.com/sass/node-sass-middleware.git#b6a78e0",
     "pug": "^3.0.2",
     "serve-favicon": "~2.5.0",
     "uuidv4": "^6.2.12"
@@ -30,6 +30,6 @@
     "nodemon": "^2.0.13"
   },
   "engines": {
-    "node": "16.x"
+    "node": "17.x"
   }
 }
