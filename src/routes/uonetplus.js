@@ -147,6 +147,16 @@ router.all("/powiatwulkanowy/LoginEndpoint.aspx", (req, res) => {
     res.redirect(protocol(req) + "://" + req.get('host').replace("uonetplus", "cufs") + "/powiatwulkanowy/Account/LogOn");
 });
 
+router.post("/powiatwulkanowy(/)?", (req, res) => {
+    if (req.body.wa && req.body.wresult) {
+        return res.redirect("/powiatwulkanowy/?login=true");
+    }
+    
+    res.render("login", {
+        title: "Dziennik FakeUONET+"
+    });
+});
+
 router.post("(/*)?", (req, res) => {
     res.render("permission-error", {
         title: "Logowanie"
