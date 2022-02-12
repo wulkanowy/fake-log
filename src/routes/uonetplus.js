@@ -129,28 +129,26 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/powiatwulkanowy(/)?", (req, res) => {
-    if (req.header("Referer") || "true" === req.query.login) {
+router.all(/^\/([a-z0-9]+)(?:\/LoginEndpoint\.aspx|\/)?$/i, (req, res) => {
+    let hasCert = req.body.wa && req.body.wresult;
+
+    if (req.params[0] != "powiatwulkanowy") {
+        if (hasCert)
+            res.render("permission-error", {
+                title: "Logowanie",
+            });
+        else
+            res.render("log-exception", {
+                title: "Dziennik FakeUONET+",
+                message: "Podany identyfikator klienta jest niepoprawny.",
+            });
+
+        return;
+    } else if (hasCert) {
         return res.redirect("/powiatwulkanowy/Start.mvc/Index");
     }
 
-    res.render("login", {
-        title: "Dziennik FakeUONET+"
-    });
-});
-
-router.all("/powiatwulkanowy/LoginEndpoint.aspx", (req, res) => {
-    if (req.body.wa && req.body.wresult) {
-        return res.redirect("/powiatwulkanowy/?login=true");
-    }
-
     res.redirect(protocol(req) + "://" + req.get('host').replace("uonetplus", "cufs") + "/powiatwulkanowy/Account/LogOn");
-});
-
-router.post("(/*)?", (req, res) => {
-    res.render("permission-error", {
-        title: "Logowanie"
-    });
 });
 
 router.get("/powiatwulkanowy/Start.mvc/Index", (req, res) => {
