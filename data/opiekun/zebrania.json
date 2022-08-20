@@ -1,18 +1,20 @@
 [
   {
-    "Tytul": "środa, 08.01.2020 godzina 17:00, Spotkanie z rodzicami/opiekunami. ",
+    "Tytul": "środa, 08.01.2020 godzina 17:00, sala 110",
     "TematZebrania": "Podsumowanie I semestru - średnia klasy, oceny, frekwencja, zachowanie.",
     "Agenda": "",
     "ObecniNaZebraniu": "",
     "ZebranieOnline": null,
+    "DataSpotkania": "2020-01-08T18:00:00",
     "Id": 3737
   },
   {
-    "Tytul": "piątek, 06.09.2019 godzina 16:30, ZSW",
+    "Tytul": "piątek, 06.09.2019 godzina 16:30, sala 120",
     "TematZebrania": "Pierwsze - organizacyjne zebranie z rodzicami klas pierwszych",
     "Agenda": "",
     "ObecniNaZebraniu": "Kowalski Mieczysław",
     "ZebranieOnline": null,
+    "DataSpotkania": "2019-06-09T16:30:00",
     "Id": 2121
   }
 ]

@@ -16,6 +16,7 @@ const uonetplus = require('./src/routes/uonetplus');
 const uonetplusOpiekun = require('./src/routes/uonetplus-opiekun');
 const uonetplusUczen = require('./src/routes/uonetplus-uczen');
 const uonetplusUzytkownik = require('./src/routes/uonetplus-uzytkownik');
+const uonetplusWiadomosciplus = require('./src/routes/uonetplus-wiadomosciplus');
 
 const app = express();
 
@@ -67,6 +68,7 @@ app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/123456
 app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/123457', uonetplusUczen)));
 app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/123458', uonetplusUczen)));
 app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik.use('/powiatwulkanowy', uonetplusUzytkownik)));
+app.use(subdomain('uonetplus-wiadomosciplus', uonetplusWiadomosciplus.use('/powiatwulkanowy', uonetplusWiadomosciplus)));
 app.use('/', index);
 
 // catch 404 and forward to error handler
