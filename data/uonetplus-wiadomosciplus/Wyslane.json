@@ -1,0 +1,54 @@
+[
+    {
+        "apiGlobalKey": "14d0a699-2154-4abc-be73-46b30e6759fd",
+        "korespondenci": "Karolina Kłosek- P - (SP 18)",
+        "temat": "Re: Informacja o podręcznikach",
+        "data": "2022-08-13T16:10:17.48+02:00",
+        "skrzynka": "Mateusz Morawiec - U - (000054)",
+        "hasZalaczniki": false,
+        "przeczytana": true,
+        "nieprzeczytanePrzeczytanePrzez": "1/0",
+        "wazna": false,
+        "uzytkownikRola": 1,
+        "id": 9
+    },
+    {
+        "apiGlobalKey": "14d0a699-2154-4abc-be73-46b30e6759fc",
+        "korespondenci": "Małgorzata Dostojewska - N - (000023)",
+        "temat": "Re: Zebranie w sprawie wycieczki do Rumuni",
+        "data": "2022-07-15T12:39:19.48+02:00",
+        "skrzynka": "Mateusz Morawiec - U - (000054)",
+        "hasZalaczniki": false,
+        "przeczytana": true,
+        "nieprzeczytanePrzeczytanePrzez": "0/1",
+        "wazna": false,
+        "uzytkownikRola": 1,
+        "id": 7
+    },
+    {
+        "apiGlobalKey": "14d0a699-2154-4abc-be73-46b30e6759fb",
+        "korespondenci": "Małgorzata Dostojewska - N - (000023)",
+        "temat": "Zwolnienie mojego syna z lekcji języka rumuńskiego",
+        "data": "2022-08-15T19:27:55.367+02:00",
+        "skrzynka": "Mateusz Morawiec - U - (000054)",
+        "hasZalaczniki": false,
+        "przeczytana": true,
+        "nieprzeczytanePrzeczytanePrzez": "1/0",
+        "wazna": false,
+        "uzytkownikRola": 1,
+        "id": 6
+    },
+    {
+        "apiGlobalKey": "14d0a699-2154-4abc-be73-46b30e6759fa",
+        "korespondenci": "Kornel Kowalski - P - (000077)",
+        "temat": "Re: Informacje o otwarciu szkoły w Rumunii",
+        "data": "2022-05-19T15:25:11.48+02:00",
+        "skrzynka": "Mateusz Morawiec - U - (000054)",
+        "hasZalaczniki": false,
+        "przeczytana": true,
+        "nieprzeczytanePrzeczytanePrzez": "0/1",
+        "wazna": false,
+        "uzytkownikRola": 1,
+        "id": 3
+    }
+]

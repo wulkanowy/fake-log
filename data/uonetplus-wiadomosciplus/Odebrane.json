@@ -1,0 +1,54 @@
+[
+    {
+        "apiGlobalKey": "25fda2ea-0462-4bb8-b782-7528de02d212",
+        "korespondenci": "Karolina Kłosek - P - (000056)",
+        "temat": "Informacja o podręcznikach",
+        "data": "2022-08-12T16:27:17.48+02:00",
+        "skrzynka": "Mateusz Morawiec - U - (000054)",
+        "hasZalaczniki": false,
+        "przeczytana": true,
+        "nieprzeczytanePrzeczytanePrzez": null,
+        "wazna": true,
+        "uzytkownikRola": 2,
+        "id": 14
+    },
+    {
+        "apiGlobalKey": "25fda2ea-0462-4bb8-b782-7528de02d211",
+        "korespondenci": "Małgorzata Dostojewska - N - (000023)",
+        "temat": "Zebranie w sprawie wycieczki do Rumuni",
+        "data": "2022-07-15T10:10:17.48+02:00",
+        "skrzynka": "Mateusz Morawiec - U - (000054)",
+        "hasZalaczniki": true,
+        "przeczytana": false,
+        "nieprzeczytanePrzeczytanePrzez": null,
+        "wazna": true,
+        "uzytkownikRola": 2,
+        "id": 15
+    },
+    {
+        "apiGlobalKey": "25fda2ea-0462-4bb8-b782-7528de02d214",
+        "korespondenci": "Kornel Kowalski - P - (000077)",
+        "temat": "Informacje o otwarciu szkoły w Rumunii",
+        "data": "2022-05-19T10:27:17.48+02:00",
+        "skrzynka": "Mateusz Morawiec - U - (000054)",
+        "hasZalaczniki": false,
+        "przeczytana": true,
+        "nieprzeczytanePrzeczytanePrzez": null,
+        "wazna": false,
+        "uzytkownikRola": 2,
+        "id": 16
+    },
+    {
+        "apiGlobalKey": "25fda2ea-0462-4bb8-b782-7528de02d217",
+        "korespondenci": "Mateusza Perwanskiego - P - (000056)",
+        "temat": "Przyłapanie uczniów na posiadaniu inchalatora do nikotyny",
+        "data": "2022-08-15T10:27:17.48+02:00",
+        "skrzynka": "Mateusz Morawiec - U - (000054)",
+        "hasZalaczniki": false,
+        "przeczytana": false,
+        "nieprzeczytanePrzeczytanePrzez": null,
+        "wazna": true,
+        "uzytkownikRola": 2,
+        "id": 17
+    }
+]

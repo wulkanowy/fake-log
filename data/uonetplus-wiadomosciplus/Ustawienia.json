@@ -1,0 +1,12 @@
+[
+    {
+        "apiGlobalKey": "a4fb6872-e99c-4d06-b64a-f8523929cc79",
+        "stopka": "<p>Pozdrawia Wulkanowy Zespół!</p>",
+        "trybWysylaniaPowiadomien": 1
+    },
+    {
+        "apiGlobalKey": "a4fb6872-e99c-4d06-b64a-f8523929cc76",
+        "stopka": "<p>Pozdrawia Fakelog Zespół!</p>",
+        "trybWysylaniaPowiadomien": 3
+    }
+]

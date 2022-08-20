@@ -1,32 +1,53 @@
 const express = require('express');
 const router = express.Router();
 const protocol = require('../utils/connection');
-const converter = require('../utils/converter');
-const {getRandomInt} = require("../utils/api");
 
 router.get("/", (req, res) => {
-    res.render("messages");
-});
-
-router.get("/-endpoints", (req, res) => {
-    const base = protocol(req) + "://" + req.get('host') + "/powiatwulkanowy";
+    const base = protocol(req) + "://" + req.get('host') + "/powiatwulkanowy/api";
     res.json({
-        status: "sucess",
+        status: "success",
         data: {
             endpoints: [
-                "/api/Skrzynki",
-                "/api/Pracownicy",
-                "/api/Odebrane",
-                "/api/OdebraneSkrzynka",
-                "/api/Wyslane",
-                "/api/WyslaneSkrzynka",
-                "/api/Usuniete",
-                "/api/UsunieteSkrzynka",
-                "/api/WiadomoscSzczegoly",
-                "/api/WiadomoscOdpowiedzPrzekaz",
-                "/api/WiadomoscNowa",
-                "/api/MoveTrash",
-                "/api/Delete",
+                "/OdebraneNowe",
+                "/Uczniowie",
+                "/Opiekunowie",
+                "/GrupaAdresatow",
+                "/GrupyAdresatow",
+                "/Pracownicy",
+                "/WyslaneNowe",
+                "/LiczbyNieodczytanych",
+                "/OdebraneSkrzynka",
+                "/WyslaneSkrzynka",
+                "/UsunieteSkrzynka",
+                "/KopieSkrzynka",
+                "/DdsArchive",
+                "/Odebrane",
+                "/WiadomoscNowa",
+                "/WiadomoscOdpowiedzPrzekaz",
+                "/WiadomoscArchiwumOdpowiedzPrzekaz",
+                "/MoveTrash",
+                "/RestoreTrash",
+                "/DeleteArchiwum",
+                "/RestoreTrashArchiwum",
+                "/OdebraneWydruk",
+                "/WyslaneWydruk",
+                "/Cache",
+                "/Wyslane",
+                "/Usuniete",
+                "/Kopie",
+                "/WiadomoscSzczegoly",
+                "/OdebraneArchiwum",
+                "/WyslaneArchiwum",
+                "/UsunieteArchiwum",
+                "/Ustawienia",
+                "/Stopka",
+                "/StatystykiLogowan",
+                "/Skrzynki",
+                "/Kopia",
+                "/WiadomoscOdbiorcy",
+                "/OdebraneSzczegolyArchiwum",
+                "/WyslaneSzczegolyArchiwum",
+                "/UsunieteSzczegolyArchiwum",
             ].map(item => {
                 return base + item;
             })
@@ -34,225 +55,189 @@ router.get("/-endpoints", (req, res) => {
     });
 });
 
-router.get([
-    "/api/Odebrane",
-    "/api/OdebraneSkrzynka",
-], (req, res) => {
-    res.json({
-        "success": true,
-        "data": require("../../data/api/messages/WiadomosciOdebrane").map(item => {
-            const recipientsNumber = getRandomInt(60, 100);
-            const readBy = getRandomInt(20, 60);
-            const unreadBy = recipientsNumber - readBy;
-            return {
-                "Id": item.WiadomoscId * 2,
-                "Nieprzeczytana": !item.GodzinaPrzeczytania,
-                "Nieprzeczytane": unreadBy,
-                "Przeczytane": readBy,
-                "Data": converter.formatDate(new Date(item.DataWyslaniaUnixEpoch * 1000), true) + ' 00:00:00',
-                "Tresc": null,
-                "Temat": item.Tytul,
-                "Nadawca": {
-                    "Id": "" + item.NadawcaId,
-                    "Name": item.Nadawca,
-                    "IdLogin": item.NadawcaId,
-                    "Unreaded": false,
-                    "Date": null,
-                    "Role": 2,
-                    "PushMessage": false,
-                    "UnitId": 0,
-                    "Hash": "abcdef="
-                },
-                "IdWiadomosci": item.WiadomoscId,
-                "HasZalaczniki": true,
-                "FolderWiadomosci": 1,
-                "Adresaci": []
-            };
-        })
+router.get("/powiatwulkanowy/api/Cache", (req, res) => {
+    const CacheWiado = require("../../data/uonetplus-wiadomosciplus/CacheLinki").map(item => {
+        return {
+            "elementy": item.elementy,
+            "nazwa": item.nazwa,
+            "link": item.link,
+            "modul": item.modul,
+        };
     });
+    res.json(
+        {
+            "links": CacheWiado,
+            "oneDriveClientId": "2851111-8456-4dbf-80c9-866742c86df",
+            "googleDriveClientId": "",
+            "googleDriveApiKey": "",
+            "wiadomoscPowitalnaOn": false
+        }
+    )
 });
-
-router.get([
-    "/api/Wyslane",
-    "/api/WyslaneSkrzynka",
-], (req, res) => {
-    res.json({
-        "success": true,
-        "data": require("../../data/api/messages/WiadomosciWyslane").map(item => {
-            return {
-                "Id": item.WiadomoscId * 2,
-                "Nieprzeczytana": !item.GodzinaPrzeczytania,
-                "Nieprzeczytane": parseInt(item.Nieprzeczytane, 10),
-                "Przeczytane": parseInt(item.Przeczytane, 10),
-                "Data": converter.formatDate(new Date(item.DataWyslaniaUnixEpoch * 1000), true) + ' 00:00:00',
-                "Tresc": null,
-                "Temat": item.Tytul,
-                "Nadawca": {
-                    "Id": "" + item.NadawcaId,
-                    "Name": item.Nadawca,
-                    "IdLogin": item.NadawcaId,
-                    "Unreaded": false,
-                    "Date": null,
-                    "Role": 2,
-                    "PushMessage": false,
-                    "UnitId": 0,
-                    "Hash": "abcdef="
-                },
-                "IdWiadomosci": item.WiadomoscId,
-                "HasZalaczniki": false,
-                "FolderWiadomosci": 2,
-                "Adresaci": []
-            };
-        })
+router.get("/powiatwulkanowy/api/OdebraneNowe", (req, res) => {
+    res.json([])
+});
+router.get("/powiatwulkanowy/api/WyslaneNowe", (req, res) => {
+    res.json([])
+});
+router.get("/powiatwulkanowy/api/LiczbyNieodczytanych", (req, res) => {});
+router.get("/powiatwulkanowy/api/OdebraneSkrzynka", (req, res) => {});
+router.get("/powiatwulkanowy/api/WyslaneSkrzynka", (req, res) => {});
+router.get("/powiatwulkanowy/api/UsunieteSkrzynka", (req, res) => {});
+router.get("/powiatwulkanowy/api/KopieSkrzynka", (req, res) => {});
+router.get("/powiatwulkanowy/api/DdsArchive", (req, res) => {});
+router.get("/powiatwulkanowy/api/Odebrane", (req, res) => {
+    const OdebraneWia = require("../../data/uonetplus-wiadomosciplus/Odebrane").map(item => {
+        return {
+            "apiGlobalKey": item.apiGlobalKey,
+            "korespondenci": item.korespondenci,
+            "temat": item.temat,
+            "data": item.data,
+            "skrzynka": item.skrzynka,
+            "hasZalaczniki": item.hasZalaczniki,
+            "przeczytana": item.przeczytana,
+            "nieprzeczytanePrzeczytanePrzez": item.nieprzeczytanePrzeczytanePrzez,
+            "wazna": item.wazna,
+            "uzytkownikRola": item.uzytkownikRola,
+            "id": item.id,
+        };
     });
+    res.json(
+        OdebraneWia
+    )
 });
-
-router.get([
-    "/api/Usuniete",
-    "/api/UsunieteSkrzynka",
-], (req, res) => {
-    res.json({
-        "success": true,
-        "data": require("../../data/api/messages/WiadomosciUsuniete").map(item => {
-            return {
-                "Id": item.WiadomoscId * 2,
-                "Nieprzeczytana": !item.GodzinaPrzeczytania,
-                "Nieprzeczytane": parseInt(item.Nieprzeczytane, 10),
-                "Przeczytane": parseInt(item.Przeczytane, 10),
-                "Data": converter.formatDate(new Date(item.DataWyslaniaUnixEpoch * 1000), true) + ' 00:00:00',
-                "Tresc": null,
-                "Temat": item.Tytul,
-                "Nadawca": {
-                    "Id": "" + item.NadawcaId,
-                    "Name": item.Nadawca,
-                    "IdLogin": item.NadawcaId,
-                    "Unreaded": false,
-                    "Date": null,
-                    "Role": 2,
-                    "PushMessage": false,
-                    "UnitId": 0,
-                    "Hash": "abcdef="
-                },
-                "IdWiadomosci": item.WiadomoscId,
-                "HasZalaczniki": false,
-                "FolderWiadomosci": 3,
-                "Adresaci": []
-            };
-        })
+router.get("/powiatwulkanowy/api/Wyslane", (req, res) => {
+    const WyslaneWia = require("../../data/uonetplus-wiadomosciplus/Wyslane").map(item => {
+        return {
+            "apiGlobalKey": item.apiGlobalKey,
+            "korespondenci": item.korespondenci,
+            "temat": item.temat,
+            "data": item.data,
+            "skrzynka": item.skrzynka,
+            "hasZalaczniki": item.hasZalaczniki,
+            "przeczytana": item.przeczytana,
+            "nieprzeczytanePrzeczytanePrzez": item.nieprzeczytanePrzeczytanePrzez,
+            "wazna": item.wazna,
+            "uzytkownikRola": item.uzytkownikRola,
+            "id": item.id,
+        };
     });
+    res.json(
+        WyslaneWia
+    )
 });
-
-router.get("/api/Skrzynki", (req, res) => {
-    const user = require("../../data/api/ListaUczniow")[1];
-    res.json({
-        "success": true,
-        "data": [
-            {
-                "IdJednostkaSprawozdawcza": user.IdJednostkaSprawozdawcza,
-                "Skrot": user.JednostkaSprawozdawczaSkrot,
-                "Role": [1],
-                "NazwaNadawcy": user.Imie + " " + user.Nazwisko,
-                "WychowawcaWOddzialach": [],
-                "Id": user.Id
-            }
-        ]
+router.get("/powiatwulkanowy/api/Usuniete", (req, res) => {
+    const UsunieteWia = require("../../data/uonetplus-wiadomosciplus/Usuniete").map(item => {
+        return {
+            "apiGlobalKey": item.apiGlobalKey,
+            "korespondenci": item.korespondenci,
+            "temat": item.temat,
+            "data": item.data,
+            "skrzynka": item.skrzynka,
+            "hasZalaczniki": item.hasZalaczniki,
+            "przeczytana": item.przeczytana,
+            "nieprzeczytanePrzeczytanePrzez": item.nieprzeczytanePrzeczytanePrzez,
+            "wazna": item.wazna,
+            "uzytkownikRola": item.uzytkownikRola,
+            "id": item.id,
+        };
     });
+    res.json(
+        UsunieteWia
+    )
 });
-
-router.all("/api/WiadomoscSzczegoly", (req, res) => {
-    const message = require("../../data/api/messages/WiadomosciOdebrane")[0];
-    res.json({
-        "success": true,
-        "data": {
-            "Id": message.WiadomoscId,
-            "Tresc": message.Tresc,
-            "Zalaczniki": [
-                {
-                    "Url": "https://1drv.ms/u/s!AmvjLDq5anT2psJ4nujoBUyclWOUhw",
-                    "IdOneDrive": "0123456789ABCDEF!123",
-                    "IdWiadomosc": message.WiadomoscId,
-                    "NazwaPliku": "nazwa_pliku.pptx",
-                    "Id": message.WiadomoscId * 3
-                },
-                {
-                    "Url": "https://wulkanowy.github.io/",
-                    "IdOneDrive": "0123456789ABCDEF!124",
-                    "IdWiadomosc": message.WiadomoscId,
-                    "NazwaPliku": "wulkanowy.txt",
-                    "Id": message.WiadomoscId * 4
-                },
-                {
-                    "Url": "https://github.com/wulkanowy/wulkanowy",
-                    "IdOneDrive": "0123456789ABCDEF!125",
-                    "IdWiadomosc": message.WiadomoscId,
-                    "NazwaPliku": "wulkanowy(2).txt",
-                    "Id": message.WiadomoscId * 5
-                }
-            ]
+router.get("/powiatwulkanowy/api/Kopie", (req, res) => {});
+router.get("/powiatwulkanowy/api/WiadomoscSzczegoly", (req, res) => {
+    const reqID = req.query.apiGlobalKey
+    const WiadomosciSzczego = require("../../data/uonetplus-wiadomosciplus/WiaSzczegoly")
+    function WiadoSearch(GlobalKey) {
+        return WiadomosciSzczego.filter(
+          function(WiadomosciSzczego) {
+            return WiadomosciSzczego.apiGlobalKey == GlobalKey
+          }
+        );
+      }
+    var found = WiadoSearch(reqID)
+    Wiado = found.map(item => {
+        return {
+            "data": item.data,
+            "apiGlobalKey": item.apiGlobalKey,
+            "nadawca": item.nadawca,
+            "odbiorcy": item.odbiorcy,
+            "temat": item.temat,
+            "tresc": item.tresc,
+            "odczytana": item.odczytana,
+            "zalaczniki": item.zalaczniki,
+            "id": item.id
         }
     });
+    res.json(Wiado[0])
 });
-
-router.all("/api/WiadomoscOdpowiedzPrzekaz", (req, res) => {
-    const message = require("../../data/api/messages/WiadomosciOdebrane")[0];
-    res.json({
-        "success": true,
-        "data": {
-            "Id": message.WiadomoscId,
-            "Tresc": message.Tresc,
-            "Zalaczniki": [
-                {
-                    "Url": "https://1drv.ms/u/s!AmvjLDq5anT2psJ4nujoBUyclWOUhw",
-                    "IdOneDrive": "0123456789ABCDEF!123",
-                    "IdWiadomosc": message.WiadomoscId,
-                    "NazwaPliku": "nazwa_pliku.pptx",
-                    "Id": message.WiadomoscId * 3
-                },
-                {
-                    "Url": "https://wulkanowy.github.io/",
-                    "IdOneDrive": "0123456789ABCDEF!124",
-                    "IdWiadomosc": message.WiadomoscId,
-                    "NazwaPliku": "wulkanowy.txt",
-                    "Id": message.WiadomoscId * 4
-                },
-                {
-                    "Url": "https://github.com/wulkanowy/wulkanowy",
-                    "IdOneDrive": "0123456789ABCDEF!125",
-                    "IdWiadomosc": message.WiadomoscId,
-                    "NazwaPliku": "wulkanowy(2).txt",
-                    "Id": message.WiadomoscId * 5
-                }
-            ]
+router.get("/powiatwulkanowy/api/OdebraneArchiwum", (req, res) => {});
+router.get("/powiatwulkanowy/api/WyslaneArchiwum", (req, res) => {});
+router.get("/powiatwulkanowy/api/UsunieteArchiwum", (req, res) => {});
+router.get("/powiatwulkanowy/api/Ustawienia", (req, res) => {
+    const reqID = req.query.apiGlobalKey
+    const UstawieniaWia = require("../../data/uonetplus-wiadomosciplus/Ustawienia")
+    function WiadoSearch(GlobalKey) {
+        return UstawieniaWia.filter(
+          function(UstawieniaWia) {
+            return UstawieniaWia.apiGlobalKey == GlobalKey
+          }
+        );
+      }
+      var found = WiadoSearch(reqID)
+      UstawieWia = found.map(item => {
+        return {
+            "stopka": item.stopka,
+            "trybWysylaniaPowiadomien": item.trybWysylaniaPowiadomien
         }
     });
+    res.json(UstawieWia[0])
 });
-
-router.all("/api/Pracownicy", (req, res) => {
-    const user = require("../../data/api/ListaUczniow")[1];
-    const recipient = require("../../data/api/dictionaries/Pracownicy")[1];
-    res.json({
-        "success": true,
-        "data": [
-            {
-                "Id": recipient.Id * 8, // ¯\_(ツ)_/¯
-                "Name": `${recipient.Imie} ${recipient.Nazwisko} [${recipient.Kod}] - pracownik (${user.JednostkaSprawozdawczaSkrot})`,
-                "IdLogin": recipient.LoginId,
-                "Role": 7,
-                "Hash": "abcd==",
-            }
-        ]
+router.get("/powiatwulkanowy/api/Stopka", (req, res) => {
+    const StopkaWia = require("../../data/uonetplus-wiadomosciplus/Stopka").map(item => {
+        return {
+            "skrzynkaGlobalKey": item.skrzynkaGlobalKey,
+            "tresc": item.tresc,
+        }
     });
+    res.json(
+        StopkaWia
+    )
 });
-
-router.all([
-    "/api/MoveTrash",
-    "/api/Delete",
-], (req, res) => {
-    res.status(204).send();
+router.get("/powiatwulkanowy/api/StatystykiLogowan", (req, res) => {
+    res.json([])
 });
-
-router.all("/api/WiadomoscNowa", (req, res) => {
-    res.status(204).send();
+router.get("/powiatwulkanowy/api/Skrzynki", (req, res) => {
+    const SkrzynkiWia = require("../../data/uonetplus-wiadomosciplus/Skrzynki").map(item => {
+        return {
+            "globalKey": item.globalKey,
+            "nazwa": item.nazwa,
+            "typUzytkownika": item.typUzytkownika
+        }
+    });
+    res.json(
+        SkrzynkiWia
+    )
 });
+router.get("/powiatwulkanowy/api/Kopia", (req, res) => {});
+router.get("/powiatwulkanowy/api/Uczniowie", (req, res) => {});
+router.get("/powiatwulkanowy/api/Opiekunowie", (req, res) => {});
+router.get("/powiatwulkanowy/api/GrupaAdresatow", (req, res) => {});
+router.get("/powiatwulkanowy/api/GrupyAdresatow", (req, res) => {});
+router.get("/powiatwulkanowy/api/Pracownicy", (req, res) => {});
+router.get("/powiatwulkanowy/api/WiadomoscNowa", (req, res) => {});
+router.get("/powiatwulkanowy/api/WiadomoscOdpowiedzPrzekaz", (req, res) => {});
+router.get("/powiatwulkanowy/api/WiadomoscArchiwumOdpowiedzPrzekaz", (req, res) => {});
+router.get("/powiatwulkanowy/api/MoveTrash", (req, res) => {});
+router.get("/powiatwulkanowy/api/RestoreTrash", (req, res) => {});
+router.get("/powiatwulkanowy/api/DeleteArchiwum", (req, res) => {});
+router.get("/powiatwulkanowy/api/RestoreTrashArchiwum", (req, res) => {});
+router.get("/powiatwulkanowy/api/OdebraneWydruk", (req, res) => {});
+router.get("/powiatwulkanowy/api/WyslaneWydruk", (req, res) => {});
+router.get("/powiatwulkanowy/api/WiadomoscOdbiorcy", (req, res) => {});
+router.get("/powiatwulkanowy/api/WyslaneSzczegolyArchiwum", (req, res) => {});
+router.get("/powiatwulkanowy/api/UsunieteSzczegolyArchiwum", (req, res) => {});
 
 module.exports = router;

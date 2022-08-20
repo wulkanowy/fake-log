@@ -1,0 +1,158 @@
+[
+    {
+        "data": "2022-08-12T16:27:17.48+02:00",
+        "apiGlobalKey": "25fda2ea-0462-4bb8-b782-7528de02d212",
+        "nadawca": "Karolina Kłosek - P - (000056)",
+        "odbiorcy": [
+            "Mateusz Morawiec - U - (000054)"
+        ],
+        "temat": "Informacja o podręcznikach",
+        "tresc": "<p>Dzień dobry, Mateuszu,</p>",
+        "odczytana": true,
+        "zalaczniki": [],
+        "id": 14
+    },
+    {
+        "data": "2022-07-15T10:10:17.48+02:00",
+        "apiGlobalKey": "25fda2ea-0462-4bb8-b782-7528de02d211",
+        "nadawca": "Małgorzata Dostojewska - P - (000077)",
+        "odbiorcy": [
+            "Mateusz Morawiec - U - (000054)"
+        ],
+        "temat": "Zebranie w sprawie wycieczki do Rumuni",
+        "tresc": "<p>Dzień dobry, Mateuszu,</p>",
+        "odczytana": true,
+        "zalaczniki": [],
+        "id": 15
+    },
+    {
+        "data": "2022-05-19T10:27:17.48+02:00",
+        "apiGlobalKey": "25fda2ea-0462-4bb8-b782-7528de02d214",
+        "nadawca": "Kornel Kowalski - P - (000077)",
+        "odbiorcy": [
+            "Mateusz Morawiec - U - (000054)"
+        ],
+        "temat": "Informacje o otwarciu szkoły w Rumunii",
+        "tresc": "<p>Dzień dobry, Mateuszu,</p>",
+        "odczytana": true,
+        "zalaczniki": [],
+        "id": 16
+    },
+    {
+        "data": "2022-08-15T10:27:17.48+02:00",
+        "apiGlobalKey": "25fda2ea-0462-4bb8-b782-7528de02d217",
+        "nadawca": "Mateusza Perwanskiego - P - (000056)",
+        "odbiorcy": [
+            "Mateusz Morawiec - U - (000054)"
+        ],
+        "temat": "Przyłapanie uczniów na posiadaniu inchalatora do nikotyny",
+        "tresc": "<p>Dzień dobry, Mateuszu,</p>",
+        "odczytana": true,
+        "zalaczniki": [],
+        "id": 17
+    },
+    {
+        "data": "2022-08-15T10:27:17.48+02:00",
+        "apiGlobalKey": "e7a6708e-7bc4-4a6f-90fb-9312a6969a34",
+        "nadawca": "Małgorzata Dostojewska - P - (000077)",
+        "odbiorcy": [
+            "Mateusz Idziejczak - U - (000077)"
+        ],
+        "temat": "Informacyjnie",
+        "tresc": "<p>Dzień dobry, Mateuszu,</p>",
+        "odczytana": true,
+        "zalaczniki": [],
+        "id": 18
+    },
+    {
+        "data": "2022-08-15T10:27:17.48+02:00",
+        "apiGlobalKey": "e7a6708e-7bc4-4a6f-90fb-9312a6969a34",
+        "nadawca": "Małgorzata Dostojewska - P - (000077)",
+        "odbiorcy": [
+            "Mateusz Idziejczak - U - (000077)"
+        ],
+        "temat": "Informacyjnie",
+        "tresc": "<p>Dzień dobry, Mateuszu,</p>",
+        "odczytana": true,
+        "zalaczniki": [],
+        "id": 18
+    },
+    {
+        "data": "2022-08-15T10:27:17.48+02:00",
+        "apiGlobalKey": "e7a6708e-7bc4-4a6f-90fb-9312a6969a34",
+        "nadawca": "Małgorzata Dostojewska - P - (000077)",
+        "odbiorcy": [
+            "Mateusz Idziejczak - U - (000077)"
+        ],
+        "temat": "Informacyjnie",
+        "tresc": "<p>Dzień dobry, Mateuszu,</p>",
+        "odczytana": true,
+        "zalaczniki": [],
+        "id": 19
+    },
+    {
+        "data": "2022-08-15T10:27:17.48+02:00",
+        "apiGlobalKey": "e7a6708e-7bc4-4a6f-90fb-9312a6969a34",
+        "nadawca": "Małgorzata Dostojewska - P - (000077)",
+        "odbiorcy": [
+            "Mateusz Idziejczak - U - (000077)"
+        ],
+        "temat": "Informacyjnie",
+        "tresc": "<p>Dzień dobry, Mateuszu,</p>",
+        "odczytana": true,
+        "zalaczniki": [],
+        "id": 20
+    },
+    {
+        "data": "2022-08-15T10:27:17.48+02:00",
+        "apiGlobalKey": "e7a6708e-7bc4-4a6f-90fb-9312a6969a34",
+        "nadawca": "Małgorzata Dostojewska - P - (000077)",
+        "odbiorcy": [
+            "Mateusz Idziejczak - U - (000077)"
+        ],
+        "temat": "Informacyjnie",
+        "tresc": "<p>Dzień dobry, Mateuszu,</p>",
+        "odczytana": true,
+        "zalaczniki": [],
+        "id": 21
+    },
+    {
+        "data": "2022-08-15T10:27:17.48+02:00",
+        "apiGlobalKey": "e7a6708e-7bc4-4a6f-90fb-9312a6969a34",
+        "nadawca": "Małgorzata Dostojewska - P - (000077)",
+        "odbiorcy": [
+            "Mateusz Idziejczak - U - (000077)"
+        ],
+        "temat": "Informacyjnie",
+        "tresc": "<p>Dzień dobry, Mateuszu,</p>",
+        "odczytana": true,
+        "zalaczniki": [],
+        "id": 22
+    },
+    {
+        "data": "2022-08-15T10:27:17.48+02:00",
+        "apiGlobalKey": "e7a6708e-7bc4-4a6f-90fb-9312a6969a34",
+        "nadawca": "Małgorzata Dostojewska - P - (000077)",
+        "odbiorcy": [
+            "Mateusz Idziejczak - U - (000077)"
+        ],
+        "temat": "Informacyjnie",
+        "tresc": "<p>Dzień dobry, Mateuszu,</p>",
+        "odczytana": true,
+        "zalaczniki": [],
+        "id": 23
+    },
+    {
+        "data": "2022-08-15T10:27:17.48+02:00",
+        "apiGlobalKey": "e7a6708e-7bc4-4a6f-90fb-9312a6969a34",
+        "nadawca": "Małgorzata Dostojewska - P - (000077)",
+        "odbiorcy": [
+            "Mateusz Idziejczak - U - (000077)"
+        ],
+        "temat": "Informacyjnie",
+        "tresc": "<p>Dzień dobry, Mateuszu,</p>",
+        "odczytana": true,
+        "zalaczniki": [],
+        "id": 24
+    }
+]
