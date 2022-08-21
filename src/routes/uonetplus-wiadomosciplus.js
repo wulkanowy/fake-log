@@ -37,72 +37,63 @@ router.get([
     "/api/Odebrane",
     "/api/OdebraneSkrzynka",
 ], (req, res) => {
-    res.json({
-        "success": true,
-        "data": require("../../data/api/messages/WiadomosciOdebrane").map(item => {
-            return {
-                "apiGlobalKey": fromString(item.WiadomoscId.toString()),
-                "korespondenci": item.Nadawca + " - P - (123456)",
-                "temat": item.Tytul,
-                "data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
-                "skrzynka": "Jan Kowalski - U - (123456)",
-                "hasZalaczniki": true,
-                "przeczytana": !!item.GodzinaPrzeczytania,
-                "nieprzeczytanePrzeczytanePrzez": null,
-                "wazna": false,
-                "uzytkownikRola": 2,
-                "id": item.WiadomoscId
-            };
-        })
-    });
+    res.json(require("../../data/api/messages/WiadomosciOdebrane").map(item => {
+        return {
+            "apiGlobalKey": fromString(item.WiadomoscId.toString()),
+            "korespondenci": item.Nadawca + " - P - (123456)",
+            "temat": item.Tytul,
+            "data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
+            "skrzynka": "Jan Kowalski - U - (123456)",
+            "hasZalaczniki": true,
+            "przeczytana": !!item.GodzinaPrzeczytania,
+            "nieprzeczytanePrzeczytanePrzez": null,
+            "wazna": false,
+            "uzytkownikRola": 2,
+            "id": item.WiadomoscId
+        };
+    }));
 });
 
 router.get([
     "/api/Wyslane",
     "/api/WyslaneSkrzynka",
 ], (req, res) => {
-    res.json({
-        "success": true,
-        "data": require("../../data/api/messages/WiadomosciWyslane").map(item => {
-            return {
-                "apiGlobalKey": fromString(item.WiadomoscId.toString()),
-                "korespondenci": item.Nadawca + " - P - (123456)",
-                "temat": item.Tytul,
-                "data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
-                "skrzynka": "Jan Kowalski - U - (123456)",
-                "hasZalaczniki": true,
-                "przeczytana": !!item.GodzinaPrzeczytania,
-                "nieprzeczytanePrzeczytanePrzez": null,
-                "wazna": false,
-                "uzytkownikRola": 2,
-                "id": item.WiadomoscId
-            };
-        })
-    });
+    res.json(require("../../data/api/messages/WiadomosciWyslane").map(item => {
+        return {
+            "apiGlobalKey": fromString(item.WiadomoscId.toString()),
+            "korespondenci": item.Nadawca + " - P - (123456)",
+            "temat": item.Tytul,
+            "data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
+            "skrzynka": "Jan Kowalski - U - (123456)",
+            "hasZalaczniki": true,
+            "przeczytana": !!item.GodzinaPrzeczytania,
+            "nieprzeczytanePrzeczytanePrzez": null,
+            "wazna": false,
+            "uzytkownikRola": 2,
+            "id": item.WiadomoscId
+        };
+    }));
 });
 
 router.get([
     "/api/Usuniete",
     "/api/UsunieteSkrzynka",
 ], (req, res) => {
-    res.json({
-        "success": true,
-        "data": require("../../data/api/messages/WiadomosciUsuniete").map(item => {
-            return {
-                "apiGlobalKey": fromString(item.WiadomoscId.toString()),
-                "korespondenci": item.Nadawca + " - P - (123456)",
-                "temat": item.Tytul,
-                "data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
-                "skrzynka": "Jan Kowalski - U - (123456)",
-                "hasZalaczniki": true,
-                "przeczytana": !!item.GodzinaPrzeczytania,
-                "nieprzeczytanePrzeczytanePrzez": null,
-                "wazna": false,
-                "uzytkownikRola": 2,
-                "id": item.WiadomoscId
-            };
-        })
-    });
+    res.json(require("../../data/api/messages/WiadomosciUsuniete").map(item => {
+        return {
+            "apiGlobalKey": fromString(item.WiadomoscId.toString()),
+            "korespondenci": item.Nadawca + " - P - (123456)",
+            "temat": item.Tytul,
+            "data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
+            "skrzynka": "Jan Kowalski - U - (123456)",
+            "hasZalaczniki": true,
+            "przeczytana": !!item.GodzinaPrzeczytania,
+            "nieprzeczytanePrzeczytanePrzez": null,
+            "wazna": false,
+            "uzytkownikRola": 2,
+            "id": item.WiadomoscId
+        };
+    }));
 });
 
 router.get("/api/Skrzynki", (req, res) => {
