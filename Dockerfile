@@ -3,7 +3,7 @@ FROM node:18-alpine
 RUN mkdir /fake-log
 WORKDIR /fake-log
 
-RUN apk add --no-cache git python3 make g++
+RUN apk add --no-cache git
 
 COPY package.json package-lock.json ./
 RUN npm install

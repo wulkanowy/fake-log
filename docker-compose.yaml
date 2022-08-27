@@ -2,5 +2,7 @@ version: "3.3"
 services:
   web:
     build: .
+    environment:
+      - SSL=true
     ports:
       - "80:3000"
