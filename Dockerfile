@@ -1,9 +1,9 @@
-FROM node:14-alpine
+FROM node:16-alpine
 
 RUN mkdir /fake-log
 WORKDIR /fake-log
 
-RUN apk add --no-cache git python2 make g++
+RUN apk add --no-cache git python make g++
 
 COPY package.json package-lock.json ./
 RUN npm install
