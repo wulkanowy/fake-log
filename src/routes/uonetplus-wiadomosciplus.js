@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const protocol = require('../utils/connection');
+const {timestampToIsoTzFormat} = require('../utils/converter');
 const {fromString} = require('uuidv4');
 
 router.get("/", (req, res) => {
@@ -42,7 +43,7 @@ router.get([
             "apiGlobalKey": fromString(item.WiadomoscId.toString()),
             "korespondenci": item.Nadawca + " - P - (123456)",
             "temat": item.Tytul,
-            "data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
+            "data": timestampToIsoTzFormat(item.DataWyslaniaUnixEpoch),
             "skrzynka": "Jan Kowalski - U - (123456)",
             "hasZalaczniki": true,
             "przeczytana": !!item.GodzinaPrzeczytania,
@@ -63,7 +64,7 @@ router.get([
             "apiGlobalKey": fromString(item.WiadomoscId.toString()),
             "korespondenci": item.Nadawca + " - P - (123456)",
             "temat": item.Tytul,
-            "data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
+            "data": timestampToIsoTzFormat(item.DataWyslaniaUnixEpoch),
             "skrzynka": "Jan Kowalski - U - (123456)",
             "hasZalaczniki": true,
             "przeczytana": !!item.GodzinaPrzeczytania,
@@ -84,7 +85,7 @@ router.get([
             "apiGlobalKey": fromString(item.WiadomoscId.toString()),
             "korespondenci": item.Nadawca + " - P - (123456)",
             "temat": item.Tytul,
-            "data": new Date(item.DataWyslaniaUnixEpoch * 1000).toISOString(),
+            "data": timestampToIsoTzFormat(item.DataWyslaniaUnixEpoch),
             "skrzynka": "Jan Kowalski - U - (123456)",
             "hasZalaczniki": true,
             "przeczytana": !!item.GodzinaPrzeczytania,
@@ -110,7 +111,7 @@ router.get("/api/Skrzynki", (req, res) => {
 router.all("/api/WiadomoscSzczegoly", (req, res) => {
     const message = require("../../data/api/messages/WiadomosciOdebrane")[0];
     res.json({
-        "data": new Date(message.DataWyslaniaUnixEpoch * 1000).toISOString(),
+        "data": timestampToIsoTzFormat(message.DataWyslaniaUnixEpoch),
         "apiGlobalKey": fromString(message.WiadomoscId.toString()),
         "nadawca": "Natalia Wrzesień - P - (123456)",
         "odbiorcy": ["Jan kowalski - U - (123456)"],
@@ -139,7 +140,7 @@ router.all("/api/WiadomoscOdpowiedzPrzekaz", (req, res) => {
     const user = require("../../data/api/ListaUczniow")[1];
     const message = require("../../data/api/messages/WiadomosciOdebrane")[0];
     res.json({
-        "data": new Date(message.DataWyslaniaUnixEpoch * 1000).toISOString(),
+        "data": timestampToIsoTzFormat(message.DataWyslaniaUnixEpoch),
         "apiGlobalKey": fromString(message.WiadomoscId.toString()),
         "uzytkownikSkrzynkaGlobalKey": fromString(user.Id.toString()),
         "nadawcaSkrzynkaGlobalKey": fromString(message.NadawcaId.toString()),
