@@ -5,12 +5,14 @@ const protocol = require('../utils/connection');
 router.get("/powiatwulkanowy/Start.mvc/Endpoints", (req, res) => {
     const base = protocol(req) + "://" + req.get('host') + "/powiatwulkanowy/Start.mvc";
     res.json({
-        status: "sucess",
+        status: "success",
         data: {
             endpoints: [
                 "/GetSelfGovernments",
                 "/GetStudentTrips",
+                "/GetStudentConferences",
                 "/GetLastNotes",
+                "/GetNumberOfUnreadMessages",
                 "/GetFreeDays",
                 "/GetKidsLuckyNumbers",
                 "/GetKidsLessonPlan",
@@ -27,18 +29,18 @@ router.get("/powiatwulkanowy/Start.mvc/Endpoints", (req, res) => {
 
 router.all("/powiatwulkanowy/Start.mvc/GetSelfGovernments", (req, res) => {
     res.json({
-        "data": [],
-        "success": false,
-        "errorMessage": "Not implemented yet",
+        "data": require("../../data/uonetplus/GetSelfGovernments"),
+        "success": true,
+        "errorMessage": null,
         "feedback": null
     });
 });
 
 router.all("/powiatwulkanowy/Start.mvc/GetStudentTrips", (req, res) => {
     res.json({
-        "data": [],
-        "success": false,
-        "errorMessage": "Not implemented yet",
+        "data": require("../../data/uonetplus/GetStudentTrips"),
+        "success": true,
+        "errorMessage": null,
         "feedback": null
     });
 });
@@ -57,6 +59,15 @@ router.all("/powiatwulkanowy/Start.mvc/GetKidsLuckyNumbers", (req, res) => {
 
 router.all("/powiatwulkanowy/Start.mvc/GetKidsLessonPlan", (req, res) => {
     res.json({
+        "data": require("../../data/uonetplus/GetKidsLessonPlan"),
+        "success": true,
+        "errorMessage": null,
+        "feedback": null
+    });
+});
+
+router.all("/powiatwulkanowy/Start.mvc/GetNumberOfUnreadMessages", (req, res) => {
+    res.json({
         "data": [],
         "success": false,
         "errorMessage": "Not implemented yet",
@@ -66,14 +77,23 @@ router.all("/powiatwulkanowy/Start.mvc/GetKidsLessonPlan", (req, res) => {
 
 router.all("/powiatwulkanowy/Start.mvc/GetLastHomeworks", (req, res) => {
     res.json({
-        "data": [],
-        "success": false,
-        "errorMessage": "Not implemented yet",
+        "data": require("../../data/uonetplus/GetLastHomeworks"),
+        "success": true,
+        "errorMessage": null,
         "feedback": null
     });
 });
 
 router.all("/powiatwulkanowy/Start.mvc/GetLastTests", (req, res) => {
+    res.json({
+        "data": require("../../data/uonetplus/GetLastTests"),
+        "success": true,
+        "errorMessage": null,
+        "feedback": null
+    });
+});
+
+router.all("/powiatwulkanowy/Start.mvc/GetStudentConferences", (req, res) => {
     res.json({
         "data": [],
         "success": false,
@@ -84,9 +104,9 @@ router.all("/powiatwulkanowy/Start.mvc/GetLastTests", (req, res) => {
 
 router.all("/powiatwulkanowy/Start.mvc/GetLastStudentLessons", (req, res) => {
     res.json({
-        "data": [],
-        "success": false,
-        "errorMessage": "Not implemented yet",
+        "data": require("../../data/uonetplus/GetLastStudentLessons"),
+        "success": true,
+        "errorMessage": null,
         "feedback": null
     });
 });

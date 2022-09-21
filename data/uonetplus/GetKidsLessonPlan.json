@@ -1,0 +1,36 @@
+[
+    {
+        "IkonkaNazwa": null,
+        "Num": null,
+        "Zawartosc": [
+            {
+                "IkonkaNazwa": null,
+                "Num": null,
+                "Zawartosc": [],
+                "Rozszerzenie": false,
+                "Nazwa": "<span class=\"dayHeader subDiv\">23.06.2022 - DZIŚ</span><br>",
+                "Url": null,
+                "Dane": null,
+                "Symbol": null,
+                "Nieaktywny": false
+            },
+            {
+                "IkonkaNazwa": null,
+                "Num": null,
+                "Zawartosc": [],
+                "Rozszerzenie": false,
+                "Nazwa": "<span class=\"num\" style=\"\">2.</span> <span '>zaj. wych. klasa</span>",
+                "Url": null,
+                "Dane": null,
+                "Symbol": null,
+                "Nieaktywny": false
+            }
+        ],
+        "Rozszerzenie": false,
+        "Nazwa": "",
+        "Url": null,
+        "Dane": null,
+        "Symbol": null,
+        "Nieaktywny": false
+    }
+]

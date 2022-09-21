@@ -1,0 +1,31 @@
+[
+    {
+        "UnitName": "ZST-I",
+        "People": [
+            {
+                "Name": "Jan Kowalski",
+                "Position": "Przewodniczący Samorządu Uczniowskiego",
+                "Division": "2tim (T 17)",
+                "Id": 0
+            },
+            {
+                "Name": "Jan Kowalski",
+                "Position": "Z-ca przewodniczącego Samorządu Uczniowskiego",
+                "Division": "2tm (T 17)",
+                "Id": 0
+            },
+            {
+                "Name": "Jan Kowalski",
+                "Position": "Skarbnik",
+                "Division": "1tm (T 17)",
+                "Id": 0
+            },
+            {
+                "Name": "Jan Kowalski",
+                "Position": "Sekretarz",
+                "Division": "2pma (T 17)",
+                "Id": 0
+            }
+        ]
+    }
+]

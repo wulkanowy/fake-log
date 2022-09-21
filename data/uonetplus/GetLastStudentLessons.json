@@ -1,0 +1,47 @@
+[
+    {
+        "IkonkaNazwa": null,
+        "Num": null,
+        "Zawartosc": [
+            {
+                "IkonkaNazwa": null,
+                "Num": null,
+                "Zawartosc": [],
+                "Rozszerzenie": false,
+                "Nazwa": "<span class=\"white\">Biologia klasa,</span> Podsumowanie wiadomości z kl. III.",
+                "Url": null,
+                "Dane": null,
+                "Symbol": null,
+                "Nieaktywny": false
+            },
+            {
+                "IkonkaNazwa": null,
+                "Num": null,
+                "Zawartosc": [],
+                "Rozszerzenie": false,
+                "Nazwa": "<span class=\"white\">Chemia klasa,</span> Podsumowanie wiadomości z chemii.",
+                "Url": null,
+                "Dane": null,
+                "Symbol": null,
+                "Nieaktywny": false
+            },
+            {
+                "IkonkaNazwa": null,
+                "Num": null,
+                "Zawartosc": [],
+                "Rozszerzenie": false,
+                "Nazwa": "<span class=\"white\">Edukacja dla bezpieczeństwa klasa,</span> Podsumowanie pracy na zajęciach edb.",
+                "Url": null,
+                "Dane": null,
+                "Symbol": null,
+                "Nieaktywny": false
+            }
+        ],
+        "Rozszerzenie": false,
+        "Nazwa": "",
+        "Url": null,
+        "Dane": null,
+        "Symbol": null,
+        "Nieaktywny": false
+    }
+]
