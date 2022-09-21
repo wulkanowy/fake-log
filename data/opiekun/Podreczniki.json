@@ -1,0 +1,38 @@
+[
+    {
+        "Opis": "",
+        "Tytul": "Longman Repetytorium maturalne. Podręcznik wieloletni do języka angielskiego - poziom rozszerzony",
+        "Autor": "Marta Umińska, Bob Hastings, Dominika Chandler, Rod Fricker, Beata Trapnell",
+        "Wydawnictwo": "Pearson Central Europe Sp. z o.o.",
+        "Przedmiot": "Język angielski",
+        "Aktywny": false,
+        "Id": 66
+    },
+    {
+        "Opis": "",
+        "Tytul": "Historia i Teraźniejszość",
+        "Autor": "Izabella Modzelewska-Rysak, Leszek Rysak, Adam Cisek, Karol Wilczyński",
+        "Wydawnictwo": "Wydawnictwa Szkolne i Pedagogiczne Sp. z o.o.",
+        "Przedmiot": "Historia i Teraźniejszość",
+        "Aktywny": true,
+        "Id": 57
+    },
+    {
+        "Opis": "",
+        "Tytul": "Droga autostradą do Bukaresztu. Podręcznik wieloletni do języka rumuńskiego - poziom podstawowy",
+        "Autor": "Marta Umińska, Bob Hastings, Dominika Chandler, Rod Fricker, Beata Trapnell",
+        "Wydawnictwo": "Wydawnictwo Cenzury i Nauk Społecznych Sp. z o.o", 
+        "Przedmiot": "Język rumuński",
+        "Aktywny": false,
+        "Id": 69
+    },
+    {
+        "Opis": "",
+        "Tytul": "Drogą ku wyjścia z Unii Europejskiej. Podręcznik wieloletni do historii - poziom podstawowy",
+        "Autor": "Marta Umińska, Mateusz Morawiecki, Kuba Szczodreń",
+        "Wydawnictwo": "Wydawnictwo Cenzury i Nauk Społecznych Sp. z o.o", 
+        "Przedmiot": "Historia",
+        "Aktywny": true,
+        "Id": 80
+    }
+]
