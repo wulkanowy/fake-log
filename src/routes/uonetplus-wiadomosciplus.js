@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const protocol = require('../utils/connection');
-const {timestampToIsoTzFormat} = require('../utils/converter');
+const {timestampToIsoTzFormat, dateToTimestamp} = require('../utils/converter');
 const {fromString} = require('uuidv4');
 
 router.get("/", (req, res) => {
@@ -38,12 +38,17 @@ router.get([
     "/api/Odebrane",
     "/api/OdebraneSkrzynka",
 ], (req, res) => {
-    res.json(require("../../data/api/messages/WiadomosciOdebrane").map(item => {
+    const currentTimestamp = dateToTimestamp(new Date());
+    res.json(require("../../data/api/messages/WiadomosciOdebrane").map((item, i) => {
+        let itemTimestamp = item.DataWyslaniaUnixEpoch;
+        if (i < 7) {
+            itemTimestamp = currentTimestamp - (i * i * 3600 * 6);
+        }
         return {
             "apiGlobalKey": fromString(item.WiadomoscId.toString()),
             "korespondenci": item.Nadawca + " - P - (123456)",
             "temat": item.Tytul,
-            "data": timestampToIsoTzFormat(item.DataWyslaniaUnixEpoch),
+            "data": timestampToIsoTzFormat(itemTimestamp),
             "skrzynka": "Jan Kowalski - U - (123456)",
             "hasZalaczniki": true,
             "przeczytana": !!item.GodzinaPrzeczytania,

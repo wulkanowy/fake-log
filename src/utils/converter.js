@@ -1,4 +1,4 @@
-const { addDays, toDate, format} = require('date-fns');
+const {addDays, toDate, format, getTime} = require('date-fns');
 const WEEK_TICK = 6048000000000;
 const DAY_TICK = 864000000000;
 
@@ -34,6 +34,10 @@ function formatDate(today, iso = false) {
 
 function timestampToIsoTzFormat(timestamp) {
     return format(new Date(timestamp * 1000), 'yyyy-MM-dd\'T\'HH:mm:ss.SSXXX');
+}
+
+function dateToTimestamp(date) {
+    return getTime(date) / 1000;
 }
 
 function getMonday(date) {
@@ -96,3 +100,4 @@ exports.getPrevWeekTick = getPrevWeekTick;
 exports.getNextWeekTick = getNextWeekTick;
 exports.formatDate = formatDate;
 exports.timestampToIsoTzFormat = timestampToIsoTzFormat;
+exports.dateToTimestamp = dateToTimestamp;
