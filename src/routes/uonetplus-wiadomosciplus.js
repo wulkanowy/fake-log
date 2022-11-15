@@ -46,10 +46,10 @@ router.get([
         }
         return {
             "apiGlobalKey": fromString(item.WiadomoscId.toString()),
-            "korespondenci": item.Nadawca + " - P - (123456)",
+            "korespondenci": item.Nadawca + " - P - (Fake123456)",
             "temat": item.Tytul,
             "data": timestampToIsoTzFormat(itemTimestamp),
-            "skrzynka": "Jan Kowalski - U - (123456)",
+            "skrzynka": "Jan Kowalski - U - (Fake123456)",
             "hasZalaczniki": true,
             "przeczytana": !!item.GodzinaPrzeczytania,
             "nieprzeczytanePrzeczytanePrzez": null,
@@ -67,10 +67,10 @@ router.get([
     res.json(require("../../data/api/messages/WiadomosciWyslane").map(item => {
         return {
             "apiGlobalKey": fromString(item.WiadomoscId.toString()),
-            "korespondenci": item.Nadawca + " - P - (123456)",
+            "korespondenci": item.Nadawca + " - P - (Fake123456)",
             "temat": item.Tytul,
             "data": timestampToIsoTzFormat(item.DataWyslaniaUnixEpoch),
-            "skrzynka": "Jan Kowalski - U - (123456)",
+            "skrzynka": "Jan Kowalski - U - (Fake123456)",
             "hasZalaczniki": true,
             "przeczytana": !!item.GodzinaPrzeczytania,
             "nieprzeczytanePrzeczytanePrzez": null,
@@ -88,10 +88,10 @@ router.get([
     res.json(require("../../data/api/messages/WiadomosciUsuniete").map(item => {
         return {
             "apiGlobalKey": fromString(item.WiadomoscId.toString()),
-            "korespondenci": item.Nadawca + " - P - (123456)",
+            "korespondenci": item.Nadawca + " - P - (Fake123456)",
             "temat": item.Tytul,
             "data": timestampToIsoTzFormat(item.DataWyslaniaUnixEpoch),
-            "skrzynka": "Jan Kowalski - U - (123456)",
+            "skrzynka": "Jan Kowalski - U - (Fake123456)",
             "hasZalaczniki": true,
             "przeczytana": !!item.GodzinaPrzeczytania,
             "nieprzeczytanePrzeczytanePrzez": null,
@@ -118,8 +118,8 @@ router.all("/api/WiadomoscSzczegoly", (req, res) => {
     res.json({
         "data": timestampToIsoTzFormat(message.DataWyslaniaUnixEpoch),
         "apiGlobalKey": fromString(message.WiadomoscId.toString()),
-        "nadawca": "Natalia Wrzesień - P - (123456)",
-        "odbiorcy": ["Jan kowalski - U - (123456)"],
+        "nadawca": "Natalia Wrzesień - P - (Fake123456)",
+        "odbiorcy": ["Jan kowalski - U - (Fake123456)"],
         "temat": message.Tytul,
         "tresc": message.Tresc.replaceAll("\n", "<br>"),
         "odczytana": true,
@@ -149,11 +149,11 @@ router.all("/api/WiadomoscOdpowiedzPrzekaz", (req, res) => {
         "apiGlobalKey": fromString(message.WiadomoscId.toString()),
         "uzytkownikSkrzynkaGlobalKey": fromString(user.Id.toString()),
         "nadawcaSkrzynkaGlobalKey": fromString(message.NadawcaId.toString()),
-        "nadawcaSkrzynkaNazwa": "Natalia Wrzesień - P - (123456)",
+        "nadawcaSkrzynkaNazwa": "Natalia Wrzesień - P - (Fake123456)",
         "adresaci": [
             {
                 "skrzynkaGlobalKey": fromString(user.Id.toString()),
-                "nazwa": "Jan Kowalski - U - (123456)"
+                "nazwa": "Jan Kowalski - U - (Fake123456)"
             }
         ],
         "temat": message.Tytul,
