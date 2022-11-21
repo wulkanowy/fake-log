@@ -3,6 +3,6 @@ services:
   web:
     build: .
     environment:
-      - SSL=false
+      - SSL=true
     ports:
       - "80:3000"
