@@ -3,7 +3,7 @@ services:
   fakelog:
     build: .
     ports:
-      - "3000:3001"
+      - "3000:3000"
     networks:
       - internal_network
 
