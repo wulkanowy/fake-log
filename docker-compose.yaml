@@ -1,8 +1,13 @@
-version: "3.3"
+version: "3.5"
 services:
-  web:
+  fakelog:
     build: .
-    environment:
-      - SSL=true
     ports:
-      - "80:3000"
+      - "3001:3000"
+    networks:
+      - internal_network
+
+networks:
+  internal_network:
+    external:
+      name: wulkanowy_network
