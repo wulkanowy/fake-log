@@ -1,9 +1,7 @@
 module.exports = function(req) {
     const isConnectionEncrypted = req.connection.encrypted;
     const isSslEnvSet = process.env.SSL === 'true';
-    const isHeaderSsl = req.header('X-Forwaded-Proto') === 'https';
-
-    console.log(req.headers);
+    const isHeaderSsl = req.header('x-forwarded-proto') === 'https';
 
     const proto = isConnectionEncrypted || isSslEnvSet || isHeaderSsl ? 'https' : 'http';
 
