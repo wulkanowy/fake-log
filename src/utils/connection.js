@@ -1,4 +1,9 @@
 module.exports = function(req) {
-    let proto = req.connection.encrypted || process.env.SSL === 'true' ? 'https' : 'http';
+    const isConnectionEncrypted = req.connection.encrypted;
+    const isSslEnvSet = process.env.SSL === 'true';
+    const isHeaderSsl = req.header('X-Forwaded-Proto') === 'https';
+
+    const proto = isConnectionEncrypted || isSslEnvSet || isHeaderSsl ? 'https' : 'http';
+
     return proto.split(/\s*,\s*/)[0];
 };
