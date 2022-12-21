@@ -113,29 +113,7 @@ router.all("/powiatwulkanowy/Start.mvc/GetLastStudentLessons", (req, res) => {
 
 router.all("/powiatwulkanowy/Start.mvc/GetStudentDirectorInformations", (req, res) => {
     res.json({
-        "data": [
-            {
-                "Dane": null,
-                "IkonkaNazwa": null,
-                "Nazwa": "",
-                "Nieaktywny": false,
-                "Num": null,
-                "Symbol": null,
-                "Url": null,
-                "Zawartosc": [
-                    {
-                        "Dane": "Dzień wolny od zajęć dydaktycznych<br />03.05.2021 – poniedziałek",
-                        "IkonkaNazwa": null,
-                        "Nazwa": "03.05.2021 Dzień wolny od zajęć dydaktycznych",
-                        "Nieaktywny": false,
-                        "Num": null,
-                        "Symbol": null,
-                        "Url": null,
-                        "Zawartosc": []
-                    }
-                ]
-            }
-        ],
+        "data": require("../../data/uonetplus/GetStudentDirectorInformations"),
         "errorMessage": null,
         "feedback": null,
         "success": true

@@ -1,0 +1,44 @@
+[
+  {
+    "IkonkaNazwa": null,
+    "Num": null,
+    "Zawartosc": [
+      {
+        "IkonkaNazwa": null,
+        "Num": null,
+        "Zawartosc": [],
+        "Nazwa": "21.12.2022 Dzień wolny od zajęć dydaktycznych",
+        "Url": null,
+        "Dane": "Dzień wolny od zajęć dydaktycznych<br />21.12.2022 – poniedziałek",
+        "Symbol": null,
+        "Nieaktywny": false
+      },
+      {
+        "IkonkaNazwa": null,
+        "Num": null,
+        "Zawartosc": [],
+        "Nazwa": "19.12.2022 Zmaina obuwia",
+        "Url": null,
+        "Dane": "Informuję nauczycieli i uczni&#243;w, że...",
+        "Symbol": null,
+        "Nieaktywny": false
+      },
+      {
+        "IkonkaNazwa": null,
+        "Num": null,
+        "Zawartosc": [],
+        "Rozszerzenie": false,
+        "Nazwa": "12.12.2022 Rozkład dzwonków podczas lekcji skróconych- 21 grudnia 2022",
+        "Url": null,
+        "Dane": "1&#9;8.00-8.40&#10;2&#9;8.45-9.25&#10;3&#9;9.30-10.10&#10;4&#9;10.20-11.00&#10;5&#9;11.10-11.50&#10;6&#9;12.00-12.40&#10;7&#9;12.45-13.25&#10;8&#9;13.30-14.10&#10;9&#9;14.15-14.55&#10;10&#9;15.00-15.40",
+        "Symbol": null,
+        "Nieaktywny": false
+      }
+    ],
+    "Nazwa": "",
+    "Url": null,
+    "Dane": null,
+    "Symbol": null,
+    "Nieaktywny": false
+  }
+]
