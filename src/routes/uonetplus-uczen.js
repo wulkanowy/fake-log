@@ -156,6 +156,7 @@ router.all("/UczenDziennik.mvc/Get", (req, res) => {
                 "IsArtystyczna13": false,
                 "IsSpecjalny": false,
                 "IsPrzedszkola": false,
+                "IsAuthorized": item.Id !== 1,
                 "UczenPelnaNazwa": `${item.OkresPoziom}${item.OddzialSymbol} ${item.year} - ${item.Imie} ${item.Nazwisko}`
             };
         }),
