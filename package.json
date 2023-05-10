@@ -24,7 +24,8 @@
     "pug": "^3.0.2",
     "sass": "^1.56.1",
     "serve-favicon": "~2.5.0",
-    "uuidv4": "^6.2.13"
+    "uuidv4": "^6.2.13",
+    "validate-polish": "^2.1.40"
   },
   "devDependencies": {
     "jshint": "^2.13.6",

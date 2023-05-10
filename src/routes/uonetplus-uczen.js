@@ -6,6 +6,7 @@ const converter = require('../utils/converter');
 const Tokens = require('csrf');
 const _ = require('lodash');
 const {getGradeColorByCategoryName} = require("../utils/gradeColor");
+const {validatePolish} = require('validate-polish');
 const {
     format,
     fromUnixTime,
@@ -25,7 +26,7 @@ router.get("/", (req, res) => {
         status: "sucess",
         data: {
             endpoints: [
-                "/Diety.mvc/Get",
+                "/Autoryzacja.mvc/Post",
                 "/EgzaminySemestralne.mvc/Get",
                 "/EgzaminyZewnetrzne.mvc/Get",
                 "/EwidencjaObecnosci.mvc/Get",
@@ -158,6 +159,15 @@ router.all("/UczenDziennik.mvc/Get", (req, res) => {
                 "UczenPelnaNazwa": `${item.OkresPoziom}${item.OddzialSymbol} ${item.year} - ${item.Imie} ${item.Nazwisko}`
             };
         }),
+        "success": true
+    });
+});
+
+router.all("/Autoryzacja.mvc/Post", (req, res) => {
+    res.json({
+        "data": {
+            "success": validatePolish.pesel(req.body.data?.Pesel ?? "")
+        },
         "success": true
     });
 });
