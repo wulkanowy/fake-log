@@ -9,7 +9,7 @@
     "scss": "sass --watch public/stylesheets"
   },
   "dependencies": {
-    "@types/express": "^4.17.17",
+    "@types/express": "^4.17.20",
     "body-parser": "~1.20.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -22,7 +22,7 @@
     "md5": "^2.3.0",
     "morgan": "~1.10.0",
     "pug": "^3.0.2",
-    "sass": "^1.64.1",
+    "sass": "^1.69.4",
     "serve-favicon": "~2.5.0",
     "uuidv4": "^6.2.13",
     "validate-polish": "^2.1.40"
