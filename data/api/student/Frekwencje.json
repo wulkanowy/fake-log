@@ -214,5 +214,23 @@
     "DzienTekst": "2018-04-27",
     "IdPrzedmiot": 311,
     "PrzedmiotNazwa": "Geografia"
+  },
+  {
+    "IdKategoria": 1,
+    "Numer": 4,
+    "IdPoraLekcji": 79,
+    "Dzien": 1524520800,
+    "DzienTekst": "2018-04-28",
+    "IdPrzedmiot": 311,
+    "PrzedmiotNazwa": "Język niemiecki"
+  },
+  {
+    "IdKategoria": 1,
+    "Numer": 4,
+    "IdPoraLekcji": 79,
+    "Dzien": 1524520800,
+    "DzienTekst": "2018-04-29",
+    "IdPrzedmiot": 311,
+    "PrzedmiotNazwa": "HIT"
   }
 ]
