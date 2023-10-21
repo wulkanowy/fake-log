@@ -603,6 +603,18 @@ router.all("/PlanZajec.mvc/Get", (req, res) => {
                     "Distinction": false,
                     "Flex": 1,
                 },
+                {
+                    "Text": `piątek<br />${converter.formatDate(addDays(requestDate, 5))}`,
+                    "Width": null,
+                    "Distinction": false,
+                    "Flex": 1,
+                },
+                {
+                    "Text": `piątek<br />${converter.formatDate(addDays(requestDate, 6))}`,
+                    "Width": null,
+                    "Distinction": false,
+                    "Flex": 1,
+                },
             ],
             "Rows": rows.map(row => [row.times, ...row.lessons]),
             "Additionals": require("../../data/opiekun/lekcje-dodatkowe").map(item => {
