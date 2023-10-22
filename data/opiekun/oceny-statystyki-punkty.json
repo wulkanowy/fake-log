@@ -19,5 +19,12 @@
     "Value2": 85.00,
     "Label1": "69,96",
     "Label2": "85,00"
+  },
+  {
+    "Subject": "Matematyka",
+    "Value1": 123.96,
+    "Value2": 201.49,
+    "Label1": "123,96",
+    "Label2": "201,49"
   }
 ]
