@@ -74,6 +74,10 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/LoginEndpoint.aspx", (req, res) => {
+    res.redirect("/Start");
+});
+
 router.get("/Start", (req, res) => {
     res.render("uczen/start");
 });

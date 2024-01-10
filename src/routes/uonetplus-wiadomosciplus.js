@@ -8,6 +8,10 @@ router.get("/", (req, res) => {
     res.render("messages");
 });
 
+router.get("/LoginEndpoint.aspx", (req, res) => {
+    res.redirect("/");
+});
+
 router.get("/-endpoints", (req, res) => {
     const base = protocol(req) + "://" + req.get('host') + "/powiatwulkanowy";
     res.json({
