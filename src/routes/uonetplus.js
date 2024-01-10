@@ -149,7 +149,7 @@ router.all(/^\/([a-z0-9]+)(?:\/LoginEndpoint\.aspx|\/)?$/i, (req, res) => {
     res.redirect(protocol(req) + "://" + req.get('host').replace("uonetplus", "cufs") + "/powiatwulkanowy/Account/LogOn");
 });
 
-router.get("/powiatwulkanowy/Start.mvc/Index", (req, res) => {
+router.get(["/powiatwulkanowy/Start.mvc", "/powiatwulkanowy/Start.mvc/Index"], (req, res) => {
     res.render("homepage", {
         title: "Uonet+",
         uonetplusOpiekun: protocol(req) + "://" + req.get('host').replace("uonetplus", "uonetplus-opiekun"),
