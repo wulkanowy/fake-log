@@ -19,6 +19,7 @@ router.get("/powiatwulkanowy/Start.mvc/Endpoints", (req, res) => {
                 "/GetLastHomeworks",
                 "/GetLastTests",
                 "/GetLastStudentLessons",
+                "/GetLastAnnouncements",
                 "/GetStudentDirectorInformations",
             ].map(item => {
                 return base + item;
@@ -114,6 +115,15 @@ router.all("/powiatwulkanowy/Start.mvc/GetLastStudentLessons", (req, res) => {
 router.all("/powiatwulkanowy/Start.mvc/GetStudentDirectorInformations", (req, res) => {
     res.json({
         "data": require("../../data/uonetplus/GetStudentDirectorInformations"),
+        "errorMessage": null,
+        "feedback": null,
+        "success": true
+    });
+});
+
+router.all("/powiatwulkanowy/Start.mvc/GetLastAnnouncements", (req, res) => {
+    res.json({
+        "data": require("../../data/uonetplus/GetLastAnnouncements"),
         "errorMessage": null,
         "feedback": null,
         "success": true
