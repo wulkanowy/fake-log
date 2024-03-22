@@ -1,0 +1,257 @@
+[
+  {
+    "data": "2024-03-18T00:00:00+01:00",
+    "godzinaOd": "2024-03-18T08:00:00+01:00",
+    "godzinaDo": "2024-03-18T08:45:00+01:00",
+    "prowadzacy": "Kowalski Jan",
+    "prowadzacyWspomagajacy1": null,
+    "prowadzacyWspomagajacy2": null,
+    "przedmiot": "Biologia",
+    "podzial": null,
+    "sala": "23",
+    "pseudonim": null,
+    "zmiany": [],
+    "adnotacja": 0,
+    "dodatkowe": false,
+    "zrealizowane": true
+  },
+  {
+    "data": "2024-03-20T00:00:00+01:00",
+    "godzinaOd": "2024-03-20T08:00:00+01:00",
+    "godzinaDo": "2024-03-20T08:45:00+01:00",
+    "prowadzacy": "Błąd Jan",
+    "prowadzacyWspomagajacy1": "",
+    "prowadzacyWspomagajacy2": "",
+    "przedmiot": "Religia",
+    "podzial": "|CH",
+    "sala": "20",
+    "pseudonim": null,
+    "zmiany": [],
+    "adnotacja": 0,
+    "dodatkowe": false,
+    "zrealizowane": false
+  },
+  {
+    "data": "2024-03-20T00:00:00+01:00",
+    "godzinaOd": "2024-03-20T09:40:00+01:00",
+    "godzinaDo": "2024-03-20T10:25:00+01:00",
+    "prowadzacy": "Nieobecny Jan",
+    "prowadzacyWspomagajacy1": "",
+    "prowadzacyWspomagajacy2": "",
+    "przedmiot": "Religia",
+    "podzial": "",
+    "sala": "15",
+    "pseudonim": null,
+    "zmiany": [
+      {
+        "zmiana": 4,
+        "typProwadzacego": 0,
+        "dzien": null,
+        "nrLekcji": null,
+        "godzinaOd": null,
+        "godzinaDo": null,
+        "grupa": null,
+        "zajecia": null,
+        "sala": null,
+        "prowadzacy": null,
+        "informacjeNieobecnosc": "powód nieobecności"
+      }
+    ],
+    "adnotacja": 3,
+    "dodatkowe": false,
+    "zrealizowane": false
+  },
+  {
+    "data": "2024-03-20T00:00:00+01:00",
+    "godzinaOd": "2024-03-20T08:50:00+01:00",
+    "godzinaDo": "2024-03-20T09:35:00+01:00",
+    "prowadzacy": "Zwolnieniowy Lekarz",
+    "prowadzacyWspomagajacy1": "",
+    "prowadzacyWspomagajacy2": "",
+    "przedmiot": "Zajęcia artystyczne",
+    "podzial": "",
+    "sala": "17",
+    "pseudonim": null,
+    "zmiany": [
+      {
+        "zmiana": 1,
+        "typProwadzacego": 1,
+        "dzien": null,
+        "nrLekcji": null,
+        "godzinaOd": null,
+        "godzinaDo": null,
+        "grupa": null,
+        "zajecia": null,
+        "sala": null,
+        "prowadzacy": null,
+        "informacjeNieobecnosc": "okienko dla uczniów"
+      }
+    ],
+    "adnotacja": 0,
+    "dodatkowe": false,
+    "zrealizowane": false
+  },
+  {
+    "data": "2024-03-20T00:00:00+01:00",
+    "godzinaOd": "2024-03-20T10:30:00+01:00",
+    "godzinaDo": "2024-03-20T11:15:00+01:00",
+    "prowadzacy": "Nowy Nauczyciel",
+    "prowadzacyWspomagajacy1": "",
+    "prowadzacyWspomagajacy2": "",
+    "przedmiot": "Język angielski",
+    "podzial": "",
+    "sala": "13",
+    "pseudonim": null,
+    "zmiany": [
+      {
+        "zmiana": 7,
+        "typProwadzacego": 1,
+        "dzien": null,
+        "nrLekcji": null,
+        "godzinaOd": null,
+        "godzinaDo": null,
+        "grupa": null,
+        "zajecia": null,
+        "sala": "",
+        "prowadzacy": "Nauczyciel Stary",
+        "informacjeNieobecnosc": null
+      }
+    ],
+    "adnotacja": 1,
+    "dodatkowe": false,
+    "zrealizowane": false
+  },
+  {
+    "data": "2024-03-20T00:00:00+01:00",
+    "godzinaOd": "2024-03-20T11:30:00+01:00",
+    "godzinaDo": "2024-03-20T12:15:00+01:00",
+    "prowadzacy": "Jan Kowalski",
+    "prowadzacyWspomagajacy1": "",
+    "prowadzacyWspomagajacy2": "",
+    "przedmiot": "Edukacja muzyczna",
+    "podzial": "|CH",
+    "sala": "10",
+    "pseudonim": null,
+    "zmiany": [
+      {
+        "zmiana": 5,
+        "typProwadzacego": 0,
+        "dzien": "2024-03-21T00:00:00+01:00",
+        "nrLekcji": 8,
+        "godzinaOd": "2024-03-20T14:10:00+01:00",
+        "godzinaDo": "2024-03-20T14:55:00+01:00",
+        "grupa": null,
+        "zajecia": "Edukacja muzyczna",
+        "sala": "19",
+        "prowadzacy": null,
+        "informacjeNieobecnosc": null
+      }
+    ],
+    "adnotacja": 3,
+    "dodatkowe": false,
+    "zrealizowane": false
+  },
+  {
+    "data": "2024-03-21T00:00:00+01:00",
+    "godzinaOd": "2024-03-20T14:10:00+01:00",
+    "godzinaDo": "2024-03-20T14:55:00+01:00",
+    "prowadzacy": "Jan Kowalski",
+    "prowadzacyWspomagajacy1": "",
+    "prowadzacyWspomagajacy2": "",
+    "przedmiot": "Edukacja muzyczna",
+    "podzial": "|CH",
+    "sala": "19",
+    "pseudonim": null,
+    "zmiany": [
+      {
+        "zmiana": 6,
+        "typProwadzacego": 0,
+        "dzien": "2024-03-20T00:00:00+01:00",
+        "nrLekcji": 5,
+        "godzinaOd": "2024-03-21T11:30:00+01:00",
+        "godzinaDo": "2024-03-21T12:15:00+01:00",
+        "grupa": null,
+        "zajecia": "Edukacja muzyczna",
+        "sala": "10",
+        "prowadzacy": null,
+        "informacjeNieobecnosc": null
+      }
+    ],
+    "adnotacja": 2,
+    "dodatkowe": false,
+    "zrealizowane": false
+  },
+  {
+    "data": "2024-03-20T00:00:00+01:00",
+    "godzinaOd": "2024-03-20T09:40:00+01:00",
+    "godzinaDo": "2024-03-20T10:25:00+01:00",
+    "prowadzacy": "Bober Zbigniew",
+    "prowadzacyWspomagajacy1": "",
+    "prowadzacyWspomagajacy2": "",
+    "przedmiot": "Edukacja informatyczna",
+    "podzial": "",
+    "sala": "17",
+    "pseudonim": null,
+    "zmiany": [
+      {
+        "zmiana": 6,
+        "typProwadzacego": 0,
+        "dzien": "2024-03-20T00:00:00+01:00",
+        "nrLekcji": 6,
+        "godzinaOd": "2024-03-20T12:30:00+01:00",
+        "godzinaDo": "2024-03-20T13:15:00+01:00",
+        "grupa": null,
+        "zajecia": "Edukacja informatyczna",
+        "sala": null,
+        "prowadzacy": null,
+        "informacjeNieobecnosc": null
+      },
+      {
+        "zmiana": 7,
+        "typProwadzacego": 1,
+        "dzien": null,
+        "nrLekcji": null,
+        "godzinaOd": null,
+        "godzinaDo": null,
+        "grupa": null,
+        "zajecia": null,
+        "sala": "",
+        "prowadzacy": "Kowalski Jan",
+        "informacjeNieobecnosc": null
+      }
+    ],
+    "adnotacja": 1,
+    "dodatkowe": false,
+    "zrealizowane": false
+  },
+  {
+    "data": "2024-03-20T00:00:00+01:00",
+    "godzinaOd": "2024-03-20T12:30:00+01:00",
+    "godzinaDo": "2024-03-20T13:15:00+01:00",
+    "prowadzacy": "Jan Kowalski",
+    "prowadzacyWspomagajacy1": "",
+    "prowadzacyWspomagajacy2": "",
+    "przedmiot": "Edukacja informatyczna",
+    "podzial": "",
+    "sala": "",
+    "pseudonim": null,
+    "zmiany": [
+      {
+        "zmiana": 5,
+        "typProwadzacego": 0,
+        "dzien": "2024-03-20T00:00:00+01:00",
+        "nrLekcji": 3,
+        "godzinaOd": "2024-03-20T09:40:00+01:00",
+        "godzinaDo": "2024-03-20T10:25:00+01:00",
+        "grupa": null,
+        "zajecia": "Edukacja informatyczna",
+        "sala": "17",
+        "prowadzacy": null,
+        "informacjeNieobecnosc": null
+      }
+    ],
+    "adnotacja": 3,
+    "dodatkowe": false,
+    "zrealizowane": false
+  }
+]
