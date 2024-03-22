@@ -121,11 +121,11 @@ router.all("/api/SzczesliwyNumerTablica", (_req, res) => {
 });
 
 router.all("/api/WazneDzisiajTablica", (_req, res) => {
-    res.json(require("../../data/uonetplus-uczenplus/SzczesliwyNumerTablica.json"));
+    res.json(require("../../data/uonetplus-uczenplus/WazneDzisiajTablica.json"));
 });
 
 router.all("/api/WychowawcyTablica", (_req, res) => {
-    res.json(require("../../data/uonetplus-uczenplus/SzczesliwyNumerTablica.json"));
+    res.json(require("../../data/uonetplus-uczenplus/WychowawcyTablica.json"));
 });
 
 router.all("/api/RealizacjaZajec", (_req, res) => {
@@ -142,7 +142,7 @@ router.all("/api/PlanZajec", (_req, res) => {
 });
 
 router.all("/api/DniWolne", (_req, res) => {
-    res.json(require("../../data/uonetplus-uczenplus/PlanZajec.json"));
+    res.json(require("../../data/uonetplus-uczenplus/DniWolne.json"));
 });
 
 router.all("/api/*", (_req, res) => {
