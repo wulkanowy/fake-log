@@ -14,6 +14,7 @@ const cufs = require('./src/routes/cufs');
 const uonetplus = require('./src/routes/uonetplus');
 const uonetplusOpiekun = require('./src/routes/uonetplus-opiekun');
 const uonetplusUczen = require('./src/routes/uonetplus-uczen');
+const uonetplusUczenplus = require('./src/routes/uonetplus-uczenplus');
 const uonetplusUzytkownik = require('./src/routes/uonetplus-uzytkownik');
 const uonetplusWiadomosciplus = require('./src/routes/uonetplus-wiadomosciplus');
 
@@ -60,6 +61,7 @@ app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/12
 app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/123456', uonetplusUczen)));
 app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/123457', uonetplusUczen)));
 app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/123458', uonetplusUczen)));
+app.use(subdomain("uonetplus-uczenplus", uonetplusUczenplus.use("/powiatwulkanowy/123456", uonetplusUczenplus)));
 app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik.use('/powiatwulkanowy', uonetplusUzytkownik)));
 app.use(subdomain('uonetplus-wiadomosciplus', uonetplusWiadomosciplus.use('/powiatwulkanowy', uonetplusWiadomosciplus)));
 app.use('/', index);

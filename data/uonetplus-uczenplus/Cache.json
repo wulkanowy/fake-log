@@ -1,0 +1,21 @@
+{
+  "units": [
+    {
+      "id": 6,
+      "symbol": "123456",
+      "skrot": "Fake123456",
+      "nazwa": "Fakelog public diary nr 1"
+    }
+  ],
+  "links": [],
+  "isStudent": true,
+  "isParent": false,
+  "isMenu": true,
+  "isOffice365": true,
+  "isBetacomOn": false,
+  "isNadzorOn": false,
+  "isUploadPhotosOn": false,
+  "isZglaszanieNieobecnosciOn": false,
+  "isOneDriveAttachmentsHomeworksOn":true,
+  "isPodrecznikiOn":true
+}
