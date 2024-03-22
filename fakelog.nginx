@@ -5,7 +5,7 @@ server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
 
-    server_name example.com api.example.com cufs.example.com uonetplus.example.com uonetplus-opiekun.example.com uonetplus-uczen.example.com uonetplus-uzytkownik.example.com uonetplus-wiadomosciplus.example.com;
+    server_name example.com api.example.com cufs.example.com uonetplus.example.com uonetplus-opiekun.example.com uonetplus-uczen.example.com uonetplus-uzytkownik.example.com uonetplus-wiadomosciplus.example.com uonetplus-uczenplus.example.com;
 
     ssl_trusted_certificate   /path/to/chain.pem;
     ssl_certificate           /path/to/fullchain.pem;
