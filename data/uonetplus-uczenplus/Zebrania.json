@@ -1,0 +1,18 @@
+[
+  {
+    "dataCzas": "2024-01-20T23:09:00+01:00",
+    "sala": "sala 110",
+    "opis": "Podsumowanie I semestru - średnia klasy, oceny, frekwencja, zachowanie.",
+    "zebranieOnline": null,
+    "obecniNaZebraniu": "",
+    "id": 2
+  },
+  {
+    "dataCzas": "2023-09-19T23:09:00+01:00",
+    "sala": "sala 120",
+    "opis": "Organizacyjne zebranie z rodzicami",
+    "zebranieOnline": null,
+    "obecniNaZebraniu": "Dariusz Kowalski",
+    "id": 1
+  }
+]
