@@ -1,10 +1,10 @@
 const { Router } = require("express");
 const protocol = require("../../utils/connection");
-const apiRouter = require("./api")
+const apiRouter = require("./api");
 
 const router = Router({ mergeParams: true });
 
-router.use("/api", apiRouter)
+router.use("/api", apiRouter);
 
 router.get("/", (req, res) => {
   const base =
