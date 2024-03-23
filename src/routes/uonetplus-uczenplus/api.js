@@ -5,7 +5,7 @@ const router = Router({ mergeParams: true });
 router.use((req, res, next) => {
   if (req.params.customerSymbol !== "123456")
     res.status(409).json({ message: "Brak uprawnień." });
-  next()
+  next();
 });
 
 router.all("/Context", (_req, res) => {
