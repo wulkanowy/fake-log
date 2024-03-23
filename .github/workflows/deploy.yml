@@ -2,18 +2,18 @@ name: Deploy to Oracle Cloud
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: oracle-cloud
     steps:
-    - uses: actions/checkout@v3
-    - uses: alex-ac/github-action-ssh-docker-compose@master
-      name: Docker-Compose Remote Deployment
-      with:
-        ssh_host: ${{ secrets.ORACLE_CLOUD_SSH_HOST }}
-        ssh_private_key: ${{ secrets.ORACLE_CLOUD_SSH_PRIVATE_KEY }}
-        ssh_user: ${{ secrets.ORACLE_CLOUD_SSH_USER }}
-        docker_compose_prefix: fakelog.cf
+      - uses: actions/checkout@v3
+      - uses: alex-ac/github-action-ssh-docker-compose@master
+        name: Docker-Compose Remote Deployment
+        with:
+          ssh_host: ${{ secrets.ORACLE_CLOUD_SSH_HOST }}
+          ssh_private_key: ${{ secrets.ORACLE_CLOUD_SSH_PRIVATE_KEY }}
+          ssh_user: ${{ secrets.ORACLE_CLOUD_SSH_USER }}
+          docker_compose_prefix: fakelog.cf

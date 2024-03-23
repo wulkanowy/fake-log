@@ -3,7 +3,8 @@
   justify-content: space-between;
   padding: 1rem 0;
 
-  [type="radio"], label[for] {
+  [type='radio'],
+  label[for] {
     cursor: pointer;
   }
 }
