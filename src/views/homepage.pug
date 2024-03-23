@@ -54,9 +54,6 @@ block content
                     // many schools
                     #idAppUczenExt
                         .newAppLink
-                            a(href=uonetplusUczen + "/powiatwulkanowy/123456/")
-                                span.header.directLink SZK1
-                            br
                             a(href=uonetplusUczen + "/powiatwulkanowy/123457/")
                                 span.header.directLink SZK2
                             br
@@ -69,5 +66,22 @@ block content
                                     #idEmptyAppUczenExt
                                         .name Uczeń NOWOŚĆ
 
+                    // # new new student (student+)
+
+                    .appLink
+                        a(href=uonetplusUczenplus + "/powiatwulkanowy/123456/App")
+                            .imagedHeader.directLink
+                                #idEmptyAppUczenPlus
+                                    .UczenPlusImg.appImg
+                                    .name Uczeń Plus
+
+                    // # messages+
+
+                    .appLink
+                        a(href=uonetplusWiadomosciplus + "/powiatwulkanowy/App")
+                            .imagedHeader.directLink
+                                #idEmptyAppWiadomosciPlus
+                                    .WiadomosciPlusPlusImg.appImg
+                                    .name Wiadomości Plus
             .appLink
                 a(href="/powiatwulkanowy/Start.mvc/Endpoints") Kafelki

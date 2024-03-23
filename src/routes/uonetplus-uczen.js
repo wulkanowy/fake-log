@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 const protocol = require('../utils/connection');
 const dictMap = require('../utils/dictMap');
 const converter = require('../utils/converter');
@@ -75,10 +75,24 @@ router.get("/", (req, res) => {
 });
 
 router.get("/LoginEndpoint.aspx", (req, res) => {
+    if (req.params.customerSymbol === "123456")
+      res.redirect(
+        protocol(req) +
+          "://" +
+          req.get("host").replace("uczen", "uczenplus") +
+          `/powiatwulkanowy/${req.params.customerSymbol}/LoginEndpoint.aspx`
+      );
     res.redirect("/Start");
 });
 
 router.get("/Start", (req, res) => {
+    if (req.params.customerSymbol === "123456")
+      res.redirect(
+        protocol(req) +
+          "://" +
+          req.get("host").replace("uczen", "uczenplus") +
+          `/powiatwulkanowy/${req.params.customerSymbol}/LoginEndpoint.aspx`
+      );
     res.render("uczen/start");
 });
 
