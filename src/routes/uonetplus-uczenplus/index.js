@@ -22,6 +22,7 @@ router.get("/", (req, res) => {
       base + "/api/ZadanieDomoweSzczegoly",
       base + "/api/Uwagi",
       base + "/api/Frekwencja",
+      base + "/api/FrekwencjaStatystyki",
       base + "/api/Usprawiedliwienia",
       base + "/api/Oceny",
       base + "/api/Nauczyciele",

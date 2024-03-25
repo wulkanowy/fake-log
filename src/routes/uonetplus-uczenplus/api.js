@@ -55,6 +55,10 @@ router.all("/Frekwencja", (_req, res) => {
   res.json(require("../../../data/uonetplus-uczenplus/Frekwencja.json"));
 });
 
+router.all("/FrekwencjaStatystyki", (_req, res) => {
+  res.json(require("../../../data/uonetplus-uczenplus/FrekwencjaStatystyki.json"));
+});
+
 router.all("/Usprawiedliwienia", (_req, res) => {
   res.json(require("../../../data/uonetplus-uczenplus/Usprawiedliwienia.json"));
 });
