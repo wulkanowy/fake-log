@@ -5,7 +5,7 @@ const router = Router({ mergeParams: true });
 router.use((req, res, next) => {
   if (req.params.customerSymbol !== "123456")
     res.status(409).json({ message: "Brak uprawnień." });
-  next()
+  next();
 });
 
 router.all("/Context", (_req, res) => {
@@ -53,6 +53,10 @@ router.all("/Oceny", (_req, res) => {
 
 router.all("/Frekwencja", (_req, res) => {
   res.json(require("../../../data/uonetplus-uczenplus/Frekwencja.json"));
+});
+
+router.all("/Usprawiedliwienia", (_req, res) => {
+  res.json(require("../../../data/uonetplus-uczenplus/Usprawiedliwienia.json"));
 });
 
 router.all("/Uwagi", (_req, res) => {
