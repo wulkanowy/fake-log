@@ -15,3 +15,10 @@ exports.createEnvelope = (statusCode, statusMessage, type, body) => {
         "TimestampFormatted": format(new Date(), "yyyy-MM-dd HH:mm:ss")
     };
 };
+
+exports.createDateTime = (date) => ({
+    Date: format(date, "yyyy-MM-dd"),
+    DateDisplay: format(date, "dd.MM.yyyy"),
+    Time: format(date, "HH:mm:ss"),
+    Timestamp: getTime(date)
+})

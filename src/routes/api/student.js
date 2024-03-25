@@ -1,5 +1,5 @@
 const router = require('express').Router({});
-const {createEnvelope} = require("./utils");
+const {createEnvelope, createDateTime} = require("./utils");
 const {getTime, format} = require("date-fns");
 
 router.all("/version", (req, res) => {
@@ -7,12 +7,7 @@ router.all("/version", (req, res) => {
 });
 
 router.all("/internal/time", (req, res) => {
-    res.json(createEnvelope(0, "OK", "DateInfoPayload", {
-        "Date": format(new Date(), "yyyy-MM-dd"),
-        "DateDisplay": format(new Date(), "dd.MM.yyyy"),
-        "Time": format(new Date(), "HH:mm:ss"),
-        "Timestamp": getTime(new Date())
-    }));
+    res.json(createEnvelope(0, "OK", "DateInfoPayload", createDateTime(new Date())));
 });
 
 router.all("/heartbeat", (req, res) => {
