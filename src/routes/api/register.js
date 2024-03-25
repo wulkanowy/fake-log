@@ -3,13 +3,14 @@ const protocol = require('../../utils/connection');
 const {createEnvelope} = require("./utils");
 
 router.all("/new", (req, res) => {
+    const login = require("../../../data/login.json");
     const base = protocol(req) + "://" + req.get('host');
 
     res.json(createEnvelope(0, "OK", "AccountPayload", {
-        "LoginId": 207,
-        "RestURL": base + "/powiatwulkanowy/",
-        "UserLogin": "jan@fakelog.cf",
-        "UserName": "jan@fakelog.cf"
+        LoginId: login.loginId,
+        RestURL: base + "/powiatwulkanowy/",
+        UserLogin: login.loginValue,
+        UserName: login.loginValue
     }));
 });
 
