@@ -20,7 +20,10 @@ router.all("/", (req, res) => {
             base + "/powiatwulkanowy/123456/api/mobile/heartbeat",
             base + "/powiatwulkanowy/123456/api/mobile/internal/time",
             base + "/powiatwulkanowy/123456/api/mobile/school/lucky?constituentId=2&day=" + today,
-            base + "/powiatwulkanowy/123456/api/mobile/school/grade/byPupil??unitId=2&pupilId=111&periodId=101&lastSyncDate=1970-01-01%2001%3A00%3A00&lastId=-2147483648&pageSize=500",
+            base + "/powiatwulkanowy/123456/api/mobile/grade/byPupil?pupilId=1&periodId=12",
+            base + "/powiatwulkanowy/123456/api/mobile/grade/byId?pupilId=1&periodId=12&id=1",
+            base + "/powiatwulkanowy/123456/api/mobile/grade/deleted/byPupil?pupilId=1&periodId=12",
+            base + "/powiatwulkanowy/123456/api/mobile/grade/deleted",
         ],
         "mobile-api": [
             base + "/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart/Certyfikat",
@@ -53,6 +56,7 @@ router.use("/powiatwulkanowy/123456/mobile-api/Push.v1.Push", require("./mobile-
 router.use("/powiatwulkanowy/api/mobile/register", require("./api/register"));
 router.use("/powiatwulkanowy/123456/api/mobile/register", require("./api/register"));
 router.use("/powiatwulkanowy/123456/api/mobile", require("./api/student"));
+router.use("/powiatwulkanowy/123456/api/mobile/grade", require("./api/grade"));
 router.use("/powiatwulkanowy/123456/api/mobile/school", require("./api/school"));
 
 router.all("/*", (req, res) => {

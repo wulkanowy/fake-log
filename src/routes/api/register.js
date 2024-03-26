@@ -65,7 +65,7 @@ router.all("/hebe", (req, res) => {
     Capabilities: student.capabilities,
     Educators: [],
     EducatorList: teachers.filter(teacher => teacher.isEducator).map(educator => ({
-      GlobalKey: educator.messageBox,
+      GlobalKey: educator.messageBox.globalKey,
       Name: educator.fullName,
       Group: null
     })),
