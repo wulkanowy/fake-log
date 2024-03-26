@@ -9,15 +9,90 @@ router.use((req, res, next) => {
 });
 
 router.all("/Context", (_req, res) => {
-  res.json(require("../../../data/uonetplus-uczenplus/Context.json"));
+  const students = require("../../../data/students.json");
+  const unit = require("../../../data/unit.json");
+  const login = require("../../../data/login.json");
+  res.json({
+    uczniowie: students.map(student => ({
+      idDziennik: student.register.id,
+      rodzajDziennika: student.register.type,
+      dziennikDataOd: student.register.start,
+      dziennikDataDo: student.register.end,
+      isUczen: student.register.type === 1,
+      isPrzedszkolak: student.register.type === 2,
+      isWychowanek: student.register.type === 3,
+      key: student.key,
+      uczen: student.fullName,
+      oddzial: student.className,
+      jednostka: unit.fullName,
+      jednostkaGodzinaOd: null,
+      jednostkaGodzinaDo: null,
+      isDorosli: false,
+      isPolicealna: false,
+      is13: false,
+      isArtystyczna: false,
+      isArtystyczna13: false,
+      isSpecjalna: false,
+      pelnoletniUczen: student.isAdult,
+      opiekunUcznia: student.loginId !== login.loginId,
+      wymagaAutoryzacji: student.isAuthorizationRequired,
+      posiadaPesel: student.hasPesel,
+      globalKeySkrzynka: student.messageBox.globalKey,
+      config: {
+        isOplaty: true,
+        isPlatnosci: true,
+        isZaplac: true,
+        isScalanieKont: true,
+        isJadlospis: true,
+        isOffice365: true,
+        isSynchronizacjaEsb: true,
+        isDydaktyka: true,
+        isNadzorPedagogiczny: true,
+        isZmianaZdjecia: true,
+        isZglaszanieNieobecnosci: true,
+        isLekcjeZrealizowane: true,
+        sLekcjeZaplanowane: true,
+        Podreczniki: true,
+        oneDriveClientId: "b820a97d-ffc7-4ac7-b505-e1483b3ea9c4",
+        projectClient: null,
+        payByNetUrlForPayment: "https://pbn-test.paybynet.com.pl/PayByNet/trans.do"
+      }
+    }))
+  });
 });
 
 router.all("/Cache", (_req, res) => {
-  res.json(require("../../../data/uonetplus-uczenplus/Cache.json"));
+  const unit = require("../../../data/unit.json");
+  const login = require("../../../data/login.json");
+  res.json({
+    units: [
+      {
+        id: unit.id,
+        symbol: unit.symbol,
+        skrot: unit.short,
+        nazwa: unit.name
+      }
+    ],
+    links: [],
+    isStudent: login.role === 'uczen',
+    isParent: login.role === 'opiekun',
+    isMenu: true,
+    isOffice365: true,
+    isBetacomOn: false,
+    isNadzorOn: false,
+    uiisUploadPhotosOn: false,
+    isZglaszanieNieobecnosciOn: false,
+    isOneDriveAttachmentsHomeworksOn: true,
+    isPodrecznikiOn: true
+  });
 });
 
 router.all("/OkresyKlasyfikacyjne", (_req, res) => {
-  res.json(require("../../../data/uonetplus-uczenplus/OkresyKlasyfikacyjne.json"));
+  const students = require("../../../data/students.json");
+  res.json(students[0].periods.map(period => ({
+    id: period.id,
+    numer: period.number
+  })));
 });
 
 router.all("/Zebrania", (_req, res) => {

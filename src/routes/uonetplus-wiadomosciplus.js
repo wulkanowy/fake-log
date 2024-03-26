@@ -107,12 +107,12 @@ router.get([
 });
 
 router.get("/api/Skrzynki", (req, res) => {
-    const users = require("../../data/api/ListaUczniow");
-    res.json(users.map(user => {
+    const students = require("../../data/students.json");
+    res.json(students.map(student => {
         return {
-            "globalKey": fromString(user.UzytkownikLoginId.toString()),
-            "nazwa": `${user.Imie} ${user.Nazwisko} - U - (${user.JednostkaSprawozdawczaSkrot})`,
-            "typUzytkownika": 3
+            globalKey: student.messageBox.globalKey,
+            nazwa: student.messageBox.name,
+            typUzytkownika: student.messageBox.userType
         };
     }));
 });
