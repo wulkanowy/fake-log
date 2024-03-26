@@ -91,7 +91,9 @@ router.all("/OkresyKlasyfikacyjne", (_req, res) => {
   const students = require("../../../data/students.json");
   res.json(students[0].periods.map(period => ({
     id: period.id,
-    numer: period.number
+    numer: period.number,
+    dataOd: period.start,
+    dataDo: period.end
   })));
 });
 
