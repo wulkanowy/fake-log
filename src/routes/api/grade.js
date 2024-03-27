@@ -68,22 +68,24 @@ router.get("/byId", (_req, res) => {
   }));
 });
 
-router.all("/deleted/byPupil", (_req, res) => { res.json(require("../../../data/deleted.json")) })
+router.all("/deleted/byPupil", (_req, res) => { res.json(createEnvelope(0, "OK", "IEnumerable`1", require("../../../data/deleted.json"))) })
 
-router.all("/deleted", (_req, res) => { res.json(require("../../../data/deleted.json")) })
+router.all("/deleted", (_req, res) => { res.json(createEnvelope(0, "OK", "IEnumerable`1", require("../../../data/deleted.json"))) })
 
 router.all("/summary/byPupil", (_req, res) => {
   const grades = require("../../../data/grades.json");
-  res.json(grades.subjects.map(gradesSubject => ({
-    Id: gradesSubject.subjectId,
-    PupilId: 1,
-    PeriodId: 12,
-    Subject: createSubject(gradesSubject.subjectId),
-    DateModify: createDateTime(new Date("1970-01-01T00:00:00")),
-    Entry_1: gradesSubject.proposedGrade ?? gradesSubject.proposedPointsGrade,
-    Entry_2: gradesSubject.finalGrade ?? gradesSubject.finalPointsGrade,
-    Entry_3: gradesSubject.points
-  })));
+  res.json(createEnvelope(0, "OK", "IEnumerable`1",
+    grades.subjects.map(gradesSubject => ({
+      Id: gradesSubject.subjectId,
+      PupilId: 1,
+      PeriodId: 12,
+      Subject: createSubject(gradesSubject.subjectId),
+      DateModify: createDateTime(new Date("1970-01-01T00:00:00")),
+      Entry_1: gradesSubject.proposedGrade ?? gradesSubject.proposedPointsGrade,
+      Entry_2: gradesSubject.finalGrade ?? gradesSubject.finalPointsGrade,
+      Entry_3: gradesSubject.points
+    }))
+  ));
 })
 
 module.exports = router;

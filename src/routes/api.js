@@ -12,7 +12,7 @@ router.all("/", (req, res) => {
         "repo": "https://github.com/wulkanowy/fake-log",
         "sdk": "https://github.com/wulkanowy/sdk",
         "docs": "https://gitlab.com/erupcja/uonet-api-docs",
-        "api": [
+        "hebe-api": [
             base + "/powiatwulkanowy/api/mobile/register/new",
             base + "/powiatwulkanowy/api/mobile/register/hebe",
             base + "/powiatwulkanowy/123456/api/mobile/register/hebe",
@@ -24,8 +24,12 @@ router.all("/", (req, res) => {
             base + "/powiatwulkanowy/123456/api/mobile/grade/byId?pupilId=1&periodId=12&id=1",
             base + "/powiatwulkanowy/123456/api/mobile/grade/deleted/byPupil?pupilId=1&periodId=12",
             base + "/powiatwulkanowy/123456/api/mobile/grade/deleted",
-        ],
-        "mobile-api": [
+            base + "/powiatwulkanowy/123456/api/mobile/exam/byPupil?pupilId=1",
+            base + "/powiatwulkanowy/123456/api/mobile/exam/byId?pupilId=1&id=1",
+            base + "/powiatwulkanowy/123456/api/mobile/exam/deleted/byPupil?pupilId=1",
+            base + "/powiatwulkanowy/123456/api/mobile/exam/deleted",
+        ].sort(),
+        "efebmobile-api": [
             base + "/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart/Certyfikat",
             base + "/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart/ListaUczniow",
             base + "/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/LogAppStart",
@@ -57,6 +61,7 @@ router.use("/powiatwulkanowy/api/mobile/register", require("./api/register"));
 router.use("/powiatwulkanowy/123456/api/mobile/register", require("./api/register"));
 router.use("/powiatwulkanowy/123456/api/mobile", require("./api/student"));
 router.use("/powiatwulkanowy/123456/api/mobile/grade", require("./api/grade"));
+router.use("/powiatwulkanowy/123456/api/mobile/exam", require("./api/exam"));
 router.use("/powiatwulkanowy/123456/api/mobile/school", require("./api/school"));
 
 router.all("/*", (req, res) => {

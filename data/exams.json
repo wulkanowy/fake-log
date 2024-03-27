@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "subjectId": 2,
+    "pupilId": 2,
+    "description": "Sprawdzian z działu II",
+    "createdAt": "2024-03-27T09:07:56",
+    "modifyAt": "2024-03-27T09:07:56",
+    "creatorId": 2,
+    "modifierId": 2,
+    "type": 2,
+    "links": []
+  }
+]
