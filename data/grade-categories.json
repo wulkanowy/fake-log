@@ -1,0 +1,117 @@
+[
+  {
+    "id": 26,
+    "code": "Akt",
+    "name": "A - aktywność (czarny)"
+  },
+  {
+    "id": 27,
+    "code": "Bież",
+    "name": "B - bieżące (fiol)"
+  },
+  {
+    "id": 28,
+    "code": "Kart",
+    "name": "K - kartkówka (zielony)"
+  },
+  {
+    "id": 29,
+    "code": "Spr",
+    "name": "S - sprawdzian (czerwony)"
+  },
+  {
+    "id": 30,
+    "code": "Z.dom",
+    "name": "Zd - zadanie domowe (czarny)"
+  },
+  {
+    "id": 65,
+    "code": "odp",
+    "name": "OD - odpowiedź ustna (nieb)"
+  },
+  {
+    "id": 67,
+    "code": "ref",
+    "name": "Referat"
+  },
+  {
+    "id": 68,
+    "code": "zewn",
+    "name": "Sprawdzian zewnętrzny"
+  },
+  {
+    "id": 69,
+    "code": "tsm",
+    "name": "Test sprawności motorycznej"
+  },
+  {
+    "id": 70,
+    "code": "tu",
+    "name": "Test umiejętności"
+  },
+  {
+    "id": 71,
+    "code": "zs",
+    "name": "Zawody sportowe"
+  },
+  {
+    "id": 72,
+    "code": "bs",
+    "name": "Brak stroju"
+  },
+  {
+    "id": 73,
+    "code": "r",
+    "name": "Rozgrzewka"
+  },
+  {
+    "id": 74,
+    "code": "pr_dł",
+    "name": "Praca długoterminowa"
+  },
+  {
+    "id": 75,
+    "code": "ze_ćwi",
+    "name": "Zeszyt ćwiczeń"
+  },
+  {
+    "id": 76,
+    "code": "Inne",
+    "name": "Inne"
+  },
+  {
+    "id": 77,
+    "code": "popspr",
+    "name": "Poprawa sprawdzianu"
+  },
+  {
+    "id": 78,
+    "code": "PK",
+    "name": "Praca klasowa"
+  },
+  {
+    "id": 79,
+    "code": "Re",
+    "name": "Recytacja"
+  },
+  {
+    "id": 80,
+    "code": "dyk",
+    "name": "Dyktando"
+  },
+  {
+    "id": 81,
+    "code": "lek",
+    "name": "Lektura"
+  },
+  {
+    "id": 82,
+    "code": "sp_wiedzy",
+    "name": "Sprawdzian wiedzy"
+  },
+  {
+    "id": 83,
+    "code": "egz_próbny",
+    "name": "Egzamin próbny"
+  }
+]

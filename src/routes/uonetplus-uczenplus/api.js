@@ -1,4 +1,6 @@
 const { Router } = require("express");
+const { getByValue } = require("../../utils/dictMap");
+const { format } = require("date-fns");
 
 const router = Router({ mergeParams: true });
 
@@ -125,7 +127,48 @@ router.all("/ZadanieDomoweSzczegoly", (_req, res) => {
 });
 
 router.all("/Oceny", (_req, res) => {
-  res.json(require("../../../data/uonetplus-uczenplus/Oceny.json"));
+  const grades = require("../../../data/grades.json");
+  const subjects = require("../../../data/subjects.json");
+  const teachers = require("../../../data/teachers.json");
+  const gradeCategories = require("../../../data/grade-categories.json");
+  res.json({
+    ocenyPrzedmioty: grades.subjects.map(gradesSubject => ({
+      przedmiotNazwa: getByValue(subjects, 'id', gradesSubject.subjectId).name,
+      pozycja: getByValue(subjects, 'id', gradesSubject.subjectId).position,
+      nauczyciele: gradesSubject.teacherIds.map(teacherId => {
+        const teacher = getByValue(teachers, 'id', teacherId);
+        return `${teacher.firstName} ${teacher.lastName} [${teacher.code}]`
+      }),
+      ocenyCzastkowe: gradesSubject.partialGrades.map(grade => ({
+        wpis: grade.content,
+        dataOceny: format(new Date(grade.modifyAt), 'dd.MM.yyyy'),
+        kategoriaKolumny: getByValue(gradeCategories, 'id', grade.column.categoryId).name,
+        nazwaKolumny: grade.column.name,
+        waga: grade.column.weight,
+        kolorOceny: grade.column.color,
+        nauczyciel: `${getByValue(teachers, 'id', grade.modifierId).firstName} ${getByValue(teachers, 'id', grade.modifierId).lastName} [${getByValue(teachers, 'id', grade.modifierId).code}]`,
+        zmianaOdOstatniegoLogowania: false
+      })),
+      egzaminFormaPraktyczna: gradesSubject.exam.practicalForm,
+      egzaminFormaUstna: gradesSubject.exam.oralForm,
+      egzaminOcenaProponowana: gradesSubject.exam.proposed,
+      egzaminOcenaLaczna: gradesSubject.exam.final,
+      sumaPunktow: gradesSubject.points,
+      srednia: gradesSubject.average,
+      proponowanaOcenaOkresowa: gradesSubject.proposedGrade,
+      proponowanaOcenaOkresowaPunkty: gradesSubject.proposedPointsGrade,
+      ocenaOkresowa: gradesSubject.finalGrade,
+      ocenaOkresowaPunkty: gradesSubject.finalPointsGrade,
+      podsumowanieOcen: null
+    })),
+    ustawienia: {
+      isPunkty: grades.config.isPoints,
+      isSrednia: grades.config.isAverage,
+      isDorosli: grades.config.isAdult,
+      isOcenaOpisowa: grades.config.isDescriptiveGrade,
+      isOstatniOkresKlasyfikacyjny: grades.config.isLastPeriod
+    }
+  })
 });
 
 router.all("/Frekwencja", (_req, res) => {
@@ -145,7 +188,15 @@ router.all("/Uwagi", (_req, res) => {
 });
 
 router.all("/Nauczyciele", (_req, res) => {
-  res.json(require("../../../data/uonetplus-uczenplus/Nauczyciele.json"));
+  const teachers = require("../../../data/teachers.json");
+  const subjects = require("../../../data/subjects.json");
+  res.json(teachers.map(teacher => ({
+    przedmiot: getByValue(subjects, 'id', teacher.subjectId).name,
+    imie: teacher.firstName,
+    nazwisko: teacher.lastName,
+    wychowawca: teacher.isEducator,
+    globalKeySkrzynka: teacher.isEducator ? teacher.messageBox.globalKey : null
+  })));
 });
 
 router.all("/Informacje", (_req, res) => {
@@ -183,7 +234,12 @@ router.all("/WazneDzisiajTablica", (_req, res) => {
 });
 
 router.all("/WychowawcyTablica", (_req, res) => {
-  res.json(require("../../../data/uonetplus-uczenplus/WychowawcyTablica.json"));
+  const teachers = require("../../../data/teachers.json");
+  res.json(teachers.filter(teacher => teacher.isEducator).map(educator => ({
+    imieNazwisko: `${educator.firstName} ${educator.lastName}`,
+    isGlowny: true,
+    globalKeySkrzynka: educator.messageBox.globalKey
+  })));
 });
 
 router.all("/RealizacjaZajec", (_req, res) => {

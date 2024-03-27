@@ -1,5 +1,6 @@
-const {uuid} = require("uuidv4");
-const {getTime, format} = require("date-fns");
+const { uuid, fromString } = require("uuidv4");
+const { getTime, format } = require("date-fns");
+const { getByValue } = require("../../utils/dictMap");
 
 exports.createEnvelope = (statusCode, statusMessage, type, body) => {
     return {
@@ -22,3 +23,36 @@ exports.createDateTime = (date) => ({
     Time: format(date, "HH:mm:ss"),
     Timestamp: getTime(date)
 })
+
+exports.createGradeCategory = (id) => {
+    const gradeCategories = require("../../../data/grade-categories.json");
+    const gradeCategory = getByValue(gradeCategories, 'id', id);
+    return {
+        Id: id,
+        Code: gradeCategory.code,
+        Name: gradeCategory.name
+    }
+}
+
+exports.createSubject = (id) => {
+    const subjects = require("../../../data/subjects.json");
+    const subject = getByValue(subjects, 'id', id);
+    return {
+        Id: id,
+        Key: fromString(subject.id.toString()),
+        Kod: subject.code,
+        Name: subject.name,
+        Position: subject.position
+    }
+}
+
+exports.createTeacher = (id) => {
+    const teachers = require("../../../data/teachers.json");
+    const teacher = getByValue(teachers, 'id', id);
+    return {
+        Id: id,
+        Name: teacher.firstName,
+        Surname: teacher.lastName,
+        DisplayName: `${teacher.firstName} ${teacher.lastName}`
+    }
+}

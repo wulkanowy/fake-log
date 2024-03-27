@@ -1,98 +1,84 @@
 [
   {
     "id": 1,
-    "key": "48f8546f-b89a-4f76-9e4a-1767c2450b65",
     "code": "godz.wych",
     "name": "Zajęcia z wychowawcą",
     "position": 1
   },
   {
     "id": 2,
-    "key": "17357574-5ab7-445c-9635-d557f0c6cd34",
     "code": "j. polski",
     "name": "Język polski",
     "position": 2
   },
   {
     "id": 3,
-    "key": "1fad2225-1b24-47c5-a732-11c66b4a01c9",
     "code": "historia",
     "name": "Historia",
     "position": 3
   },
   {
     "id": 4,
-    "key": "fda627f2-0f2a-4453-bbb1-b82bf376c5e6",
     "code": "etyka",
     "name": "Etyka",
     "position": 4
   },
   {
     "id": 5,
-    "key": "f09de71b-be95-4b01-b93e-4c1dcbc04f1c",
     "code": "j. angielski",
     "name": "Język angielski",
     "position": 5
   },
   {
     "id": 6,
-    "key": "46df029c-582d-4b62-91c2-e28bc202f2ad",
     "code": "j. niemiecki",
     "name": "Język niemiecki",
     "position": 6
   },
   {
     "id": 7,
-    "key": "312e111b-1f24-465a-8ea5-12e876546ef8",
     "code": "metod.programowania",
     "name": "Metodologia programowania",
     "position": 7
   },
   {
     "id": 8,
-    "key": "79ef8dcb-878b-4d66-9d57-9371d9ed2e47",
     "code": "matematyka",
     "name": "Matematyka",
     "position": 8
   },
   {
     "id": 9,
-    "key": "47cf9c84-a5c1-4b67-b96b-b2e9637ec00a",
     "code": "fizyka",
     "name": "Fizyka",
     "position": 9
   },
   {
     "id": 10,
-    "key": "522eb64c-2703-46e0-adbc-7069c6512dd6",
     "code": "chemia",
     "name": "Chemia",
     "position": 10
   },
   {
     "id": 11,
-    "key": "f767418d-1c52-4cc4-868b-46dca343fe4c",
     "code": "biologia",
     "name": "Biologia",
     "position": 11
   },
   {
     "id": 12,
-    "key": "61511f43-3c12-44c9-ac4e-958cbf01a1d9",
     "code": "geografia",
     "name": "Geografia",
     "position": 12
   },
   {
     "id": 13,
-    "key": "843bd6cf-f8bc-4d05-862c-207fa836fbf6",
     "code": "informatyka",
     "name": "Informatyka",
     "position": 13
   },
   {
     "id": 14,
-    "key": "657afba9-69ef-4d93-8c6a-b71237a6ca46",
     "code": "religia",
     "name": "Religia",
     "position": 14

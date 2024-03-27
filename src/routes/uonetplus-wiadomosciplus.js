@@ -173,14 +173,11 @@ router.all("/api/WiadomoscOdpowiedzPrzekaz", (req, res) => {
 });
 
 router.all("/api/Pracownicy", (req, res) => {
-    const user = require("../../data/api/ListaUczniow")[1];
-    const recipients = require("../../data/api/dictionaries/Pracownicy");
-    res.json(recipients.map(item => {
-        return {
-            "skrzynkaGlobalKey": fromString(item.Id.toString()),
-            "nazwa": `${item.Nazwisko} ${item.Imie} - P - (${user.JednostkaSprawozdawczaSkrot})`
-        };
-    }));
+    const teachers = require("../../data/teachers.json");
+    res.json(teachers.map(teacher => ({
+        globalKeySkrzynka: teacher.messageBox.globalKey,
+        nazwa: teacher.messageBox.name
+    })))
 });
 
 router.all([
