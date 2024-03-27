@@ -1,0 +1,23 @@
+[
+  {
+    "subjectId": 2,
+    "creatorId": 2,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pellentesque malesuada ante, vel pulvinar nibh semper at. Sed ullamcorper lectus quis tellus tincidunt, eu pharetra diam sodales. Mauris at lacus ante. Vestibulum ornare ligula sed venenatis feugiat. Nulla molestie lectus non mauris pharetra placerat. Donec efficitur sed mauris id fringilla. Praesent at tincidunt dui, in molestie est. Nulla posuere neque in sagittis ullamcorper. Donec pulvinar vehicula urna, at faucibus velit. Phasellus vitae ullamcorper ex, ac interdum augue. Suspendisse ultricies dolor mi, eu tempor nisi ullamcorper blandit.",
+    "attachments": [],
+    "links": [],
+    "status": 0,
+    "isAnswerRequired": true,
+    "studentHomeworkId": 45,
+    "homeworkId": 4,
+    "pupilId": 1,
+    "answer": {
+      "date": "2024-03-27T09:12:30+02:00",
+      "id": 3210,
+      "status": 1,
+      "answer": null,
+      "teacherComment": null,
+      "studentsLinks": [],
+      "attachments": []
+    }
+  }
+]
