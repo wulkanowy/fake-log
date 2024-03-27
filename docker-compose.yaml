@@ -1,11 +1,11 @@
-version: "3.5"
+version: '3.5'
 services:
   fakelog:
     build: .
     environment:
       - SUBDOMAIN_OFFSET=3
     ports:
-      - "3000:3000"
+      - '3000:3000'
     networks:
       - internal_network
 

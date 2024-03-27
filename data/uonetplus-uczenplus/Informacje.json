@@ -7,9 +7,7 @@
   "kodPocztowy": "00-000",
   "nrDomu": "1",
   "nrMieszkania": "",
-  "dyrektorzy": [
-    "Stanisław Konarowski"
-  ],
+  "dyrektorzy": ["Stanisław Konarowski"],
   "stronaWwwUrl": "fakelog.cf",
   "mail": "sekretariat@fakelog.cf",
   "telSluzbowy": "",

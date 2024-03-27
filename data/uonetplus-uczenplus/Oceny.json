@@ -20,16 +20,14 @@
     {
       "przedmiotNazwa": "Zajęcia artystyczne",
       "pozycja": 13,
-      "nauczyciele": [
-        "Jan Kowalski [JK]"
-      ],
+      "nauczyciele": ["Jan Kowalski [JK]"],
       "ocenyCzastkowe": [
         {
           "wpis": "6",
           "dataOceny": "19.03.2024",
           "kategoriaKolumny": "Bieżące",
           "nazwaKolumny": "",
-          "waga": 0.00,
+          "waga": 0.0,
           "kolorOceny": 0,
           "nauczyciel": "Jan Kowalski [JK]",
           "zmienionaOdOstatniegoLogowania": true
@@ -39,7 +37,7 @@
           "dataOceny": "19.03.2024",
           "kategoriaKolumny": "Odpowiedź ustna",
           "nazwaKolumny": "Opis",
-          "waga": 100.00,
+          "waga": 100.0,
           "kolorOceny": 15748172,
           "nauczyciel": "Joanna Kowalska [JK]",
           "zmienionaOdOstatniegoLogowania": true
