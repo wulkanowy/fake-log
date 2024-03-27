@@ -1,5 +1,5 @@
 const express = require('express')
-const router = express.Router()
+const router = express.Router({ mergeParams: true })
 const protocol = require('../utils/connection')
 const dictMap = require('../utils/dictMap')
 const converter = require('../utils/converter')
