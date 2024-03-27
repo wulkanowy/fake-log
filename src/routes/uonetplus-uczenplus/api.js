@@ -104,26 +104,65 @@ router.all("/Zebrania", (_req, res) => {
 });
 
 router.all("/SprawdzianyZadaniaDomowe", (_req, res) => {
-  res.json(
-    require("../../../data/uonetplus-uczenplus/SprawdzianyZadaniaDomowe.json").map(
-      (event) => {
-        event.data = new Date().toISOString();
-        return event;
-      }
-    )
-  );
+  const exams = require("../../../data/exams.json");
+  const homework = require("../../../data/homework.json");
+  const subjects = require("../../../data/subjects.json");
+  const events = exams.concat(homework);
+  res.json(events.map(event => ({
+    typ: event.type ?? 4,
+    przedmiotNazwa: getByValue(subjects, "id", event.subjectId).name,
+    data: (new Date()).toISOString(),
+    hasAttachments: Boolean(event.attachments?.length),
+    id: event.id
+  })))
 });
 
 router.all("/SprawdzianSzczegoly", (_req, res) => {
-  const data = require("../../../data/uonetplus-uczenplus/SprawdzianSzczegoly.json");
-  data.data = new Date().toISOString();
-  res.json(data);
+  const exams = require("../../../data/exams.json");
+  const subjects = require("../../../data/subjects.json");
+  const teachers = require("../../../data/teachers.json");
+  const exam = exams[0];
+  res.json({
+    typ: exam.type,
+    data: (new Date()).toISOString(),
+    przedmiotNazwa: getByValue(subjects, "id", exam.subjectId).name,
+    nauczycielImieNazwisko: `${getByValue(teachers, "id", exam.creatorId).firstName} ${getByValue(teachers, "id", exam.creatorId).lastName}`,
+    opis: exam.description,
+    sprawdzianModulDydaktyczny: false,
+    linki: exam.links,
+    id: exam.id
+  })
 });
 
 router.all("/ZadanieDomoweSzczegoly", (_req, res) => {
-  const data = require("../../../data/uonetplus-uczenplus/ZadanieDomoweSzczegoly.json");
-  data.data = new Date().toISOString();
-  res.json(data);
+  const homework = require("../../../data/homework.json");
+  const subjects = require("../../../data/subjects.json");
+  const teachers = require("../../../data/teachers.json");
+  const item = homework[0];
+  res.json({
+    typ: 4,
+    data: (new Date()).toISOString(),
+    terminOdpowiedzi: (new Date()).toISOString(),
+    przedmiotNazwa: getByValue(subjects, "id", item.subjectId).name,
+    nauczycielImieNazwisko: `${getByValue(teachers, "id", item.creatorId).firstName} ${getByValue(teachers, "id", item.creatorId).lastName}`,
+    opis: item.description,
+    zalaczniki: item.attachments, // TODO: attachments
+    linki: item.links, // TODO: links
+    status: item.status,
+    odpowiedzWymagana: item.isAnswerRequired,
+    zadanieModulDydaktyczny: false,
+    odpowiedz: {
+      id: item.answer.id,
+      status: item.answer.status,
+      odpowiedz: item.answer.answer,
+      komentarznNauczyciela: item.answer.teacherComment,
+      linkiUcznia: item.answer.studentsLinks,
+      zalaczniki: item.answer.attachments,
+      data: item.answer.date,
+      zadanieModulDydaktyczny: false
+    },
+    id: item.id
+  })
 });
 
 router.all("/Oceny", (_req, res) => {

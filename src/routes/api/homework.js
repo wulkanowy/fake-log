@@ -8,7 +8,7 @@ router.all("/byPupil", (_req, res) => {
   const homework = require("../../../data/homework.json");
   res.json(createEnvelope(0, "OK", "IEnumerable`1", homework.map(item => ({
     AnswerDate: item.answer.date,
-    Attachments: item.attachments,
+    Attachments: item.attachments, // TODO: attachments
     Content: item.description,
     Creator: createTeacher(item.creatorId),
     Date: createDateTime(new Date()),
