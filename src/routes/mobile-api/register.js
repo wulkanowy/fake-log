@@ -1,10 +1,10 @@
-const router = require('express').Router({})
-const protocol = require('../../utils/connection')
-const { getUnixTime, format } = require('date-fns')
-const api = require('../../utils/api')
+const router = require('express').Router({});
+const protocol = require('../../utils/connection');
+const { getUnixTime, format } = require('date-fns');
+const api = require('../../utils/api');
 
 router.all('/Certyfikat', (req, res) => {
-  const base = protocol(req) + '://' + req.get('host')
+  const base = protocol(req) + '://' + req.get('host');
 
   // key gen
   // keytool -genkeypair -keystore myKeystore.p12 -storetype PKCS12 -storepass 012345678901234567890123456789AB -alias LoginCert -keyalg RSA -keysize 2048 -sigalg SHA1WithRSA -validity 99999 -dname "CN=Wulkanowy, OU=Wulkanowy, O=Wulkanowy, L=Jaroslaw, ST=podkarpackie, C=WLKNW" -ext san=dns:fakelog.cf,dns:localhost,ip:127.0.0.1
@@ -28,23 +28,23 @@ router.all('/Certyfikat', (req, res) => {
       UzytkownikNazwa: 'admin',
       TypKonta: null,
     },
-  })
-})
+  });
+});
 
 router.all('/ListaUczniow', (req, res) => {
-  const currDate = new Date()
+  const currDate = new Date();
 
-  let semesterNumber
-  let semesterStart
-  let semesterEnd
+  let semesterNumber;
+  let semesterStart;
+  let semesterEnd;
   if (currDate.getMonth() >= 8) {
-    semesterNumber = 1
-    semesterStart = new Date(currDate.getFullYear(), 8, 1)
-    semesterEnd = new Date(currDate.getFullYear() + 1, 0, 30)
+    semesterNumber = 1;
+    semesterStart = new Date(currDate.getFullYear(), 8, 1);
+    semesterEnd = new Date(currDate.getFullYear() + 1, 0, 30);
   } else {
-    semesterNumber = 2
-    semesterStart = new Date(currDate.getFullYear(), 0, 30)
-    semesterEnd = new Date(currDate.getFullYear(), 7, 31)
+    semesterNumber = 2;
+    semesterStart = new Date(currDate.getFullYear(), 0, 30);
+    semesterEnd = new Date(currDate.getFullYear(), 7, 31);
   }
 
   res.json(
@@ -57,10 +57,10 @@ router.all('/ListaUczniow', (req, res) => {
           OkresDataDo: getUnixTime(semesterEnd),
           OkresDataOdTekst: format(semesterStart, 'yyyy-MM-dd'),
           OkresDataDoTekst: format(semesterEnd, 'yyyy-MM-dd'),
-        }
+        };
       })
     )
-  )
-})
+  );
+});
 
-module.exports = router
+module.exports = router;
