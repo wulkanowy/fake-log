@@ -1,6 +1,6 @@
-const router = require('express').Router({});
-const {createEnvelope} = require("./utils");
-const {format} = require("date-fns");
+const router = require('express').Router({})
+const { createEnvelope } = require('./utils')
+const { format } = require('date-fns')
 
 router.all('/lucky', (req, res) => {
   res.json(

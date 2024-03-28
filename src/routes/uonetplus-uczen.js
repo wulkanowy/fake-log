@@ -582,7 +582,9 @@ router.all('/PlanZajec.mvc/Get', (req, res) => {
           cell += `<span class="x-treelabel-rlz">${lesson.info}</span>`
         } else {
           if (lesson.group) {
-            cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.subject} [${lesson.group}]</span>`
+            cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.subject} [${
+              lesson.group
+            }]</span>`
             cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}"></span>`
           } else {
             cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.subject}</span>`
@@ -930,7 +932,9 @@ router.all('/UwagiIOsiagniecia.mvc/Get', (req, res) => {
           TrescUwagi: item.TrescUwagi,
           Kategoria: dictMap.getByValue(categories, 'Id', item.IdKategoriaUwag).Nazwa,
           DataWpisu: format(fromUnixTime(item.DataWpisu), 'yyyy-MM-dd HH:mm:ss'),
-          Nauczyciel: `${item.PracownikImie} ${item.PracownikNazwisko} [${dictMap.getByValue(teachers, 'Id', item.IdPracownik).Kod}]`,
+          Nauczyciel: `${item.PracownikImie} ${item.PracownikNazwisko} [${
+            dictMap.getByValue(teachers, 'Id', item.IdPracownik).Kod
+          }]`,
 
           // 19.06
           Punkty: item._points,
@@ -989,7 +993,9 @@ router.all('/Homework.mvc/Get', (req, res) => {
             return {
               HomeworkId: index,
               Subject: dictMap.getByValue(subjects, 'Id', item.IdPrzedmiot).Nazwa,
-              Teacher: `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}], ${converter.formatDate(addDays(requestDate, j))}`,
+              Teacher: `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}], ${converter.formatDate(
+                addDays(requestDate, j)
+              )}`,
               Description: item.Opis,
               Date: converter.formatDate(addDays(requestDate, j), true) + ' 00:00:00',
               ModificationDate: converter.formatDate(addDays(requestDate, j), true) + ' 00:00:00',

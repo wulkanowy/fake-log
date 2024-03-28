@@ -202,7 +202,9 @@ router.get('/UwagiOsiagniecia.mvc/Wszystkie', (req, res) => {
     notes: require('../../data/api/student/UwagiUcznia').map((item) => {
       return {
         date: converter.formatDate(new Date(item.DataWpisuTekst)),
-        teacher: `${item.PracownikImie} ${item.PracownikNazwisko} [${dictMap.getByValue(teachers, 'Id', item.IdPracownik).Kod}]`,
+        teacher: `${item.PracownikImie} ${item.PracownikNazwisko} [${
+          dictMap.getByValue(teachers, 'Id', item.IdPracownik).Kod
+        }]`,
         category: dictMap.getByValue(categories, 'Id', item.IdKategoriaUwag).Nazwa,
         content: item.TrescUwagi,
       }
@@ -358,7 +360,9 @@ router.get('/Sprawdziany.mvc/Terminarz', (req, res) => {
           // date: converter.formatDate(new Date(item.DataTekst)),
           // dayName: converter.getDayName(item.DataTekst),
           dayName: days[index][0],
-          subject: `${subject.Nazwa} ${res.locals.userInfo.OddzialKod}${item.PodzialSkrot ? '|' + item.PodzialSkrot : ''}`,
+          subject: `${subject.Nazwa} ${res.locals.userInfo.OddzialKod}${
+            item.PodzialSkrot ? '|' + item.PodzialSkrot : ''
+          }`,
           type: examType,
           description: item.Opis,
           teacher: `${teacher.Imie} ${teacher.Nazwisko}`,
