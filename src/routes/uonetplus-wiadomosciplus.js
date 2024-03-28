@@ -104,13 +104,13 @@ router.get(['/api/Usuniete', '/api/UsunieteSkrzynka'], (req, res) => {
 });
 
 router.get('/api/Skrzynki', (req, res) => {
-  const users = require('../../data/api/ListaUczniow');
+  const students = require('../../data/students.json');
   res.json(
-    users.map((user) => {
+    students.map((student) => {
       return {
-        globalKey: fromString(user.UzytkownikLoginId.toString()),
-        nazwa: `${user.Imie} ${user.Nazwisko} - U - (${user.JednostkaSprawozdawczaSkrot})`,
-        typUzytkownika: 3,
+        globalKey: student.messageBox.globalKey,
+        nazwa: student.messageBox.name,
+        typUzytkownika: student.messageBox.userType,
       };
     })
   );
@@ -172,15 +172,12 @@ router.all('/api/WiadomoscOdpowiedzPrzekaz', (req, res) => {
 });
 
 router.all('/api/Pracownicy', (req, res) => {
-  const user = require('../../data/api/ListaUczniow')[1];
-  const recipients = require('../../data/api/dictionaries/Pracownicy');
+  const teachers = require('../../data/teachers.json');
   res.json(
-    recipients.map((item) => {
-      return {
-        skrzynkaGlobalKey: fromString(item.Id.toString()),
-        nazwa: `${item.Nazwisko} ${item.Imie} - P - (${user.JednostkaSprawozdawczaSkrot})`,
-      };
-    })
+    teachers.map((teacher) => ({
+      globalKeySkrzynka: teacher.messageBox.globalKey,
+      nazwa: teacher.messageBox.name,
+    }))
   );
 });
 

@@ -1,0 +1,284 @@
+[
+  {
+    "id": 46,
+    "name": "Wypełnianie obowiązków ucznia",
+    "type": null,
+    "defaultPoints": null
+  },
+  {
+    "id": 47,
+    "name": "Zaangażowanie społeczne",
+    "type": null,
+    "defaultPoints": null
+  },
+  {
+    "id": 48,
+    "name": "Kultura języka",
+    "type": null,
+    "defaultPoints": null
+  },
+  {
+    "id": 49,
+    "name": "Kultura osobista",
+    "type": null,
+    "defaultPoints": null
+  },
+  {
+    "id": 50,
+    "name": "Dbałość o bezpieczeństwo i zdrowie",
+    "type": null,
+    "defaultPoints": null
+  },
+  {
+    "id": 51,
+    "name": "Szacunek dla innych osób",
+    "type": null,
+    "defaultPoints": null
+  },
+  {
+    "id": 52,
+    "name": "Zachowanie norm etycznych",
+    "type": null,
+    "defaultPoints": null
+  },
+  {
+    "id": 53,
+    "name": "Reprezentowanie szkoły",
+    "type": null,
+    "defaultPoints": null
+  },
+  {
+    "id": 54,
+    "name": "Zachowanie na lekcji",
+    "type": null,
+    "defaultPoints": null
+  },
+  {
+    "id": 58,
+    "name": "Inne (informacja bez punktów)",
+    "type": null,
+    "defaultPoints": 0
+  },
+  {
+    "id": 59,
+    "name": "Udział w konkursie szkolnym",
+    "type": null,
+    "defaultPoints": null
+  },
+  {
+    "id": 61,
+    "name": "Przeszkadzanie na lekcjach",
+    "type": null,
+    "defaultPoints": null
+  },
+  {
+    "id": 66,
+    "name": "+ Udział w olimpiadzie przedmiotowej i konkursach pozaszk. (rza w sem. 20-30-50)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 67,
+    "name": "+ Udział w konkursie szkolnym (0-20)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 68,
+    "name": "+ Funkcja w szkole (0-20)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 69,
+    "name": "+ Funkcja w klasie (0-30)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 70,
+    "name": "+ Reprezentowanie szkoły w rozgrywkach sport.( raz w sem. 0-100)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 71,
+    "name": "+ Pomoc podczas imprezy szkolnej (0-10)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 72,
+    "name": "+ Praca na rzecz klasy (0-20)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 73,
+    "name": "+ Praca na rzecz szkoły (0-20)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 74,
+    "name": "+ Punktualność (0-20)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 75,
+    "name": "+ Pomoc kolegom (0-10)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 76,
+    "name": "+ Kulturalne zachowanie się w szkole i poza nią (0-50)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 77,
+    "name": "+ Przeciwstawianie się przejawom agresji i wulgarności (0-20)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 79,
+    "name": "+ Do dyspozycji wychowawcy (0-50)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 80,
+    "name": "+ Realizacja projektu edukacyjnego (0-50)",
+    "type": "pozytywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 81,
+    "name": "- Przeszkadzanie na lekcjach -5p.",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 82,
+    "name": "- Okłamywanie i oszukiwanie nauczyciela 20p.",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 83,
+    "name": "- Niewykonywanie poleceń nauczyciela (10-20)",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 84,
+    "name": "- Aroganckie zachowanie wobec nauczyciela lub pracownika szkoły -50p.",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 85,
+    "name": "- Ubliżanie kolegom/koleżankom (10-30)",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 86,
+    "name": "- Przemoc fizyczna (10-30)",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 87,
+    "name": "- Wulgarne słownictwo (10-30)",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 88,
+    "name": "- Opuszczanie terenu szkoły w czasie zajęć -10p.",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 89,
+    "name": "- Niszczenie mienia (10-30)",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 90,
+    "name": "- Zaśmiecanie otoczenia (5-10)",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 91,
+    "name": "- Strój i wygląd niezgodny z regulaminem ucznia (2-20)",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 92,
+    "name": "- Spóźnienia się na lekcję do 10 min. (3p.)",
+    "type": "negatywna",
+    "defaultPoints": -3
+  },
+  {
+    "id": 93,
+    "name": "- Niewykonywanie zobowiązania (10-20)",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 94,
+    "name": "- Nieusprawiedliwiona nieobecność (5p.)",
+    "type": "negatywna",
+    "defaultPoints": -5
+  },
+  {
+    "id": 95,
+    "name": "- Wyłudzanie pieniędzy (50p.)",
+    "type": "negatywna",
+    "defaultPoints": -50
+  },
+  {
+    "id": 96,
+    "name": "- Kradzież (50p.)",
+    "type": "negatywna",
+    "defaultPoints": -50
+  },
+  {
+    "id": 97,
+    "name": "- Palenie papierosów (50p.)",
+    "type": "negatywna",
+    "defaultPoints": -50
+  },
+  {
+    "id": 98,
+    "name": "- Picie alkoholu (50p.)",
+    "type": "negatywna",
+    "defaultPoints": -50
+  },
+  {
+    "id": 99,
+    "name": "- Stosowanie środków odurzających (50p.)",
+    "type": "negatywna",
+    "defaultPoints": -50
+  },
+  {
+    "id": 100,
+    "name": "- Korzystanie z tel. kom. i urz. elek. niezgodnie z regulaminem (5-20)",
+    "type": "negatywna",
+    "defaultPoints": null
+  },
+  {
+    "id": 101,
+    "name": "- Drastyczne naruszenie ogólnie przyjętych norm społ. (100-250)",
+    "type": "negatywna",
+    "defaultPoints": null
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "subjects": [
+    {
+      "subjectId": 2,
+      "teacherIds": [2],
+      "partialGrades": [
+        {
+          "column": {
+            "categoryId": 29,
+            "id": 1,
+            "number": 1,
+            "periodId": 12,
+            "group": "",
+            "code": "s1",
+            "name": "Sprawdzian z działu I",
+            "weight": 5.0,
+            "color": 0
+          },
+          "creatorId": 1,
+          "modifierId": 1,
+          "createdAt": "2024-01-02T09:00:45+02:00",
+          "modifyAt": "2024-01-02T09:00:45+02:00",
+          "comment": "",
+          "content": "4",
+          "contentRaw": "4",
+          "id": 1,
+          "numerator": null,
+          "denominator": null,
+          "pupilId": 1,
+          "value": 4.0
+        }
+      ],
+      "exam": {
+        "practicalForm": null,
+        "oralForm": null,
+        "proposed": null,
+        "final": null
+      },
+      "points": "",
+      "average": 0.0,
+      "proposedGrade": null,
+      "proposedPointsGrade": null,
+      "finalGrade": null,
+      "finalPointsGrade": null
+    }
+  ],
+  "config": {
+    "isPoints": false,
+    "isAverage": false,
+    "isAdult": false,
+    "isDescriptiveGrade": false,
+    "isLastPeriod": true
+  }
+}

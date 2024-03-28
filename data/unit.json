@@ -1,0 +1,12 @@
+{
+  "id": 6,
+  "short": "Fake123456",
+  "symbol": "123456",
+  "name": "Fakelog public diary nr 1",
+  "address": "ul. Wulkanowa 1, 00-000 Wulkanowo",
+  "patron": "Święty Wulkan",
+  "fullName": "Fakelog public diary nr 1 im. Świętego Wulkana",
+  "schoolTopic": "00000000-0000-0000-0000-000000000000",
+  "headmasterIds": [5],
+  "pedagogueIds": [7, 8]
+}

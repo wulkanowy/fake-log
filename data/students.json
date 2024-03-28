@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "className": "4A",
+    "loginId": 754321,
+    "loginValue": "jan@fakelog.cf",
+    "firstName": "Jan",
+    "secondName": "Marek",
+    "lastName": "Kowalski",
+    "fullName": "Jan Marek Kowalski",
+    "sex": true,
+    "isAdult": false,
+    "isAuthorizationRequired": false,
+    "hasPesel": true,
+    "capabilities": ["REGULAR", "LESSONS_VISIBLE", "PLANNED_VISIBLE"],
+    "register": {
+      "id": 2,
+      "type": 1,
+      "start": "2023-09-01T00:00:00+02:00",
+      "end": "2024-08-31T00:00:00+02:00"
+    },
+    "customerSymbol": "123456",
+    "customerDb": "powiatwulkanowy",
+    "periods": [
+      {
+        "capabilities": [],
+        "id": 12,
+        "level": 4,
+        "number": 1,
+        "start": "2023-09-01T00:00:00+02:00",
+        "end": "2024-01-31T00:00:00+02:00",
+        "last": false,
+        "current": false
+      },
+      {
+        "capabilities": [],
+        "id": 13,
+        "level": 4,
+        "number": 2,
+        "start": "2023-02-01T00:00:00+02:00",
+        "end": "2024-08-31T00:00:00+02:00",
+        "last": true,
+        "current": true
+      }
+    ],
+    "messageBox": {
+      "id": 1,
+      "globalKey": "70a7293d-ef1e-441e-acef-0151343ec49f",
+      "name": "Jan Kowalski - U - (Fake123456)",
+      "userType": 3
+    }
+  },
+  {
+    "id": 2,
+    "className": "4A",
+    "loginId": 754321,
+    "loginValue": "jan@fakelog.cf",
+    "firstName": "Joanna",
+    "secondName": "",
+    "lastName": "Czerwińska",
+    "fullName": "Joanna Czerwińska",
+    "sex": false,
+    "isAdult": false,
+    "isAuthorizationRequired": false,
+    "hasPesel": true,
+    "capabilities": ["REGULAR", "LESSONS_VISIBLE", "PLANNED_VISIBLE"],
+    "register": {
+      "id": 1,
+      "type": 1,
+      "start": "2023-09-01T00:00:00+02:00",
+      "end": "2024-08-31T00:00:00+02:00"
+    },
+    "customerSymbol": "123456",
+    "customerDb": "powiatwulkanowy",
+    "periods": [
+      {
+        "capabilities": [],
+        "id": 12,
+        "level": 4,
+        "number": 1,
+        "start": "2023-09-01T00:00:00+02:00",
+        "end": "2024-01-31T00:00:00+02:00",
+        "last": false,
+        "current": false
+      },
+      {
+        "capabilities": [],
+        "id": 13,
+        "level": 4,
+        "number": 2,
+        "start": "2023-02-01T00:00:00+02:00",
+        "end": "2024-08-31T00:00:00+02:00",
+        "last": true,
+        "current": true
+      }
+    ],
+    "messageBox": {
+      "id": 2,
+      "globalKey": "b820a97d-ffc7-4ac7-b505-e1483b3ea9c4",
+      "name": "Joanna Czerwińska - U - (Fake123456)",
+      "userType": 3
+    }
+  }
+]

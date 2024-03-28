@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "firstName": "Karolina",
+    "lastName": "Kowalska",
+    "code": "AN",
+    "isEducator": true,
+    "subjectId": 1,
+    "messageBox": {
+      "globalKey": "4820d399-fa73-4f93-af21-51d5005c50b4",
+      "name": "Karolina Kowalska - P - (Fake123456)"
+    }
+  },
+  {
+    "id": 2,
+    "firstName": "Zofia",
+    "lastName": "Czerwińska",
+    "code": "NA",
+    "isEducator": false,
+    "subjectId": 2,
+    "messageBox": {
+      "globalKey": "07bbae0a-e09c-4839-9d5b-101a41fa7d82",
+      "name": "Zofia Czerwińska - P - (Fake123456)"
+    }
+  },
+  {
+    "id": 3,
+    "firstName": "Aleksandra",
+    "lastName": "Krajewska",
+    "code": "AK",
+    "isEducator": false,
+    "subjectId": 3,
+    "messageBox": {
+      "globalKey": "39890ca2-8279-4369-967f-89827b858557",
+      "name": "Aleksandra Krajewska - P - (Fake123456)"
+    }
+  },
+  {
+    "id": 4,
+    "firstName": "Stanisław",
+    "lastName": "Krupa",
+    "code": "BS",
+    "isEducator": false,
+    "subjectId": 4,
+    "messageBox": {
+      "globalKey": "ecb11f38-b4a4-4a18-baaa-9b2676ca7bf7",
+      "name": "Stanisław Krupa - P - (Fake123456)"
+    }
+  },
+  {
+    "id": 5,
+    "firstName": "Aleksandra",
+    "lastName": "Wójtowicz",
+    "code": "AW",
+    "isEducator": false,
+    "subjectId": 5,
+    "messageBox": {
+      "globalKey": "e6a79c18-fe96-43ab-8574-6e43df2bfc9d",
+      "name": "Aleksandra Wójtowicz - P - (Fake123456)"
+    }
+  },
+  {
+    "id": 6,
+    "firstName": "Sara",
+    "lastName": "Wierzbicka",
+    "code": "KB",
+    "isEducator": false,
+    "subjectId": 6,
+    "messageBox": {
+      "globalKey": "2f91de3d-cfe6-458a-9a95-b338f14756c2",
+      "name": "Sara Wierzbicka - P - (Fake123456)"
+    }
+  },
+  {
+    "id": 7,
+    "firstName": "Mateusz",
+    "lastName": "Kowal",
+    "code": "MK",
+    "isEducator": false,
+    "subjectId": 7,
+    "messageBox": {
+      "globalKey": "1bb72564-461f-490f-87c9-352161df1b0e",
+      "name": "Mateusz Kowal - P - (Fake123456)"
+    }
+  },
+  {
+    "id": 8,
+    "firstName": "Amelia",
+    "lastName": "Mazur",
+    "code": "AM",
+    "isEducator": false,
+    "subjectId": 8,
+    "messageBox": {
+      "globalKey": "b8dc6cfc-0e00-480e-8818-865c57bc5f84",
+      "name": "Amelia Mazur - P - (Fake123456)"
+    }
+  },
+  {
+    "id": 9,
+    "firstName": "Barbara",
+    "lastName": "Markowska",
+    "code": "BM",
+    "isEducator": false,
+    "subjectId": 9,
+    "messageBox": {
+      "globalKey": "f086621e-baf2-4c8b-bda5-d9997fa1cd77",
+      "name": "Barbara Markowska - P - (Fake123456)"
+    }
+  },
+  {
+    "id": 10,
+    "firstName": "Michał",
+    "lastName": "Mazur",
+    "code": "MM",
+    "isEducator": false,
+    "subjectId": 10,
+    "messageBox": {
+      "globalKey": "1c46a61f-dcfd-4d4e-962b-c5de14386073",
+      "name": "Michał Mazur - P - (Fake123456)"
+    }
+  }
+]
