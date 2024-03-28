@@ -104,14 +104,14 @@ router.get(['/api/Usuniete', '/api/UsunieteSkrzynka'], (req, res) => {
 });
 
 router.get('/api/Skrzynki', (req, res) => {
-  const students = require('../../data/students.json')
+  const students = require('../../data/students.json');
   res.json(
     students.map((student) => {
       return {
         globalKey: student.messageBox.globalKey,
         nazwa: student.messageBox.name,
         typUzytkownika: student.messageBox.userType,
-      }
+      };
     })
   );
 });
@@ -172,14 +172,14 @@ router.all('/api/WiadomoscOdpowiedzPrzekaz', (req, res) => {
 });
 
 router.all('/api/Pracownicy', (req, res) => {
-  const teachers = require('../../data/teachers.json')
+  const teachers = require('../../data/teachers.json');
   res.json(
     teachers.map((teacher) => ({
       globalKeySkrzynka: teacher.messageBox.globalKey,
       nazwa: teacher.messageBox.name,
     }))
-  )
-})
+  );
+});
 
 router.all(['/api/MoveTrash', '/api/Delete'], (req, res) => {
   res.status(204).send();

@@ -66,17 +66,17 @@ router.use('/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen', require('./mobil
 router.use('/powiatwulkanowy/123456/mobile-api/Push.v1.Push', require('./mobile-api/push'));
 
 // hebe
-router.use('/powiatwulkanowy/api/mobile/register', require('./api/register'))
-router.use('/powiatwulkanowy/123456/api/mobile/register', require('./api/register'))
-router.use('/powiatwulkanowy/123456/api/mobile', require('./api/student'))
-router.use('/powiatwulkanowy/123456/api/mobile/grade', require('./api/grade'))
-router.use('/powiatwulkanowy/123456/api/mobile/exam', require('./api/exam'))
-router.use('/powiatwulkanowy/123456/api/mobile/dictionary', require('./api/dictionary'))
-router.use('/powiatwulkanowy/123456/api/mobile/school', require('./api/school'))
-router.use('/powiatwulkanowy/123456/api/mobile/homework', require('./api/homework'))
-router.use('/powiatwulkanowy/123456/api/mobile/note', require('./api/note'))
-router.use('/powiatwulkanowy/123456/api/mobile/pupil', require('./api/pupil'))
-router.use('/powiatwulkanowy/123456/api/mobile/teacher', require('./api/teacher'))
+router.use('/powiatwulkanowy/api/mobile/register', require('./api/register'));
+router.use('/powiatwulkanowy/123456/api/mobile/register', require('./api/register'));
+router.use('/powiatwulkanowy/123456/api/mobile', require('./api/student'));
+router.use('/powiatwulkanowy/123456/api/mobile/grade', require('./api/grade'));
+router.use('/powiatwulkanowy/123456/api/mobile/exam', require('./api/exam'));
+router.use('/powiatwulkanowy/123456/api/mobile/dictionary', require('./api/dictionary'));
+router.use('/powiatwulkanowy/123456/api/mobile/school', require('./api/school'));
+router.use('/powiatwulkanowy/123456/api/mobile/homework', require('./api/homework'));
+router.use('/powiatwulkanowy/123456/api/mobile/note', require('./api/note'));
+router.use('/powiatwulkanowy/123456/api/mobile/pupil', require('./api/pupil'));
+router.use('/powiatwulkanowy/123456/api/mobile/teacher', require('./api/teacher'));
 
 router.all('/*', (req, res) => {
   res.status(404).json({

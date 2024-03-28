@@ -1,13 +1,13 @@
-const { Router } = require('express')
-const { createEnvelope } = require('./utils')
-const { getByValue } = require('../../utils/dictMap')
+const { Router } = require('express');
+const { createEnvelope } = require('./utils');
+const { getByValue } = require('../../utils/dictMap');
 
-const router = Router()
+const router = Router();
 
 router.all('/byPeriod', (_req, res) => {
-  const teachers = require('../../../data/teachers.json')
-  const unit = require('../../../data/unit.json')
-  const subjects = require('../../../data/subjects.json')
+  const teachers = require('../../../data/teachers.json');
+  const unit = require('../../../data/unit.json');
+  const subjects = require('../../../data/subjects.json');
   res.json(
     createEnvelope(0, 'OK', 'IEnumerable`1', [
       ...teachers.map((teacher) => ({
@@ -39,7 +39,7 @@ router.all('/byPeriod', (_req, res) => {
         Position: 3,
       })),
     ])
-  )
-})
+  );
+});
 
-module.exports = router
+module.exports = router;

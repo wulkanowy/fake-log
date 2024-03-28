@@ -1,11 +1,11 @@
-const { Router } = require('express')
-const { createEnvelope, createTeacher, createDateTime, createSubject } = require('./utils')
-const { fromString } = require('uuidv4')
+const { Router } = require('express');
+const { createEnvelope, createTeacher, createDateTime, createSubject } = require('./utils');
+const { fromString } = require('uuidv4');
 
-const router = Router()
+const router = Router();
 
 router.all('/byPupil', (_req, res) => {
-  const homework = require('../../../data/homework.json')
+  const homework = require('../../../data/homework.json');
   res.json(
     createEnvelope(
       0,
@@ -26,15 +26,15 @@ router.all('/byPupil', (_req, res) => {
         Subject: createSubject(item.subjectId),
       }))
     )
-  )
-})
+  );
+});
 
 router.all('/deleted/byPupil', (_req, res) => {
-  res.json(createEnvelope(0, 'OK', 'IEnumerable`1', require('../../../data/deleted.json')))
-})
+  res.json(createEnvelope(0, 'OK', 'IEnumerable`1', require('../../../data/deleted.json')));
+});
 
 router.all('/deleted', (_req, res) => {
-  res.json(createEnvelope(0, 'OK', 'IEnumerable`1', require('../../../data/deleted.json')))
-})
+  res.json(createEnvelope(0, 'OK', 'IEnumerable`1', require('../../../data/deleted.json')));
+});
 
-module.exports = router
+module.exports = router;

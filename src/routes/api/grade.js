@@ -1,11 +1,11 @@
-const { Router } = require('express')
-const { createEnvelope, createDateTime, createGradeCategory, createSubject, createTeacher } = require('./utils')
-const { fromString } = require('uuidv4')
+const { Router } = require('express');
+const { createEnvelope, createDateTime, createGradeCategory, createSubject, createTeacher } = require('./utils');
+const { fromString } = require('uuidv4');
 
-const router = Router()
+const router = Router();
 
 router.get('/byPupil', (_req, res) => {
-  const grades = require('../../../data/grades.json')
+  const grades = require('../../../data/grades.json');
   res.json(
     createEnvelope(
       0,
@@ -41,13 +41,13 @@ router.get('/byPupil', (_req, res) => {
         }))
       )
     )
-  )
-})
+  );
+});
 
 router.get('/byId', (_req, res) => {
-  const grades = require('../../../data/grades.json')
-  const gradesSubject = grades.subjects[0]
-  const grade = gradesSubject.partialGrades[0]
+  const grades = require('../../../data/grades.json');
+  const gradesSubject = grades.subjects[0];
+  const grade = gradesSubject.partialGrades[0];
   res.json(
     createEnvelope(0, 'OK', 'GradePayload', {
       Column: {
@@ -76,19 +76,19 @@ router.get('/byId', (_req, res) => {
       PupilId: grade.pupilId,
       Value: grade.value,
     })
-  )
-})
+  );
+});
 
 router.all('/deleted/byPupil', (_req, res) => {
-  res.json(createEnvelope(0, 'OK', 'IEnumerable`1', require('../../../data/deleted.json')))
-})
+  res.json(createEnvelope(0, 'OK', 'IEnumerable`1', require('../../../data/deleted.json')));
+});
 
 router.all('/deleted', (_req, res) => {
-  res.json(createEnvelope(0, 'OK', 'IEnumerable`1', require('../../../data/deleted.json')))
-})
+  res.json(createEnvelope(0, 'OK', 'IEnumerable`1', require('../../../data/deleted.json')));
+});
 
 router.all('/summary/byPupil', (_req, res) => {
-  const grades = require('../../../data/grades.json')
+  const grades = require('../../../data/grades.json');
   res.json(
     createEnvelope(
       0,
@@ -105,7 +105,7 @@ router.all('/summary/byPupil', (_req, res) => {
         Entry_3: gradesSubject.points,
       }))
     )
-  )
-})
+  );
+});
 
-module.exports = router
+module.exports = router;

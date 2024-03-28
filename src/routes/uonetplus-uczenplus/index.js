@@ -1,13 +1,15 @@
-const { Router } = require('express')
-const protocol = require('../../utils/connection')
-const apiRouter = require('./api')
+const { Router } = require('express');
+const protocol = require('../../utils/connection');
+const apiRouter = require('./api');
 
-const router = Router({ mergeParams: true })
+const router = Router({ mergeParams: true });
 
-router.use('/api', apiRouter)
+router.use('/api', apiRouter);
 
 router.get('/', (req, res) => {
-  const base = protocol(req) + '://' + req.get('host') + '/powiatwulkanowy/123456'
+  const base = protocol(req) + '://' + req.get('host') + '/powiatwulkanowy/123456';
+  res.json(
+    [
       base + '/api/OkresyKlasyfikacyjne',
       base + '/api/Zebrania',
       base + '/api/SprawdzianyZadaniaDomowe',
@@ -30,9 +32,9 @@ router.get('/', (req, res) => {
       base + '/api/RealizacjaZajec',
       base + '/api/PlanZajec',
       base + '/api/DniWolne',
-    ].sort(),
-  })
-})
+    ].sort()
+  );
+});
 
 router.all('/LoginEndpoint.aspx', (req, res) => {
   if (req.params.customerSymbol !== '123456')
@@ -41,9 +43,9 @@ router.all('/LoginEndpoint.aspx', (req, res) => {
         '://' +
         req.get('host').replace('uczenplus', 'uczen') +
         `/powiatwulkanowy/${req.params.customerSymbol}/LoginEndpoint.aspx`
-    )
-  res.redirect(protocol(req) + '://' + req.get('host') + '/powiatwulkanowy/123456/App')
-})
+    );
+  res.redirect(protocol(req) + '://' + req.get('host') + '/powiatwulkanowy/123456/App');
+});
 
 router.all('/App', (req, res) => {
   if (req.params.customerSymbol !== '123456')
@@ -52,8 +54,8 @@ router.all('/App', (req, res) => {
         '://' +
         req.get('host').replace('uczenplus', 'uczen') +
         `/powiatwulkanowy/${req.params.customerSymbol}/LoginEndpoint.aspx`
-    )
-  res.render('uczenplus/app')
-})
+    );
+  res.render('uczenplus/app');
+});
 
-module.exports = router
+module.exports = router;

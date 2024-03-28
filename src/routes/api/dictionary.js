@@ -1,10 +1,10 @@
-const { Router } = require('express')
-const { createEnvelope } = require('./utils')
+const { Router } = require('express');
+const { createEnvelope } = require('./utils');
 
-const router = Router()
+const router = Router();
 
 router.all('/timeslot', (_req, res) => {
-  const timeSlots = require('../../../data/timeslots.json')
+  const timeSlots = require('../../../data/timeslots.json');
   res.json(
     createEnvelope(
       0,
@@ -18,7 +18,7 @@ router.all('/timeslot', (_req, res) => {
         Start: timeSlot.start,
       }))
     )
-  )
-})
+  );
+});
 
-module.exports = router
+module.exports = router;

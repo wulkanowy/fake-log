@@ -584,8 +584,8 @@ router.all('/PlanZajec.mvc/Get', (req, res) => {
           if (lesson.group) {
             cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.subject} [${
               lesson.group
-            }]</span>`
-            cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}"></span>`
+            }]</span>`;
+            cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}"></span>`;
           } else {
             cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${
               lesson.subject

@@ -1,11 +1,11 @@
-const { Router } = require('express')
-const { createEnvelope } = require('./utils')
+const { Router } = require('express');
+const { createEnvelope } = require('./utils');
 
-const router = Router()
+const router = Router();
 
 router.all('/byId', (_req, res) => {
-  const students = require('../../../data/students.json')
-  const student = students[0]
+  const students = require('../../../data/students.json');
+  const student = students[0];
   res.json(
     createEnvelope(0, 'OK', 'PupilPayload', {
       Id: student.id,
@@ -16,7 +16,7 @@ router.all('/byId', (_req, res) => {
       Surname: student.lastName,
       Sex: student.sex,
     })
-  )
-})
+  );
+});
 
-module.exports = router
+module.exports = router;

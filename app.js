@@ -60,20 +60,22 @@ const corsOpt = {
 app.use(cors(corsOpt));
 app.options('*', cors(corsOpt));
 
-app.set('subdomain offset', +process.env.SUBDOMAIN_OFFSET || 2)
-app.use(subdomain('api', api))
-app.use(subdomain('cufs', cufs))
-app.use(subdomain('uonetplus', uonetplus))
-app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123456', uonetplusOpiekun)))
-app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123457', uonetplusOpiekun)))
-app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123458', uonetplusOpiekun)))
-app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/:customerSymbol', uonetplusUczen)))
+app.set('subdomain offset', +process.env.SUBDOMAIN_OFFSET || 2);
+app.use(subdomain('api', api));
+app.use(subdomain('cufs', cufs));
+app.use(subdomain('uonetplus', uonetplus));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123456', uonetplusOpiekun)));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123457', uonetplusOpiekun)));
+app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123458', uonetplusOpiekun)));
+app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/:customerSymbol', uonetplusUczen)));
 app.use(
   subdomain('uonetplus-uczenplus', uonetplusUczenplus.use('/powiatwulkanowy/:customerSymbol', uonetplusUczenplus))
-)
-app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik.use('/powiatwulkanowy', uonetplusUzytkownik)))
-app.use(subdomain('uonetplus-wiadomosciplus', uonetplusWiadomosciplus.use('/powiatwulkanowy', uonetplusWiadomosciplus)))
-app.use('/', index)
+);
+app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik.use('/powiatwulkanowy', uonetplusUzytkownik)));
+app.use(
+  subdomain('uonetplus-wiadomosciplus', uonetplusWiadomosciplus.use('/powiatwulkanowy', uonetplusWiadomosciplus))
+);
+app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

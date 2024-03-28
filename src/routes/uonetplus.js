@@ -166,7 +166,7 @@ router.get(['/powiatwulkanowy/Start.mvc', '/powiatwulkanowy/Start.mvc/Index'], (
     uonetplusUczen: protocol(req) + '://' + req.get('host').replace('uonetplus', 'uonetplus-uczen'),
     uonetplusUczenplus: protocol(req) + '://' + req.get('host').replace('uonetplus', 'uonetplus-uczenplus'),
     uonetplusWiadomosciplus: protocol(req) + '://' + req.get('host').replace('uonetplus', 'uonetplus-wiadomosciplus'),
-  })
-})
+  });
+});
 
 module.exports = router;

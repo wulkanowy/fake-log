@@ -1,18 +1,18 @@
-const { Router } = require('express')
-const { getByValue } = require('../../utils/dictMap')
-const { format } = require('date-fns')
+const { Router } = require('express');
+const { getByValue } = require('../../utils/dictMap');
+const { format } = require('date-fns');
 
-const router = Router({ mergeParams: true })
+const router = Router({ mergeParams: true });
 
 router.use((req, res, next) => {
-  if (req.params.customerSymbol !== '123456') res.status(409).json({ message: 'Brak uprawnień.' })
-  next()
-})
+  if (req.params.customerSymbol !== '123456') res.status(409).json({ message: 'Brak uprawnień.' });
+  next();
+});
 
 router.all('/Context', (_req, res) => {
-  const students = require('../../../data/students.json')
-  const unit = require('../../../data/unit.json')
-  const login = require('../../../data/login.json')
+  const students = require('../../../data/students.json');
+  const unit = require('../../../data/unit.json');
+  const login = require('../../../data/login.json');
   res.json({
     uczniowie: students.map((student) => ({
       idDziennik: student.register.id,
@@ -59,12 +59,12 @@ router.all('/Context', (_req, res) => {
         payByNetUrlForPayment: 'https://pbn-test.paybynet.com.pl/PayByNet/trans.do',
       },
     })),
-  })
-})
+  });
+});
 
 router.all('/Cache', (_req, res) => {
-  const unit = require('../../../data/unit.json')
-  const login = require('../../../data/login.json')
+  const unit = require('../../../data/unit.json');
+  const login = require('../../../data/login.json');
   res.json({
     units: [
       {
@@ -85,11 +85,11 @@ router.all('/Cache', (_req, res) => {
     isZglaszanieNieobecnosciOn: false,
     isOneDriveAttachmentsHomeworksOn: true,
     isPodrecznikiOn: true,
-  })
-})
+  });
+});
 
 router.all('/OkresyKlasyfikacyjne', (_req, res) => {
-  const students = require('../../../data/students.json')
+  const students = require('../../../data/students.json');
   res.json(
     students[0].periods.map((period) => ({
       id: period.id,
@@ -97,18 +97,18 @@ router.all('/OkresyKlasyfikacyjne', (_req, res) => {
       dataOd: period.start,
       dataDo: period.end,
     }))
-  )
-})
+  );
+});
 
 router.all('/Zebrania', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/Zebrania.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/Zebrania.json'));
+});
 
 router.all('/SprawdzianyZadaniaDomowe', (_req, res) => {
-  const exams = require('../../../data/exams.json')
-  const homework = require('../../../data/homework.json')
-  const subjects = require('../../../data/subjects.json')
-  const events = exams.concat(homework)
+  const exams = require('../../../data/exams.json');
+  const homework = require('../../../data/homework.json');
+  const subjects = require('../../../data/subjects.json');
+  const events = exams.concat(homework);
   res.json(
     events.map((event) => ({
       typ: event.type ?? 4,
@@ -117,14 +117,14 @@ router.all('/SprawdzianyZadaniaDomowe', (_req, res) => {
       hasAttachments: Boolean(event.attachments?.length),
       id: event.id,
     }))
-  )
-})
+  );
+});
 
 router.all('/SprawdzianSzczegoly', (_req, res) => {
-  const exams = require('../../../data/exams.json')
-  const subjects = require('../../../data/subjects.json')
-  const teachers = require('../../../data/teachers.json')
-  const exam = exams[0]
+  const exams = require('../../../data/exams.json');
+  const subjects = require('../../../data/subjects.json');
+  const teachers = require('../../../data/teachers.json');
+  const exam = exams[0];
   res.json({
     typ: exam.type,
     data: new Date().toISOString(),
@@ -136,14 +136,14 @@ router.all('/SprawdzianSzczegoly', (_req, res) => {
     sprawdzianModulDydaktyczny: false,
     linki: exam.links,
     id: exam.id,
-  })
-})
+  });
+});
 
 router.all('/ZadanieDomoweSzczegoly', (_req, res) => {
-  const homework = require('../../../data/homework.json')
-  const subjects = require('../../../data/subjects.json')
-  const teachers = require('../../../data/teachers.json')
-  const item = homework[0]
+  const homework = require('../../../data/homework.json');
+  const subjects = require('../../../data/subjects.json');
+  const teachers = require('../../../data/teachers.json');
+  const item = homework[0];
   res.json({
     typ: 4,
     data: new Date().toISOString(),
@@ -169,21 +169,21 @@ router.all('/ZadanieDomoweSzczegoly', (_req, res) => {
       zadanieModulDydaktyczny: false,
     },
     id: item.id,
-  })
-})
+  });
+});
 
 router.all('/Oceny', (_req, res) => {
-  const grades = require('../../../data/grades.json')
-  const subjects = require('../../../data/subjects.json')
-  const teachers = require('../../../data/teachers.json')
-  const gradeCategories = require('../../../data/grade-categories.json')
+  const grades = require('../../../data/grades.json');
+  const subjects = require('../../../data/subjects.json');
+  const teachers = require('../../../data/teachers.json');
+  const gradeCategories = require('../../../data/grade-categories.json');
   res.json({
     ocenyPrzedmioty: grades.subjects.map((gradesSubject) => ({
       przedmiotNazwa: getByValue(subjects, 'id', gradesSubject.subjectId).name,
       pozycja: getByValue(subjects, 'id', gradesSubject.subjectId).position,
       nauczyciele: gradesSubject.teacherIds.map((teacherId) => {
-        const teacher = getByValue(teachers, 'id', teacherId)
-        return `${teacher.firstName} ${teacher.lastName} [${teacher.code}]`
+        const teacher = getByValue(teachers, 'id', teacherId);
+        return `${teacher.firstName} ${teacher.lastName} [${teacher.code}]`;
       }),
       ocenyCzastkowe: gradesSubject.partialGrades.map((grade) => ({
         wpis: grade.content,
@@ -216,28 +216,28 @@ router.all('/Oceny', (_req, res) => {
       isOcenaOpisowa: grades.config.isDescriptiveGrade,
       isOstatniOkresKlasyfikacyjny: grades.config.isLastPeriod,
     },
-  })
-})
+  });
+});
 
 router.all('/Frekwencja', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/Frekwencja.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/Frekwencja.json'));
+});
 
 router.all('/FrekwencjaStatystyki', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/FrekwencjaStatystyki.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/FrekwencjaStatystyki.json'));
+});
 
 router.all('/Usprawiedliwienia', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/Usprawiedliwienia.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/Usprawiedliwienia.json'));
+});
 
 router.all('/Uwagi', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/Uwagi.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/Uwagi.json'));
+});
 
 router.all('/Nauczyciele', (_req, res) => {
-  const teachers = require('../../../data/teachers.json')
-  const subjects = require('../../../data/subjects.json')
+  const teachers = require('../../../data/teachers.json');
+  const subjects = require('../../../data/subjects.json');
   res.json(
     teachers.map((teacher) => ({
       przedmiot: getByValue(subjects, 'id', teacher.subjectId).name,
@@ -246,39 +246,39 @@ router.all('/Nauczyciele', (_req, res) => {
       wychowawca: teacher.isEducator,
       globalKeySkrzynka: teacher.isEducator ? teacher.messageBox.globalKey : null,
     }))
-  )
-})
+  );
+});
 
 router.all('/Informacje', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/Informacje.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/Informacje.json'));
+});
 
 router.all('/WiadomosciNieodczytane', (_req, res) => {
-  res.json({ liczbaNieodczytanychWiadomosci: 2 })
-})
+  res.json({ liczbaNieodczytanychWiadomosci: 2 });
+});
 
 router.all('/DostepOffice', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/DostepOffice.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/DostepOffice.json'));
+});
 
 router.all('/ZarejestrowaneUrzadzenia', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/ZarejestrowaneUrzadzenia.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/ZarejestrowaneUrzadzenia.json'));
+});
 
 router.all('/PodrecznikiLataSzkolne', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/PodrecznikiLataSzkolne.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/PodrecznikiLataSzkolne.json'));
+});
 
 router.all('/SzczesliwyNumerTablica', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/SzczesliwyNumerTablica.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/SzczesliwyNumerTablica.json'));
+});
 
 router.all('/WazneDzisiajTablica', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/WazneDzisiajTablica.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/WazneDzisiajTablica.json'));
+});
 
 router.all('/WychowawcyTablica', (_req, res) => {
-  const teachers = require('../../../data/teachers.json')
+  const teachers = require('../../../data/teachers.json');
   res.json(
     teachers
       .filter((teacher) => teacher.isEducator)
@@ -287,28 +287,28 @@ router.all('/WychowawcyTablica', (_req, res) => {
         isGlowny: true,
         globalKeySkrzynka: educator.messageBox.globalKey,
       }))
-  )
-})
+  );
+});
 
 router.all('/RealizacjaZajec', (_req, res) => {
   res.json(
     require('../../../data/uonetplus-uczenplus/RealizacjaZajec.json').map((lesson) => {
-      lesson.data = new Date().toISOString()
-      return lesson
+      lesson.data = new Date().toISOString();
+      return lesson;
     })
-  )
-})
+  );
+});
 
 router.all('/PlanZajec', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/PlanZajec.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/PlanZajec.json'));
+});
 
 router.all('/DniWolne', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/DniWolne.json'))
-})
+  res.json(require('../../../data/uonetplus-uczenplus/DniWolne.json'));
+});
 
 router.all('/*', (_req, res) => {
-  res.status(404).send({ message: 'Nie odnaleziono zasobu.' })
-})
+  res.status(404).send({ message: 'Nie odnaleziono zasobu.' });
+});
 
-module.exports = router
+module.exports = router;

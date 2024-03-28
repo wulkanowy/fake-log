@@ -1,10 +1,10 @@
-const router = require('express').Router({})
-const protocol = require('../../utils/connection')
-const { createEnvelope, createDateTime } = require('./utils')
+const router = require('express').Router({});
+const protocol = require('../../utils/connection');
+const { createEnvelope, createDateTime } = require('./utils');
 
 router.all('/new', (req, res) => {
-  const login = require('../../../data/login.json')
-  const base = protocol(req) + '://' + req.get('host')
+  const login = require('../../../data/login.json');
+  const base = protocol(req) + '://' + req.get('host');
 
   res.json(
     createEnvelope(0, 'OK', 'AccountPayload', {
@@ -17,12 +17,12 @@ router.all('/new', (req, res) => {
 });
 
 router.all('/hebe', (req, res) => {
-  const students = require('../../../data/students.json')
-  const base = protocol(req) + '://' + req.get('host')
-  const unit = require('../../../data/unit.json')
-  const login = require('../../../data/login.json')
-  const teachers = require('../../../data/teachers.json')
-  const constituentUnit = require('../../../data/constituent-unit.json')
+  const students = require('../../../data/students.json');
+  const base = protocol(req) + '://' + req.get('host');
+  const unit = require('../../../data/unit.json');
+  const login = require('../../../data/login.json');
+  const teachers = require('../../../data/teachers.json');
+  const constituentUnit = require('../../../data/constituent-unit.json');
   res.json(
     createEnvelope(
       0,
@@ -122,7 +122,7 @@ router.all('/hebe', (req, res) => {
         },
       }))
     )
-  )
-})
+  );
+});
 
 module.exports = router;
