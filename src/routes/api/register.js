@@ -1,9 +1,9 @@
-const router = require('express').Router({})
-const protocol = require('../../utils/connection')
-const { createEnvelope } = require('./utils')
+const router = require('express').Router({});
+const protocol = require('../../utils/connection');
+const { createEnvelope } = require('./utils');
 
 router.all('/new', (req, res) => {
-  const base = protocol(req) + '://' + req.get('host')
+  const base = protocol(req) + '://' + req.get('host');
 
   res.json(
     createEnvelope(0, 'OK', 'AccountPayload', {
@@ -12,8 +12,8 @@ router.all('/new', (req, res) => {
       UserLogin: 'jan@fakelog.cf',
       UserName: 'jan@fakelog.cf',
     })
-  )
-})
+  );
+});
 
 router.all('/hebe', (req, res) => {
   res.json(
@@ -223,7 +223,7 @@ router.all('/hebe', (req, res) => {
         },
       },
     ])
-  )
-})
+  );
+});
 
-module.exports = router
+module.exports = router;

@@ -1,8 +1,8 @@
-const router = require('express').Router({})
-const api = require('../../utils/api')
+const router = require('express').Router({});
+const api = require('../../utils/api');
 
 router.all('/GetCertificatePushConfig', (req, res) => {
-  res.json(api.createResponse('not implemented')) //TODO
-})
+  res.json(api.createResponse('not implemented')); //TODO
+});
 
-module.exports = router
+module.exports = router;

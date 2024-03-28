@@ -1,6 +1,6 @@
-const express = require('express')
-const router = express.Router()
-const protocol = require('../utils/connection')
+const express = require('express');
+const router = express.Router();
+const protocol = require('../utils/connection');
 
 /* GET home page. */
 router.get('/', (req, res) => {
@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     title: 'fake-log',
     proto: protocol(req),
     domain: req.get('host'),
-  })
-})
+  });
+});
 
-module.exports = router
+module.exports = router;
