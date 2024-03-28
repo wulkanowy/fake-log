@@ -68,7 +68,9 @@ app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/12
 app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123457', uonetplusOpiekun)))
 app.use(subdomain('uonetplus-opiekun', uonetplusOpiekun.use('/powiatwulkanowy/123458', uonetplusOpiekun)))
 app.use(subdomain('uonetplus-uczen', uonetplusUczen.use('/powiatwulkanowy/:customerSymbol', uonetplusUczen)))
-app.use(subdomain('uonetplus-uczenplus', uonetplusUczenplus.use('/powiatwulkanowy/:customerSymbol', uonetplusUczenplus)))
+app.use(
+  subdomain('uonetplus-uczenplus', uonetplusUczenplus.use('/powiatwulkanowy/:customerSymbol', uonetplusUczenplus))
+)
 app.use(subdomain('uonetplus-uzytkownik', uonetplusUzytkownik.use('/powiatwulkanowy', uonetplusUzytkownik)))
 app.use(subdomain('uonetplus-wiadomosciplus', uonetplusWiadomosciplus.use('/powiatwulkanowy', uonetplusWiadomosciplus)))
 app.use('/', index)

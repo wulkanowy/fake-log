@@ -9,10 +9,7 @@
           "wartosc": 1
         }
       ],
-      "okresy": [
-        0,
-        1
-      ],
+      "okresy": [0, 1],
       "razem": 1
     },
     {
@@ -23,10 +20,7 @@
           "wartosc": 2
         }
       ],
-      "okresy": [
-        0,
-        2
-      ],
+      "okresy": [0, 2],
       "razem": 2
     },
     {
@@ -37,10 +31,7 @@
           "wartosc": 3
         }
       ],
-      "okresy": [
-        0,
-        3
-      ],
+      "okresy": [0, 3],
       "razem": 3
     },
     {
@@ -51,10 +42,7 @@
           "wartosc": 6
         }
       ],
-      "okresy": [
-        0,
-        6
-      ],
+      "okresy": [0, 6],
       "razem": 6
     },
     {
@@ -65,10 +53,7 @@
           "wartosc": 4
         }
       ],
-      "okresy": [
-        0,
-        4
-      ],
+      "okresy": [0, 4],
       "razem": 4
     },
     {
@@ -79,10 +64,7 @@
           "wartosc": 5
         }
       ],
-      "okresy": [
-        0,
-        5
-      ],
+      "okresy": [0, 5],
       "razem": 5
     },
     {
@@ -93,10 +75,7 @@
           "wartosc": 2
         }
       ],
-      "okresy": [
-        0,
-        2
-      ],
+      "okresy": [0, 2],
       "razem": 2
     }
   ]
