@@ -37,6 +37,9 @@ router.all('/', (req, res) => {
       base + '/powiatwulkanowy/123456/api/mobile/note/deleted/byPupil?pupilId=1',
       base + '/powiatwulkanowy/123456/api/mobile/pupil/byId?id=1',
       base + '/powiatwulkanowy/123456/api/mobile/teacher/byPeriod?pupilId=1&periodId=12',
+      base + '/powiatwulkanowy/123456/api/mobile/meetings/byPupil?pupilId=1&from=2023-05-01',
+      base + '/powiatwulkanowy/123456/api/mobile/meetings/byId?pupilId=1&id=1',
+      base + '/powiatwulkanowy/123456/api/mobile/meetings/deleted/byPupil?pupilId=1',
     ].sort(),
     'efebmobile-api': [
       base + '/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart/Certyfikat',
@@ -77,6 +80,7 @@ router.use('/powiatwulkanowy/123456/api/mobile/homework', require('./api/homewor
 router.use('/powiatwulkanowy/123456/api/mobile/note', require('./api/note'));
 router.use('/powiatwulkanowy/123456/api/mobile/pupil', require('./api/pupil'));
 router.use('/powiatwulkanowy/123456/api/mobile/teacher', require('./api/teacher'));
+router.use('/powiatwulkanowy/123456/api/mobile/meetings', require('./api/meetings'));
 
 router.all('/*', (req, res) => {
   res.status(404).json({
