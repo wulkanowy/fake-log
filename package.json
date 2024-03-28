@@ -5,7 +5,6 @@
   "scripts": {
     "start": "node ./bin/www & npm run scss",
     "watch": "nodemon ./bin/www & npm run scss",
-    "test": "jshint src/ app.js --verbose",
     "scss": "sass --watch public/stylesheets",
     "prettier:write": "prettier . --write",
     "prettier:check": "prettier . --check"
@@ -31,7 +30,6 @@
     "validate-polish": "^2.1.40"
   },
   "devDependencies": {
-    "jshint": "^2.13.6",
     "nodemon": "^3.1.0"
   },
   "engines": {
