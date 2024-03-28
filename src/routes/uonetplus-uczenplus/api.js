@@ -232,7 +232,21 @@ router.all('/Usprawiedliwienia', (_req, res) => {
 });
 
 router.all('/Uwagi', (_req, res) => {
-  res.json(require('../../../data/uonetplus-uczenplus/Uwagi.json'));
+  const notes = require('../../../data/notes.json');
+  const noteCategories = require('../../../data/note-categories.json');
+  const teachers = require('../../../data/teachers.json');
+  res.json(
+    notes.map((note) => ({
+      data: note.vaildAt,
+      kategoria: getByValue(noteCategories, 'id', note.categoryId).name,
+      typ: null, // TODO: note types
+      autor: `${getByValue(teachers, 'id', note.creatorId).firstName} ${
+        getByValue(teachers, 'id', note.creatorId).lastName
+      }`,
+      tresc: note.content,
+      id: note.id,
+    }))
+  );
 });
 
 router.all('/Nauczyciele', (_req, res) => {
@@ -274,6 +288,32 @@ router.all('/SzczesliwyNumerTablica', (_req, res) => {
 });
 
 router.all('/WazneDzisiajTablica', (_req, res) => {
+  const exams = require('../../../data/exams.json');
+  const homework = require('../../../data/homework.json');
+  const subjects = require('../../../data/subjects.json');
+  const events = exams.concat(homework);
+  res.json(
+    events.map((event) => ({
+      przedmiot: getByValue(subjects, 'id', event.subjectId).name,
+      nazwaZdarzenia:
+        event.type === 1
+          ? 'Sprawdzian'
+          : event.type === 2
+          ? 'Kartkówka'
+          : event.type === 3
+          ? 'Praca klasowa'
+          : 'Zadanie domowe',
+      nazwa: `${getByValue(subjects, 'id', event.subjectId).name} - ${
+        event.type === 1
+          ? 'Sprawdzian'
+          : event.type === 2
+          ? 'Kartkówka'
+          : event.type === 3
+          ? 'Praca klasowa'
+          : 'Zadanie domowe'
+      }`,
+    }))
+  );
   res.json(require('../../../data/uonetplus-uczenplus/WazneDzisiajTablica.json'));
 });
 
