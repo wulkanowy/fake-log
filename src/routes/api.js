@@ -1,9 +1,9 @@
-const router = require('express').Router();
-const protocol = require('../utils/connection');
-const {format} = require("date-fns");
+const router = require('express').Router()
+const protocol = require('../utils/connection')
+const { format } = require('date-fns')
 
-router.all("/", (req, res) => {
-    const today = format(new Date(), "yyyy-MM-dd");
+router.all('/', (req, res) => {
+  const today = format(new Date(), 'yyyy-MM-dd')
 
     let base = protocol(req) + "://" + req.get('host');
     res.json({
@@ -55,10 +55,10 @@ router.all("/", (req, res) => {
 });
 
 // v3
-router.use("/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart", require("./mobile-api/register"));
-router.use("/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen", require("./mobile-api/student"));
-router.use("/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen", require("./mobile-api/messages"));
-router.use("/powiatwulkanowy/123456/mobile-api/Push.v1.Push", require("./mobile-api/push"));
+router.use('/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart', require('./mobile-api/register'))
+router.use('/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen', require('./mobile-api/student'))
+router.use('/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen', require('./mobile-api/messages'))
+router.use('/powiatwulkanowy/123456/mobile-api/Push.v1.Push', require('./mobile-api/push'))
 
 // hebe
 router.use("/powiatwulkanowy/api/mobile/register", require("./api/register"));
@@ -70,11 +70,11 @@ router.use("/powiatwulkanowy/123456/api/mobile/dictionary", require("./api/dicti
 router.use("/powiatwulkanowy/123456/api/mobile/school", require("./api/school"));
 router.use("/powiatwulkanowy/123456/api/mobile/homework", require("./api/homework"));
 
-router.all("/*", (req, res) => {
-    res.status(404).json({
-        "status": "error",
-        "message": "Not implemented yet"
-    });
-});
+router.all('/*', (req, res) => {
+  res.status(404).json({
+    status: 'error',
+    message: 'Not implemented yet',
+  })
+})
 
-module.exports = router;
+module.exports = router

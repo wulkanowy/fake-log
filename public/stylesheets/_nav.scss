@@ -33,8 +33,8 @@ nav#menuGlowne {
   justify-content: space-between;
 
   @at-root .button,
-  a[class^="button"] {
-    background: #8B0000;
+    a[class^='button'] {
+    background: #8b0000;
     padding: 0.5rem 1.5rem;
     display: inline-block;
     margin: 1rem 0;
@@ -47,12 +47,12 @@ nav#menuGlowne {
   }
 
   .button-prev:before {
-    content: "<";
+    content: '<';
     margin-right: 0.5rem;
   }
 
   .button-next:after {
-    content: ">";
+    content: '>';
     margin-left: 0.5rem;
   }
 }

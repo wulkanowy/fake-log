@@ -1,5 +1,4 @@
 .startScreen {
-
   .topBar {
     background: #43434d;
     color: #fff;
@@ -35,7 +34,7 @@
     }
 
     .applicationName {
-      color: #8B0000;
+      color: #8b0000;
       font-size: 40px;
       line-height: 70px;
 
@@ -57,7 +56,6 @@
     .time {
       font-size: 36px;
     }
-
   }
 
   .content {
@@ -82,14 +80,16 @@
     }
 
     // one school
-    #idEmptyAppUczen, #idEmptyAppUczenExt {
+    #idEmptyAppUczen,
+    #idEmptyAppUczenExt {
       .name {
         padding: 20px;
       }
     }
 
     // many schools
-    #idAppUczen, #idAppUczenExt {
+    #idAppUczen,
+    #idAppUczenExt {
       display: block;
 
       br {

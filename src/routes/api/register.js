@@ -114,4 +114,4 @@ router.all("/hebe", (req, res) => {
   }))))
 });
 
-module.exports = router;
+module.exports = router

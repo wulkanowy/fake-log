@@ -30,7 +30,7 @@ $primary: #d32f2f;
       font-size: 1.3rem;
     }
 
-    input:not([type="submit"]) {
+    input:not([type='submit']) {
       display: block;
       width: 100%;
       border: 0;
@@ -38,7 +38,7 @@ $primary: #d32f2f;
       margin: 3px 0 20px;
     }
 
-    input[type="submit"] {
+    input[type='submit'] {
       display: block;
       margin: 20px auto 0;
       background: $primary;
@@ -55,7 +55,7 @@ $primary: #d32f2f;
 
     .Account {
       &:after {
-        content: "|";
+        content: '|';
         margin: 0 5px;
         display: inline-block;
       }

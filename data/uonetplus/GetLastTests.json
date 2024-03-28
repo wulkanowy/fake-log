@@ -1,25 +1,25 @@
 [
-    {
+  {
+    "IkonkaNazwa": null,
+    "Num": null,
+    "Zawartosc": [
+      {
         "IkonkaNazwa": null,
-        "Num": null,
-        "Zawartosc": [
-            {
-                "IkonkaNazwa": null,
-                "Num": 64253,
-                "Zawartosc": [],
-                "Rozszerzenie": false,
-                "Nazwa": "Język polski 10.10.2019 sprawdzian: Sprawdzian  aktu komunikacji j...",
-                "Url": "10.10.2019",
-                "Dane": null,
-                "Symbol": null,
-                "Nieaktywny": false
-            }
-        ],
+        "Num": 64253,
+        "Zawartosc": [],
         "Rozszerzenie": false,
-        "Nazwa": null,
-        "Url": "https://uonetplus-uczen.fakelog.cf/powiatwulkanowy/123456",
+        "Nazwa": "Język polski 10.10.2019 sprawdzian: Sprawdzian  aktu komunikacji j...",
+        "Url": "10.10.2019",
         "Dane": null,
         "Symbol": null,
         "Nieaktywny": false
-    }
+      }
+    ],
+    "Rozszerzenie": false,
+    "Nazwa": null,
+    "Url": "https://uonetplus-uczen.fakelog.cf/powiatwulkanowy/123456",
+    "Dane": null,
+    "Symbol": null,
+    "Nieaktywny": false
+  }
 ]
