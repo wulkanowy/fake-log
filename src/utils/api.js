@@ -1,4 +1,4 @@
-const { uuid } = require('uuidv4')
+const { uuid } = require('uuidv4');
 
 function createResponse(data) {
   return {
@@ -9,14 +9,14 @@ function createResponse(data) {
     DayOfWeek: new Date().getDay(),
     AppVersion: '17.09.0009.26859',
     Data: data,
-  }
+  };
 }
 
 function getRandomInt(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min)) + min
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
-exports.createResponse = createResponse
-exports.getRandomInt = getRandomInt
+exports.createResponse = createResponse;
+exports.getRandomInt = getRandomInt;

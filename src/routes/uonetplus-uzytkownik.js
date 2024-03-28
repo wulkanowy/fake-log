@@ -1,16 +1,16 @@
-const express = require('express')
-const router = express.Router()
-const protocol = require('../utils/connection')
-const converter = require('../utils/converter')
-const { getRandomInt } = require('../utils/api')
-const md5 = require('md5')
+const express = require('express');
+const router = express.Router();
+const protocol = require('../utils/connection');
+const converter = require('../utils/converter');
+const { getRandomInt } = require('../utils/api');
+const md5 = require('md5');
 
 router.get('/', (req, res) => {
-  res.render('messages')
-})
+  res.render('messages');
+});
 
 router.get('/-endpoints', (req, res) => {
-  const base = protocol(req) + '://' + req.get('host') + '/powiatwulkanowy'
+  const base = protocol(req) + '://' + req.get('host') + '/powiatwulkanowy';
   res.json({
     status: 'sucess',
     data: {
@@ -33,19 +33,19 @@ router.get('/-endpoints', (req, res) => {
         '/NowaWiadomosc.mvc/GetJednostkiUzytkownika',
         '/NowaWiadomosc.mvc/InsertWiadomosc',
       ].map((item) => {
-        return base + item
+        return base + item;
       }),
     },
-  })
-})
+  });
+});
 
 router.get('/Wiadomosc.mvc/GetInboxMessages', (req, res) => {
   res.json({
     success: true,
     data: require('../../data/api/messages/WiadomosciOdebrane').map((item) => {
-      const recipientsNumber = getRandomInt(60, 100)
-      const readBy = getRandomInt(20, 60)
-      const unreadBy = recipientsNumber - readBy
+      const recipientsNumber = getRandomInt(60, 100);
+      const readBy = getRandomInt(20, 60);
+      const unreadBy = recipientsNumber - readBy;
       return {
         Id: item.WiadomoscId * 2,
         Nieprzeczytana: !item.GodzinaPrzeczytania,
@@ -69,10 +69,10 @@ router.get('/Wiadomosc.mvc/GetInboxMessages', (req, res) => {
         HasZalaczniki: true,
         FolderWiadomosci: 1,
         Adresaci: [],
-      }
+      };
     }),
-  })
-})
+  });
+});
 
 router.get('/Wiadomosc.mvc/GetOutboxMessages', (req, res) => {
   res.json({
@@ -101,10 +101,10 @@ router.get('/Wiadomosc.mvc/GetOutboxMessages', (req, res) => {
         HasZalaczniki: false,
         FolderWiadomosci: 2,
         Adresaci: [],
-      }
+      };
     }),
-  })
-})
+  });
+});
 
 router.get('/Wiadomosc.mvc/GetTrashboxMessages', (req, res) => {
   res.json({
@@ -133,13 +133,13 @@ router.get('/Wiadomosc.mvc/GetTrashboxMessages', (req, res) => {
         HasZalaczniki: false,
         FolderWiadomosci: 3,
         Adresaci: [],
-      }
+      };
     }),
-  })
-})
+  });
+});
 
 router.get('/NowaWiadomosc.mvc/GetJednostkiUzytkownika', (req, res) => {
-  const user = require('../../data/api/ListaUczniow')[1]
+  const user = require('../../data/api/ListaUczniow')[1];
   res.json({
     success: true,
     data: [
@@ -152,11 +152,11 @@ router.get('/NowaWiadomosc.mvc/GetJednostkiUzytkownika', (req, res) => {
         Id: user.Id,
       },
     ],
-  })
-})
+  });
+});
 
 router.all('/Adresaci.mvc/GetAddressee', (req, res) => {
-  const user = require('../../data/api/ListaUczniow')[1]
+  const user = require('../../data/api/ListaUczniow')[1];
   res.json({
     success: true,
     data: require('../../data/api/dictionaries/Pracownicy').map((item) => {
@@ -168,13 +168,13 @@ router.all('/Adresaci.mvc/GetAddressee', (req, res) => {
         Role: 2,
         PushMessage: null,
         Hash: Buffer.from(md5(item.Id)).toString('base64'),
-      }
+      };
     }),
-  })
-})
+  });
+});
 
 router.get(['/Wiadomosc.mvc/GetAdresaciWiadomosci', '/Wiadomosc.mvc/GetMessageSenderRoles'], (req, res) => {
-  const user = require('../../data/api/ListaUczniow')[1]
+  const user = require('../../data/api/ListaUczniow')[1];
   res.json({
     success: true,
     data: require('../../data/api/dictionaries/Pracownicy')
@@ -188,10 +188,10 @@ router.get(['/Wiadomosc.mvc/GetAdresaciWiadomosci', '/Wiadomosc.mvc/GetMessageSe
           Role: 2,
           PushMessage: null,
           Hash: Buffer.from(md5(item.Id)).toString('base64'),
-        }
+        };
       }),
-  })
-})
+  });
+});
 
 router.all(
   [
@@ -200,7 +200,7 @@ router.all(
     '/Wiadomosc.mvc/GetTrashboxMessageDetails',
   ],
   (req, res) => {
-    const message = require('../../data/api/messages/WiadomosciOdebrane')[0]
+    const message = require('../../data/api/messages/WiadomosciOdebrane')[0];
     res.json({
       success: true,
       data: {
@@ -230,13 +230,13 @@ router.all(
           },
         ],
       },
-    })
+    });
   }
-)
+);
 
 router.all('/Wiadomosc.mvc/GetAdresaciNiePrzeczytaliWiadomosci', (req, res) => {
-  const user = require('../../data/api/ListaUczniow')[1]
-  const recipient = require('../../data/api/dictionaries/Pracownicy')[0]
+  const user = require('../../data/api/ListaUczniow')[1];
+  const recipient = require('../../data/api/dictionaries/Pracownicy')[0];
   res.json({
     success: true,
     data: [
@@ -250,12 +250,12 @@ router.all('/Wiadomosc.mvc/GetAdresaciNiePrzeczytaliWiadomosci', (req, res) => {
         Hash: Buffer.from(md5(recipient.Id)).toString('base64'),
       },
     ],
-  })
-})
+  });
+});
 
 router.all('/Wiadomosc.mvc/GetAdresaciPrzeczytaliWiadomosc', (req, res) => {
-  const user = require('../../data/api/ListaUczniow')[1]
-  const recipient = require('../../data/api/dictionaries/Pracownicy')[1]
+  const user = require('../../data/api/ListaUczniow')[1];
+  const recipient = require('../../data/api/dictionaries/Pracownicy')[1];
   res.json({
     success: true,
     data: [
@@ -265,12 +265,12 @@ router.all('/Wiadomosc.mvc/GetAdresaciPrzeczytaliWiadomosc', (req, res) => {
         Id: recipient.Id * 8, // ¯\_(ツ)_/¯
       },
     ],
-  })
-})
+  });
+});
 
 router.all('/Wiadomosc.mvc/GetMessageAddressee', (req, res) => {
-  const user = require('../../data/api/ListaUczniow')[1]
-  const recipient = require('../../data/api/dictionaries/Pracownicy')[1]
+  const user = require('../../data/api/ListaUczniow')[1];
+  const recipient = require('../../data/api/dictionaries/Pracownicy')[1];
   res.json({
     success: true,
     data: [
@@ -282,8 +282,8 @@ router.all('/Wiadomosc.mvc/GetMessageAddressee', (req, res) => {
         Hash: 'abcd==',
       },
     ],
-  })
-})
+  });
+});
 
 router.all(
   [
@@ -294,18 +294,18 @@ router.all(
   (req, res) => {
     res.json({
       success: true,
-    })
+    });
   }
-)
+);
 
 router.all('/NowaWiadomosc.mvc/InsertWiadomosc', (req, res) => {
-  let data = req.body.incomming
+  let data = req.body.incomming;
   res.json({
     success: true,
     data: {
       Adresaci: data.Adresaci.map((item) => {
-        item.PushMessage = false
-        return item
+        item.PushMessage = false;
+        return item;
       }),
       Temat: data.Temat,
       Tresc: data.Tresc,
@@ -321,7 +321,7 @@ router.all('/NowaWiadomosc.mvc/InsertWiadomosc', (req, res) => {
       WiadomoscPowitalna: false,
       Id: data.Id,
     },
-  })
-})
+  });
+});
 
-module.exports = router
+module.exports = router;

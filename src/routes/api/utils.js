@@ -1,5 +1,5 @@
-const { uuid } = require('uuidv4')
-const { getTime, format } = require('date-fns')
+const { uuid } = require('uuidv4');
+const { getTime, format } = require('date-fns');
 
 exports.createEnvelope = (statusCode, statusMessage, type, body) => {
   return {
@@ -13,5 +13,5 @@ exports.createEnvelope = (statusCode, statusMessage, type, body) => {
     },
     Timestamp: getTime(new Date()),
     TimestampFormatted: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
-  }
-}
+  };
+};

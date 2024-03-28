@@ -1,12 +1,12 @@
-const express = require('express')
-const router = express.Router({ mergeParams: true })
-const protocol = require('../utils/connection')
-const dictMap = require('../utils/dictMap')
-const converter = require('../utils/converter')
-const Tokens = require('csrf')
-const _ = require('lodash')
-const { getGradeColorByCategoryName } = require('../utils/gradeColor')
-const { validatePolish } = require('validate-polish')
+const express = require('express');
+const router = express.Router({ mergeParams: true });
+const protocol = require('../utils/connection');
+const dictMap = require('../utils/dictMap');
+const converter = require('../utils/converter');
+const Tokens = require('csrf');
+const _ = require('lodash');
+const { getGradeColorByCategoryName } = require('../utils/gradeColor');
+const { validatePolish } = require('validate-polish');
 const {
   format,
   fromUnixTime,
@@ -18,10 +18,10 @@ const {
   differenceInDays,
   parseISO,
   startOfWeek,
-} = require('date-fns')
+} = require('date-fns');
 
 router.get('/', (req, res) => {
-  const base = protocol(req) + '://' + req.get('host') + '/powiatwulkanowy/123456'
+  const base = protocol(req) + '://' + req.get('host') + '/powiatwulkanowy/123456';
   res.json({
     status: 'sucess',
     data: {
@@ -68,19 +68,19 @@ router.get('/', (req, res) => {
         '/ZgloszoneNieobecnosci.mvc/Get',
         '/ZgloszoneNieobecnosci.mvc/Post',
       ].map((item) => {
-        return base + item
+        return base + item;
       }),
     },
-  })
-})
+  });
+});
 
 router.get('/LoginEndpoint.aspx', (req, res) => {
-  res.redirect('/Start')
-})
+  res.redirect('/Start');
+});
 
 router.get('/Start', (req, res) => {
-  res.render('uczen/start')
-})
+  res.render('uczen/start');
+});
 
 router.all('/UczenCache.mvc/Get', (req, res) => {
   res.json({
@@ -98,14 +98,14 @@ router.all('/UczenCache.mvc/Get', (req, res) => {
           IdJednostkaSprawozdawcza: 1,
           Nazwa: '' + item.Numer,
           OkresDataOd: fromUnixTime(item.OkresDataOd),
-        }
+        };
       }),
       pokazLekcjeZrealizowane: true,
       serverDate: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
     },
     success: true,
-  })
-})
+  });
+});
 
 router.all('/UczenDziennik.mvc/Get', (req, res) => {
   res.json({
@@ -123,9 +123,9 @@ router.all('/UczenDziennik.mvc/Get', (req, res) => {
               year: getYear(parseISO(item.OkresDataOdTekst)) + i - array.length + 1,
               OkresDataOd: addYears(parseISO(item.OkresDataOdTekst), i - array.length + 1),
               OkresDataDo: addYears(parseISO(item.OkresDataDoTekst), i - array.length + 1),
-            }
+            };
           })
-          .reverse()
+          .reverse();
       }, [])
       .map((item) => {
         return {
@@ -154,7 +154,7 @@ router.all('/UczenDziennik.mvc/Get', (req, res) => {
               IdJednostkaSprawozdawcza: item.IdJednostkaSprawozdawcza,
               IsLastOkres: i === 1,
               Id: semesterId,
-            }
+            };
           }),
           DziennikDataOd: format(addMonths(item.OkresDataOd, 0), 'yyyy-MM-dd HH:mm:ss'),
           DziennikDataDo: format(addMonths(item.OkresDataDo, 7), 'yyyy-MM-dd HH:mm:ss'),
@@ -168,11 +168,11 @@ router.all('/UczenDziennik.mvc/Get', (req, res) => {
           IsPrzedszkola: false,
           IsAuthorized: item.Id !== 1,
           UczenPelnaNazwa: `${item.OkresPoziom}${item.OddzialSymbol} ${item.year} - ${item.Imie} ${item.Nazwisko}`,
-        }
+        };
       }),
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Autoryzacja.mvc/Post', (req, res) => {
   res.json({
@@ -180,88 +180,88 @@ router.all('/Autoryzacja.mvc/Post', (req, res) => {
       success: validatePolish.pesel(req.body.data?.Pesel ?? ''),
     },
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Home.mvc/RefreshSession', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Diety.mvc/Get', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/EgzaminySemestralne.mvc/Get', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/EgzaminyZewnetrzne.mvc/Get', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/EwidencjaObecnosci.mvc/Get', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/FormularzeSzablony.mvc/Get', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/FormularzeSzablonyDownload.mvc/Get', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/FormularzeWysylanie.mvc/Get', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/FormularzeWysylanie.mvc/Post', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Frekwencja.mvc/Get', (req, res) => {
-  const attendance = require('../../data/api/student/Frekwencje')
+  const attendance = require('../../data/api/student/Frekwencje');
   res.json({
     data: {
       UsprawiedliwieniaAktywne: true,
       Dni: [],
       UsprawiedliwieniaWyslane: [],
       Frekwencje: attendance.map((item) => {
-        let offset = new Date(item.DzienTekst).getDay() - new Date(attendance[0].DzienTekst).getDay()
-        let date
+        let offset = new Date(item.DzienTekst).getDay() - new Date(attendance[0].DzienTekst).getDay();
+        let date;
         if (req.body.data) {
           date = converter.formatDate(
             addDays(new Date(req.body.data.replace(' ', 'T').replace(/Z$/, '') + 'Z'), offset),
             true
-          )
-        } else date = item.DzienTekst
+          );
+        } else date = item.DzienTekst;
         return {
           IdKategoria: item.IdKategoria,
           NrDnia: item.Numer,
@@ -271,15 +271,15 @@ router.all('/Frekwencja.mvc/Get', (req, res) => {
           IdPoraLekcji: item.IdPoraLekcji,
           Data: `${date} 00:00:00`,
           LekcjaOddzialId: item.Dzien * item.Numer,
-        }
+        };
       }),
     },
     success: true,
-  })
-})
+  });
+});
 
 router.all('/FrekwencjaStatystyki.mvc/Get', (req, res) => {
-  const attendance = require('../../data/opiekun/frekwencja-statystyki')
+  const attendance = require('../../data/opiekun/frekwencja-statystyki');
   const sumStats = require('../../data/opiekun/frekwencja-statystyki').reduce((prev, current) => {
     return {
       presence: prev.presence + current.presence,
@@ -289,8 +289,8 @@ router.all('/FrekwencjaStatystyki.mvc/Get', (req, res) => {
       lateness: prev.lateness + current.lateness,
       latenessExcused: prev.latenessExcused + current.latenessExcused,
       exemption: prev.exemption + current.exemption,
-    }
-  })
+    };
+  });
 
   res.json({
     data: {
@@ -309,39 +309,39 @@ router.all('/FrekwencjaStatystyki.mvc/Get', (req, res) => {
         const name = (i) => {
           switch (i) {
             case 0:
-              return 'Obecność'
+              return 'Obecność';
             case 1:
-              return 'Nieobecność nieusprawiedliwiona'
+              return 'Nieobecność nieusprawiedliwiona';
             case 2:
-              return 'Nieobecność usprawiedliwiona'
+              return 'Nieobecność usprawiedliwiona';
             case 3:
-              return 'Nieobecność z przyczyn szkolnych'
+              return 'Nieobecność z przyczyn szkolnych';
             case 4:
-              return 'Spóźnienie nieusprawiedliwione'
+              return 'Spóźnienie nieusprawiedliwione';
             case 5:
-              return 'Spóźnienie usprawiedliwione'
+              return 'Spóźnienie usprawiedliwione';
             case 6:
-              return 'Zwolnienie'
+              return 'Zwolnienie';
           }
-        }
+        };
         const value = (month, i) => {
           switch (i) {
             case 0:
-              return attendance[month].presence
+              return attendance[month].presence;
             case 1:
-              return attendance[month].absence
+              return attendance[month].absence;
             case 2:
-              return attendance[month].absenceExcused
+              return attendance[month].absenceExcused;
             case 3:
-              return attendance[month].absenceForSchoolReasons
+              return attendance[month].absenceForSchoolReasons;
             case 4:
-              return attendance[month].lateness
+              return attendance[month].lateness;
             case 5:
-              return attendance[month].latenessExcused
+              return attendance[month].latenessExcused;
             case 6:
-              return attendance[month].exemption
+              return attendance[month].exemption;
           }
-        }
+        };
         return {
           Id: j + 1,
           NazwaTypuFrekwencji: name(j),
@@ -358,24 +358,24 @@ router.all('/FrekwencjaStatystyki.mvc/Get', (req, res) => {
           Lipiec: value(10, j),
           Sierpien: value(11, j),
           Razem: 0,
-        }
+        };
       }),
     },
     success: true,
-  })
-})
+  });
+});
 
 router.all('/FrekwencjaStatystykiPrzedmioty.mvc/Get', (req, res) => {
   const subjects = require('../../data/api/dictionaries/Przedmioty').map((item) => {
     return {
       Id: item.Id,
       Nazwa: item.Nazwa,
-    }
-  })
+    };
+  });
   subjects.unshift({
     Id: -1,
     Nazwa: 'Wszystkie',
-  })
+  });
   subjects.push(
     {
       Id: 0,
@@ -385,43 +385,43 @@ router.all('/FrekwencjaStatystykiPrzedmioty.mvc/Get', (req, res) => {
       Id: 492,
       Nazwa: 'Opieka nad uczniami',
     }
-  )
+  );
   res.json({
     data: subjects,
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Jadlospis.mvc/Get', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/LekcjeZrealizowane.mvc/GetPrzedmioty', (req, res) => {
   const subjects = require('../../data/api/dictionaries/Przedmioty').map((item) => {
     return {
       IdPrzedmiot: item.Id,
       Nazwa: item.Nazwa,
-    }
-  })
+    };
+  });
   subjects.unshift({
     IdPrzedmiot: -1,
     Nazwa: 'Wszystkie',
-  })
+  });
   res.json({
     data: subjects,
     success: true,
-  })
-})
+  });
+});
 
 router.all('/LekcjeZrealizowane.mvc/GetZrealizowane', (req, res) => {
-  const realized = require('../../data/opiekun/plan-zrealizowane.json')
+  const realized = require('../../data/opiekun/plan-zrealizowane.json');
   const requestDate = req.body.poczatek
     ? parseISO(req.body.poczatek.replace('T', ' ').replace(/Z$/, ''))
-    : parseISO(realized[0].date)
-  const baseOffset = differenceInDays(requestDate, parseISO(realized[0].date))
+    : parseISO(realized[0].date);
+  const baseOffset = differenceInDays(requestDate, parseISO(realized[0].date));
 
   res.json({
     data: _.groupBy(
@@ -437,19 +437,19 @@ router.all('/LekcjeZrealizowane.mvc/GetZrealizowane', (req, res) => {
           PseudonimUcznia: null,
           ZasobyPubliczne: '',
           PrzedmiotDisplay: item.subject,
-        }
+        };
       }),
       (item) => converter.formatDate(new Date(item.Data))
     ),
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Oceny.mvc/Get', (req, res) => {
-  const summary = require('../../data/api/student/OcenyPodsumowanie')
-  const teachers = require('../../data/api/dictionaries/Nauczyciele')
-  const subjectCategories = require('../../data/api/dictionaries/KategorieOcen')
-  const descriptiveGrades = require('../../data/api/student/OcenyOpisowe')
+  const summary = require('../../data/api/student/OcenyPodsumowanie');
+  const teachers = require('../../data/api/dictionaries/Nauczyciele');
+  const subjectCategories = require('../../data/api/dictionaries/KategorieOcen');
+  const descriptiveGrades = require('../../data/api/student/OcenyOpisowe');
 
   res.json({
     data: {
@@ -462,14 +462,14 @@ router.all('/Oceny.mvc/Get', (req, res) => {
           OcenyCzastkowe: require('../../data/api/student/Oceny')
             .filter((grade) => grade.IdPrzedmiot === item.Id)
             .map((item, index) => {
-              const teacher = dictMap.getByValue(teachers, 'Id', item.IdPracownikD)
-              const category = dictMap.getByValue(subjectCategories, 'Id', item.IdKategoria)
-              let gradeDate
+              const teacher = dictMap.getByValue(teachers, 'Id', item.IdPracownikD);
+              const category = dictMap.getByValue(subjectCategories, 'Id', item.IdKategoria);
+              let gradeDate;
 
               if (index == 0) {
-                gradeDate = converter.formatDate(new Date())
+                gradeDate = converter.formatDate(new Date());
               } else {
-                gradeDate = converter.formatDate(new Date(item.DataUtworzenia * 1000))
+                gradeDate = converter.formatDate(new Date(item.DataUtworzenia * 1000));
               }
 
               return {
@@ -480,7 +480,7 @@ router.all('/Oceny.mvc/Get', (req, res) => {
                 KodKolumny: category.Kod,
                 DataOceny: gradeDate,
                 KolorOceny: parseInt(getGradeColorByCategoryName(category.Nazwa), 16),
-              }
+              };
             }),
           ProponowanaOcenaRoczna: dictMap.getByValue(summary.OcenyPrzewidywane, 'IdPrzedmiot', item.Id, {
             Wpis: '',
@@ -496,7 +496,7 @@ router.all('/Oceny.mvc/Get', (req, res) => {
           SumaPunktow: dictMap.getByValue(summary.SrednieOcen, 'IdPrzedmiot', item.Id, { SumaPunktow: null })
             .SumaPunktow,
           WidocznyPrzedmiot: false,
-        }
+        };
       }),
       OcenyOpisowe: descriptiveGrades,
       TypOcen: 2,
@@ -504,37 +504,37 @@ router.all('/Oceny.mvc/Get', (req, res) => {
       IsDlaDoroslych: false,
     },
     success: true,
-  })
-})
+  });
+});
 
 router.all('/OkresyUmowOplat.mvc/Get', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Oplaty.mvc/Get', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/PlanZajec.mvc/Get', (req, res) => {
   const requestDate = req.body.data
     ? parseISO(req.body.data.replace('T', ' ').replace(/Z$/, ''))
-    : startOfWeek(new Date(), { weekStartsOn: 1 })
+    : startOfWeek(new Date(), { weekStartsOn: 1 });
 
-  const teachers = require('../../data/api/dictionaries/Nauczyciele')
+  const teachers = require('../../data/api/dictionaries/Nauczyciele');
   const lessons = _.map(
     _.groupBy(
       require('../../data/api/student/PlanLekcjiZeZmianami')
         .filter((item) => item.PlanUcznia)
         .map((item) => {
-          const teacher = dictMap.getByValue(teachers, 'Id', item.IdPracownik)
-          const oldTeacher = dictMap.getByValue(teachers, 'Id', item.IdPracownikOld)
-          const times = dictMap.getByValue(require('../../data/api/dictionaries/PoryLekcji'), 'Id', item.IdPoraLekcji)
+          const teacher = dictMap.getByValue(teachers, 'Id', item.IdPracownik);
+          const oldTeacher = dictMap.getByValue(teachers, 'Id', item.IdPracownikOld);
+          const times = dictMap.getByValue(require('../../data/api/dictionaries/PoryLekcji'), 'Id', item.IdPoraLekcji);
           return {
             number: item.NumerLekcji,
             id: item.IdPoraLekcji,
@@ -549,61 +549,65 @@ router.all('/PlanZajec.mvc/Get', (req, res) => {
             changes: item.PogrubionaNazwa,
             canceled: item.PrzekreslonaNazwa,
             date: new Date(item.DzienTekst),
-          }
+          };
         }),
       'number'
     ),
     (number) => number.sort((a, b) => a.date - b.date)
-  )
+  );
 
-  const earliestDay = new Date(_.minBy(_.flatten(_.values(lessons)), (i) => new Date(i.date)).date)
-  const latestDay = new Date(_.maxBy(_.flatten(_.values(lessons)), (i) => new Date(i.date)).date)
+  const earliestDay = new Date(_.minBy(_.flatten(_.values(lessons)), (i) => new Date(i.date)).date);
+  const latestDay = new Date(_.maxBy(_.flatten(_.values(lessons)), (i) => new Date(i.date)).date);
 
   const rows = _.values(
     _.mapValues(lessons, (item) => {
       const row = {
         times: `${[item[0].number]}<br />${[item[0].start]}<br />${[item[0].end]}`,
         lessons: [],
-      }
-      let prevDay = subDays(earliestDay, 1)
+      };
+      let prevDay = subDays(earliestDay, 1);
       item.forEach((lesson) => {
-        const gapSize = differenceInDays(lesson.date, prevDay) - 1
+        const gapSize = differenceInDays(lesson.date, prevDay) - 1;
         for (let i = 0; i < gapSize; i++) {
-          row.lessons.push('')
+          row.lessons.push('');
         }
-        let cell = ''
+        let cell = '';
         if (lesson.oldTeacher) {
-          cell += `<span class="x-treelabel-inv">${lesson.subject}</span>`
-          cell += `<span class="x-treelabel-inv">${lesson.room}</span>`
-          cell += `<span class="x-treelabel-inv">${lesson.oldTeacher}</span>`
-          cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.subject}</span>`
-          cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.room}</span>`
-          cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.teacher}</span>`
-          cell += `<span class="x-treelabel-rlz">${lesson.info}</span>`
+          cell += `<span class="x-treelabel-inv">${lesson.subject}</span>`;
+          cell += `<span class="x-treelabel-inv">${lesson.room}</span>`;
+          cell += `<span class="x-treelabel-inv">${lesson.oldTeacher}</span>`;
+          cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.subject}</span>`;
+          cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.room}</span>`;
+          cell += `<span class="x-treelabel-ppl x-treelabel-zas">${lesson.teacher}</span>`;
+          cell += `<span class="x-treelabel-rlz">${lesson.info}</span>`;
         } else {
           if (lesson.group) {
-            cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.subject} [${lesson.group}]</span>`
-            cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}"></span>`
+            cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.subject} [${
+              lesson.group
+            }]</span>`;
+            cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}"></span>`;
           } else {
-            cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.subject}</span>`
+            cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${
+              lesson.subject
+            }</span>`;
           }
-          cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.room}</span>`
-          cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.teacher}</span>`
+          cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.room}</span>`;
+          cell += `<span class="${lesson.canceled ? 'x-treelabel-ppl x-treelabel-inv' : ''}">${lesson.teacher}</span>`;
           if (lesson.info) {
-            cell += `<span class="x-treelabel-rlz">${lesson.info}</span>`
+            cell += `<span class="x-treelabel-rlz">${lesson.info}</span>`;
           }
         }
-        row.lessons.push(`<div>${cell}</div>`)
-        prevDay = lesson.date
-      })
-      const gapSize = differenceInDays(latestDay, prevDay)
+        row.lessons.push(`<div>${cell}</div>`);
+        prevDay = lesson.date;
+      });
+      const gapSize = differenceInDays(latestDay, prevDay);
       for (let i = 0; i < gapSize; i++) {
-        row.lessons.push('')
+        row.lessons.push('');
       }
 
-      return row
+      return row;
     })
-  )
+  );
 
   res.json({
     data: {
@@ -663,12 +667,12 @@ router.all('/PlanZajec.mvc/Get', (req, res) => {
         return {
           ...item,
           Header: `poniedziałek, ${converter.formatDate(addDays(requestDate, 0))}`,
-        }
+        };
       }),
     },
     success: true,
-  })
-})
+  });
+});
 
 router.all('/PodrecznikiUcznia.mvc/Get', (req, res) => {
   const manuals = require('../../data/opiekun/Podreczniki').map((item) => {
@@ -680,42 +684,42 @@ router.all('/PodrecznikiUcznia.mvc/Get', (req, res) => {
       Przedmiot: item.Przedmiot,
       Aktywny: item.Aktywny,
       Id: item.Id,
-    }
-  })
+    };
+  });
   res.json({
     data: {
       IsZatwierdzone: true,
       Podreczniki: manuals,
     },
     success: true,
-  })
-})
+  });
+});
 
 router.all('/PodrecznikiLataSzkolne.mvc/Get', (req, res) => {
   const manualsDate = require('../../data/opiekun/PodrecznikiLataSzkolne').map((item) => {
     return {
       Nazwa: item.Nazwa,
       Id: item.Id,
-    }
-  })
+    };
+  });
   res.json({
     data: manualsDate,
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Pomoc.mvc/Get', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/RejestracjaUrzadzeniaToken.mvc/Get', (req, res) => {
-  const student = require('../../data/api/ListaUczniow')[1]
-  const base = protocol(req) + '://' + req.get('host')
-  const token = new Tokens({ secretLength: 97, saltLength: 4 })
-  const secret = token.secretSync()
+  const student = require('../../data/api/ListaUczniow')[1];
+  const base = protocol(req) + '://' + req.get('host');
+  const token = new Tokens({ secretLength: 97, saltLength: 4 });
+  const secret = token.secretSync();
   res.json({
     data: {
       TokenId: 423,
@@ -734,31 +738,31 @@ router.all('/RejestracjaUrzadzeniaToken.mvc/Get', (req, res) => {
       AntiForgeryToken: token.create(secret),
     },
     success: true,
-  })
-})
+  });
+});
 
 router.all('/RejestracjaUrzadzeniaToken.mvc/Delete', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/RejestracjaUrzadzeniaTokenCertyfikat.mvc/Get', (req, res) => {
   res.json({
     data: true,
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Sprawdziany.mvc/Get', (req, res) => {
-  const subjects = require('../../data/api/dictionaries/Przedmioty')
-  const teachers = require('../../data/api/dictionaries/Nauczyciele')
-  const exams = require('../../data/api/student/Sprawdziany')
+  const subjects = require('../../data/api/dictionaries/Przedmioty');
+  const teachers = require('../../data/api/dictionaries/Nauczyciele');
+  const exams = require('../../data/api/student/Sprawdziany');
   const requestDate = req.body.data
     ? parseISO(req.body.data.replace('T', ' ').replace(/Z$/, ''))
-    : parseISO(exams[0].DataTekst)
-  const baseOffset = differenceInDays(requestDate, parseISO(exams[0].DataTekst))
+    : parseISO(exams[0].DataTekst);
+  const baseOffset = differenceInDays(requestDate, parseISO(exams[0].DataTekst));
 
   res.json({
     data: [...Array(4).keys()].map(function (j) {
@@ -768,11 +772,11 @@ router.all('/Sprawdziany.mvc/Get', (req, res) => {
             Data: converter.formatDate(day[2], true) + ' 00:00:00',
             Sprawdziany: exams
               .filter((exam) => {
-                return 0 === differenceInDays(day[2], addDays(parseISO(exam.DataTekst), baseOffset + 7 * j))
+                return 0 === differenceInDays(day[2], addDays(parseISO(exam.DataTekst), baseOffset + 7 * j));
               })
               .map((item) => {
-                const subject = dictMap.getByValue(subjects, 'Id', item.IdPrzedmiot)
-                const teacher = dictMap.getByValue(teachers, 'Id', item.IdPracownik)
+                const subject = dictMap.getByValue(subjects, 'Id', item.IdPrzedmiot);
+                const teacher = dictMap.getByValue(teachers, 'Id', item.IdPracownik);
 
                 return {
                   Nazwa: subject.Nazwa,
@@ -780,28 +784,28 @@ router.all('/Sprawdziany.mvc/Get', (req, res) => {
                   DataModyfikacji: `1970-01-01 00:00:00`,
                   Opis: item.Opis,
                   Rodzaj: item.RodzajNumer,
-                }
+                };
               }),
             Pokazuj: i < 5,
-          }
+          };
         }),
-      }
+      };
     }),
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Statystyki.mvc/GetOcenyCzastkowe', (req, res) => {
-  let average = 2.0
-  let studentAverage = 3.0
+  let average = 2.0;
+  let studentAverage = 3.0;
   res.json({
     data: _.chain(require('../../data/opiekun/oceny-statystyki-czastkowe'))
       .groupBy('subject')
       .map((series, subject) => ({ subject, series }))
       .value()
       .map((item) => {
-        average += 0.1
-        studentAverage += 0.25
+        average += 0.1;
+        studentAverage += 0.25;
         return {
           Subject: item.subject,
           IsAverage: true,
@@ -812,7 +816,7 @@ router.all('/Statystyki.mvc/GetOcenyCzastkowe', (req, res) => {
               return {
                 Label: item.classAmount.toString(),
                 Value: item.classAmount,
-              }
+              };
             }),
           },
           StudentSeries: {
@@ -822,14 +826,14 @@ router.all('/Statystyki.mvc/GetOcenyCzastkowe', (req, res) => {
               return {
                 Label: item.pupilAmount.toString(),
                 Value: item.pupilAmount,
-              }
+              };
             }),
           },
-        }
+        };
       }),
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Statystyki.mvc/GetOcenyRoczne', (req, res) => {
   res.json({
@@ -846,13 +850,13 @@ router.all('/Statystyki.mvc/GetOcenyRoczne', (req, res) => {
               Label: item.amount.toString(),
               Description: i === 2 ? 'Tu jesteś' : '',
               Value: item.amount,
-            }
+            };
           }),
-        }
+        };
       }),
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Statystyki.mvc/GetPunkty', (req, res) => {
   res.json({
@@ -862,16 +866,16 @@ router.all('/Statystyki.mvc/GetPunkty', (req, res) => {
       Items: require('../../data/opiekun/oceny-statystyki-punkty'),
     },
     success: true,
-  })
-})
+  });
+});
 
 router.all('/SzkolaINauczyciele.mvc/Get', (req, res) => {
-  const teachers = require('../../data/api/student/Nauczyciele')
-  const subjectsDict = require('../../data/api/dictionaries/Przedmioty')
-  const teachersDict = require('../../data/api/dictionaries/Pracownicy')
+  const teachers = require('../../data/api/student/Nauczyciele');
+  const subjectsDict = require('../../data/api/dictionaries/Przedmioty');
+  const teachersDict = require('../../data/api/dictionaries/Pracownicy');
 
-  const headmaster = dictMap.getByValue(teachersDict, 'Id', teachers.NauczycieleSzkola[0].IdPracownik)
-  const tutor = dictMap.getByValue(teachersDict, 'Id', teachers.NauczycieleSzkola[3].IdPracownik)
+  const headmaster = dictMap.getByValue(teachersDict, 'Id', teachers.NauczycieleSzkola[0].IdPracownik);
+  const tutor = dictMap.getByValue(teachersDict, 'Id', teachers.NauczycieleSzkola[3].IdPracownik);
   res.json({
     data: {
       Szkola: {
@@ -883,32 +887,32 @@ router.all('/SzkolaINauczyciele.mvc/Get', (req, res) => {
         Id: 0,
       },
       Nauczyciele: require('../../data/api/student/Nauczyciele').NauczycielePrzedmioty.map((item) => {
-        const teacher = dictMap.getByValue(teachersDict, 'Id', item.IdPracownik)
+        const teacher = dictMap.getByValue(teachersDict, 'Id', item.IdPracownik);
         return {
           Nazwa: dictMap.getByValue(subjectsDict, 'Id', item.IdPrzedmiot).Nazwa,
           Nauczyciel: `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}]`,
           Id: 0,
-        }
+        };
       }),
       Klasa: 'Klasa 8A',
     },
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Uczen.mvc/Get', (req, res) => {
   res.json({
     data: require('../../data/opiekun/uczen.json'),
     success: true,
-  })
-})
+  });
+});
 
 router.all('/UczenZdjecie.mvc/Get', (req, res) => {
   res.json({
     data: require('../../data/opiekun/uczen-zdjecie.json'),
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Usprawiedliwienia.mvc/Post', (req, res) => {
   res.json({
@@ -916,13 +920,13 @@ router.all('/Usprawiedliwienia.mvc/Post', (req, res) => {
       success: true,
     },
     success: true,
-  })
-})
+  });
+});
 
 router.all('/UwagiIOsiagniecia.mvc/Get', (req, res) => {
-  const categories = require('../../data/api/dictionaries/KategorieUwag')
-  const teachers = require('../../data/api/dictionaries/Pracownicy')
-  let i = 1
+  const categories = require('../../data/api/dictionaries/KategorieUwag');
+  const teachers = require('../../data/api/dictionaries/Pracownicy');
+  let i = 1;
   res.json({
     data: {
       Uwagi: require('../../data/api/student/UwagiUcznia').map((item) => {
@@ -930,13 +934,15 @@ router.all('/UwagiIOsiagniecia.mvc/Get', (req, res) => {
           TrescUwagi: item.TrescUwagi,
           Kategoria: dictMap.getByValue(categories, 'Id', item.IdKategoriaUwag).Nazwa,
           DataWpisu: format(fromUnixTime(item.DataWpisu), 'yyyy-MM-dd HH:mm:ss'),
-          Nauczyciel: `${item.PracownikImie} ${item.PracownikNazwisko} [${dictMap.getByValue(teachers, 'Id', item.IdPracownik).Kod}]`,
+          Nauczyciel: `${item.PracownikImie} ${item.PracownikNazwisko} [${
+            dictMap.getByValue(teachers, 'Id', item.IdPracownik).Kod
+          }]`,
 
           // 19.06
           Punkty: item._points,
           PokazPunkty: item._showPoints,
           KategoriaTyp: item._category,
-        }
+        };
       }),
       Osiagniecia: [
         'Konkurs na najlepszą aplikację do dziennika - pierwsze miejsce',
@@ -945,16 +951,16 @@ router.all('/UwagiIOsiagniecia.mvc/Get', (req, res) => {
       ],
     },
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Homework.mvc/Get', (req, res) => {
-  const subjects = require('../../data/api/dictionaries/Przedmioty')
-  const teachers = require('../../data/api/dictionaries/Nauczyciele')
-  const homework = require('../../data/api/student/ZadaniaDomowe')
+  const subjects = require('../../data/api/dictionaries/Przedmioty');
+  const teachers = require('../../data/api/dictionaries/Nauczyciele');
+  const homework = require('../../data/api/student/ZadaniaDomowe');
   const requestDate = req.body.date
     ? parseISO(req.body.date.replace('T', ' ').replace(/Z$/, ''))
-    : parseISO(homework[0].DataTekst)
+    : parseISO(homework[0].DataTekst);
   // const baseOffset = differenceInDays(requestDate, parseISO(homework[0].DataTekst));
 
   res.json({
@@ -963,11 +969,11 @@ router.all('/Homework.mvc/Get', (req, res) => {
         Date: converter.formatDate(addDays(requestDate, j), true) + ' 00:00:00',
         Homework: homework
           .filter((item) => {
-            return j < 5
+            return j < 5;
             // return 0 === differenceInDays(addDays(requestDate, j), addDays(parseISO(item.DataTekst), baseOffset));
           })
           .map((item, index) => {
-            const teacher = dictMap.getByValue(teachers, 'Id', item.IdPracownik)
+            const teacher = dictMap.getByValue(teachers, 'Id', item.IdPracownik);
             const attachments = [
               {
                 IdZadanieDomowe: index,
@@ -985,11 +991,13 @@ router.all('/Homework.mvc/Get', (req, res) => {
                 IdOneDrive: 'asadfsdf',
                 Id: 600 + index + 1,
               },
-            ]
+            ];
             return {
               HomeworkId: index,
               Subject: dictMap.getByValue(subjects, 'Id', item.IdPrzedmiot).Nazwa,
-              Teacher: `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}], ${converter.formatDate(addDays(requestDate, j))}`,
+              Teacher: `${teacher.Imie} ${teacher.Nazwisko} [${teacher.Kod}], ${converter.formatDate(
+                addDays(requestDate, j)
+              )}`,
               Description: item.Opis,
               Date: converter.formatDate(addDays(requestDate, j), true) + ' 00:00:00',
               ModificationDate: converter.formatDate(addDays(requestDate, j), true) + ' 00:00:00',
@@ -1004,48 +1012,48 @@ router.all('/Homework.mvc/Get', (req, res) => {
               CanReply: true,
               Readonly: true,
               Id: index,
-            }
+            };
           }),
         Show: j < 5,
-      }
+      };
     }),
     success: true,
-  })
-})
+  });
+});
 
 router.all('/Zebrania.mvc/Get', (req, res) => {
   res.json({
     data: require('../../data/opiekun/zebrania'),
     success: true,
-  })
-})
+  });
+});
 
 router.all('/ZarejestrowaneUrzadzenia.mvc/Get', (req, res) => {
   res.json({
     data: require('../../data/opiekun/zarejestrowane-urzadzenia'),
     success: true,
-  })
-})
+  });
+});
 
 router.all('/ZarejestrowaneUrzadzenia.mvc/Delete', (req, res) => {
   res.json({
     data: null,
     success: true,
-  })
-})
+  });
+});
 
 router.all('/ZgloszoneNieobecnosci.mvc/Get', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
 router.all('/ZgloszoneNieobecnosci.mvc/Post', (req, res) => {
   res.json({
     data: {},
     success: true,
-  })
-})
+  });
+});
 
-module.exports = router
+module.exports = router;

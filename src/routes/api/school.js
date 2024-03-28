@@ -1,13 +1,13 @@
-const router = require('express').Router({})
-const { createEnvelope } = require('./utils')
-const { format } = require('date-fns')
-const { uuid } = require('uuidv4')
-const { getByValue } = require('./../../utils/dictMap')
+const router = require('express').Router({});
+const { createEnvelope } = require('./utils');
+const { format } = require('date-fns');
+const { uuid } = require('uuidv4');
+const { getByValue } = require('./../../utils/dictMap');
 
 router.get('/grade/byPupil', (req, res) => {
-  const subjects = require('../../../data/api/dictionaries/Przedmioty')
-  const categories = require('../../../data/api/dictionaries/KategorieOcen')
-  const teachers = require('../../../data/api/dictionaries/Nauczyciele')
+  const subjects = require('../../../data/api/dictionaries/Przedmioty');
+  const categories = require('../../../data/api/dictionaries/KategorieOcen');
+  const teachers = require('../../../data/api/dictionaries/Nauczyciele');
 
   res.json(
     createEnvelope(
@@ -71,11 +71,11 @@ router.get('/grade/byPupil', (req, res) => {
           Denominator: item.Mianownik,
           PupilId: 111,
           Value: item.Wartosc,
-        }
+        };
       })
     )
-  )
-})
+  );
+});
 
 router.all('/lucky', (req, res) => {
   res.json(
@@ -83,7 +83,7 @@ router.all('/lucky', (req, res) => {
       Day: format(new Date(), 'yyyy-MM-dd'),
       Number: format(new Date(), 'd'),
     })
-  )
-})
+  );
+});
 
-module.exports = router
+module.exports = router;
