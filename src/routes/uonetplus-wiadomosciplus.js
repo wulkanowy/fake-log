@@ -1,19 +1,19 @@
-const express = require('express')
-const router = express.Router()
-const protocol = require('../utils/connection')
-const { timestampToIsoTzFormat, dateToTimestamp } = require('../utils/converter')
-const { fromString } = require('uuidv4')
+const express = require('express');
+const router = express.Router();
+const protocol = require('../utils/connection');
+const { timestampToIsoTzFormat, dateToTimestamp } = require('../utils/converter');
+const { fromString } = require('uuidv4');
 
 router.get('/', (req, res) => {
-  res.render('messages')
-})
+  res.render('messages');
+});
 
 router.get('/LoginEndpoint.aspx', (req, res) => {
-  res.redirect('/')
-})
+  res.redirect('/');
+});
 
 router.get('/-endpoints', (req, res) => {
-  const base = protocol(req) + '://' + req.get('host') + '/powiatwulkanowy'
+  const base = protocol(req) + '://' + req.get('host') + '/powiatwulkanowy';
   res.json({
     status: 'sucess',
     data: {
@@ -32,19 +32,19 @@ router.get('/-endpoints', (req, res) => {
         '/api/MoveTrash',
         '/api/Delete',
       ].map((item) => {
-        return base + item
+        return base + item;
       }),
     },
-  })
-})
+  });
+});
 
 router.get(['/api/Odebrane', '/api/OdebraneSkrzynka'], (req, res) => {
-  const currentTimestamp = dateToTimestamp(new Date())
+  const currentTimestamp = dateToTimestamp(new Date());
   res.json(
     require('../../data/api/messages/WiadomosciOdebrane').map((item, i) => {
-      let itemTimestamp = item.DataWyslaniaUnixEpoch
+      let itemTimestamp = item.DataWyslaniaUnixEpoch;
       if (i < 7) {
-        itemTimestamp = currentTimestamp - i * i * 3600 * 6
+        itemTimestamp = currentTimestamp - i * i * 3600 * 6;
       }
       return {
         apiGlobalKey: fromString(item.WiadomoscId.toString()),
@@ -58,10 +58,10 @@ router.get(['/api/Odebrane', '/api/OdebraneSkrzynka'], (req, res) => {
         wazna: false,
         uzytkownikRola: 2,
         id: item.WiadomoscId,
-      }
+      };
     })
-  )
-})
+  );
+});
 
 router.get(['/api/Wyslane', '/api/WyslaneSkrzynka'], (req, res) => {
   res.json(
@@ -78,10 +78,10 @@ router.get(['/api/Wyslane', '/api/WyslaneSkrzynka'], (req, res) => {
         wazna: false,
         uzytkownikRola: 2,
         id: item.WiadomoscId,
-      }
+      };
     })
-  )
-})
+  );
+});
 
 router.get(['/api/Usuniete', '/api/UsunieteSkrzynka'], (req, res) => {
   res.json(
@@ -98,10 +98,10 @@ router.get(['/api/Usuniete', '/api/UsunieteSkrzynka'], (req, res) => {
         wazna: false,
         uzytkownikRola: 2,
         id: item.WiadomoscId,
-      }
+      };
     })
-  )
-})
+  );
+});
 
 router.get('/api/Skrzynki', (req, res) => {
   const students = require('../../data/students.json')
@@ -113,11 +113,11 @@ router.get('/api/Skrzynki', (req, res) => {
         typUzytkownika: student.messageBox.userType,
       }
     })
-  )
-})
+  );
+});
 
 router.all('/api/WiadomoscSzczegoly', (req, res) => {
-  const message = require('../../data/api/messages/WiadomosciOdebrane')[0]
+  const message = require('../../data/api/messages/WiadomosciOdebrane')[0];
   res.json({
     data: timestampToIsoTzFormat(message.DataWyslaniaUnixEpoch),
     apiGlobalKey: fromString(message.WiadomoscId.toString()),
@@ -141,12 +141,12 @@ router.all('/api/WiadomoscSzczegoly', (req, res) => {
       },
     ],
     id: message.WiadomoscId,
-  })
-})
+  });
+});
 
 router.all('/api/WiadomoscOdpowiedzPrzekaz', (req, res) => {
-  const user = require('../../data/api/ListaUczniow')[1]
-  const message = require('../../data/api/messages/WiadomosciOdebrane')[0]
+  const user = require('../../data/api/ListaUczniow')[1];
+  const message = require('../../data/api/messages/WiadomosciOdebrane')[0];
   res.json({
     data: timestampToIsoTzFormat(message.DataWyslaniaUnixEpoch),
     apiGlobalKey: fromString(message.WiadomoscId.toString()),
@@ -168,8 +168,8 @@ router.all('/api/WiadomoscOdpowiedzPrzekaz', (req, res) => {
       },
     ],
     id: message.WiadomoscId,
-  })
-})
+  });
+});
 
 router.all('/api/Pracownicy', (req, res) => {
   const teachers = require('../../data/teachers.json')
@@ -182,11 +182,11 @@ router.all('/api/Pracownicy', (req, res) => {
 })
 
 router.all(['/api/MoveTrash', '/api/Delete'], (req, res) => {
-  res.status(204).send()
-})
+  res.status(204).send();
+});
 
 router.all('/api/WiadomoscNowa', (req, res) => {
-  res.status(204).send()
-})
+  res.status(204).send();
+});
 
-module.exports = router
+module.exports = router;

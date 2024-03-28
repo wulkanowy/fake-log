@@ -8,12 +8,6 @@ router.use('/api', apiRouter)
 
 router.get('/', (req, res) => {
   const base = protocol(req) + '://' + req.get('host') + '/powiatwulkanowy/123456'
-  res.json({
-    loginEndpoint: base + '/LoginEndpoint.aspx',
-    app: base + '/App',
-    api: [
-      base + '/api/Context',
-      base + '/api/Cache',
       base + '/api/OkresyKlasyfikacyjne',
       base + '/api/Zebrania',
       base + '/api/SprawdzianyZadaniaDomowe',

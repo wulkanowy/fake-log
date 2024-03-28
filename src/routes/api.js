@@ -1,11 +1,11 @@
-const router = require('express').Router()
-const protocol = require('../utils/connection')
-const { format } = require('date-fns')
+const router = require('express').Router();
+const protocol = require('../utils/connection');
+const { format } = require('date-fns');
 
 router.all('/', (req, res) => {
-  const today = format(new Date(), 'yyyy-MM-dd')
+  const today = format(new Date(), 'yyyy-MM-dd');
 
-  let base = protocol(req) + '://' + req.get('host')
+  let base = protocol(req) + '://' + req.get('host');
   res.json({
     status: 'success',
     start: base.replace('api.', ''),
@@ -56,14 +56,14 @@ router.all('/', (req, res) => {
       base + '/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/WiadomosciUsuniete',
       base + '/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen/DodajWiadomosc',
     ],
-  })
-})
+  });
+});
 
 // v3
-router.use('/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart', require('./mobile-api/register'))
-router.use('/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen', require('./mobile-api/student'))
-router.use('/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen', require('./mobile-api/messages'))
-router.use('/powiatwulkanowy/123456/mobile-api/Push.v1.Push', require('./mobile-api/push'))
+router.use('/powiatwulkanowy/mobile-api/Uczen.v3.UczenStart', require('./mobile-api/register'));
+router.use('/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen', require('./mobile-api/student'));
+router.use('/powiatwulkanowy/123456/mobile-api/Uczen.v3.Uczen', require('./mobile-api/messages'));
+router.use('/powiatwulkanowy/123456/mobile-api/Push.v1.Push', require('./mobile-api/push'));
 
 // hebe
 router.use('/powiatwulkanowy/api/mobile/register', require('./api/register'))
@@ -82,7 +82,7 @@ router.all('/*', (req, res) => {
   res.status(404).json({
     status: 'error',
     message: 'Not implemented yet',
-  })
-})
+  });
+});
 
-module.exports = router
+module.exports = router;

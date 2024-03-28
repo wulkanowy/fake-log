@@ -13,8 +13,8 @@ router.all('/new', (req, res) => {
       UserLogin: login.loginValue,
       UserName: login.loginValue,
     })
-  )
-})
+  );
+});
 
 router.all('/hebe', (req, res) => {
   const students = require('../../../data/students.json')
@@ -125,4 +125,4 @@ router.all('/hebe', (req, res) => {
   )
 })
 
-module.exports = router
+module.exports = router;

@@ -1,25 +1,17 @@
-name: Continuous Integration
+name: Prettier
 
 on:
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   prettier:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
         with:
-          # Make sure the actual branch is checked out when running on pull requests
-          ref: ${{ github.head_ref }}
-          # This is important to fetch the changes to the previous commit
-          fetch-depth: 0
-
-      - name: Prettify code
-        uses: creyD/prettier_action@v4.3
-        with:
-          # This part is also where you can pass other options, for example:
-          prettier_options: --check **/*
-          dry: True
+          node-version: 17
+      - run: npm install
+      - run: npm run prettier:check
