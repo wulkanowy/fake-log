@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "pupilId": 1,
+    "positive": false,
+    "vaildAt": "2024-03-28T09:35:56+02:00",
+    "modifyAt": "2024-03-28T09:35:56+02:00",
+    "creatorId": 2,
+    "categoryId": 46,
+    "modifierId": 2,
+    "content": "Treść uwagi",
+    "points": null
+  }
+]

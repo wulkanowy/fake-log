@@ -56,3 +56,14 @@ exports.createTeacher = (id) => {
     DisplayName: `${teacher.firstName} ${teacher.lastName}`,
   }
 }
+
+exports.createNoteCategory = (id) => {
+  const noteCategories = require('../../../data/note-categories.json')
+  const noteCategory = getByValue(noteCategories, 'id', id)
+  return {
+    Id: id,
+    Name: noteCategory.name,
+    Type: noteCategory.type,
+    DefaultPoints: noteCategory.defaultPoints,
+  }
+}
