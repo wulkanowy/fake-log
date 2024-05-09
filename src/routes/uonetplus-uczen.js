@@ -158,6 +158,7 @@ router.all('/UczenDziennik.mvc/Get', (req, res) => {
           }),
           DziennikDataOd: format(addMonths(item.OkresDataOd, 0), 'yyyy-MM-dd HH:mm:ss'),
           DziennikDataDo: format(addMonths(item.OkresDataDo, 7), 'yyyy-MM-dd HH:mm:ss'),
+          IdJednostkaSkladowa: 12345,
           IdSioTyp: 11,
           IsDorosli: false,
           IsPolicealna: false,
